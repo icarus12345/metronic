@@ -37,14 +37,15 @@
                                 </ul>
                             </li>
                             <!-- <li><a href="#" onclick="dialog('order-dialog')">Đặt hàng</a></li> -->
-                            <li>
+                            <li><a href="/hinh-anh" >Ảnh đẹp</a></li>
+                            <!-- <li>
                                 <a href="#" data-toggle="dropdown">Ảnh đẹp</a>
                                 <ul class="dropdown-menu">
                                     <li><a href='#'>Ảnh đẹp trong tháng</a></li>
                                     <li><a href='#'>Album bánh cưới</a></li>
                                     <li><a href='#'>Album bánh sinh nhật</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="/cong-thuc">Công thức</a></li>
                             <li><a href="/day-nghe">Dạy nghề</a></li>
                             <li><a href="/nguyen-lieu">Nguyên liệu</a></li>

@@ -48,8 +48,8 @@
         <link rel="stylesheet" type="text/css" href="/assets/cake/libraries/plugin/select2/select2.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/cake/libraries/bootstrap/css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="/assets/cake/libraries/plugin/owl-carousel/owl.carousel.css"/>
-        <link rel="stylesheet" type="text/css" href="/assets/cake/libraries/plugin/swipebox/swipebox-1.3.css" >
-        <!-- <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,vietnamese' rel='stylesheet' type='text/css'> -->
+        <link rel="stylesheet" type="text/css" href="/assets/cake/libraries/plugin/swipebox/swipebox-dark-1.3.css" >
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="/assets/cake/css/c.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/cake/css/s.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/cake/css/b.css"/>

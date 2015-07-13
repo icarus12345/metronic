@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-06 19:08:59
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-13 13:55:35
          compiled from "application\templates\dashboard\inc\footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:16824558c1fbbcbd222-49694309%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1758555a360e7d9c154-65130387%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '16824558c1fbbcbd222-49694309',
+  'nocache_hash' => '1758555a360e7d9c154-65130387',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_558c1fbbcbf089_57396206',
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55a360e7de37c3_03984931',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_558c1fbbcbf089_57396206')) {function content_558c1fbbcbf089_57396206($_smarty_tpl) {?><!-- BEGIN FOOTER -->
+<?php if ($_valid && !is_callable('content_55a360e7de37c3_03984931')) {function content_55a360e7de37c3_03984931($_smarty_tpl) {?><!-- BEGIN FOOTER -->
 <div class="page-footer">
 	<div class="page-footer-inner">
 		 2014 &copy; Metronic by keenthemes. <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>

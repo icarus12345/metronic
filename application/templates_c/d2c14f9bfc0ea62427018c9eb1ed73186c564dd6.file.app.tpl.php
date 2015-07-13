@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-08 13:36:49
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-13 13:55:54
          compiled from "application\templates\dashboard\so\setting\app.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:16422559cc3b762e266-43699005%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:989355a360fa6163a1-14678084%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '16422559cc3b762e266-43699005',
+  'nocache_hash' => '989355a360fa6163a1-14678084',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_559cc3b7686a11_43664704',
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55a360fa72b547_40405001',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_559cc3b7686a11_43664704')) {function content_559cc3b7686a11_43664704($_smarty_tpl) {?><?php if (false) {?><?php echo '<script'; ?>
+<?php if ($_valid && !is_callable('content_55a360fa72b547_40405001')) {function content_55a360fa72b547_40405001($_smarty_tpl) {?><?php if (false) {?><?php echo '<script'; ?>
  type="text/javascript"><?php }?>
 var myApp = {
 	onCommit : function(Url,Params, Id,callback) {

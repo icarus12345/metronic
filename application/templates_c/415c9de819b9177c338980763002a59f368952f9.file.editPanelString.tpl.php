@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-08 14:58:48
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-13 13:55:53
          compiled from "application\templates\dashboard\so\setting\editPanelString.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6116559ca640f01e08-79354004%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2370855a360f9eb2478-89972937%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,20 +11,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6116559ca640f01e08-79354004',
+  'nocache_hash' => '2370855a360f9eb2478-89972937',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_559ca640f2d9f0_40008970',
   'variables' => 
   array (
     'item' => 0,
     'type' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55a360f9f0c6c4_02929735',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_559ca640f2d9f0_40008970')) {function content_559ca640f2d9f0_40008970($_smarty_tpl) {?><div class="col-sm-6">
+<?php if ($_valid && !is_callable('content_55a360f9f0c6c4_02929735')) {function content_55a360f9f0c6c4_02929735($_smarty_tpl) {?><div class="col-sm-6">
     <div class="widget">
         <div class="modal-header">
             <h4><?php echo $_smarty_tpl->tpl_vars['item']->value->data_title;?>

@@ -31,5 +31,21 @@ div.file.selected .thumb{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;*/
 }
-
+a#toggle-folders{display:none;}
+a#toggle-folders> span{padding:6px 10px;}
+a#toggle-folders span::before{
+	content: "\f115";
+	font-family: FontAwesome;
+	font-size: 14px;
+	padding-right: 4px;
+}
+@media (max-width: 480px) {
+	a#toggle-folders{display:block}
+	div.file,
+	div.file .thumb{
+		
+	}
+	#left{width: 220px !important;position:absolute;display:none;background:#fff;z-index: 10;}
+	#right{width:100% !important}
+}
 </style>

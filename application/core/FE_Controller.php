@@ -9,6 +9,7 @@ class FE_Controller extends CI_Controller {
         $this->load->model('front/category_model');
         $this->load->model('front/image_model');
         $this->load->model('front/product_model');
+        $this->load->model('front/album_model');
         $this->load->model('front/content_model');
         $this->load->model('front/data_model');
         $this->assigns->settting_data = $this->data_model->loadData('scake');

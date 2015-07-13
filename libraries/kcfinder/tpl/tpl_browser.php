@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no" />
 <title>KCFinder: /<?php echo $this->session['dir'] ?></title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -27,6 +27,7 @@
         <a href="kcact:settings"><span><?php echo $this->label("Settings") ?></span></a>
         <a href="kcact:maximize"><span><?php echo $this->label("Maximize") ?></span></a>
         <a href="kcact:about"><span><?php echo $this->label("About") ?></span></a>
+		<a href="#" id="toggle-folders" onclick="$('#left').toggle()"><span>Folders</span></a>
         <div id="loading"></div>
         </div>
     </div>

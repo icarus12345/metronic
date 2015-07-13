@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-09 11:30:57
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-13 13:55:10
          compiled from "application\templates\dashboard\auth\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30326559df9014718a4-84621240%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd1617943c44f1b154c850804dedb5696cfdb8d6a' => 
     array (
       0 => 'application\\templates\\dashboard\\auth\\login.tpl',
-      1 => 1435243585,
+      1 => 1436752112,
       2 => 'file',
     ),
   ),
@@ -15,15 +15,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'cache_lifetime' => 60,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_559f213f9fcfb8_05197525',
   'variables' => 
   array (
     'message' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_559df90161b4f1_18824497',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_559df90161b4f1_18824497')) {function content_559df90161b4f1_18824497($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_559f213f9fcfb8_05197525')) {function content_559f213f9fcfb8_05197525($_smarty_tpl) {?><!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
@@ -34,7 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<meta charset="utf-8"/>
 		<title>Metronic | Login Options</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1.0" name="viewport"/>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta content="" name="description"/>
 		<meta content="" name="author"/>

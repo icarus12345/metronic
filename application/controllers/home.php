@@ -76,7 +76,16 @@ class home extends FE_Controller {
 		);
 		$this->smarty->view( 'cake/contact', $this->assigns );
 	}
-
+	function gallery(){
+		$this->assigns->site = array(
+			'title'=>'Hình Ảnh Bánh Sinh Nhật Đẹp Nhất',
+			'desc'=>'',
+			'image'=>''
+		);
+		$this->db->order_by('album_insert','DESC');
+		$this->assigns->album_list = $this->album_model->onGetByType('acake');
+		$this->smarty->view( 'cake/gallery', $this->assigns );
+	}
 	function contentdetail($id=0){
 		$this->assigns->site = array(
 			'title'=>' - Bánh Ngon Online',

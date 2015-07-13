@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-09 22:22:38
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-13 13:55:35
          compiled from "application\templates\dashboard\inc\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2755558c16b1ec42d9-06024679%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1490155a360e78911a8-96897375%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2755558c16b1ec42d9-06024679',
+  'nocache_hash' => '1490155a360e78911a8-96897375',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_558c16b1ed3855_25301036',
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55a360e79eedb6_94206355',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_558c16b1ed3855_25301036')) {function content_558c16b1ed3855_25301036($_smarty_tpl) {?><iframe id="integration_asynchronous" name="integration_asynchronous" style="width: 0;height: 0;border: 0;position: absolute"></iframe>
+<?php if ($_valid && !is_callable('content_55a360e79eedb6_94206355')) {function content_55a360e79eedb6_94206355($_smarty_tpl) {?><iframe id="integration_asynchronous" name="integration_asynchronous" style="width: 0;height: 0;border: 0;position: absolute"></iframe>
 <div id="iEntryDialog" class="iEntryDialog" style="display:none"></div>
 <div id="kc-finder-popup" class="metronic-popup" style="z-index:2101">
     <div class="widget" style="width:100%;height:100%;position:absolute;top:0;left:0">

@@ -221,6 +221,22 @@ fieldset.c legend{margin: auto;padding-left:20px;}
 .cake-image-default{position: absolute;top: -2000px;left: -2000px}
 .cake-tags{padding: 5px 0;font-size: small}
 .cake-tags>span{background: #ebebeb;margin-right: 5px;padding: 3px;border-radius: 3px;font-style: italic;}
+.gallery-album{border-left:1px solid #FFF;}
+.album-item{
+	-webkit-transition: all .2s;-moz-transition: all .2s;-o-transition: all .2s;transition: all .2s;
+	float: left;width: 33.333333333%;border-bottom:1px solid #FFF;border-right:1px solid #FFF;
+	position: relative;z-index: 1;
+}
+.album-item:hover{
+	z-index: 2;-ms-transform: scale(1.1,1.1); /* IE 9 */
+    -webkit-transform: scale(1.1,1.1); /* Safari */
+    transform: scale(1.1,1.1);
+    border-color: transparent;
+}
+.album-item .nailthumb-mark{height: auto;top: auto;bottom: 0;background: rgba(0,0,0,.5);color: #fff;padding: 5px;text-align: center;}
+.gallery-album>.album-item:nth-child(1),
+.gallery-album>.album-item:nth-child(2),
+.gallery-album>.album-item:nth-child(3){border-top:1px solid #FFF;}
 @media (min-width: 768px){
 	.navbar .container{
 		padding-left: 32px;
@@ -327,11 +343,13 @@ fieldset.c legend{margin: auto;padding-left:20px;}
 	.carousel-content{width: 100%}
 	.owl-carousel.cake .owl-next{right: 0}
 	.product-item{width: 33.333333333%;}
+	.album-item{float: left;width: 50%;}
 }
 @media (max-width: 479px){
 	.carousel-cap>div>div .cap-tit{margin: 0;border: 0;padding:0;}
 	.carousel-cap>div>div .cap-desc{display: none;}
 	.product-item{width: 50%;}
+	.album-item{float: left;width: 100%;}
 }
 @media (max-width: 319px){
 	.product-item{width: 100%;}

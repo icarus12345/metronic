@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd1617943c44f1b154c850804dedb5696cfdb8d6a' => 
     array (
       0 => 'application\\templates\\dashboard\\auth\\login.tpl',
-      1 => 1435243585,
+      1 => 1436752112,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '30326559df9014718a4-84621240',
   'cache_lifetime' => 60,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_559f213f9fcfb8_05197525',
+  'unifunc' => 'content_55a3658d45b0e0_88579268',
   'has_nocache_code' => false,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_559f213f9fcfb8_05197525')) {function content_559f213f9fcfb8_05197525($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_55a3658d45b0e0_88579268')) {function content_55a3658d45b0e0_88579268($_smarty_tpl) {?><!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
@@ -26,7 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<meta charset="utf-8"/>
 		<title>Metronic | Login Options</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1.0" name="viewport"/>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta content="" name="description"/>
 		<meta content="" name="author"/>
