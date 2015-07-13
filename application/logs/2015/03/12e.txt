@@ -1,0 +1,46 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[18]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-12 07:06:11 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[37]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-12 07:06:13 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-12 07:27:10 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['36']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-12 07:34:54 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['35']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-12 07:39:54 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>

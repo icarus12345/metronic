@@ -1,0 +1,316 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _audio['4']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 07:58:23 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _audio['1']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:07:36 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _audio['2']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:07:39 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _audio['3']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:07:42 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _audio['5']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:07:45 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _audio['6']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:07:48 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _audio['7']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:07:50 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10010']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:08:56 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _playlist['3']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:09:24 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _playlist['4']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:09:32 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _playlist['1']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:09:44 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _playlist['2']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:10:09 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10008']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:10:40 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10004']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:10:44 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10002']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:10:50 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10011']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:10:59 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10009']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:11:02 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10007']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:11:05 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10006']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:11:07 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10003']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:11:10 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - _video['10001']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-04-07 08:11:13 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 08:20:44 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 08:22:24 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 08:33:34 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[2]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 08:48:20 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[3]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 09:02:36 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[4]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 09:14:33 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[4]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 09:15:49 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[5]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 09:26:07 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[6]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 09:34:59 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[7]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 10:24:42 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - _author</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 10:40:23 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - _author</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 10:49:20 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - _author</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 11:05:31 - Admin</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _author[10]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-04-07 11:06:49 - Admin</span> 
+                    </div>
+                </div> 
+            </div>

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="libraries/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="libraries/bootstrap/css/bootstrap-select.min.css"/>
+        <link rel="stylesheet" type="text/css" href="libraries/plugin/select2/select2.css"/>
+        <link rel="stylesheet" type="text/css" href="libraries/bootstrap/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="libraries/plugin/owl-carousel/owl.carousel.css"/>
+        <link rel="stylesheet" type="text/css" href="libraries/plugin/swipebox/swipebox-1.3.css" >
+        <!-- <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,vietnamese' rel='stylesheet' type='text/css'> -->
+        <link rel="stylesheet" type="text/css" href="css/c.css"/>
+        <link rel="stylesheet" type="text/css" href="css/s.css"/>
+        <link rel="stylesheet" type="text/css" href="css/b.css"/>
+        
+        <script type="text/javascript" src="libraries/bootstrap/js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="libraries/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="libraries/plugin/owl-carousel/owl.carousel.js"></script>
+        <script type="text/javascript" src="libraries/plugin/jquery.nailthumb.1.1.js"></script>
+        <script type="text/javascript" src="libraries/plugin/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="libraries/plugin/swipebox/jquery.swipebox-1.3.js"></script>
+        <script type="text/javascript" src="js/b.js"></script>
+
+        <!--[if IE]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <div id="order-dialog" class="dialog transition" style="z-index:21110;">
+            <div class="content transition">
+                <div class="">
+                    <div class="head"><span>ĐẶT HÀNG !</span> <i class="pull-right fa fa-close" onclick="dialog('order-dialog')"></i></div>
+                    <div class="body">
+                    <form name="advisoryForm" id="advisoryForm" target="integration_asynchronous">
+                        <div class="row half">
+                            <div class="col-xs-8 half">
+                                <div class="input-group">
+                                    <div>Tên Bánh</div>
+                                    <input name="advisory_name" 
+                                        class="form-control dark validate[required,minSize[4],maxSize[255]]" 
+                                        placeholder="Bánh sinh nhật Doreamon">
+                                </div>
+                                <div class="space-line"></div>
+                            </div>
+                            <div class="col-xs-4 half">
+                                <div class="input-group">
+                                    <div>Số lượng</div>
+                                    <input name="advisory_name" 
+                                        class="form-control dark validate[required,minSize[4],maxSize[255]]" 
+                                        placeholder="2 cái lớn">
+                                </div>
+                                <div class="space-line"></div>
+                            </div>
+                        </div>
+                        <div class="row half">
+                            <div class="col-xs-8 half">
+                                <div class="input-group">
+                                    <div>Tên khách hàng</div>
+                                    <input name="advisory_name" 
+                                        class="form-control dark validate[required,minSize[4],maxSize[255]]" 
+                                        placeholder="Bùi Thị Thùy Nhung">
+                                </div>
+                                <div class="space-line"></div>
+                            </div>
+                            <div class="col-xs-4 half">
+                                <div class="input-group">
+                                    <div>Số điện thoại</div>
+                                    <input name="advisory_name" 
+                                        class="form-control dark validate[required,minSize[4],maxSize[255]]" 
+                                        placeholder="0168 xxx xxx">
+                                </div>
+                                <div class="space-line"></div>
+                            </div>
+                        </div>
+                        <div class="row half">
+                            <div class="col-xs-12 half">
+                                <div class="input-group">
+                                    <div>Email</div>
+                                    <input name="advisory_email" value="" class="form-control dark validate[required,custom[email]]" placeholder="nhungbui@yahoo.com">
+                                </div>
+                                <div class="space-line"></div>
+                            </div>
+                        </div>
+                        <div class="row half">
+                            <div class="col-xs-12 half">
+                                <div class="input-group">
+                                    <div>Địa chỉ</div>
+                                    <input name="advisory_title" class="form-control dark validate[required]" placeholder="181 Hồng Lạc, P.10, Q.Tân Bình">
+                                </div>
+                                <div class="space-line"></div>
+                            </div>
+                        </div>
+                        <div class="row half">
+                            <div class="col-xs-12 half">
+                                <div class="input-group">
+                                    <div>Nội dung</div>
+                                    <textarea name="advisory_desc" class="form-control dark validate[required]" placeholder="Gọi cho tôi trước khi giao hàng(trước 15 phút)"></textarea>
+                                </div>
+                                <div class="space-line"></div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="advisory_type" value="advisory">
+                        <!--<div class="row half">
+                            <div class="col-xs-6 half">
+                                
+                            </div>
+
+                            <div class="col-xs-6 half">
+                                <button class="btn btn-default btn-block" type="button" onclick="registerfn()">Register</button>
+                            </div>
+                        </div>-->
+                    </form>
+                    </div>
+                    <div class="dfoot" onclick="dialog('order-dialog')">
+                        ĐẶT HÀNG
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head-banner">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png"/>
+                </a>
+                <div class="slogan">
+                    <img src="images/slogan.png"/>
+                </div>
+                <a href="" class="hot-line"><img src="images/hot-line.png"/></a>
+                <div class="cart-info">
+                    <span>10</span>
+                </div>
+            </div>
+        </div>
+        <header id="navbar" class="navbar" role="banner">
+            <div class="container">
+                <div>
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                            <span>
+                                <span class="icon-bar line-1"></span>
+                                <span class="icon-bar line-2"></span>
+                                <span class="icon-bar line-3"></span>
+                            </span>
+                        </button>
+                    </div>
+                    <nav id="navigation" class="collapse navbar-collapse bs-navbar-collapse" role="navigation" style="overflow: hidden" >
+                        <ul class="nav navbar-nav">
+                            <li><a href='index.html'>Trang chủ</a></li>
+                            <li>
+                                <a href="#" data-toggle="dropdown">Sản Phẩm</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href='banhsinhnhat.html'>Bánh sinh nhật</a></li>
+                                    <li><a href='banhcuoi.html'>Bánh cưới</a></li>
+                                    <li><a href='banhcupcakes.html'>Bánh cupket</a></li>
+                                    <li><a href='banhve.html'>Bánh vẽ</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" onclick="dialog('order-dialog')">Đặt hàng</a></li>
+                            <li><a href="congthuc.html">Công thức</a></li>
+                            <li><a href="daynghe.html">Dạy nghề</a></li>
+                            <li><a href="nguyenlieu.html">Nguyên liệu</a></li>
+                            <li><a href="lienhe.html" -onclick="dialog('order-dialog')">Liên Hệ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="owl-carousel cake">
+                <div class="item">
+                    <div class="slider">
+                        <div class="carousel-content">
+                            <div class="bg-cover" style="background-image:url(images/slider1.jpg)"></div>
+                        </div>
+                        <div class="carousel-cap">
+                            <img src="images/slider-cap.png"/>
+                            <div>
+                                <div>
+                                    <div class="cap-tit">
+                                        <div class="line-clamp-1">BÁNH KEM TRÁI DÂU</div>
+                                    </div>
+                                    <div class="cap-desc">Thông tin cấu hình của smartphone BlackBerry Slider đã vừa được N4BB tiết lộ. Dù chưa được công bố nhưng đây là sản phẩm của BlackBerry được khá nhiều người quan tâm vì mang nhiều đặc điểm thu hút như màn hình cong 2 cạnh, bàn phím trượt và có thể chạy hệ điều hành Android.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="slider">
+                        <div class="carousel-content">
+                            <div class="bg-cover" style="background-image:url(images/slider1.jpg)"></div>
+                        </div>
+                        <div class="carousel-cap">
+                            <img src="images/slider-cap.png"/>
+                            <div>
+                                <div>
+                                    <div class="cap-tit">
+                                        <div class="line-clamp-1">長崎ハウステンボスリゾートステイ特集</div>
+                                    </div>
+                                    <div class="cap-desc">道の駅や名所、お祭り、体験スポットなど、日本の観光名所が盛りだくさん。いつもNAVIで提供するゼンリンの詳細な地図やルート検索も利用できます。tabicoで検索、日本の旅をもっと楽しもう。
+異国情緒ただようハウステンボスの魅力は、アトラクションはもちろん、美味しいグルメと美しい景色、オシャレなホテル。長崎ハウステンボスでリゾートステイを楽しんでみませんか？</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="space-line"></div>
+        <div class="space-line"></div>
+        <div class="container">
+            <div class="white-box">
+                <div class="container">
+                    <h3 class="title">BÁNH CUPCAKES</h3>
+                </div>
+                <div class="product-list">
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a  href="d.html">
+                                    <div class="nailthumb-figure-square">
+                                        <div class="nailthumb-container">
+                                            <img src="images/1.jpg" class="lazy">
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a  href="d.html">
+                                    <div class="nailthumb-figure-square">
+                                        <div class="nailthumb-container">
+                                            <img src="images/2.jpg" class="lazy">
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/1.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/2.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="space-line"></div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/2.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/2.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="space-line"></div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/2.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/2.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="space-line"></div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/2.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/2.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/3.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div>
+                            <div class="nailthumb">
+                                <a href="d.html">
+                                <div class="nailthumb-figure-square">
+                                    <div class="nailthumb-container">
+                                        <img src="images/4.jpg" class="lazy">
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog')"></div>
+                            </div>
+                            <div class="product-cap">
+                                <a href="d.html"><div class="p-name line-clamp-1">Bánh sinh nhật BSN 01</div></a>
+                                <div class="p-price line-clamp-1">720 000 đ</div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="clearfix"></div>
+                    <div class="space-line"></div>
+                    <div class="paging">
+                    	<i class="fa fa-angle-double-left"></i>
+                           <div class="circle"><a href="#">1</a></div>
+                           <div class="circle"><a href="#">2</a></div>
+                           <div class="circle"><a href="#">3</a></div>
+                           <div class="circle"><a href="#">4</a></div>
+                           <div class="circle"><a href="#">5</a></div>
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="space-line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="space-line"></div>
+        <div class="space-line"></div>
+        <div class="footer">
+            <div class="foot-rem"></div>
+            <div>
+                <div class="container">
+                    <div class="socials">
+                        <a href="#"><img src="images/f.png"/></a>
+                        <a href="#"><img src="images/g.png"/></a>
+                        <a href="#"><img src="images/t.png"/></a>
+                    </div>
+                    <div class="foot-hr"></div>
+                    <div class="foot-info">
+                        <span><i class="fa fa-home"></i> 161A Võ Văn Tần, Q.3, TP.HCM</span>
+                        <span><i class="fa fa-envelope-o"></i> phuongnha2010@yahoo.com</span>
+                        <span><i class="fa fa-phone"></i> 0999 888 777</span>
+                    </div>
+                </div>
+            </div>
+        </div>

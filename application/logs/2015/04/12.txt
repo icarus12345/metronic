@@ -1,0 +1,333 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1146 - Table 'lawyer._video' doesn't exist</div><div class='sql-query'>
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _video.video_id,
+                    _video.video_title,
+                    _video.video_insert,
+                    _video.video_update,
+                    _video.video_status,
+                    _video.video_special,
+                    _video.video_link,
+                    _video.video_sourceid,
+                    _video.video_type,
+                    _video.video_view,
+                    _video.video_author,
+                    _video.video_thumb,
+                    _video.video_publicday,
+                    _video.video_category,
+                    cat_title,author_name,topic_title
+                 
+                FROM `_video` 
+                    LEFT JOIN cate ON cat_id = video_category
+                    LEFT JOIN _topic ON topic_id = video_topic
+                    LEFT JOIN _author ON author_id = video_author
+                 Where true  ORDER BY `video_insert` DESC LIMIT 0, 1000</div></div>
+                        <span class="timestamp">2015-04-12 12:00:54 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'cat_name' in 'field list'</div><div class='sql-query'>
+				
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _news.news_id,
+                    _news.news_title,
+                    _news.news_insert,
+                    _news.news_update,
+                    _news.news_status,
+                    cat_name
+                
+				
+                FROM `_news`
+                    LEFT JOIN cate ON cat_id = news_category
+                
+				WHERE `news_type` = ''
+                                
+				ORDER BY `news_insert` DESC
+				LIMIT 0, 10
+			</div></div>
+                        <span class="timestamp">2015-04-12 14:30:17 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'cat_name' in 'field list'</div><div class='sql-query'>
+				
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _news.news_id,
+                    _news.news_title,
+                    _news.news_insert,
+                    _news.news_update,
+                    _news.news_status,
+                    cat_name
+                
+				
+                FROM `_news`
+                    LEFT JOIN cate ON cat_id = news_category
+                
+				WHERE `news_type` = ''
+                                
+				ORDER BY `news_insert` DESC
+				LIMIT 0, 10
+			</div></div>
+                        <span class="timestamp">2015-04-12 14:30:32 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'cat_name' in 'field list'</div><div class='sql-query'>
+				
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _news.news_id,
+                    _news.news_title,
+                    _news.news_insert,
+                    _news.news_update,
+                    _news.news_status,
+                    cat_name
+                
+				
+                FROM `_news`
+                    LEFT JOIN cate ON cat_id = news_category
+                
+				WHERE `news_type` = ''
+                                
+				ORDER BY `news_insert` DESC
+				LIMIT 1000
+			</div></div>
+                        <span class="timestamp">2015-04-12 14:30:37 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'cat_name' in 'field list'</div><div class='sql-query'>
+				
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _news.news_id,
+                    _news.news_title,
+                    _news.news_insert,
+                    _news.news_update,
+                    _news.news_status,
+                    cat_name
+                
+				
+                FROM `_news`
+                    LEFT JOIN cate ON cat_id = news_category
+                
+				WHERE `news_type` = ''
+                                
+				ORDER BY `news_insert` DESC
+				LIMIT 0, 10
+			</div></div>
+                        <span class="timestamp">2015-04-12 14:30:59 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'cat_name' in 'field list'</div><div class='sql-query'>
+				
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _news.news_id,
+                    _news.news_title,
+                    _news.news_insert,
+                    _news.news_update,
+                    _news.news_status,
+                    cat_name
+                
+				
+                FROM `_news`
+                    LEFT JOIN cate ON cat_id = news_category
+                
+				WHERE `news_type` = ''
+                                
+				ORDER BY `news_insert` DESC
+				LIMIT 1000
+			</div></div>
+                        <span class="timestamp">2015-04-12 14:31:01 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1146 - Table 'lawyer._video' doesn't exist</div><div class='sql-query'>
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _video.video_id,
+                    _video.video_title,
+                    _video.video_insert,
+                    _video.video_update,
+                    _video.video_status,
+                    _video.video_special,
+                    _video.video_link,
+                    _video.video_sourceid,
+                    _video.video_type,
+                    _video.video_view,
+                    _video.video_author,
+                    _video.video_thumb,
+                    _video.video_publicday,
+                    _video.video_category,
+                    cat_title,author_name,topic_title
+                 
+                FROM `_video` 
+                    LEFT JOIN cate ON cat_id = video_category
+                    LEFT JOIN _topic ON topic_id = video_topic
+                    LEFT JOIN _author ON author_id = video_author
+                 Where true  ORDER BY `video_insert` DESC LIMIT 0, 1000</div></div>
+                        <span class="timestamp">2015-04-12 14:34:37 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1146 - Table 'lawyer._video' doesn't exist</div><div class='sql-query'>
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _video.video_id,
+                    _video.video_title,
+                    _video.video_insert,
+                    _video.video_update,
+                    _video.video_status,
+                    _video.video_special,
+                    _video.video_link,
+                    _video.video_sourceid,
+                    _video.video_type,
+                    _video.video_view,
+                    _video.video_author,
+                    _video.video_thumb,
+                    _video.video_publicday,
+                    _video.video_category,
+                    cat_title,author_name,topic_title
+                 
+                FROM `_video` 
+                    LEFT JOIN cate ON cat_id = video_category
+                    LEFT JOIN _topic ON topic_id = video_topic
+                    LEFT JOIN _author ON author_id = video_author
+                 Where true  ORDER BY `video_insert` DESC LIMIT 0, 1000</div></div>
+                        <span class="timestamp">2015-04-12 14:35:52 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Get Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'news_alias' in 'where clause'</div><div class='sql-query'>SELECT *
+FROM (`_news`)
+WHERE `news_alias` =  'neque-porro-quisquam-est-qui-dolorem-ipsum-quia-dolor-sit-amet'</div></div>
+                        <span class="timestamp">2015-04-12 14:39:13 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1146 - Table 'lawyer._video' doesn't exist</div><div class='sql-query'>
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _video.video_id,
+                    _video.video_title,
+                    _video.video_insert,
+                    _video.video_update,
+                    _video.video_status,
+                    _video.video_special,
+                    _video.video_link,
+                    _video.video_sourceid,
+                    _video.video_type,
+                    _video.video_view,
+                    _video.video_author,
+                    _video.video_thumb,
+                    _video.video_publicday,
+                    _video.video_category,
+                    cat_title,author_name,topic_title
+                 
+                FROM `_video` 
+                    LEFT JOIN cate ON cat_id = video_category
+                    LEFT JOIN _topic ON topic_id = video_topic
+                    LEFT JOIN _author ON author_id = video_author
+                 Where true  ORDER BY `video_insert` DESC LIMIT 0, 1000</div></div>
+                        <span class="timestamp">2015-04-12 14:46:06 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1146 - Table 'lawyer._video' doesn't exist</div><div class='sql-query'>
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _video.video_id,
+                    _video.video_title,
+                    _video.video_insert,
+                    _video.video_update,
+                    _video.video_status,
+                    _video.video_special,
+                    _video.video_link,
+                    _video.video_sourceid,
+                    _video.video_type,
+                    _video.video_view,
+                    _video.video_author,
+                    _video.video_thumb,
+                    _video.video_publicday,
+                    _video.video_category,
+                    cat_title,author_name,topic_title
+                 
+                FROM `_video` 
+                    LEFT JOIN cate ON cat_id = video_category
+                    LEFT JOIN _topic ON topic_id = video_topic
+                    LEFT JOIN _author ON author_id = video_author
+                 Where true  ORDER BY `video_insert` DESC LIMIT 0, 1000</div></div>
+                        <span class="timestamp">2015-04-12 17:22:30 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1146 - Table 'lawyer._video' doesn't exist</div><div class='sql-query'>
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _video.video_id,
+                    _video.video_title,
+                    _video.video_insert,
+                    _video.video_update,
+                    _video.video_status,
+                    _video.video_special,
+                    _video.video_link,
+                    _video.video_sourceid,
+                    _video.video_type,
+                    _video.video_view,
+                    _video.video_author,
+                    _video.video_thumb,
+                    _video.video_publicday,
+                    _video.video_category,
+                    cat_title,author_name,topic_title
+                 
+                FROM `_video` 
+                    LEFT JOIN cate ON cat_id = video_category
+                    LEFT JOIN _topic ON topic_id = video_topic
+                    LEFT JOIN _author ON author_id = video_author
+                 Where true  ORDER BY `video_insert` DESC LIMIT 0, 1000</div></div>
+                        <span class="timestamp">2015-04-12 18:02:22 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>

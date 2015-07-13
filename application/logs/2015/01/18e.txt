@@ -1,0 +1,217 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:04:23 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[37]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:04:44 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[36]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:04:49 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:06:59 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[38]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:07:05 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:13:57 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - cate[316]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:13:59 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:14:09 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - cate[317]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:14:11 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:14:24 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - cate[318]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:14:25 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:14:38 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - cate[319]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:14:39 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:17:34 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[39]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:17:36 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['39']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:17:41 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:26:57 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:27:16 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:27:32 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:27:47 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:28:08 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:28:29 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:28:48 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - content</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-01-18 11:29:13 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>

@@ -1,0 +1,55 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[45]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-19 15:20:45 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[37]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-19 15:20:47 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[18]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-19 15:20:49 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-19 15:20:52 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[10]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-19 15:20:56 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - auth_users['10021']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-19 15:21:46 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>

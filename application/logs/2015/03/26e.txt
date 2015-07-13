@@ -1,0 +1,694 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _video[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 02:16:01 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 10:17:53 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 10:18:13 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 10:23:58 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 10:24:05 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 10:24:16 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - _video[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 10:48:11 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 10:49:11 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[37]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:03:57 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[45]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:03:59 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[18]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:04:04 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[1]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:04:09 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[18]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:04:11 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[37]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:04:14 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[45]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:04:16 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[56]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:04:20 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - menu</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:22:53 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[13]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:24:29 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[72]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:24:40 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[4]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:25:49 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - menu</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:30:05 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - menu</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:30:08 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - menu</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:30:09 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - menu</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:32:59 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - menu</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:33:10 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['12']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:37:45 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['72']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:37:47 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert new entry - menu</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:39:31 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[70]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:40:31 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:46:36 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:47:39 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit Entry - Menu['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:53:53 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - menu[31]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 11:55:33 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['31']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:29 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['30']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:32 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['33']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:34 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['34']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:38 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['29']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:39 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['28']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:41 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['27']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:42 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['32']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:43 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['19']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:45 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['18']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:47 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['44']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:50 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['43']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:51 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['42']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:52 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['41']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:53 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['38']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:55 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['39']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:56 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['40']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:57 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['37']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:56:59 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['58']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:03 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['57']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:04 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['68']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:05 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['65']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:06 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['66']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:07 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['67']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:08 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['69']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:08 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['70']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:09 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['71']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:10 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['56']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:12 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['50']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:18 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['46']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:20 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['47']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:21 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['48']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:21 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['54']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:22 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['51']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:23 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['49']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:24 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['52']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:24 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['53']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:25 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['55']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:26 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['45']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:27 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['8']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:37 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['15']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:50 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['16']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:52 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Delete record - Menu['17']</div>
+                        <div class="text"><div class='sql-query'>Success. Record have been deleted.</div></div>
+                        <span class="timestamp">2015-03-26 11:57:55 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Commit record - Category['0']</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-26 12:25:43 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>

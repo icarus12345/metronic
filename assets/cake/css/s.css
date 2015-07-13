@@ -1,0 +1,91 @@
+.navbar-toggle{border-color: transparent;}
+.navbar-toggle .icon-bar{background-color: #000}
+.space-line{height: 10px;display: block;}
+@media (max-width: 767px){
+    .navbar-brand{
+        height: 40px;
+        z-index: 1001;
+    }
+    .navbar-toggle {
+      margin: 5px;
+      padding: 8px 6px;
+      border: 0px solid rgba(255,255,255,.1);
+    }
+    .navbar{margin-top: 0;height: 40px;min-height: 40px}
+    .navbar-nav{margin: 0 -10px;}
+    .navbar-collapse.in{overflow: visible !important}
+    .container > .navbar-header, 
+    .container-fluid > .navbar-header{
+        padding-left: 0;padding-right: 0px;position: relative;
+        border:0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .container > .navbar-collapse, 
+    .container-fluid > .navbar-collapse{
+        padding-left: 0;padding-right: 0px;position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 5px;
+        border-top:0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .navbar-collapse>ul{position: relative;}
+    .navbar-collapse>ul::before{
+        display: block;
+        position: absolute;
+        content: '';
+        border: 9px solid #f2f2f2;
+        border-top: 0;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        top: -9px;
+        right: 10px;
+    }
+    .navbar-collapse>ul::after{
+        display: block;
+        position: absolute;
+        content: '';
+        border: 8px solid #FFF;
+        border-top: 0;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        top: -8px;
+        right: 11px;
+    }
+    .navbar-collapse .navbar-nav.pull-right>li>a{min-width: 160px;}
+    .navbar-collapse .navbar-nav,
+    .navbar-collapse .navbar-nav.pull-right{
+        width:212px;margin: 0;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: #FFF;
+        float: right;
+        box-shadow: 1px 1px 4px #ddd
+    }
+    .navbar-collapse .navbar-nav>li,
+    .navbar-collapse .navbar-nav.pull-right>li{
+        margin-left: 0px;margin-right: 0px;
+    }
+    .navbar-collapse .navbar-nav > li > a{
+        padding: 5px 10px
+    }
+    .navbar-nav>li .dropdown-menu > li > a{
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .navbar-nav>li .dropdown-menu{
+    	padding-top: 0;display: block;
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+    .navbar-nav>li .dropdown-menu > li > a{  line-height: 20px;padding: 5px 10px 5px 25px;}
+    .navbar-nav>li .dropdown-menu > li > a:hover{background: rgba(0,0,0,.1)}
+    
+}

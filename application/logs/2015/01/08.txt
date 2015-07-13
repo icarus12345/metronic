@@ -1,0 +1,19 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'Lock' in 'field list'</div><div class='sql-query'>UPDATE `image` SET `image_update` = NOW(), `Lock` = 'true' WHERE `image_id` =  133</div></div>
+                        <span class="timestamp">2015-01-08 10:00:35 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'Status' in 'field list'</div><div class='sql-query'>INSERT INTO `setting` (`insert`, `Type`, `Status`, `Name`, `DataType`, `Title`, `Image`, `Desc`, `Value`) VALUES (NOW(), 'vietthang', 'true', 'asdasdasd', 'image', 'asdasd', '/data/image/av.png', 'asdasd', 'asdasd')</div></div>
+                        <span class="timestamp">2015-01-08 16:17:44 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>

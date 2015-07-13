@@ -1,0 +1,10 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Update entry - album[58]</div>
+                        <div class="text"><div class='sql-query'>Success. Data have been save.</div></div>
+                        <span class="timestamp">2015-03-08 13:44:33 - Trường Khương Xuân</span> 
+                    </div>
+                </div> 
+            </div>

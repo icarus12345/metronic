@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CMS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+        <link href="css/bootstrap.css" rel="stylesheet">
+		<link href='ui/themes/base/jquery.ui.all.css' rel='stylesheet' type='text/css'>
+		<link href="css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/cms.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="ui/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-select.min.js"></script>
+        <script src="js/dateformat.js"></script>
+        <script src="js/cms.js"></script>
+        <!--[if IE]>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+		<![endif]-->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <header id="navbar" class="navbar" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button">
+                        <span class="icon-bar line-1"></span>
+                        <span class="icon-bar line-2"></span>
+                        <span class="icon-bar line-3"></span>
+                    </button>
+                    <a href="/vi" class="navbar-brand">
+                        <span class="space-line"></span>
+                    </a>
+                </div>
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="#" onclick="toggleQuickBar()" title="Quick navigation"><span class="fa fa-send-o"></span></a></li>
+					<li>
+						<a href="#" data-toggle="dropdown" title="Notication message"><span class="fa fa-comments-o"></span></a>
+						<ul class="dropdown-menu message-dropdown" role="menu" aria-labelledby="dLabel">
+							<li class="notification-header">
+								<em>You have 2 unread messages</em>
+							</li>
+							<li class="inbox-item clearfix">
+								<a href="page-inbox.html#">
+									<div class="media">
+										<div class="media-body">
+											<h5 class="media-heading name">Antonius</h5>
+											<p class="text">The problem just happened this morning. I can't see ...</p>
+											<span class="timestamp">4 minutes ago</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="inbox-item unread clearfix">
+								<a href="page-inbox.html#">
+									<div class="media">
+										<div class="media-body">
+											<h5 class="media-heading name">Michael</h5>
+											<p class="text">Hey dude, cool theme!</p>
+											<span class="timestamp">2 hours ago</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="inbox-item unread clearfix">
+								<a href="page-inbox.html#">
+									<div class="media">
+										<div class="media-body">
+											<h5 class="media-heading name">Stella</h5>
+											<p class="text">Ok now I can see the status for each item. Thanks! :D</p>
+											<span class="timestamp">Oct 6</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="inbox-item clearfix">
+								<a href="page-inbox.html#">
+									<div class="media">
+										<div class="media-body">
+											<h5 class="media-heading name">Jane Doe</h5>
+											<p class="text"><i class="fa fa-reply"></i> Please check the status of your ...</p>
+											<span class="timestamp">Oct 2</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="inbox-item clearfix">
+								<a href="page-inbox.html#">
+									<div class="media">
+										<div class="media-body">
+											<h5 class="media-heading name">John Simmons</h5>
+											<p class="text"><i class="fa fa-reply"></i> I've fixed the problem :)</p>
+											<span class="timestamp">Sep 12</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="notification-footer">
+								<a href="page-inbox.html#">View All Messages</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" data-toggle="dropdown" title="Setting"><span class="fa fa-sliders"></span></a>
+						<ul class="dropdown-menu pull-center" role="menu" aria-labelledby="dLabel">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="JavaScript:toggleContent()">Action</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href='#'  data-toggle="dropdown" title="Account">
+							<span class="hidden-xs hidden-mb">Admin</span> 
+							<i class="fa fa-users visible-xs visible-mb"></i>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="JavaScript:toggleContent()">Action</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa-sign-out"></i>Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+                
+            </div>
+        </header>
+		<div id="quick-bar" class="quick-bar transition">
+			<ul class="round-buttons ">
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="Image" class="tip" data-original-title="Logout">
+                            <i class="fa-image"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="Category" class="tip">
+                            <i class="fa fa-list-ul"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="News" class="tip">
+                            <i class="fa fa-newspaper-o"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="Comments" class="tip">
+                            <i class="fa fa-comments"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="File" class="tip">
+                            <i class="fa fa-folder-open-o"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="Chart" class="tip">
+                            <i class="fa-line-chart"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="Setting" class="tip" data-original-title="Logout">
+                            <i class="fa-toggle-off"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="User" class="tip">
+                            <i class="fa-users"></i>
+                        </a>
+                    </div>
+                </li>
+				<li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="Setting" class="tip">
+                            <i class="fa-cogs"></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="depth">
+                        <a href="#" data-placement="bottom" title="Logout" class="tip" data-original-title="Logout">
+                            <i class="fa-sign-out"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+		</div>
+		<div id="container" class="transition">
+			<div>
+				<div>
+					<div class="sidebar to-frond">
+						<ul class="nav nav-list">
+								<li class="nav-header">Content Provider</li>
+								
+								<li>
+									<a class="navi-data-Slider" href="/cms/cp/data/viewport/Slider"><i class="fa-film"></i>Slide show</a>
+								</li>
+								<li class="-nav-collapse">
+									<div>
+										<i class="fa fa-bar-chart-o"></i>Consultancy
+										<span class="navi-collapse"></span>
+									</div>
+									<ul>
+										<li><a class="navi-category-consultancy" href="/cms/cp/category/viewport/consultancy" title="">Legal consultant</a></li>
+										<li><a class="navi-ant-" href="/cms/cp/ant/" title="">Ant interview questions</a></li>
+									</ul>
+								</li>
+								<li class="nav-collapse">
+									<div>
+										<i class="fa-image"></i>Thư viện ảnh
+										<span class="navi-collapse"></span>
+									</div>
+									<ul>
+										<li><a class="navi-album-graphic-design" href="/cms/cp/album/viewport/graphic-design" title="">Graphic Design</a></li>
+										<li><a class="navi-album-web-design" href="/cms/cp/album/viewport/web-design" title="">Web Design</a></li>
+										<li><a class="navi-album-printing-design" href="/cms/cp/album/viewport/printing-design" title="">Printing Design</a></li>
+										<li><a class="navi-album-brand-develoment" href="/cms/cp/album/viewport/brand-develoment" title="">Brand Development</a></li>
+										<li><a class="navi-album-price-list" href="/cms/cp/album/viewport/price-list" title="">Price List</a></li>
+									</ul>
+								</li>
+								<li><a href="forms.html#"><i class=" fa-bars"></i>Applications</a>
+									<ul>
+										
+										<li><a class="navi-content-about current" href="/cms/cp/content/viewport/about" title="">About us</a></li>
+										<li><a class="navi-content-news" href="/cms/cp/content/viewport/news" title="">News</a></li>
+										<li><a class="navi-content-event" href="/cms/cp/content/viewport/event" title="">Event</a></li>
+										<li><a class="navi-content-legal-community" href="/cms/cp/content/viewport/legal-community" title="">Legal Community</a></li>
+										
+									</ul>
+								</li>
+								<li class="nav-header">Service Operator</li>
+								<li class="-nav-collapse">
+									<div>
+										<i class="fa-cogs"></i>Settings
+										<span class="navi-collapse"></span>
+									</div>
+									<ul>
+										<li><a class="navi-lang-lawyer" href="/cms/cp/lang/viewport/lawyer" title="">Language</a></li>
+										<li><a class="navi-file" href="/cms/file" title="">KCFinder - Image Manage</a></li>
+										<li><a class="navi-webpage-" href="/cms/cp/webpage" title="">Web page</a></li>
+			<!--                            <li><a class="navi-config-" href="/cms/so/config/viewport/" title="">Module</a></li>
+										<li><a class="navi-type-Product" href="/cms/cp/type/viewport/Product" title="">Product Type</a></li>
+										<li><a class="navi-config-webinfo" href="/cms/so/config/viewport/webinfo" title="">Site Info</a></li>
+										<li><a class="navi-config-banner" href="/cms/so/config/viewport/banner" title="">Banner of Website</a></li>
+										<li><a class="navi-config-webinfo" href="/cms/sm/home/viewport/webinfo" title="">Site Info</a></li>
+										<li><a class="navi-config-webpage" href="/cms/sm/home/viewportwebpage/webpage" title="">WebPage</a></li>
+										<li><a class="navi-config-contactus" href="/cms/sm/home/viewport/contactus" title="">Contact Info</a></li>-->
+									</ul>
+								</li>
+								<li><a href="/cms/user" title=""><i class="fa-group"></i>Dashboard User</a></li>
+
+							</ul>
+					</div>
+					<div class="content to-back">
+						<div class="wrapper">
+							<div class="container">
+								<div class="row">
+									<div class="crumbs">
+										<ul class="breadcrumb"> 
+											<li><a href="/cms">CMS</a></li>
+											<li><a href="/cms/cp" title="">Content Provider</a></li>
+											<li class="active"><span>Product</span></li>
+										</ul>
+
+										<!--<ul class="alt-buttons">
+											<li><a href="#" title=""><i class="icon-signal"></i><span>Stats</span></a></li>
+											<li><a href="#" title=""><i class="icon-comments"></i><span>Messages</span></a></li>
+											<li class="dropdown"><a href="/cms/ho" title=""><i class="icon-tasks"></i><span>Tasks</span> <strong>(+16)</strong></a>
+											</li>
+										</ul>-->
+									</div>
+								</div>
+								<div class="row">
+									<div class="entrys transition">
+										<div class="entry-editor">
+											<div class="container">
+												<div class="row-fluid">
+													<div class="widget full">
+														<div class="modal-header">
+															<h4>Content</h4>
+															<ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
+																<li><a href="JavaScript:" title="Add new entry" onclick="lacontent.onAddItem()"><i class="fa-plus"></i></a></li>
+																<li><a href="JavaScript:" title="Refresh entrys" onclick="lacontent.onRefresh()"><i class="fa-cogs"></i></a></li>
+															</ul>
+														</div>
+														<div class="modal-body">
+															<h4>Gửi yêu cầu hoặc câu hỏi cần tư vấn !</h4>
+															<form name="frmsendquestion" id="frmsendquestion" -target="integration_asynchronous">
+																<div class="row">
+																	<div class="col-xs-6 pull-bottom">
+																		<div>Họ tên</div>
+																		<div class="input-group">
+																			<span class="input-group-addon">
+																				<i class="fa-group"></i>
+																			</span>
+																			<input type="number" name="ant_name" data-putto=".error_name" class="form-control validate[required]" placeholder="Họ tên">
+																		</div>
+																		<div class="erb error_name"></div>
+																	</div>
+																	<div class="col-xs-6 pull-bottom">
+																		<div>Điện thoại</div>
+																		<div class="input-group">
+																			<span class="input-group-addon">
+																				<i class="glyphicon glyphicon-earphone"></i>
+																			</span>
+																			<input type="text" class="form-control validate[required,,custom[phone]]" name="ant_phone" data-putto=".error_phone" placeholder="Điện thoại" >
+																		</div>
+																		<div class="erb error_phone"></div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-6 pull-bottom">
+																		<div>Email</div>
+																		<div class="input-group">
+																			<span class="input-group-addon">
+																				<i class="glyphicon glyphicon-envelope"></i>
+																			</span>
+																			<input type="text" class="form-control validate[required]" placeholder="Email" name="ant_email" data-putto=".error_mail">
+																			
+																		</div>
+																		<div class="erb error_mail"></div>
+																	</div>
+																	<div class="col-xs-6 pull-bottom to-frond">
+																		<div>Chuyên mục tư vấn</div>
+																		<div class="input-group">
+																			<span class="input-group-addon">
+																				<i class="glyphicon glyphicon-th-list"></i>
+																			</span>
+																			<select class="selectpicker form-control" name="ant_category">
+																				<option value="">Khác</option>
+																																																											<option value="52">Dân Sự</option>
+																				<option value="53">Đất đai, nhà cửa</option>
+																				<option value="54">Hành chính</option>
+																				<option value="55">Hình sự</option>
+																				<option value="56">Hôn nhân gia đình</option>
+																				<option value="57">Hợp đồng</option>
+																				<option value="58">Kế toán, kiểm toán</option>
+																				<option value="59">Khiếu nại, tố cáo</option>
+																				<option value="60">Kinh doanh, thương mại</option>
+																				<option value="61">Lao động, tiền lương</option>
+																				<option value="62">Tài chính, ngân hàng</option>
+																																																										</select>
+																		</div>
+																
+																	</div>
+																</div>
+																<div class="pull-bottom">
+																	<div>Tiêu đề</div>
+																	<div class="input-group ">
+																		<span class="input-group-addon">
+																			<i class="glyphicon glyphicon-comment"></i>
+																		</span>
+																		<input type="text" class="form-control validate[required]" 
+																			   placeholder="Tiêu đề" name="ant_subject" data-putto=".error_title">
+																	</div>
+																	<div class="erb error_title"></div>
+																</div>
+																<div class="pull-bottom">
+																	<div>Nội dung</div>
+																	<div class="input-group">
+																		<textarea class="form-control validate[required]" rows="3" name="ant_message" data-putto=".error_message" placeholder="Nội dung"></textarea>
+																	</div>
+																	<div class="erb error_message"></div>
+																</div>
+																<div class="">
+																	<button style="width: 100%" class="btn btn-default" type="button" onclick="sendquestion();">Gửi</button>
+																</div>
+																<div id="sendquestion-message"></div>
+															</form>
+														</div>
+														<div class="modal-footer">
+															<button class="btn btn-primary" onclick="toggleContent()">Done</button>
+															<button class="btn btn-default" onclick="toggleContent()">Cancel</button>
+															<div class="base_loading modal-loading" style="display: none;"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="entry-list">
+											<div class="container">
+												<div class="mark"></div>
+												<div class="row-fluid">
+													<div class="widget full">
+														<div class="modal-header">
+															<h4>Content</h4>
+															<ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
+																<li><a href="JavaScript:" title="Add new entry" onclick="lacontent.onAddItem()"><i class="fa-plus"></i></a></li>
+																<li><a href="JavaScript:" title="Refresh entrys" onclick="lacontent.onRefresh()"><i class="fa-cogs"></i></a></li>
+															</ul>
+														</div>
+														<div class="modal-body">
+															<table class="table table-bordered">
+															  <caption>Optional table caption.</caption>
+															  <thead>
+																<tr>
+																  <th>#</th>
+																  <th>First Name</th>
+																  <th>Last Name</th>
+																  <th>Username</th>
+																</tr>
+															  </thead>
+															  <tbody>
+																<tr>
+																  <td>1</td>
+																  <td>Mark</td>
+																  <td>Otto</td>
+																  <td>@mdo</td>
+																</tr>
+																<tr>
+																  <td>2</td>
+																  <td>Jacob</td>
+																  <td>Thornton</td>
+																  <td>@fat</td>
+																</tr>
+																<tr>
+																  <td>3</td>
+																  <td>Larry</td>
+																  <td>the Bird</td>
+																  <td>@twitter</td>
+																</tr>
+															  </tbody>
+															</table>
+															<div class="bs-callout bs-callout-danger">
+																<h4>Cross-browser compatibility</h4>
+																<p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+																
+															</div>
+															
+															<table class="table table-striped message-table" width="100%" cellpadding="0" cellspacing="0">
+
+																<tbody>
+																	<tr class="">
+																		<td style="width:25px">
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox1">
+																			</div>
+																		</td>
+																		<td style="width:25px">
+																			<i class="fa fa-star-o"></i>
+																		</td>
+																		<td style="width:140px">
+																			<span class="from">Alice</span>
+																		</td>
+																		<td>
+																			<span class="message-label label2">New User</span> 
+																			<span class="title">New User Registration</span> <span class="preview">- A new user has been registered on your site but not yet activated. You can activate this user on </span>
+																		</td>
+																		<td style="width:50px">
+																			<span class="icon-attachment"><i class="fa fa-paperclip"></i></span>
+																		</td>
+																		<td style="width:70px">
+																			<span class="timestamp">12:01 PM</span>
+																		</td>
+																	</tr>
+																	<tr class="unread">
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox2">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Jordan Smith</span></td>
+																		<td><span class="title">Can I Change My Username?</span> <span class="preview">- I've been wondering if we actually can change our username on the front-end. This should be</span></td>
+																		<td><span class="icon-attachment"><i class="fa fa-paperclip"></i></span></td>
+																		<td><span class="timestamp">10:46 AM</span></td>
+																	</tr>
+																	<tr class="unread">
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox3">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Michael Doe</span></td>
+																		<td><span class="message-label label3">Password</span> 
+																			<span class="title">Request For New Password</span> <span class="preview">- Hi Stacy, I try to reset maybe you can check some of my example. I was't really understand why this is happening ...</span></td>
+																		<td>&nbsp;</td>
+																		<td><span class="timestamp">09:22 AM</span></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox4">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Blog</span></td>
+																		<td><span class="message-label label1">Blog Comments</span> 
+																			<span class="title">New Comment on Post</span> <span class="preview">- A new comment on a blog post awating for moderation. Please consider that you can</span></td>
+																		<td>&nbsp;</td>
+																		<td><span class="timestamp">Dec 16</span></td>
+																	</tr>
+																	<tr class="unread">
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox5">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Stella Roger</span></td>
+																		<td><span class="title">User Setting Updates</span> <span class="preview">- Hello Stacy, I figured out that weeks ago the user setting has been updated. But unfortunately</span></td>
+																		<td><span class="icon-attachment"><i class="fa fa-paperclip"></i></span></td>
+																		<td><span class="timestamp">Dec 11</span></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox6">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Blog</span></td>
+																		<td><span class="message-label label1">Blog Comments</span> 
+																			<span class="title">New Comment on Post</span> <span class="preview">- A new comment on a blog post awating for moderation. Please consider that you can</span></td>
+																		<td>&nbsp;</td>
+																		<td><span class="timestamp">Dec 11</span></td>
+																	</tr><tr>
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox7">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Blog</span></td>
+																		<td><span class="message-label label1">Blog Comments</span> 
+																			<span class="title">New Comment on Post</span> <span class="preview">- A new comment on a blog post awating for moderation. Please consider that you can</span></td>
+																		<td><span class="icon-attachment"><i class="fa fa-paperclip"></i></span></td>
+																		<td><span class="timestamp">Dec 10</span></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox8">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Stella Roger</span></td>
+																		<td><span class="title">User Setting Updates</span> <span class="preview">- Hello Stacy, I figured out that weeks ago the user setting has been updated. But unfortunately</span></td>
+																		<td><span class="icon-attachment"><i class="fa fa-paperclip"></i></span></td>
+																		<td><span class="timestamp">Dec 9</span></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox9">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Jordan Smith</span></td>
+																		<td><span class="title">Can I Change My Username?</span> <span class="preview">- I've been wondering if we actually can change our username on the front-end. This should be</span></td>
+																		<td>&nbsp;</td>
+																		<td><span class="timestamp">10:46 AM</span></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<div class="simple-checkbox">
+																				<input type="checkbox" id="checkbox10">
+																			</div>
+																		</td>
+																		<td><i class="fa fa-star-o"></i></td>
+																		<td><span class="from">Michael Doe</span></td>
+																		<td><span class="message-label label3">Password</span> 
+																			<span class="title">Help, Can't Login</span> <span class="preview">- It's been 3 days I can't login to the site, I did receive admin email about</span></td>
+																		<td>&nbsp;</td>
+																		<td><span class="timestamp">09:22 AM</span></td>
+																	</tr>
+																</tbody>
+															</table>
+						
+														</div>
+														<div class="modal-footer">
+															<button class="btn btn-primary" onclick="toggleContent()">Done</button>
+															<button class="btn btn-default" onclick="toggleContent()">Cancel</button>
+															<div class="base_loading modal-loading" style="display: none;"></div>
+														</div>
+													</div>
+												</div>
+												<button class="ui-btn" onclick="toggleSidebar()">Toggle Nav</button>
+												<button class="btn" onclick="toggleContent()">Toggle Content</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="abc" title="ANC">option.uidialogoptio n.uidialogoption.uidialogop tion.uidialogoption.uidialog</div>
