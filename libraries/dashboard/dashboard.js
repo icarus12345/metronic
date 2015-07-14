@@ -209,6 +209,19 @@ function ConfirmMsg(title, message, callback) {
         }]
     }).open();
 }
+function chartDialog(callback) {
+    if ($("#weekly-chart-dialog").length === 0) {
+        $('body').append('<div id="weekly-chart-dialog"></div>');
+    }
+    $('#weekly-chart-dialog').html('<div id="chartContainer" style="width: 100%; height: 320px"></div>');
+    uidialog({
+        'message' : $('#weekly-chart-dialog'),
+        'title': 'Weekly Chart',
+        'width':'720px',
+        'dialogClass':'metronic-modal',
+        'buttons' : []
+    }).open();
+}
 function httpRequest(_option) {
     var option = {
         'url': null,

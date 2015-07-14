@@ -234,9 +234,6 @@ fieldset.c legend{margin: auto;padding-left:20px;}
     border-color: transparent;
 }
 .album-item .nailthumb-mark{height: auto;top: auto;bottom: 0;background: rgba(0,0,0,.5);color: #fff;padding: 5px;text-align: center;}
-.gallery-album>.album-item:nth-child(1),
-.gallery-album>.album-item:nth-child(2),
-.gallery-album>.album-item:nth-child(3){border-top:1px solid #FFF;}
 @media (min-width: 768px){
 	.navbar .container{
 		padding-left: 32px;

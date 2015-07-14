@@ -69,9 +69,10 @@ class product extends CP_Controller {
                     {$this->table}.{$this->prefix}code,
                     {$this->table}.{$this->prefix}price,
                     {$this->table}.{$this->prefix}thumb,
-                    {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}category,
                     cat_title,
+                    {$this->table}.{$this->prefix}view,
+                    {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,
                     {$this->table}.{$this->prefix}status
                 ",

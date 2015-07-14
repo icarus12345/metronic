@@ -56,6 +56,7 @@ class home extends FE_Controller {
 			'image'=>''
 		);
 		$product = $this->product_model->onGetByAlias($alias);
+		$this->_addView('_product','product_',$product->product_id);
 		if(!empty($product->product_thumb) && strrpos($product->product_thumb, 'http')===false){
 			$product->product_thumb = base_url($product->product_thumb);
 		}

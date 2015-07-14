@@ -1,8 +1,42 @@
-[{if false}]<script type="text/javascript">[{/if}]
-[{assign 'frefix' 'product_'}]
-[{assign 'catfrefix' 'cat_'}]
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-14 14:29:34
+         compiled from "application\templates\dashboard\cp\product\app.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2725855a46c68f400f8-06059413%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'a5dbb8d7ad5bf40882eee158cef006dd33a69111' => 
+    array (
+      0 => 'application\\templates\\dashboard\\cp\\product\\app.tpl',
+      1 => 1436858963,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2725855a46c68f400f8-06059413',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55a46c69cace75_78935603',
+  'variables' => 
+  array (
+    'ci' => 0,
+    'catfrefix' => 0,
+    'frefix' => 0,
+    'action' => 0,
+    'unit' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_55a46c69cace75_78935603')) {function content_55a46c69cace75_78935603($_smarty_tpl) {?><?php if (false) {?><?php echo '<script'; ?>
+ type="text/javascript"><?php }?>
+<?php if (isset($_smarty_tpl->tpl_vars['frefix'])) {$_smarty_tpl->tpl_vars['frefix'] = clone $_smarty_tpl->tpl_vars['frefix'];
+$_smarty_tpl->tpl_vars['frefix']->value = 'product_'; $_smarty_tpl->tpl_vars['frefix']->nocache = null; $_smarty_tpl->tpl_vars['frefix']->scope = 0;
+} else $_smarty_tpl->tpl_vars['frefix'] = new Smarty_variable('product_', null, 0);?>
+<?php if (isset($_smarty_tpl->tpl_vars['catfrefix'])) {$_smarty_tpl->tpl_vars['catfrefix'] = clone $_smarty_tpl->tpl_vars['catfrefix'];
+$_smarty_tpl->tpl_vars['catfrefix']->value = 'cat_'; $_smarty_tpl->tpl_vars['catfrefix']->nocache = null; $_smarty_tpl->tpl_vars['catfrefix']->scope = 0;
+} else $_smarty_tpl->tpl_vars['catfrefix'] = new Smarty_variable('cat_', null, 0);?>
 var APP = function() {
-    this.isMobile = [{if $ci->agent->is_mobile()}]true[{else}]false[{/if}];
+    this.isMobile = <?php if ($_smarty_tpl->tpl_vars['ci']->value->agent->is_mobile()) {?>true<?php } else { ?>false<?php }?>;
     this.cateApp = {};
     this.jqxgrid = '#jqwidget-entry-list';
     this.theme = 'metro',
@@ -18,26 +52,34 @@ var APP = function() {
     var me = this;
     this.bindingCate = function(){
         this.cateApp._datafields = [
-            {name: '[{$catfrefix}]id' 	, type: 'int'},
-            {name: '[{$catfrefix}]title' 	},
-            {name: '[{$catfrefix}]status' , type: 'bool'},
-            {name: '[{$catfrefix}]insert' , type: 'date'},
-            {name: '[{$catfrefix}]update' , type: 'date'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+id' 	, type: 'int'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+title' 	},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+status' , type: 'bool'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+insert' , type: 'date'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+update' , type: 'date'},
         ];
         this.cateApp._source = {
             datatype 	: "json",
             type 		: "POST",
             datafields 	: me.cateApp._datafields,
             url 		: '/dashboard/cp/category/databinding/'+me.entryType,
-            id 			:'[{$catfrefix}]id',
+            id 			:'<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+id',
             root 		: 'rows'
         };
         this.cateApp._dataAdapter = new $.jqx.dataAdapter(me.cateApp._source, {
             autoBind: true,
             beforeLoadComplete: function (records) {
                 for (var i = 0; i < records.length; i++) {
-                    records[i].value = records[i].[{$catfrefix}]id;
-                    records[i].label = records[i].[{$catfrefix}]title;
+                    records[i].value = records[i].<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+id;
+                    records[i].label = records[i].<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+title;
                 }
             },
             loadComplete: function(records){
@@ -53,32 +95,45 @@ var APP = function() {
     };
     this.bindingEntry = function(){
     	this._datafields = [
-            {name: '[{$frefix}]id' 	, type: 'int'},
-            {name: '[{$frefix}]category'    , type: 'int'},
-            {name: '[{$catfrefix}]title'    },
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id' 	, type: 'int'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+category'    , type: 'int'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+title'    },
             // {
             //  name: 'category_title'  ,
-            //  value: '[{$frefix}]category',
+            //  value: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+category',
             //  values: { 
             //      source: me.cateApp._dataAdapter.records, 
             //      value: 'value', name: 'label' 
             //  }
             // },
-            {name: '[{$frefix}]price'   , type: 'float'},
-            {name: '[{$frefix}]code'    },
-            {name: '[{$frefix}]title'   },
-            {name: '[{$frefix}]thumb'   },
-            {name: '[{$frefix}]view' 	, type: 'int'},
-            {name: '[{$frefix}]status' , type: 'bool'},
-            {name: '[{$frefix}]insert' , type: 'date'},
-            {name: '[{$frefix}]update' , type: 'date'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+price'   , type: 'float'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+code'    },
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+title'   },
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+thumb'   },
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+view' 	, type: 'int'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status' , type: 'bool'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+insert' , type: 'date'},
+            {name: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+update' , type: 'date'},
         ];
         this._source = {
             datatype 	: "json",
             type 		: "POST",
             datafields 	: me._datafields,
             url 		: me.bindingUri + me.entryType,
-            id 			:'[{$frefix}]id',
+            id 			:'<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id',
             root 		: 'rows',
                     filter: function() {
                 $(me.jqxgrid).jqxGrid('updatebounddata', 'filter');
@@ -94,7 +149,8 @@ var APP = function() {
         });
 	    this._columns = [
 	        {
-	            text: '', dataField: '[{$frefix}]id', width: 52, pinned: true,
+	            text: '', dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id', width: 52, pinned: true,
 	            filterable: false, sortable: true, editable: false, groupable:false,
 	            cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
 	                var str = "";
@@ -118,11 +174,14 @@ var APP = function() {
                     return str;
 	            }
 	        },{
-	            text: 'Id'    , dataField: '[{$frefix}]id2' , displayfield:'[{$frefix}]id',cellsalign: 'right', 
+	            text: 'Id'    , dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id2' , displayfield:'<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id',cellsalign: 'right', 
 	            width: 60, columntype: 'numberinput', filtertype: 'number', pinned: false,
 	            filterable: false, sortable: false,editable: false, groupable:false, hidden:true
             },{
-                text: 'Thumb'     , dataField: '[{$frefix}]thumb'   ,width:60, pinned: false,
+                text: 'Thumb'     , dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+thumb'   ,width:60, pinned: false,
                 filterable:false ,sortable: false, editable: false,hidden:true, groupable:false,
                 cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
                     if(value==undefined || value=='')
@@ -132,7 +191,8 @@ var APP = function() {
                     }
                 }
 	        },{
-	            text: 'Title', dataField: '[{$frefix}]title', minWidth: 220, 
+	            text: 'Title', dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+title', minWidth: 220, 
 	            sortable: true, groupable:false, pinned: !me.isMobile,
 	            columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS',
                 validation: function (cell, value) {
@@ -143,7 +203,8 @@ var APP = function() {
                     return true;
                 }
 	        },{
-	            text: 'Code', dataField: '[{$frefix}]code', width: 80, 
+	            text: 'Code', dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+code', width: 80, 
 	            sortable: true, groupable:false,
 	            columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS',
                 validation: function (cell, value) {
@@ -156,14 +217,18 @@ var APP = function() {
 	        },{
                     text: 'Category', width: 120, cellsalign: 'left',
                     columntype: 'dropdownlist',filtertype: 'list', filtercondition: 'EQUAL',
-                    dataField: '[{$frefix}]category', displayfield:'[{$catfrefix}]title',
+                    dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+category', displayfield:'<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+title',
                     editable: true,
                     filteritems: me.cateApp._dataAdapter.records, 
                     createfilterwidget: function (column, htmlElement, editor) {
                         editor.jqxDropDownList({ 
                             source          : me.cateApp._dataAdapter.records,
-                            displayMember   : "[{$catfrefix}]title", 
-                            valueMember     : "[{$catfrefix}]id"
+                            displayMember   : "<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+title", 
+                            valueMember     : "<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+id"
                         });
                     },
                     // cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
@@ -173,7 +238,9 @@ var APP = function() {
                         // construct the editor. 
                         editor.jqxDropDownList({
                             source: me.cateApp._dataAdapter.records,
-                            displayMember: "[{$catfrefix}]title", valueMember: "[{$catfrefix}]id",
+                            displayMember: "<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+title", valueMember: "<?php echo $_smarty_tpl->tpl_vars['catfrefix']->value;?>
+id",
                             width: width, height: height, theme: me.theme,
                             // selectionRenderer: function() {
                             //     return "Please Choose:";
@@ -189,7 +256,8 @@ var APP = function() {
                         return editor.val();
                     }
                 },{
-                    text: 'Price', dataField: '[{$frefix}]price',cellsformat: 'c',
+                    text: 'Price', dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+price',cellsformat: 'c',
                     width: 100, filterable: true, cellsalign: 'right', 
                     groupable:false,
                     columntype: 'numberinput', filtertype: 'number',
@@ -203,18 +271,22 @@ var APP = function() {
                         return true;
                     }
 	        },{
-                text: 'View'    , dataField: '[{$frefix}]view' , cellsalign: 'center',
+                text: 'View'    , dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+view' , cellsalign: 'center',
                 width: 60, filterable: false, sortable: true,editable: false, groupable:false,
             },{
-	            text: 'Status'    , dataField: '[{$frefix}]status' , cellsalign: 'center',
+	            text: 'Status'    , dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status' , cellsalign: 'center',
 	            width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
 	            filterable: true, sortable: true,editable: true, groupable:false,
 	        },{
-	            text: 'Created' , dataField: '[{$frefix}]insert', width: 120, cellsalign: 'right',
+	            text: 'Created' , dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+insert', width: 120, cellsalign: 'right',
 	            filterable: true, columntype: 'datetimeinput', filtertype: 'range', cellsformat: 'yyyy-MM-dd HH:mm:ss',
 	            sortable: true,editable: false, groupable:false
 	        },{
-	            text: 'Modifield' , dataField: '[{$frefix}]update', width: 120, cellsalign: 'right',
+	            text: 'Modifield' , dataField: '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+update', width: 120, cellsalign: 'right',
 	            filterable: true, columntype: 'datetimeinput', filtertype: 'range', cellsformat: 'yyyy-MM-dd HH:mm:ss',
 	            sortable: true,editable: false, groupable:false, hidden: true
 	        }
@@ -252,7 +324,8 @@ var APP = function() {
 	            var rowData = $(me.jqxgrid).jqxGrid('getrowdata', rowIndex);
 	            if(rowData){
 	                var action = $args.data('action');
-	                var entryId = rowData.[{$frefix}]id;
+	                var entryId = rowData.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id;
 	                if(action == 'add'){
 	                    me.addItem();
 	                }else if(action == 'edit'){
@@ -261,26 +334,29 @@ var APP = function() {
 	                    me.removeItem(entryId,rowIndex);
 	                }else if(action == 'status'){
                 	}else if(action == 'statuson'){
-                		me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'true'}, entryId, me.onRefresh);
+                		me.onCommit(me.entryCommitUri,{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status: 'true'}, entryId, me.onRefresh);
             		}else if(action == 'statusoff'){
-            			me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'false'}, entryId, me.onRefresh);
+            			me.onCommit(me.entryCommitUri,{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status: 'false'}, entryId, me.onRefresh);
                     }else if(action == 'chart'){
-                        myChart.openWeekChart('_product',entryId,'[{date('Y-m-d')}]','View');
+                        myChart.openWeekChart('_product',entryId,'<?php echo date('Y-m-d');?>
+','View');
 	                }else{
 	                    addNotice("Function is updating !",'warning');
 	                }
 	            }
 	        }
 	    });
-		[{if $action.add==false}]
+		<?php if ($_smarty_tpl->tpl_vars['action']->value['add']==false) {?>
 		$('#contextMenu').jqxMenu('disable', 'jqxAddAction', true); 
-		[{/if}]
-		[{if $action.edit==false}]
+		<?php }?>
+		<?php if ($_smarty_tpl->tpl_vars['action']->value['edit']==false) {?>
 		$('#contextMenu').jqxMenu('disable', 'jqxEditAction', true); 
-		[{/if}]
-		[{if $action.delete==false}]
+		<?php }?>
+		<?php if ($_smarty_tpl->tpl_vars['action']->value['delete']==false) {?>
 		$('#contextMenu').jqxMenu('disable', 'jqxDeleteAction', true); 
-		[{/if}]
+		<?php }?>
 		$('#contextMenu').jqxMenu('disable', 'jqxViewAction', true); 
 		$(me.jqxgrid).jqxGrid({
 	        width 				: '100%', //
@@ -298,10 +374,10 @@ var APP = function() {
 			virtualmode 		: true,
 	        groupable 		    : true,
 	        // groups              : ['author_name','topic_title'],
-	        [{if $action.edit==true}]
-	        editable            : true,//[{if $unit|strpos:"x0e"!==false}]true[{else}]false[{/if}],
+	        <?php if ($_smarty_tpl->tpl_vars['action']->value['edit']==true) {?>
+	        editable            : true,//<?php if (strpos($_smarty_tpl->tpl_vars['unit']->value,"x0e")!==false) {?>true<?php } else { ?>false<?php }?>,
 	        editmode 			: 'dblclick',
-	        [{/if}]
+	        <?php }?>
 	        pageable            : true,
 	        pagesize            : 20,
 	        pagesizeoptions     : [20,100, 200, 500, 1000],
@@ -342,7 +418,8 @@ var APP = function() {
                 $(me.jqxgrid).jqxGrid('selectcell', rowIndex,event.args.datafield);
                 //$(me.jqxgrid).jqxGrid('selectrow', event.args.rowindex);
                 //console.log(event.args.originalEvent);
-                if (event.args.rightclick || (event.args.datafield=='[{$frefix}]id' && me.isMobile) ) {
+                if (event.args.rightclick || (event.args.datafield=='<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id' && me.isMobile) ) {
                     var scrollTop = $(window).scrollTop();
                     var scrollLeft = $(window).scrollLeft();
                     var menuWidth = me._contextMenu.width();
@@ -373,15 +450,20 @@ var APP = function() {
                         me._contextMenu.jqxMenu('open', x, y);
                     }
                     var dataRow = $(me.jqxgrid).jqxGrid('getrowdata', rowIndex);
-                    [{if $action.edit==true}]
-                        $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOn', dataRow.[{$frefix}]status); 
-                        $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOff', !dataRow.[{$frefix}]status); 
-                    [{/if}]
-                    [{if $smarty.session.auth.user->ause_authority=='Administrator'}]
-                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOn', dataRow.[{$frefix}]lock); 
-                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOff', !dataRow.[{$frefix}]lock);
-                    [{/if}]
-                    // $('#contextMenu').jqxMenu('disable', 'jqxDeleteAction', dataRow.[{$frefix}]lock); 
+                    <?php if ($_smarty_tpl->tpl_vars['action']->value['edit']==true) {?>
+                        $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOn', dataRow.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status); 
+                        $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOff', !dataRow.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status); 
+                    <?php }?>
+                    <?php if ($_SESSION['auth']['user']->ause_authority=='Administrator') {?>
+                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOn', dataRow.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+lock); 
+                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOff', !dataRow.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+lock);
+                    <?php }?>
+                    // $('#contextMenu').jqxMenu('disable', 'jqxDeleteAction', dataRow.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+lock); 
                     event.stopPropagation();
                     event.preventDefault();
                 }
@@ -424,7 +506,7 @@ var APP = function() {
 //	        console.log(filterInformation);
 
 	    });
-		[{if $action.edit==true}]
+		<?php if ($_smarty_tpl->tpl_vars['action']->value['edit']==true) {?>
 		$(me.jqxgrid).bind('cellbeginedit', function (event) {
 	        me._cancel = false;
 	    }).bind('cellendedit', function (event) {
@@ -435,7 +517,8 @@ var APP = function() {
 	            	_row = args.rowindex, 
 	            	_value = args.value;
 	            var _data = $(me.jqxgrid).jqxGrid('getrowdata', _row);
-	            var _id = _data.[{$frefix}]id;
+	            var _id = _data.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+id;
 	            if (_id == undefined || _id == "") {
 	                return;
 	            }
@@ -443,48 +526,63 @@ var APP = function() {
 	                me.onRefresh();
 	            };
 	            switch (_column) {
-	                case '[{$frefix}]title':
-	                    if (_value != _data.[{$frefix}]title && _value!='')
+	                case '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+title':
+	                    if (_value != _data.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+title && _value!='')
 	                        me.onCommit(
 	                        	me.entryCommitUri,
-	                        	{[{$frefix}]title: _value},
+	                        	{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+title: _value},
 	                        	_id
 	                    	);
 	                    break;
-	                case '[{$frefix}]category':
-	                    if (_value != _data.[{$frefix}]category && _value!='')
+	                case '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+category':
+	                    if (_value != _data.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+category && _value!='')
 	                        me.onCommit(
 	                        	me.entryCommitUri,
-	                        	{[{$frefix}]category: _value},
+	                        	{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+category: _value},
 	                        	_id,function(){
 	                        		me.onRefresh()
 	                        	}
 	                    	);
 	                    break;
-                        case '[{$frefix}]price':
-	                    if (_value != _data.[{$frefix}]price && _value!='')
+                        case '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+price':
+	                    if (_value != _data.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+price && _value!='')
 	                        me.onCommit(
 	                        	me.entryCommitUri,
-	                        	{[{$frefix}]price: _value},
+	                        	{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+price: _value},
 	                        	_id
 	                    	);
 	                    break;
-                        case '[{$frefix}]code':
-	                    if (_value != _data.[{$frefix}]code && _value!='')
+                        case '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+code':
+	                    if (_value != _data.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+code && _value!='')
 	                        me.onCommit(
 	                        	me.entryCommitUri,
-	                        	{[{$frefix}]code: _value},
+	                        	{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+code: _value},
 	                        	_id
 	                    	);
 	                    break;
-	                case '[{$frefix}]status':
+	                case '<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status':
 	                    if (_value)
 	                        me.onCommit(
-	                            me.entryCommitUri,{[{$frefix}]status: 'true'}, _id
+	                            me.entryCommitUri,{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status: 'true'}, _id
 	                        );
 	                    else
 	                        me.onCommit(
-	                            me.entryCommitUri,{[{$frefix}]status: 'false'}, _id
+	                            me.entryCommitUri,{<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+status: 'false'}, _id
 	                        );
 	                    break;
 	                default:
@@ -495,15 +593,16 @@ var APP = function() {
 	            addNotice(e.message, 'error');
 	        }
 	    });
-		[{/if}]
+		<?php }?>
     }
     this.removeItem = function(Id,rowIndex){
-        [{if $action.delete==false}]
+        <?php if ($_smarty_tpl->tpl_vars['action']->value['delete']==false) {?>
             addNotice('This function to requires an administrative account.<br/>Please check your authority, and try again.','warning');
             return;     
-        [{/if}]
+        <?php }?>
         var _data = $(me.jqxgrid).jqxGrid('getrowdata', rowIndex);
-        var itemName = _data.[{$frefix}]title;
+        var itemName = _data.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+title;
     	ConfirmMsg(
             'Delete item ?',
             'Do you want delete "'+itemName+'".<br/>These items will be permanently deleted and cannot be recovered. Are you sure ?',
@@ -526,17 +625,17 @@ var APP = function() {
         );
     };
     this.addItem = function(){
-    	[{if $action.add==false}]
+    	<?php if ($_smarty_tpl->tpl_vars['action']->value['add']==false) {?>
             addNotice('This function to requires an administrative account.<br/>Please check your authority, and try again.','warning');
             return;
-    	[{/if}]
+    	<?php }?>
     	this.editItem(0);
     };
     this.editItem = function(Id){
-    	[{if $action.edit==false}]
+    	<?php if ($_smarty_tpl->tpl_vars['action']->value['edit']==false) {?>
     	addNotice('This function to requires an administrative account.<br/>Please check your authority, and try again.','warning');
     	return;
-    	[{/if}]
+    	<?php }?>
     	if (pending > 0)return;
             $('#entry-container').html('...');
             httpRequest({
@@ -544,8 +643,10 @@ var APP = function() {
                 'data'        :   {
                     'Id'  :   Id,
                     'type':   me.entryType,
-                    'layout' : '[{$action.layout}]',
-                    'unit' : '[{$unit}]'
+                    'layout' : '<?php echo $_smarty_tpl->tpl_vars['action']->value['layout'];?>
+',
+                    'unit' : '<?php echo $_smarty_tpl->tpl_vars['unit']->value;?>
+'
                 },
                 'callback'    :   function(rsdata){
                     if(rsdata.result<0){
@@ -559,8 +660,10 @@ var APP = function() {
                             validateNonVisibleFields:true
                         });
                         $('#entryForm .selectpicker').selectpicker();
-                        if($('#[{$frefix}]content').length==1){
-                            addEditorFeature('[{$frefix}]content',240);
+                        if($('#<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+content').length==1){
+                            addEditorFeature('<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+content',240);
                         }
 
                         
@@ -590,7 +693,8 @@ var APP = function() {
 	            'message' : $('#entry-container'),
 	            'title': title,
 	            'dialogClass':'metronic-modal',
-	            'width':'[{($action.col|default:3)*120}]px',
+	            'width':'<?php echo ((($tmp = @$_smarty_tpl->tpl_vars['action']->value['col'])===null||$tmp==='' ? 3 : $tmp))*120;?>
+px',
 	            'type':'notice',
 	            'buttons' : [{
 	                'text': 'Save',
@@ -622,8 +726,11 @@ var APP = function() {
     	$(me.jqxgrid).jqxGrid('updatebounddata');
     };
     this.onSave = function(){
-    	if($('#[{$frefix}]content').length==1){
-            $('#[{$frefix}]content').val(CKEDITOR.instances['[{$frefix}]content'].getData());
+    	if($('#<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+content').length==1){
+            $('#<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+content').val(CKEDITOR.instances['<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+content'].getData());
         }
     	if( $('#entryForm').validationEngine('validate') === false){
     		addNotice('Please complete input data.','warning');
@@ -634,7 +741,8 @@ var APP = function() {
         
         if($('#sortable').length == 1){
             var images = $('#sortable img.thumb').map(function(){return $(this).attr('src')});
-            Params.[{$frefix}]images = images.get().join('\r\n');
+            Params.<?php echo $_smarty_tpl->tpl_vars['frefix']->value;?>
+images = images.get().join('\r\n');
         }
         me.onCommit(me.entryCommitUri,Params,Id,function(rsdata){
             if(rsdata.result>0){
@@ -702,3 +810,4 @@ var APP = function() {
         }).open();
     };
 };
+<?php }} ?>

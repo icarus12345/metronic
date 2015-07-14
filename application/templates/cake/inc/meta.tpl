@@ -13,7 +13,7 @@
         <meta property="business:contact_data:locality" content="Hồ Chí Minh"/>
         <meta property="business:contact_data:postal_code" content="70000 "/>
         <meta property="business:contact_data:country_name" content="TP. Hồ Chí Minh"/>
-        <meta property="business:contact_data:email" content="nhung@gmail.com"/>
+        <meta property="business:contact_data:email" content="khuongxuantruong@gmail.com"/>
         <meta property="business:contact_data:phone_number" content="+84 982 636 618"/>
         <meta property="business:contact_data:website" content="http://banhngononline.com"/>
         <meta itemprop="name" content="[{$site.title|default:'Bánh sinh nhật - Bánh ngon Online'}]"/>

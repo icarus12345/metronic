@@ -1,17 +1,50 @@
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-07-14 13:18:03
+         compiled from "application\templates\dashboard\cp\product\viewport.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2552755a46c680685c9-50962624%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '833cf100eb205ef07a917bcbf237466fbda9d088' => 
+    array (
+      0 => 'application\\templates\\dashboard\\cp\\product\\viewport.tpl',
+      1 => 1436854664,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2552755a46c680685c9-50962624',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55a46c6835afb9_17063313',
+  'variables' => 
+  array (
+    'unit' => 0,
+    'type' => 0,
+    'action' => 0,
+    'cname' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_55a46c6835afb9_17063313')) {function content_55a46c6835afb9_17063313($_smarty_tpl) {?>
+<?php echo $_smarty_tpl->getSubTemplate ((@constant('APPPATH')).("templates/dashboard/inc/meta.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-[{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/meta.tpl"}]
 <!-- BEGIN BODY -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-style-square page-boxed" oncontextmenu="return false">
-    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/header.tpl"}]
+    <?php echo $_smarty_tpl->getSubTemplate ((@constant('APPPATH')).("templates/dashboard/inc/header.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
     <!-- BEGIN CONTAINER -->
     <div class="container">
         <div class="page-container">
-            [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/sidebar.tpl"}]
+            <?php echo $_smarty_tpl->getSubTemplate ((@constant('APPPATH')).("templates/dashboard/inc/sidebar.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <div class="page-content">
-                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/content/customizer.tpl"}]
-                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/cp/product/pageheader.tpl"}]
+                    <?php echo $_smarty_tpl->getSubTemplate ((@constant('APPPATH')).("templates/dashboard/content/customizer.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+                    <?php echo $_smarty_tpl->getSubTemplate ((@constant('APPPATH')).("templates/dashboard/cp/product/pageheader.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
                     <!-- BEGIN PAGE CONTENT-->
                     <!-- <div class="row">
                             <div class="col-md-12">
@@ -26,32 +59,44 @@
                     <!-- END PAGE CONTENT-->
                     <div id="entry-container" style="display: none"></div>
                     <div>
-                        <script type="text/javascript" src="/libraries/ckeditor/ckeditor.js" ></script>
+                        <?php echo '<script'; ?>
+ type="text/javascript" src="/libraries/ckeditor/ckeditor.js" ><?php echo '</script'; ?>
+>
                         <link href='/libraries/jqwidgets/styles/jqx.base.css' rel='stylesheet' type='text/css'>
                         <link href='/libraries/jqwidgets/styles/jqx.metro.css' rel='stylesheet' type='text/css'>
-                        <script type="text/javascript" src="/libraries/jqwidgets/jqx-all.js"></script>
-                        <script type="text/javascript" src="/dashboard/cp/product/loadscript/app/[{$unit}]"></script>
-                        <script type="text/javascript" src="/dashboard/cp/chart/app/"></script>
-                        <script type="text/javascript">
+                        <?php echo '<script'; ?>
+ type="text/javascript" src="/libraries/jqwidgets/jqx-all.js"><?php echo '</script'; ?>
+>
+                        <?php echo '<script'; ?>
+ type="text/javascript" src="/dashboard/cp/product/loadscript/app/<?php echo $_smarty_tpl->tpl_vars['unit']->value;?>
+"><?php echo '</script'; ?>
+>
+                        <?php echo '<script'; ?>
+ type="text/javascript" src="/dashboard/cp/chart/app/"><?php echo '</script'; ?>
+>
+                        <?php echo '<script'; ?>
+ type="text/javascript">
                             var myApp;
                             $(document).ready(function(){
                                 myApp = new APP();
-                                myApp.entryType='[{$type}]';
-                                [{if $action.add!=false}]
+                                myApp.entryType='<?php echo $_smarty_tpl->tpl_vars['type']->value;?>
+';
+                                <?php if ($_smarty_tpl->tpl_vars['action']->value['add']!=false) {?>
                                     myApp.isAddItem = true;
-                                [{/if}]
-                                [{if $action.edit!=false}]
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['action']->value['edit']!=false) {?>
                                     myApp.isEditItem = true;
-                                [{/if}]
-                                [{if $action.delete!=false}]
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['action']->value['delete']!=false) {?>
                                     myApp.isDeleteItem = true;
-                                [{/if}]
-                                [{if $action.ispopup==true}]
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['action']->value['ispopup']==true) {?>
                                     myApp.isEntryDialog = true;
-                                [{/if}]
+                                <?php }?>
                                     myApp.onInit();
                             })
-                        </script>
+                        <?php echo '</script'; ?>
+>
                         <div style="display:none">
                             <div id='contextMenu' class="jqx-contextMenu">
                                 <ul>
@@ -75,7 +120,8 @@
 
                         <div class="widget" id="entry-list">
                             <div class="modal-header">
-                                <h4>[{$cname}] List</h4>
+                                <h4><?php echo $_smarty_tpl->tpl_vars['cname']->value;?>
+ List</h4>
                                 <ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
                                     <li>
                                         <a href="JavaScript:myApp.addItem()" title="Add Item" onclick=""><i class="fa fa-plus"></i></a>
@@ -99,7 +145,8 @@
                         </div>
 
                     </div>
-                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/content/helper.tpl"}]
+                    <?php echo $_smarty_tpl->getSubTemplate ((@constant('APPPATH')).("templates/dashboard/content/helper.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 
 
 
@@ -108,8 +155,9 @@
             <!-- END CONTENT -->
         </div>
         <!-- END CONTAINER -->
-        [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/footer.tpl"}]
+        <?php echo $_smarty_tpl->getSubTemplate ((@constant('APPPATH')).("templates/dashboard/inc/footer.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 </body>
 
 <!-- END BODY -->
-</html>
+</html><?php }} ?>
