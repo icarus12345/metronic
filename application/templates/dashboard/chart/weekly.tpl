@@ -24,12 +24,12 @@
                 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 // prepare jqxChart settings
                 var settings = {
-                    title: "[{$chart_title}]",
-                    description: "[{$chart_desc}]",
+                    title: null,//"[{$chart_title}]",
+                    description: null,//"[{$chart_desc}]",
                     enableAnimations: true,
                     showLegend: true,
-                    padding: { left: 10, top: 10, right: 15, bottom: 10 },
-                    titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
+                    padding: { left: 10, top: 10, right: 10, bottom: 10 },
+                    // titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
                     source: sampleData,
                     colorScheme: 'scheme05',
                     xAxis: {
@@ -39,7 +39,7 @@
                         tickMarks: { visible: true, interval: 1 },
                         gridLinesInterval: { visible: true, interval: 1 },
                         valuesOnTicks: false,
-                        padding: { bottom: 10 },
+                        // padding: { bottom: 10 },
                         labels:
                         {
                             formatFunction: function (value) {
@@ -52,8 +52,8 @@
                         }
                     },
                     valueAxis: {
-                        unitInterval: [{$max/5}],
-                        minValue: 0,
+                        // unitInterval: [{($max-$min)/5}],
+                        minValue: [{$min}],
                         maxValue: [{$max}],
                         title: { text: 'Sessions' },
                         labels: { horizontalAlignment: 'right' }

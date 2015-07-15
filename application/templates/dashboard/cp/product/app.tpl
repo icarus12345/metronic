@@ -353,6 +353,7 @@ var APP = function() {
                     var menuHeight = me._contextMenu.height();
                     var clientX = (event.args.originalEvent.clientX) + scrollLeft,
                     clientY = (event.args.originalEvent.clientY) + scrollTop;
+                    //touchstart
                     if(event.args.originalEvent.type=='touchend'){
                         var touches = getTouches(event.args.originalEvent);
                         var touch = touches[0];

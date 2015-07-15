@@ -42,15 +42,22 @@ class chart extends CP_Controller {
                 //if($oRow->chart_insert==$chartData[$i]['Day']){
                     $chartData[$i][$oRow->chart_type] = (int)$oRow->Total;
                     $max = max($max,(int)$oRow->Total);
+                    if($min==0) $min = (int)$oRow->Total;
+                    $min = min($min,(int)$oRow->Total);
                 }
             }
         }
         $places = -strlen($max) + 1;
         $mult = pow(10, abs($places)); 
         $max = $places < 0 ? ceil($max / $mult) * $mult : ceil($max * $mult) / $mult;
+        $places = -strlen($max) + 1;
+        $mult = pow(10, abs($places)); 
+        $min = $places < 0 ? floor($min / $mult) * $mult : floor($min * $mult) / $mult;
         $max = max($max,10);
+        // $min = min($min,0);
         $this->assigns->chartData = $chartData;
         $this->assigns->max = $max;
+        $this->assigns->min = $min;
         $this->assigns->table = $table;
         $this->assigns->row = $row;
         $this->assigns->type = $type;
@@ -79,23 +86,30 @@ class chart extends CP_Controller {
         }
         $data = $this->chart_model->getDayDataOfRow($table,$row,$start,$end,$type);
 
-        // print_r($data);die;
         $min = 0; $max = 0;
         foreach ($data as $oRow) {
+
             for($i=0;$i<$dayInMonth;$i++){
                 if($oRow->Day==$chartData[$i]['value']){
                 //if($oRow->chart_insert==$chartData[$i]['Day']){
                     $chartData[$i][$oRow->chart_type] = (int)$oRow->Total;
                     $max = max($max,(int)$oRow->Total);
+                    if($min==0) $min = (int)$oRow->Total;
+                    $min = min($min,(int)$oRow->Total);
                 }
             }
         }
         $places = -strlen($max) + 1;
         $mult = pow(10, abs($places)); 
         $max = $places < 0 ? ceil($max / $mult) * $mult : ceil($max * $mult) / $mult;
+        $places = -strlen($max) + 1;
+        $mult = pow(10, abs($places)); 
+        $min = $places < 0 ? floor($min / $mult) * $mult : floor($min * $mult) / $mult;
         $max = max($max,10);
+        
         $this->assigns->chartData = $chartData;
         $this->assigns->max = $max;
+        $this->assigns->min = $min;
         $this->assigns->table = $table;
         $this->assigns->row = $row;
         $this->assigns->type = $type;
@@ -138,15 +152,22 @@ class chart extends CP_Controller {
                 if($oRow->Month==$chartData[$i]['Month']){
                     $chartData[$i][$oRow->chart_type] = (int)$oRow->Total;
                     $max = max($max,(int)$oRow->Total);
+                    if($min==0) $min = (int)$oRow->Total;
+                    $min = min($min,(int)$oRow->Total);
                 }
             }
         }
         $places = -strlen($max) + 1;
         $mult = pow(10, abs($places)); 
         $max = $places < 0 ? ceil($max / $mult) * $mult : ceil($max * $mult) / $mult;
+        $places = -strlen($max) + 1;
+        $mult = pow(10, abs($places)); 
+        $min = $places < 0 ? floor($min / $mult) * $mult : floor($min * $mult) / $mult;
         $max = max($max,10);
+        // $min = min($min,0);
         $this->assigns->chartData = $chartData;
         $this->assigns->max = $max;
+        $this->assigns->min = $min;
         $this->assigns->table = $table;
         $this->assigns->row = $row;
         $this->assigns->type = $type;
