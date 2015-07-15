@@ -1,5 +1,4 @@
 [{*
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
@@ -16,11 +15,28 @@
         <script src="/libraries/metronic/theme/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
     <body>
-*}]        
+*}]      
         <script type="text/javascript">
             $(document).ready(function () {
                 // prepare chart data as an array
                 var sampleData = [{$chartData|json_encode}];
+                // var source =
+                // {
+                //     datatype    : "json",
+                //     datafields: [
+                //         { name: 'Date' },
+                //         { name: 'value' },
+                //         { name: 'View' }
+                //     ],
+                //     localdata: sampleData
+                // };
+                // var dataAdapter = new $.jqx.dataAdapter(source, { 
+                //     async: false, 
+                //     autoBind: true, 
+                //     loadError: function (xhr, status, error) { 
+                //         alert('Error loading "' + source.url + '" : ' + error); 
+                //     } 
+                // });
                 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 // prepare jqxChart settings
                 var settings = {
@@ -39,7 +55,7 @@
                         tickMarks: { visible: true, interval: 1 },
                         gridLinesInterval: { visible: true, interval: 1 },
                         valuesOnTicks: false,
-                        padding: { bottom: 10 },
+                        // padding: { bottom: 10 }
                         labels:
                         {
                             formatFunction: function (value) {
@@ -64,10 +80,7 @@
                                 type: 'stackedline',
                                 series:
                                 [
-                                    {
-                                        dataField: '[{$type}]',
-                                        symbolType: 'circle'
-                                    }
+                                    {dataField: '[{$type}]', symbolType: 'circle'}
                                 ]
                             }
                         ]

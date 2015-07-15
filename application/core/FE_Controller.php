@@ -51,6 +51,8 @@ class FE_Controller extends CI_Controller {
         $this->db->set($prefix.'view',$prefix."view +1",false)
             ->where($prefix.'id',$id)
             ->update($table);
+        $this->load->model('dashboard/cp/chart_model');
+        $this->chart_model->add($table,$id);
     }
     function _getPaging($page=1,$perpage=10,$function=''){
         $query = $this->db->query('SELECT FOUND_ROWS() AS `found_rows`;');

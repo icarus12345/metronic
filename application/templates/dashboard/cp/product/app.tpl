@@ -242,7 +242,11 @@ var APP = function() {
             }
 		});
 	    this._contextMenu = $("#contextMenu").jqxMenu({ 
-	        width: 200, height: 'auto', autoOpenPopup: false, mode: 'popup',theme: me.theme
+	        width: 200, height: 'auto', autoOpenPopup: false, mode: 'popup',theme: me.theme,
+            animationShowDuration:0,
+            animationHideDuration:0,
+            animationShowDelay:0,
+            animationHideDelay:0
 	    }).on('itemclick', function (event) {
 	        var $args = $(args);
             // var rowIndex = $(me.jqxgrid).jqxGrid('getselectedrowindex');
@@ -368,7 +372,7 @@ var APP = function() {
                     if(event.args.originalEvent.type=='touchend'){
                         setTimeout(function(){
                             me._contextMenu.jqxMenu('open', x, y);
-                        },100);
+                        },300);
                     }else{
                         me._contextMenu.jqxMenu('open', x, y);
                     }
