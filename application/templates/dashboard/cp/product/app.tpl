@@ -269,7 +269,8 @@ var APP = function() {
             		}else if(action == 'statusoff'){
             			me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'false'}, entryId, me.onRefresh);
                     }else if(action == 'chart'){
-                        myChart.openWeekChart('_product',entryId,'[{date('Y-m-d')}]','View');
+                        var chart_title = "Chart of "+rowData.[{$frefix}]title;
+                        myChart.openWeekChart('_product',entryId,'[{date('Y-m-d')}]','View',chart_title);
 	                }else{
 	                    addNotice("Function is updating !",'warning');
 	                }
@@ -327,6 +328,7 @@ var APP = function() {
 	    }).on('contextmenu', function () {
 	        return false;
 	    }).on('cellclick', function (event) {
+
 	        var getTouches = function (e) {
                 if (e.originalEvent) {
                     if (e.originalEvent.touches && e.originalEvent.touches.length) {
@@ -342,11 +344,13 @@ var APP = function() {
                 return e.touches;
             };
             var rowIndex = event.args.rowindex;
+            var openContextMenu = false;
+            if(event.args.rightclick) openContextMenu = true;
+            if($.jqx.mobile.isTouchDevice() && event.args.originalEvent.type=='touchend' && event.args.datafield=='[{$frefix}]id') 
+                openContextMenu = true;
             if(rowIndex>=0){
                 $(me.jqxgrid).jqxGrid('selectcell', rowIndex,event.args.datafield);
-                //$(me.jqxgrid).jqxGrid('selectrow', event.args.rowindex);
-                //console.log(event.args.originalEvent);
-                if (event.args.rightclick || (event.args.datafield=='[{$frefix}]id' && me.isMobile) ) {
+                if (openContextMenu) {
                     var scrollTop = $(window).scrollTop();
                     var scrollLeft = $(window).scrollLeft();
                     var menuWidth = me._contextMenu.width();
@@ -373,7 +377,7 @@ var APP = function() {
                     if(event.args.originalEvent.type=='touchend'){
                         setTimeout(function(){
                             me._contextMenu.jqxMenu('open', x, y);
-                        },300);
+                        },500);
                     }else{
                         me._contextMenu.jqxMenu('open', x, y);
                     }

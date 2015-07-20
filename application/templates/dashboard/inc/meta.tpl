@@ -90,6 +90,7 @@
         <script type="text/javascript" src="/libraries/plugin/validation-engine/jquery.validationEngine-en.js"></script>
         <link rel="stylesheet" type="text/css" href="/libraries/bootstrap/css/bootstrap-select.min.css"/>
         <script type="text/javascript" src="/libraries/bootstrap/js/bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="/libraries/plugin/json-forms.min.js"></script>
 		<!-- <script src="/libraries/metronic/theme/assets/global/scripts/datatable.js"></script> -->
 		<!-- <script src="/libraries/metronic/theme/assets/admin/pages/scripts/ecommerce-products.js"></script> -->
 

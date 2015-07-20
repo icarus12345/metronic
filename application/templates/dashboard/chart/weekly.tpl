@@ -17,6 +17,7 @@
     </head>
     <body>
 *}]        
+        <div id="chartContainer" style="width: 100%; height: 320px"></div>
         <script type="text/javascript">
             $(document).ready(function () {
                 // prepare chart data as an array
@@ -24,8 +25,8 @@
                 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 // prepare jqxChart settings
                 var settings = {
-                    title: null,//"[{$chart_title}]",
-                    description: null,//"[{$chart_desc}]",
+                    title: "[{$chart_title}]",
+                    description: "[{$chart_desc}]",
                     enableAnimations: true,
                     showLegend: true,
                     padding: { left: 10, top: 10, right: 10, bottom: 10 },
@@ -52,7 +53,7 @@
                         }
                     },
                     valueAxis: {
-                        // unitInterval: [{($max-$min)/5}],
+                        unitInterval: [{ceil(($max-$min)/5)}],
                         minValue: [{$min}],
                         maxValue: [{$max}],
                         title: { text: 'Sessions' },
@@ -76,7 +77,6 @@
                 $('#chartContainer').jqxChart(settings);
             });
         </script>
-        <div id="chartContainer" style="width: 100%; height: 320px"></div>
         <div class="text-center">
             <button class="btn btn-default" onclick="myChart.open[{$time_type}]Chart('[{$table}]','[{$row}]','[{$prevDate}]','[{$type}]')">
                 <span class="fa fa-angle-left"></span>

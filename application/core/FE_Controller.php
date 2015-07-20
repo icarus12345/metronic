@@ -46,8 +46,8 @@ class FE_Controller extends CI_Controller {
     
     function nothing(){}
     function _addView($table='',$prefix='',$id){
-        if($_SESSION["addviews"][date('Y-m-d H')]["$table$id"]) return;
-        $_SESSION["addviews"][date('Y-m-d H')]["$table$id"] = 1;
+        if($_SESSION["addviews"][date('Y-m-d-H-i')]["$table$id"]) return;
+        $_SESSION["addviews"][date('Y-m-d-H-i')]["$table$id"] = 1;
         $this->db->set($prefix.'view',$prefix."view +1",false)
             ->where($prefix.'id',$id)
             ->update($table);

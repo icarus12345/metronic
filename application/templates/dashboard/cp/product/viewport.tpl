@@ -84,6 +84,8 @@
                                         <a href="JavaScript:myApp.refreshList()" title="Refresh List" onclick=""><i class="fa fa-refresh"></i></a>
                                     </li>
                                     <li>
+                                        <a href="JavaScript:myChart.openWeekChart('_product',0,'[{date('Y-m-d')}]','View','Chart of Cake');" title="Chart" onclick=""><i class="fa fa-line-chart"></i></a>
+                                    </li><li>
                                         <a href="JavaScript:myApp.setting()" title="Setting" onclick=""><i class="fa fa-cogs"></i></a>
                                     </li>
                                 </ul>

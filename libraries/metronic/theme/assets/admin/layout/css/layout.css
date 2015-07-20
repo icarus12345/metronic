@@ -2675,3 +2675,29 @@ Page Loading
     margin:0px 0 0 0px;
 }
 .popover-content,.popover-title{font-size: 12px;padding: 5px;border-radius:0;}
+.bg-pending{background: url(/libraries/images/preload.gif) center no-repeat}
+.lang-tabs{
+    border: 1px solid #dadada;
+    border-bottom: 0;border-left: 0;
+    color: #999;
+}
+.lang-tabs span,.lang-tabs a{
+    float: left;cursor: pointer;
+    padding: 0 12px;
+    border-left: 1px solid #dadada;
+}
+.lang-tabs span.active,.lang-tabs span:hover,
+.lang-tabs a.active,.lang-tabs a:hover{
+    color:#E03D22;
+}
+.lang-tabs .nav-tabs{border: 0;background: #fff;margin: 0;padding: 0}
+.lang-tabs .nav-tabs > li{border: none;list-style: none}
+.lang-tabs .nav-tabs > li{border-left: 1px solid #ddd;}
+.lang-tabs .nav-tabs > li a,
+.lang-tabs .nav-tabs > li.active a{
+        top:0;padding: 0 12px;float: left;
+        color: #bababa;
+        cursor: pointer;margin: 0;border:0
+    }
+.lang-tabs .nav-tabs > li.active a,
+.lang-tabs .nav-tabs > li:hover a{color:#E03D22}

@@ -22,8 +22,8 @@
         var sampleData = [{$chartData|json_encode}];
         
         var settings = {
-            title: null,//"[{$chart_title}]",
-            description: null,//"[{$chart_desc}]",
+            title: "[{$chart_title}]",
+            description: "[{$chart_desc}]",
             showLegend: true,
             padding: { left: 10, top: 10, right: 10, bottom: 10 },
             // titlePadding: { left: 0, top: 0, right: 0, bottom: 10 },
@@ -37,7 +37,7 @@
                 // padding: { bottom: 10 },
             },
             valueAxis: {
-                // unitInterval: [{($max-$min)/5}],
+                unitInterval: [{ceil(($max-$min)/5)}],
                 minValue: [{$min}],
                 maxValue: [{$max}],
                 title: { text: 'Sessions' },

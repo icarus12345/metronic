@@ -10,7 +10,7 @@ class chart extends CP_Controller {
     function index(){
 
     }
-    function week($table='',$row='',$date='',$type=null){
+    function week($table='',$row='0',$date='',$type=null){
         // $row = 1;
         // $table = '_product';
         // $date = '2015-07-10';
@@ -54,7 +54,7 @@ class chart extends CP_Controller {
         $mult = pow(10, abs($places)); 
         $min = $places < 0 ? floor($min / $mult) * $mult : floor($min * $mult) / $mult;
         $max = max($max,10);
-        // $min = min($min,0);
+        if($min<10) $min=0;
         $this->assigns->chartData = $chartData;
         $this->assigns->max = $max;
         $this->assigns->min = $min;
@@ -106,7 +106,7 @@ class chart extends CP_Controller {
         $mult = pow(10, abs($places)); 
         $min = $places < 0 ? floor($min / $mult) * $mult : floor($min * $mult) / $mult;
         $max = max($max,10);
-        
+        if($min<10) $min=0;
         $this->assigns->chartData = $chartData;
         $this->assigns->max = $max;
         $this->assigns->min = $min;
@@ -164,7 +164,7 @@ class chart extends CP_Controller {
         $mult = pow(10, abs($places)); 
         $min = $places < 0 ? floor($min / $mult) * $mult : floor($min * $mult) / $mult;
         $max = max($max,10);
-        // $min = min($min,0);
+        if($min<10) $min=0;
         $this->assigns->chartData = $chartData;
         $this->assigns->max = $max;
         $this->assigns->min = $min;

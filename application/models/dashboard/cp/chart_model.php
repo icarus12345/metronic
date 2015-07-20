@@ -6,7 +6,8 @@ class chart_model extends Core_Model {
         parent::__construct('_chart','chart_','id');
     }
     function getDayDataOfRow($table,$row,$start,$end,$type=null){
-    	$this->db->where("chart_row", $row);
+        if($row!=0)
+    	   $this->db->where("chart_row", $row);
     	return $this->getDayData($table,$start,$end,$type);
     }
     function getDayData($table,$start,$end,$type=null){
@@ -25,7 +26,8 @@ class chart_model extends Core_Model {
         return $query->result();
     }
     function getMonthDataOfRow($table,$row,$start,$end,$type=null){
-        $this->db->where("chart_row", $row);
+        if($row!=0)
+           $this->db->where("chart_row", $row);
         return $this->getMonthData($table,$start,$end,$type);
     }
     function getMonthData($table,$start,$end,$type=null){
