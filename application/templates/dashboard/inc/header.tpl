@@ -20,7 +20,9 @@
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
 			<a href="/dashboard">
-				<img src="/libraries/metronic/theme/assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
+				<div style="margin: 12px 0 0 0;line-height:20px;font-size:17px;display:inline-block;font-family:'Century Gothic','Muli'">
+					<span style="color:#d64635">CPANEL</span> <span style="color: gray">1109</span>
+				</div>
 			</a>
 			<div class="menu-toggler sidebar-toggler hide">
 				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->

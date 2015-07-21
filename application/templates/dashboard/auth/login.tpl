@@ -7,7 +7,7 @@
 	<!-- BEGIN HEAD -->
 	<head>
 		<meta charset="utf-8"/>
-		<title>Metronic | Login Options</title>
+		<title>CPANEL - 1109 | Login Options</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1.0" name="viewport"/>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -43,7 +43,9 @@
 		<!-- BEGIN LOGO -->
 		<div class="logo">
 			<a href="index.html">
-				<img src="/libraries/metronic/theme/assets/admin/layout/img/logo-big.png" alt=""/>
+				<div style="margin: 12px 0 0 0;line-height:20px;font-size:17px;display:inline-block;font-family:'Century Gothic','Muli'">
+					<span style="color:#d64635">CPANEL</span> <span style="color: gray">1109</span>
+				</div>
 			</a>
 		</div>
 		<!-- END LOGO -->
