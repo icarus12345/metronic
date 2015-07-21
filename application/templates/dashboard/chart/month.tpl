@@ -114,9 +114,9 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="JavaScript:" onclick="myChart.openWeekChart('[{$table}]','[{$row}]','[{$date}]','[{$foo->chart_type}]')" >Week</a></li>
-                        <li><a href="JavaScript:" onclick="myChart.openMonthChart('[{$table}]','[{$row}]','[{$date}]','[{$foo->chart_type}]')" >Month</a></li>
-                        <li><a href="JavaScript:" onclick="myChart.openYearChart('[{$table}]','[{$row}]','[{$date}]','[{$foo->chart_type}]')" >Year</a></li>
+                        <li><a href="JavaScript:" onclick="myChart.openWeekChart('[{$table}]','[{$row}]','[{$date}]','[{$type}]')" >Week</a></li>
+                        <li><a href="JavaScript:" onclick="myChart.openMonthChart('[{$table}]','[{$row}]','[{$date}]','[{$type}]')" >Month</a></li>
+                        <li><a href="JavaScript:" onclick="myChart.openYearChart('[{$table}]','[{$row}]','[{$date}]','[{$type}]')" >Year</a></li>
                     </ul>
                 </div>
             </div>

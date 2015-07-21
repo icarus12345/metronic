@@ -125,6 +125,20 @@ class product extends CP_Controller {
         }
     }
     function getCake($start=0){
+        $aData = $this->product_model->onGets();
+        foreach ($aData as $oRow) {
+            $nView = rand(7,14);
+            $this->db
+                ->where('product_id',$oRow->product_id)
+                ->update('_product',array('product_view'=>$oRow->product_view+$nView));
+            $this->db->insert('_chart',array(
+                'chart_count'=>$nView,
+                'chart_table'=>'_product',
+                'chart_insert'=>date('Y-m-d H:i:s'),
+                'chart_row'=>$oRow->product_id,
+                'chart_type'=>'View'
+            ));
+        }
         return;
         require(APPPATH . 'libraries/simple_html_dom.php');
         $perpage = 15;

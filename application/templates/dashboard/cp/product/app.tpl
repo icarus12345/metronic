@@ -349,8 +349,8 @@ var APP = function() {
             if($.jqx.mobile.isTouchDevice() && event.args.originalEvent.type=='touchend' && event.args.datafield=='[{$frefix}]id') 
                 openContextMenu = true;
             if(rowIndex>=0){
-                $(me.jqxgrid).jqxGrid('selectcell', rowIndex,event.args.datafield);
                 if (openContextMenu) {
+                    $(me.jqxgrid).jqxGrid('selectcell', rowIndex,event.args.datafield);
                     var scrollTop = $(window).scrollTop();
                     var scrollLeft = $(window).scrollLeft();
                     var menuWidth = me._contextMenu.width();
