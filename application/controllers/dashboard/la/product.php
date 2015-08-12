@@ -7,7 +7,9 @@ class product extends CP_Controller {
         $this->load->model('dashboard/la/lang_model');
         $this->load->model('dashboard/la/category_model');
         $this->load->model('dashboard/la/product_model');
+        $this->load->model('dashboard/la/alias_model');
         $this->assigns->aLang = $this->lang_model->getLanguage();
+        
     }
     function index(){
 
@@ -56,6 +58,31 @@ class product extends CP_Controller {
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));
         
+    }
+    function beforeinsert(){
+        $aParams = $this->input->get_post('Params');
+        $sType = $aParams['product_type'];
+        $sCode = $aParams['product_code'];
+        $aLang = $this->product_model->ArrayToList($this->assigns->aLang,'lang_short');
+        foreach ($aParams['als_alias'] as $sLang => $sAlias) {
+            $this->db
+                    ->where('als_lang',$sLang);
+            $tmp = $this->product_model->getProductByAlias($sAlias);
+            if($tmp){
+                $sLangTitle = $aLang[$sLang]->lang_name;
+                $aMsg[] ="Alias[$sLangTitle] is exists.";
+            }
+        }
+        $oProduct = $this->product_model->getProductByCode($sCode);
+        if($oProduct){
+            $aMsg[] ="CODE is exists.";
+        }
+        if($aMsg){
+            $output["result"] = -1;
+            $output["message"] = implode("<br/>", $aMsg);
+            echo json_encode($output);
+            die;
+        }
     }
     function oninsert() {
         $this->beforeinsert();
@@ -129,6 +156,40 @@ class product extends CP_Controller {
         }
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));
+    }
+    function beforeupdate(){
+        $aParams = $this->input->get_post('Params');
+        $sType = $aParams['product_type'];
+        $sCode = $aParams['product_code'];
+        $Id = $this->input->post('Id');
+        $oProduct = $this->product_model->getProductById($Id);
+        if($oProduct){
+            $sToken = $oProduct->product_token;
+            $aLang = $this->product_model->ArrayToList($this->assigns->aLang,'lang_short');
+            foreach ($aParams['als_alias'] as $sLang => $sAlias) {
+                $this->db
+                    ->where('als_lang',$sLang)
+                    ->where('als_token <>',$sToken);
+                $tmp = $this->product_model->getProductByAlias($sAlias);
+                if($tmp){
+                    $sLangTitle = $aLang[$sLang]->lang_name;
+                    $aMsg[] ="Alias[$sLangTitle] is exists.";
+                }
+            }
+            $this->db->where('product_id <>',$Id);
+            $oProduct = $this->product_model->getProductByCode($sCode);
+            if($oProduct){
+                $aMsg[] ="CODE is exists.";
+            }
+        }else{
+            $aMsg[] ="Product is not exists.";
+        }
+        if($aMsg){
+            $output["result"] = -1;
+            $output["message"] = implode("<br/>", $aMsg);
+            echo json_encode($output);
+            die;
+        }
     }
     function onupdate() {
         $this->beforeupdate();

@@ -11,7 +11,9 @@ class lang_model extends Core_Model {
             ->where('lang_status','true')
             ->order_by('lang_insert','ASC')
             ->get(); 
-        return $query->result();
+        $aLang = $query->result();
+        // $aLang = $this->ArrayToList($aLang,'lang_short');
+        return $aLang;
     }
     function getTitleByToken($token=''){
         $query=$this->db
