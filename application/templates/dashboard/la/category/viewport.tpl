@@ -81,6 +81,9 @@
                             <div class="modal-header">
                                 <h4>Category List</h4>
                                 <ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
+                                    <!-- <li>
+                                        <a href="#" title="Change Language" onclick=""><i class="fa fa-language"></i></a>
+                                    </li> -->
                                     <li>
                                         <a href="JavaScript:myApp.addItem()" title="Add Item" onclick=""><i class="fa fa-plus"></i></a>
                                     </li>
@@ -90,10 +93,33 @@
                                     <li>
                                         <a href="JavaScript:myApp.setting()" title="Setting" onclick=""><i class="fa fa-cogs"></i></a>
                                     </li>
+                                    <li>
+                                    <span class="dropdown">
+                                      <a
+                                        title="Change Language" 
+                                        class=" dropdown-toggle" type="button" 
+                                        id="dropdownMenuLangSetting" 
+                                        data-toggle="dropdown" 
+                                        aria-haspopup="true" 
+                                        aria-expanded="true">
+                                        <i class="fa fa-language"></i>
+                                      </a>
+                                      <ul class="dropdown-menu pull-right " aria-labelledby="dropdownMenuLangSetting">
+                                        [{foreach $aLang 'la'}]
+                                        <li><a 
+                                                class="text-right" 
+                                                href="JavaScript:" 
+                                                onclick="myApp.changeLang('[{$la->lang_short}]')">[{$la->lang_name}]</a></li>
+                                        [{/foreach}]
+                                      </ul>
+                                    </span>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="">
-                                <div id="entry-setting" style="display:none"><div id="jqxListBoxSetting" style="height:200px"></div></div>
+                                <div id="entry-setting" style="display:none">
+                                    <div id="jqxListBoxSetting" style="height:200px"></div>
+                                </div>
                                 <div style="height:400px;position:relative">
                                     <div id= "jqwidget-entry-list" style="border:0"></div>
                                 </div>

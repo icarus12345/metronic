@@ -20,6 +20,18 @@ class product extends CP_Controller {
     function index(){
 
     }
+    function imageCheck($img=''){
+        //$img=$this->input->post('img');
+        $product = $this->product_model->onGetByThumb($img);
+        if($product){
+            $output["product"] = $product;    
+        }
+        $output["result"] = 1;
+        $output["message"]='SUCCESS !';
+        $output["htmlreponse"]=$htmlreponse;
+        $this->output->set_header('Content-type: application/json');
+        $this->output->set_output(json_encode($output));
+    }
     function viewport($unit='00000',$type=''){
         $this->setAction($unit);
         $this->assigns->type = $type;

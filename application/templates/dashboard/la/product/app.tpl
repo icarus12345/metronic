@@ -255,7 +255,7 @@ var APP = function() {
             			me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'false'}, entryId, me.onRefresh);
                     }else if(action == 'chart'){
                         var chart_title = "Chart of "+rowData.[{$frefix}]title;
-                        myChart.openWeekChart('_product',entryId,'[{date('Y-m-d')}]','View',chart_title);
+                        myChart.openWeekChart('lang_product',entryId,'[{date('Y-m-d')}]','View',chart_title);
 	                }else{
 	                    addNotice("Function is updating !",'warning');
 	                }

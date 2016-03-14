@@ -18,7 +18,7 @@
             <input type="hidden" name="cat_type" id="cat_type" 
                 value="[{$item->cat_type|default:$type|default:''}]"/>
             <div class="row half">
-                <div class="col-mb-6 half">
+                <div class="col-mb-12 half">
                     <div class="pull-bottom control-group">
                         <div>
                             Title :(*)
@@ -47,6 +47,7 @@
                                     placeholder="Title - [{$la->lang_name}]"
                                     name="ti_title[[{$la->lang_short}]]"
                                     data-prompt-position="topLeft:0,20"
+                                    data-putto="#err_title"
                                     value="[{$item->aTitle[$la->lang_short]|escape:'html'|default:''}]"
                                     [{if $item->cat_lock!='true'}]
                                     onblur="AliasTo(this,'#entryForm input[name=\'als_alias[[{$la->lang_short}]]\']')" 
@@ -59,9 +60,10 @@
                             </div>
                             [{/foreach}]
                         </div>
+                        <div id="err_title"></div>
                     </div>
                 </div>
-                <div class="col-mb-6 half">
+                <div class="col-mb-12 half">
                     <div class="pull-bottom control-group">
                         <div>Parent :(*)</div>
                         
@@ -169,10 +171,12 @@
                         
                 <div class="erb error_desc"></div>
             </div>
+            [{if $action.ispopup!=1}]
             <div class="control-group">
                 <button class="btn btn-default" type="button" onclick="myApp.onSave()">Save</button>
                 <button class="btn btn-default" type="button" onclick="myApp.onCancel()">Cancel</button>
             </div>
+            [{/if}]
         </form>
 [{if $action.ispopup!=1}]
     </div>

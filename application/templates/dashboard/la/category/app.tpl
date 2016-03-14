@@ -15,22 +15,12 @@ var APP = function() {
     this.entryCommitUri = '/dashboard/la/category/oncommit/';
     this.entryDeleteUri = '/dashboard/la/category/ondelete/';
     var me = this;
-    this.createGrid = function(){
-    	this._datafields = [
-	        {name: '[{$frefix}]id' 	, type: 'int'},
-	        {name: '[{$frefix}]title' 	},
-	        {name: '[{$frefix}]level' 	, type: 'int'},
-	        {name: '[{$frefix}]parent' , type: 'int'},
-	        {name: '[{$frefix}]status' , type: 'bool'},
-	        {name: '[{$frefix}]lock' , type: 'bool'},
-	        {name: '[{$frefix}]insert' , type: 'date'},
-	        {name: '[{$frefix}]update' , type: 'date'},
-	    ];
-	    this._source = {
+    this._getSource = function(){
+    	this._source = {
 	        datatype 	: "json",
 	        type 		: "POST",
 	        datafields 	: me._datafields,
-	        url 		: me.bindingUri + me.entryType,
+	        url 		: me.bindingUri + me.entryType + '/' +me.lang,
 	        id 			:'[{$frefix}]id',
 	        root 		: 'rows',
 			filter: function() {
@@ -45,6 +35,25 @@ var APP = function() {
 	            addNotice("<b>Status</b>:" + xhr.status + "<br/><b>ThrownError</b>:" + error + "<br/>",'error');
 	        }
 	    });
+    }
+    this.changeLang = function(lang){
+    	if(this.lang == lang) return;
+    	this.lang = lang;
+    	this._getSource();
+    	$(me.jqxgrid).jqxGrid({source: this._dataAdapter});
+    }
+    this.createGrid = function(){
+    	this._datafields = [
+	        {name: '[{$frefix}]id' 	, type: 'int'},
+	        {name: '[{$frefix}]title' 	},
+	        {name: '[{$frefix}]level' 	, type: 'int'},
+	        {name: '[{$frefix}]parent' , type: 'int'},
+	        {name: '[{$frefix}]status' , type: 'bool'},
+	        {name: '[{$frefix}]lock' , type: 'bool'},
+	        {name: '[{$frefix}]insert' , type: 'date'},
+	        {name: '[{$frefix}]update' , type: 'date'},
+	    ];
+	    this._getSource();
 	    this._columns = [
 	        {
 	            text: '', dataField: '[{$frefix}]id', width: 52, filterable: false, sortable: true,editable: false,
@@ -411,19 +420,18 @@ var APP = function() {
                         addNotice(rsdata.message,'error');
                     }else{
                         $('#entry-container').html(rsdata.htmlreponse);
-                        $('#entryForm').validationEngine({
-                            'scroll': false,
-                            'isPopup' : me.isEntryDialog>0,
-                            validateNonVisibleFields:true
-                        });
-                        $('#entryForm .selectpicker').selectpicker();
-                        $('#entryForm').validationEngine({'scroll': false});
                         if(me.isEntryDialog>0){
                         	showEntryDialog(Id==0?'Add Item':'Edit Item');
                         }else{
                         	$('#entry-container').show();
                         	$('#entry-list').hide();
                         }
+                        $('#entryForm').validationEngine({
+                            'scroll': false,
+                            'isPopup' : me.isEntryDialog>0,
+                            validateNonVisibleFields: true
+                        });
+                        $('#entryForm .selectpicker').selectpicker();
                         // $( "#sortable" ).sortable({placeholder: "ui-state-highlight"});
                         // $( "#sortable" ).disableSelection();
                     }
@@ -508,7 +516,7 @@ var APP = function() {
     this.setting = function(){
     	uidialog({
             'message' : $('#entry-setting'),
-            'title': 'Setting Column',
+            'title': 'Columns Setting',
             'dialogClass':'metronic-modal',
             'width':'240px',
             'type':'notice',
@@ -521,4 +529,5 @@ var APP = function() {
             }]
         }).open();
     };
+
 };

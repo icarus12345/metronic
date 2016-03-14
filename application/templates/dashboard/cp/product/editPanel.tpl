@@ -61,7 +61,7 @@
                     <div class="row half">
                         <div class="col-mb-6 half">
                             <div class="pull-bottom control-group">
-                                <div>Image :(*)</div>
+                                <div>Image :(*) <a href="JavaScript:myApp.ImageCheck()" class="code">Check Image</a></div>
                                 <div class="input-append">
                                     <input type="text" 
                                         class="form-control validate[required,maxSize[255]]"
@@ -81,7 +81,7 @@
                                         <i class="fa fa-image"></i>
                                     </span>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                         <div class="col-mb-6 half">
                             <div class="pull-bottom control-group">

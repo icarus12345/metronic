@@ -710,4 +710,19 @@ var APP = function() {
             }]
         }).open();
     };
+    this.ImageCheck = function(){
+        httpRequest({
+            'url': '/dashboard/cp/product/imageCheck',
+            'data': {
+                'img': $('#product_thumb').val()
+            },
+            'callback': function(rsdata) {
+                if (rsdata.result < 0) {
+                    addNotice(rsdata.message,'error');
+                } else {
+                    addNotice(rsdata.message,'success');
+                }
+            }
+        }).call();
+    }
 };

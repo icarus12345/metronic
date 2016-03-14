@@ -18,7 +18,7 @@
             <input type="hidden" name="cat_type" id="cat_type" 
                 value="[{$item->cat_type|default:$type|default:''}]"/>
             <div class="row half">
-                <div class="col-mb-6 half">
+                <div class="col-mb-12 half">
                     <div class="pull-bottom control-group">
                         <div>
                             Title :(*)
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-mb-6 half">
+                <div class="col-mb-12 half">
                     <div class="pull-bottom control-group">
                         <div>Parent :(*)</div>
                         

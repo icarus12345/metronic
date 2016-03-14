@@ -166,6 +166,7 @@ class product extends CP_Controller {
         if($oProduct){
             $sToken = $oProduct->product_token;
             $aLang = $this->product_model->ArrayToList($this->assigns->aLang,'lang_short');
+            if($aParams['als_alias'])
             foreach ($aParams['als_alias'] as $sLang => $sAlias) {
                 $this->db
                     ->where('als_lang',$sLang)
@@ -356,6 +357,7 @@ class product extends CP_Controller {
                 SELECT SQL_CALC_FOUND_ROWS 
                     {$this->table}.{$this->prefix}id,
                     {$this->table}.{$this->prefix}code,
+                    {$this->table}.{$this->prefix}thumb,
                     {$this->table}.{$this->prefix}category,
                     {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,

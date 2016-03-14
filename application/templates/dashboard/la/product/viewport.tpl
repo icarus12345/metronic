@@ -31,7 +31,7 @@
                         <link href='/libraries/jqwidgets/styles/jqx.metro.css' rel='stylesheet' type='text/css'>
                         <script type="text/javascript" src="/libraries/jqwidgets/jqx-all.js"></script>
                         <script type="text/javascript" src="/dashboard/la/product/loadscript/app/[{$unit}]"></script>
-                        <script type="text/javascript" src="/dashboard/la/chart/app/"></script>
+                        <script type="text/javascript" src="/dashboard/cp/chart/app/"></script>
                         <script type="text/javascript">
                             var myApp;
                             $(document).ready(function(){
