@@ -15,10 +15,10 @@ class home extends CI_Controller {
       <div class="wheel-wrap">
         <img class="wheel" src="/assets/spin/whell.png" />
         <img class="marker" src="/assets/spin/marker.png" />
-    </div>
+      </div>
     	<script type="text/javascript">
-      		$(document).ready(function(){
-            var angle = 0
+    		$(document).ready(function(){
+                var angle = 0
       			$('#spin').click(function(){
       				angle += 222;
       				$('#spin').rotate({
@@ -31,11 +31,11 @@ class home extends CI_Controller {
       					
       				});
       			});
-            window.WHEELOFFORTUNE = {
+                window.WHEELOFFORTUNE = {
 
-              cache: {},
+                cache: {},
 
-              init: function () {
+                init: function () {
                   console.log('controller init...');
 
                   var _this = this;
@@ -56,9 +56,9 @@ class home extends CI_Controller {
 
                   //setup prize events
                   // this.prizeEvents();
-              },
+                },
 
-              spin: function (index) {
+                spin: function (index) {
                   console.log('spinning wheel');
 
                   var _this = this;
@@ -73,7 +73,7 @@ class home extends CI_Controller {
                       Wheel has 10 sections.
                       Each section is 360/10 = 36deg.
                   */
-                  var deg = 360*6 + 360/16* (index||0)+1;//Math.round(Math.random() * 360),
+                  var deg = 360*6 + 360/16* ((index||0)+.5);//Math.round(Math.random() * 360),
                       duration = 6000; //optimal 6 secs
 
                   _this.cache.wheelPos = deg;
@@ -125,18 +125,18 @@ class home extends CI_Controller {
 
                   }, duration);
 
-              },
+                },
 
-              resetSpin: function () {
+                resetSpin: function () {
                   this.cache.wheel.transition({
                       rotate: '0deg'
                   }, 0);
                   this.cache.wheelPos = 0;
               }
 
-          }
+            }
 
-          window.WHEELOFFORTUNE.init();
+                window.WHEELOFFORTUNE.init();
     		});
 		</script>
     	<?php
