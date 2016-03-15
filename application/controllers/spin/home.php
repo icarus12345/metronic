@@ -7,9 +7,27 @@ class home extends CI_Controller {
     }
     function index(){
     	?>
-    	<script src="/libraries/metronic/theme/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    	<script src="https://raw.githubusercontent.com/wilq32/jqueryrotate/master/jQueryRotate.js"></script>
-    	
+    	<script src="/assets/spin/jquery-2.1.4.min.js"></script>
+    	<script src="/assets/spin/jQueryRotate.js"></script>
+    	<script src="/assets/spin/jquery.easing.min.js"></script>
+    	<img id="spin" src="/assets/spin/01.png" />
+    	<script type="text/javascript">
+      		$(document).ready(function(){
+      			$('#spin').click(function(){
+      				console.log('spin')
+      				$('#spin').rotate({
+      					animateTo:360*3,
+      					duration:6000,
+      					// count:4,  easing:'ease-out',
+      					callback: function(){   
+      						alert(1)  
+      					}
+      					
+      				});
+      			});
+
+    		});
+		</script>
     	<?php
     }
     function spin(){
