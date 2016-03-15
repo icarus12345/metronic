@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
+Source Server         : MySQL
 Source Server Version : 50616
 Source Host           : localhost:3306
 Source Database       : metronic
@@ -10,12 +10,439 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2015-07-21 13:32:12
+Date: 2016-03-15 16:42:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
 -- ----------------------------
--- Table structure for `_album`
+-- Table structure for auth_users
+-- ----------------------------
+DROP TABLE IF EXISTS `auth_users`;
+CREATE TABLE `auth_users` (
+  `ause_id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `ause_key` varchar(32) NOT NULL,
+  `ause_group` smallint(6) DEFAULT NULL,
+  `ause_name` varchar(100) NOT NULL,
+  `ause_username` varchar(50) NOT NULL,
+  `ause_email` varchar(50) NOT NULL,
+  `ause_secretkey` varchar(52) NOT NULL,
+  `ause_salt` varchar(32) NOT NULL,
+  `ause_password` varchar(32) NOT NULL,
+  `ause_position` smallint(6) NOT NULL,
+  `ause_status` varchar(10) DEFAULT 'false',
+  `ause_insert` datetime NOT NULL,
+  `ause_update` datetime DEFAULT NULL,
+  `ause_delete` datetime DEFAULT NULL,
+  `ause_picture` varchar(120) DEFAULT NULL,
+  `ause_authority` varchar(20) DEFAULT NULL,
+  `ause_lastlogin` datetime DEFAULT NULL,
+  PRIMARY KEY (`ause_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10025 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of auth_users
+-- ----------------------------
+INSERT INTO `auth_users` VALUES ('10001', 'V9ZXr6Uw', '10002', 'Trường Khương', 'khuongxuantruong@gmail.com', 'khuongxuantruong@gmail.com', '7PtY3oAdRdK6P7YncnroQ2KLnLoPjrnW', 'FA04iw9qhWlT', '27d168e16f3cafbdd8c5f0c1be19608e', '1', 'true', '2013-04-02 16:43:42', '2014-12-12 09:58:06', null, 'https://lh5.googleusercontent.com/-WAMgTlfd5og/AAAAAAAAAAI/AAAAAAAAAP0/b0LCEJbexS4/photo.jpg', 'Administrator', '2013-04-08 10:01:04');
+INSERT INTO `auth_users` VALUES ('10018', 'QOEb1vsc', null, 'Admin', 'admin', 'Admin@gmail.com', 'qBKh4pA07aiU4WNbLCHLjhzpaFnjWXYP', '7PrSkIXh', '0903ce30d609ba18172fc0605c2848c2', '2', 'true', '2014-12-11 23:01:35', '2014-12-12 05:07:50', null, null, 'Admin', null);
+INSERT INTO `auth_users` VALUES ('10020', 'h8ovaLKc', null, 'View', 'View', 'View@gmail.com', 'PMvaAlFujxu8GZvKzLPIjQOaCu4Eba5y', 'g5AVZC8K', '477b560f0f16773d3348ae9711052ba9', '2', 'false', '2014-12-12 08:31:32', '2015-07-04 22:09:45', null, null, 'View', null);
+
+-- ----------------------------
+-- Table structure for languages
+-- ----------------------------
+DROP TABLE IF EXISTS `languages`;
+CREATE TABLE `languages` (
+  `lang_id` int(4) NOT NULL AUTO_INCREMENT,
+  `lang_name` varchar(255) DEFAULT NULL,
+  `lang_short` varchar(10) DEFAULT NULL,
+  `lang_insert` datetime DEFAULT NULL,
+  `lang_update` datetime DEFAULT NULL,
+  `lang_status` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`lang_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of languages
+-- ----------------------------
+INSERT INTO `languages` VALUES ('1', 'English', 'en', null, null, 'true');
+INSERT INTO `languages` VALUES ('2', 'German', 'de', null, '2015-07-31 11:15:08', 'false');
+INSERT INTO `languages` VALUES ('3', 'French', 'fr', null, '2015-07-21 10:17:32', 'false');
+INSERT INTO `languages` VALUES ('4', 'Dutch', 'nl', null, null, 'false');
+INSERT INTO `languages` VALUES ('5', 'Italian', 'it', null, null, 'false');
+INSERT INTO `languages` VALUES ('6', 'Spanish', 'es', null, null, 'false');
+INSERT INTO `languages` VALUES ('7', 'Polish', 'pl', null, null, 'false');
+INSERT INTO `languages` VALUES ('8', 'Russian', 'ru', null, null, 'false');
+INSERT INTO `languages` VALUES ('9', 'Japanese', 'ja', null, '2015-07-31 11:15:09', 'false');
+INSERT INTO `languages` VALUES ('10', 'Portuguese', 'pt', null, null, 'false');
+INSERT INTO `languages` VALUES ('11', 'Swedish', 'sv', null, null, 'false');
+INSERT INTO `languages` VALUES ('12', 'Chinese', 'zh', null, null, 'false');
+INSERT INTO `languages` VALUES ('13', 'Catalan', 'ca', null, null, 'false');
+INSERT INTO `languages` VALUES ('14', 'Ukrainian', 'uk', null, null, 'false');
+INSERT INTO `languages` VALUES ('15', 'Norwegian (Bokmål)', 'no', null, null, 'false');
+INSERT INTO `languages` VALUES ('16', 'Finnish', 'fi', null, null, 'false');
+INSERT INTO `languages` VALUES ('17', 'Vietnamese', 'vi', null, '2015-07-20 14:54:20', 'true');
+INSERT INTO `languages` VALUES ('18', 'Czech', 'cs', null, null, 'false');
+INSERT INTO `languages` VALUES ('19', 'Hungarian', 'hu', null, null, 'false');
+INSERT INTO `languages` VALUES ('20', 'Korean', 'ko', null, null, 'false');
+INSERT INTO `languages` VALUES ('21', 'Indonesian', 'id', null, null, 'false');
+INSERT INTO `languages` VALUES ('22', 'Turkish', 'tr', null, null, 'false');
+INSERT INTO `languages` VALUES ('23', 'Romanian', 'ro', null, null, 'false');
+INSERT INTO `languages` VALUES ('24', 'Persian', 'fa', null, null, 'false');
+INSERT INTO `languages` VALUES ('25', 'Arabic', 'ar', null, null, 'false');
+INSERT INTO `languages` VALUES ('26', 'Danish', 'da', null, null, 'false');
+INSERT INTO `languages` VALUES ('27', 'Esperanto', 'eo', null, null, 'false');
+INSERT INTO `languages` VALUES ('28', 'Serbian', 'sr', null, null, 'false');
+INSERT INTO `languages` VALUES ('29', 'Lithuanian', 'lt', null, null, 'false');
+INSERT INTO `languages` VALUES ('30', 'Slovak', 'sk', null, null, 'false');
+INSERT INTO `languages` VALUES ('31', 'Malay', 'ms', null, null, 'false');
+INSERT INTO `languages` VALUES ('32', 'Hebrew', 'he', null, null, 'false');
+INSERT INTO `languages` VALUES ('33', 'Bulgarian', 'bg', null, null, 'false');
+INSERT INTO `languages` VALUES ('34', 'Slovenian', 'sl', null, null, 'false');
+INSERT INTO `languages` VALUES ('35', 'Volapük', 'vo', null, null, 'false');
+INSERT INTO `languages` VALUES ('36', 'Kazakh', 'kk', null, null, 'false');
+INSERT INTO `languages` VALUES ('37', 'Waray-Waray', 'war', null, null, 'false');
+INSERT INTO `languages` VALUES ('38', 'Basque', 'eu', null, null, 'false');
+INSERT INTO `languages` VALUES ('39', 'Croatian', 'hr', null, null, 'false');
+INSERT INTO `languages` VALUES ('40', 'Hindi', 'hi', null, null, 'false');
+INSERT INTO `languages` VALUES ('41', 'Estonian', 'et', null, null, 'false');
+INSERT INTO `languages` VALUES ('42', 'Azerbaijani', 'az', null, null, 'false');
+INSERT INTO `languages` VALUES ('43', 'Galician', 'gl', null, null, 'false');
+INSERT INTO `languages` VALUES ('44', 'Simple English', 'simple', null, null, 'false');
+INSERT INTO `languages` VALUES ('45', 'Norwegian (Nynorsk)', 'nn', null, null, 'false');
+INSERT INTO `languages` VALUES ('46', 'Thai', 'th', null, null, 'false');
+INSERT INTO `languages` VALUES ('47', 'Newar / Nepal Bhasa', 'new', null, null, 'false');
+INSERT INTO `languages` VALUES ('48', 'Greek', 'el', null, null, 'false');
+INSERT INTO `languages` VALUES ('49', 'Aromanian', 'roa-rup', null, null, 'false');
+INSERT INTO `languages` VALUES ('50', 'Latin', 'la', null, null, 'false');
+INSERT INTO `languages` VALUES ('51', 'Occitan', 'oc', null, null, 'false');
+INSERT INTO `languages` VALUES ('52', 'Tagalog', 'tl', null, null, 'false');
+INSERT INTO `languages` VALUES ('53', 'Haitian', 'ht', null, null, 'false');
+INSERT INTO `languages` VALUES ('54', 'Macedonian', 'mk', null, null, 'false');
+INSERT INTO `languages` VALUES ('55', 'Georgian', 'ka', null, null, 'false');
+INSERT INTO `languages` VALUES ('56', 'Serbo-Croatian', 'sh', null, null, 'false');
+INSERT INTO `languages` VALUES ('57', 'Telugu', 'te', null, null, 'false');
+INSERT INTO `languages` VALUES ('58', 'Piedmontese', 'pms', null, null, 'false');
+INSERT INTO `languages` VALUES ('59', 'Cebuano', 'ceb', null, null, 'false');
+INSERT INTO `languages` VALUES ('60', 'Tamil', 'ta', null, null, 'false');
+INSERT INTO `languages` VALUES ('61', 'Belarusian (Taraškievica)', 'be-x-old', null, null, 'false');
+INSERT INTO `languages` VALUES ('62', 'Breton', 'br', null, null, 'false');
+INSERT INTO `languages` VALUES ('63', 'Latvian', 'lv', null, null, 'false');
+INSERT INTO `languages` VALUES ('64', 'Javanese', 'jv', null, null, 'false');
+INSERT INTO `languages` VALUES ('65', 'Albanian', 'sq', null, null, 'false');
+INSERT INTO `languages` VALUES ('66', 'Belarusian', 'be', null, null, 'false');
+INSERT INTO `languages` VALUES ('67', 'Marathi', 'mr', null, null, 'false');
+INSERT INTO `languages` VALUES ('68', 'Welsh', 'cy', null, null, 'false');
+INSERT INTO `languages` VALUES ('69', 'Luxembourgish', 'lb', null, null, 'false');
+INSERT INTO `languages` VALUES ('70', 'Icelandic', 'is', null, null, 'false');
+INSERT INTO `languages` VALUES ('71', 'Bosnian', 'bs', null, null, 'false');
+INSERT INTO `languages` VALUES ('72', 'Yoruba', 'yo', null, null, 'false');
+INSERT INTO `languages` VALUES ('73', 'Malagasy', 'mg', null, null, 'false');
+INSERT INTO `languages` VALUES ('74', 'Aragonese', 'an', null, null, 'false');
+INSERT INTO `languages` VALUES ('75', 'Bishnupriya Manipuri', 'bpy', null, null, 'false');
+INSERT INTO `languages` VALUES ('76', 'Lombard', 'lmo', null, null, 'false');
+INSERT INTO `languages` VALUES ('77', 'West Frisian', 'fy', null, null, 'false');
+INSERT INTO `languages` VALUES ('78', 'Bengali', 'bn', null, null, 'false');
+INSERT INTO `languages` VALUES ('79', 'Ido', 'io', null, null, 'false');
+INSERT INTO `languages` VALUES ('80', 'Swahili', 'sw', null, null, 'false');
+INSERT INTO `languages` VALUES ('81', 'Gujarati', 'gu', null, null, 'false');
+INSERT INTO `languages` VALUES ('82', 'Malayalam', 'ml', null, null, 'false');
+INSERT INTO `languages` VALUES ('83', 'Western Panjabi', 'pnb', null, null, 'false');
+INSERT INTO `languages` VALUES ('84', 'Afrikaans', 'af', null, null, 'false');
+INSERT INTO `languages` VALUES ('85', 'Low Saxon', 'nds', null, null, 'false');
+INSERT INTO `languages` VALUES ('86', 'Sicilian', 'scn', null, null, 'false');
+INSERT INTO `languages` VALUES ('87', 'Urdu', 'ur', null, null, 'false');
+INSERT INTO `languages` VALUES ('88', 'Kurdish', 'ku', null, null, 'false');
+INSERT INTO `languages` VALUES ('89', 'Cantonese', 'zh-yue', null, null, 'false');
+INSERT INTO `languages` VALUES ('90', 'Armenian', 'hy', null, null, 'false');
+INSERT INTO `languages` VALUES ('91', 'Quechua', 'qu', null, null, 'false');
+INSERT INTO `languages` VALUES ('92', 'Sundanese', 'su', null, null, 'false');
+INSERT INTO `languages` VALUES ('93', 'Nepali', 'ne', null, null, 'false');
+INSERT INTO `languages` VALUES ('94', 'Zazaki', 'diq', null, null, 'false');
+INSERT INTO `languages` VALUES ('95', 'Asturian', 'ast', null, null, 'false');
+INSERT INTO `languages` VALUES ('96', 'Tatar', 'tt', null, null, 'false');
+INSERT INTO `languages` VALUES ('97', 'Neapolitan', 'nap', null, null, 'false');
+INSERT INTO `languages` VALUES ('98', 'Irish', 'ga', null, null, 'false');
+INSERT INTO `languages` VALUES ('99', 'Chuvash', 'cv', null, null, 'false');
+INSERT INTO `languages` VALUES ('100', 'Samogitian', 'bat-smg', null, null, 'false');
+INSERT INTO `languages` VALUES ('101', 'Walloon', 'wa', null, null, 'false');
+INSERT INTO `languages` VALUES ('102', 'Amharic', 'am', null, null, 'false');
+INSERT INTO `languages` VALUES ('103', 'Kannada', 'kn', null, null, 'false');
+INSERT INTO `languages` VALUES ('104', 'Alemannic', 'als', null, null, 'false');
+INSERT INTO `languages` VALUES ('105', 'Buginese', 'bug', null, null, 'false');
+INSERT INTO `languages` VALUES ('106', 'Burmese', 'my', null, null, 'false');
+INSERT INTO `languages` VALUES ('107', 'Interlingua', 'ia', null, null, 'false');
+
+-- ----------------------------
+-- Table structure for lang_alias
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_alias`;
+CREATE TABLE `lang_alias` (
+  `als_id` int(11) NOT NULL AUTO_INCREMENT,
+  `als_alias` varchar(255) DEFAULT NULL,
+  `als_lang` varchar(10) DEFAULT NULL,
+  `als_token` varchar(255) DEFAULT NULL,
+  `als_insert` datetime DEFAULT NULL,
+  `als_update` datetime DEFAULT NULL,
+  `als_type` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`als_id`),
+  UNIQUE KEY `_title_lang` (`als_lang`,`als_token`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of lang_alias
+-- ----------------------------
+INSERT INTO `lang_alias` VALUES ('1', 'material', 'en', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('2', 'nguyen-lieu', 'vi', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('3', 'cake-mold', 'en', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('4', 'khuon-khay', 'vi', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('5', 'tools', 'en', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('6', 'dung-cu', 'vi', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('7', 'dede', 'de', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
+INSERT INTO `lang_alias` VALUES ('8', 'frfrfr', 'fr', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
+INSERT INTO `lang_alias` VALUES ('9', 'marry-cake', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('10', 'banh-cuoi', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('21', 'birthday-cake', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('22', 'banh-sinh-nhat', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('27', 'the-powder', 'en', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('28', 'cac-loai-bot', 'vi', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('29', 'ready-mixed-powder', 'en', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('30', 'bot-tron-san', 'vi', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('31', 'additives-spice', 'en', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('32', 'phu-gia-huong-lieu', 'vi', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('37', 'packaging', 'en', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('38', 'bao-bi', 'vi', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('39', 'equipments', 'en', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('40', 'thiet-bi', 'vi', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
+
+-- ----------------------------
+-- Table structure for lang_category
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_category`;
+CREATE TABLE `lang_category` (
+  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_thumb` varchar(255) DEFAULT NULL,
+  `cat_image` varchar(255) DEFAULT NULL,
+  `cat_cover` varchar(255) DEFAULT NULL,
+  `cat_parent` int(11) NOT NULL DEFAULT '0',
+  `cat_status` varchar(5) NOT NULL DEFAULT 'true',
+  `cat_position` int(4) NOT NULL,
+  `cat_link` varchar(255) NOT NULL,
+  `cat_type` varchar(50) NOT NULL DEFAULT 'Web',
+  `cat_insert` datetime DEFAULT NULL,
+  `cat_update` datetime DEFAULT NULL,
+  `cat_lock` varchar(5) DEFAULT NULL,
+  `cat_value` varchar(255) DEFAULT NULL,
+  `cat_token` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of lang_category
+-- ----------------------------
+INSERT INTO `lang_category` VALUES ('1', '/data/image/ILoveYouThisMuch-90421.jpg', null, null, '0', 'true', '0', '', 'cake', '2015-07-20 15:11:37', '2016-03-14 10:10:28', null, '>1', 'a13415493f3ce8a05a0aa36895377235');
+INSERT INTO `lang_category` VALUES ('2', '', null, null, '0', 'true', '0', '', 'cake', '2015-07-20 15:12:00', '2016-03-14 11:25:35', null, '>2', '86b387e10308c39782a524a10ac15f45');
+INSERT INTO `lang_category` VALUES ('3', '', null, null, '0', 'true', '0', '', 'cake', '2015-07-20 15:16:32', '2016-03-14 11:27:45', null, '>3', 'd5be6c61fe5d4ed45cf08067a53a037d');
+INSERT INTO `lang_category` VALUES ('8', '', null, null, '0', 'true', '0', '', 'cake', '2016-03-14 11:28:29', null, null, '>8', '5bd6ea058447791bb81028d3e1bf76a1');
+INSERT INTO `lang_category` VALUES ('5', '', null, null, '1', 'true', '0', '', 'cake', '2016-03-14 09:58:03', '2016-03-14 10:04:04', null, '>1>5', '690435f750175022aec45a00a7f4c87f');
+INSERT INTO `lang_category` VALUES ('6', '', null, null, '1', 'true', '0', '', 'cake', '2016-03-14 10:06:53', null, null, '>1>6', 'a63da31c25eb1002839fc96d1effd4de');
+INSERT INTO `lang_category` VALUES ('7', '', null, null, '1', 'true', '0', '', 'cake', '2016-03-14 10:08:06', null, null, '>1>7', '89e6b18d941a36d529dbbc17cd523410');
+INSERT INTO `lang_category` VALUES ('9', '', null, null, '0', 'true', '0', '', 'cake', '2016-03-14 11:29:04', null, null, '>9', '2d82c0ce6ec298d8234797802fa04556');
+
+-- ----------------------------
+-- Table structure for lang_content
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_content`;
+CREATE TABLE `lang_content` (
+  `co_id` int(11) NOT NULL AUTO_INCREMENT,
+  `co_token` varchar(255) DEFAULT NULL,
+  `co_type` varchar(20) DEFAULT NULL,
+  `co_content` longtext,
+  `co_insert` datetime DEFAULT NULL,
+  `co_update` datetime DEFAULT NULL,
+  `co_lang` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`co_id`),
+  UNIQUE KEY `_content_lang` (`co_token`,`co_lang`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lang_content
+-- ----------------------------
+INSERT INTO `lang_content` VALUES ('1', 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake', 'updating', null, null, 'en');
+INSERT INTO `lang_content` VALUES ('2', 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake', 'cập nhật', null, null, 'vi');
+INSERT INTO `lang_content` VALUES ('3', '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', null, 'en');
+INSERT INTO `lang_content` VALUES ('4', '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', null, 'vi');
+
+-- ----------------------------
+-- Table structure for lang_data
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_data`;
+CREATE TABLE `lang_data` (
+  `data_id` int(11) NOT NULL AUTO_INCREMENT,
+  `data_data` text,
+  `data_token` varchar(32) DEFAULT NULL,
+  `data_insert` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `data_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `data_type` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`data_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lang_data
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for lang_desc
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_desc`;
+CREATE TABLE `lang_desc` (
+  `de_desc` text,
+  `de_lang` varchar(10) NOT NULL DEFAULT '',
+  `de_insert` datetime DEFAULT NULL,
+  `de_update` datetime DEFAULT NULL,
+  `de_token` varchar(255) NOT NULL DEFAULT '',
+  `de_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`de_lang`,`de_token`),
+  UNIQUE KEY `_desc_lang` (`de_lang`,`de_token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lang_desc
+-- ----------------------------
+INSERT INTO `lang_desc` VALUES ('dede', 'de', null, null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
+INSERT INTO `lang_desc` VALUES ('Equipments', 'en', '2016-03-14 11:29:04', null, '2d82c0ce6ec298d8234797802fa04556', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'en', '2015-07-21 11:18:35', null, '54760b5cd376fbc4868776f1f11a8a79', 'cake');
+INSERT INTO `lang_desc` VALUES ('Packaging', 'en', '2016-03-14 11:28:29', null, '5bd6ea058447791bb81028d3e1bf76a1', 'cake');
+INSERT INTO `lang_desc` VALUES ('The powder', 'en', '2016-03-14 09:58:03', null, '690435f750175022aec45a00a7f4c87f', 'cake');
+INSERT INTO `lang_desc` VALUES ('Cake mold', 'en', '2015-07-20 15:12:00', null, '86b387e10308c39782a524a10ac15f45', 'cake');
+INSERT INTO `lang_desc` VALUES ('Additives-Spice', 'en', '2016-03-14 10:08:06', null, '89e6b18d941a36d529dbbc17cd523410', 'cake');
+INSERT INTO `lang_desc` VALUES ('Material', 'en', '2015-07-20 15:11:37', null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
+INSERT INTO `lang_desc` VALUES ('Ready-mixed powder', 'en', '2016-03-14 10:06:53', null, 'a63da31c25eb1002839fc96d1effd4de', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'en', '2015-07-21 10:32:05', null, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake');
+INSERT INTO `lang_desc` VALUES ('Tools', 'en', '2015-07-20 15:16:32', null, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake');
+INSERT INTO `lang_desc` VALUES ('frfr', 'fr', null, null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
+INSERT INTO `lang_desc` VALUES ('Thiết bị', 'vi', '2016-03-14 11:29:04', null, '2d82c0ce6ec298d8234797802fa04556', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'vi', '2015-07-21 11:18:35', null, '54760b5cd376fbc4868776f1f11a8a79', 'cake');
+INSERT INTO `lang_desc` VALUES ('Bao bì', 'vi', '2016-03-14 11:28:29', null, '5bd6ea058447791bb81028d3e1bf76a1', 'cake');
+INSERT INTO `lang_desc` VALUES ('Các loại bột', 'vi', '2016-03-14 09:58:03', null, '690435f750175022aec45a00a7f4c87f', 'cake');
+INSERT INTO `lang_desc` VALUES ('Khuôn - Khay', 'vi', '2015-07-20 15:12:00', null, '86b387e10308c39782a524a10ac15f45', 'cake');
+INSERT INTO `lang_desc` VALUES ('Phụ gia-Hương liệu', 'vi', '2016-03-14 10:08:06', null, '89e6b18d941a36d529dbbc17cd523410', 'cake');
+INSERT INTO `lang_desc` VALUES ('Nguyên Liệu', 'vi', '2015-07-20 15:11:37', null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
+INSERT INTO `lang_desc` VALUES ('bột trộn sẵn', 'vi', '2016-03-14 10:06:53', null, 'a63da31c25eb1002839fc96d1effd4de', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'vi', '2015-07-21 10:32:05', null, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake');
+INSERT INTO `lang_desc` VALUES ('Dụng cụ', 'vi', '2015-07-20 15:16:32', null, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake');
+
+-- ----------------------------
+-- Table structure for lang_price
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_price`;
+CREATE TABLE `lang_price` (
+  `pri_price` varchar(20) DEFAULT NULL,
+  `pri_lang` varchar(10) NOT NULL DEFAULT '',
+  `pri_insert` datetime DEFAULT NULL,
+  `pri_update` datetime DEFAULT NULL,
+  `pri_token` varchar(255) NOT NULL DEFAULT '',
+  `pri_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`pri_lang`,`pri_token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of lang_price
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for lang_product
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_product`;
+CREATE TABLE `lang_product` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_code` varchar(32) DEFAULT NULL,
+  `product_thumb` varchar(255) DEFAULT NULL,
+  `product_cover` varchar(255) DEFAULT NULL,
+  `product_position` int(3) DEFAULT NULL,
+  `product_status` varchar(5) DEFAULT NULL,
+  `product_type` varchar(100) DEFAULT NULL,
+  `product_insert` datetime DEFAULT NULL,
+  `product_update` datetime DEFAULT NULL,
+  `product_category` int(11) DEFAULT NULL,
+  `product_images` text,
+  `product_token` varchar(32) DEFAULT NULL,
+  `product_view` int(11) DEFAULT '0',
+  `product_lock` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of lang_product
+-- ----------------------------
+INSERT INTO `lang_product` VALUES ('1', 'MC01', '/data/image/ILoveYouThisMuch-90421.jpg', null, null, 'true', 'cake', '2015-07-21 10:32:05', '2016-03-14 09:46:16', '3', '', 'b3ab7b1902fc1016af2a0372f02cdab9', '0', null);
+INSERT INTO `lang_product` VALUES ('4', 'BSK01', '/data/image/slider1.jpg', null, null, 'true', 'cake', '2015-07-21 11:18:35', '2015-07-22 09:50:46', '2', '', '54760b5cd376fbc4868776f1f11a8a79', '0', null);
+
+-- ----------------------------
+-- Table structure for lang_tag
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_tag`;
+CREATE TABLE `lang_tag` (
+  `tag_tag` varchar(255) DEFAULT NULL,
+  `tag_lang` varchar(10) NOT NULL DEFAULT '',
+  `tag_token` varchar(255) NOT NULL DEFAULT '',
+  `tag_insert` datetime DEFAULT NULL,
+  `tag_update` datetime DEFAULT NULL,
+  `tag_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`tag_lang`,`tag_token`),
+  UNIQUE KEY `_title_lang` (`tag_lang`,`tag_token`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of lang_tag
+-- ----------------------------
+INSERT INTO `lang_tag` VALUES ('', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
+INSERT INTO `lang_tag` VALUES ('', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+INSERT INTO `lang_tag` VALUES ('', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
+INSERT INTO `lang_tag` VALUES ('', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+
+-- ----------------------------
+-- Table structure for lang_title
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_title`;
+CREATE TABLE `lang_title` (
+  `ti_title` varchar(255) DEFAULT NULL,
+  `ti_lang` varchar(10) NOT NULL DEFAULT '',
+  `ti_token` varchar(255) NOT NULL DEFAULT '',
+  `ti_insert` datetime DEFAULT NULL,
+  `ti_update` datetime DEFAULT NULL,
+  `ti_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`ti_lang`,`ti_token`),
+  UNIQUE KEY `_title_lang` (`ti_lang`,`ti_token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lang_title
+-- ----------------------------
+INSERT INTO `lang_title` VALUES ('dêde', 'de', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
+INSERT INTO `lang_title` VALUES ('Equipments', 'en', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Birthday Cake', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Packaging', 'en', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', null, 'cake');
+INSERT INTO `lang_title` VALUES ('The powder', 'en', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Cake mold', 'en', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Additives-Spice', 'en', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Material', 'en', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Ready-mixed powder', 'en', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Marry Cake', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Tools', 'en', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
+INSERT INTO `lang_title` VALUES ('frfrfr', 'fr', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
+INSERT INTO `lang_title` VALUES ('Thiết bị', 'vi', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Bánh sinh nhật', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Bao bì', 'vi', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Các loại bột', 'vi', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Khuôn - Khay', 'vi', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Phụ gia-Hương liệu', 'vi', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Nguyên Liệu', 'vi', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Bột trộn sẵn', 'vi', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Bánh cưới', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Dụng cụ', 'vi', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
+
+-- ----------------------------
+-- Table structure for _album
 -- ----------------------------
 DROP TABLE IF EXISTS `_album`;
 CREATE TABLE `_album` (
@@ -43,7 +470,7 @@ CREATE TABLE `_album` (
 INSERT INTO `_album` VALUES ('1000', 'Những mẫu bánh đẹp nhất 2015', 'nhung-mau-banh-dep-nhat-2015', '/data/image/walle.jpg', null, '', null, 'true', 'acake', '2015-07-09 21:40:45', null, null, '/data/image/banh-cuoi.jpg\r\n/data/image/banh-cupcake.jpg\r\n/data/image/banh-sinh-nhat.jpg\r\n/data/image/banh-ve.jpg', '0', '');
 
 -- ----------------------------
--- Table structure for `_category`
+-- Table structure for _category
 -- ----------------------------
 DROP TABLE IF EXISTS `_category`;
 CREATE TABLE `_category` (
@@ -76,18 +503,18 @@ INSERT INTO `_category` VALUES ('46', 'Application', null, ' fa fa-bars', null, 
 INSERT INTO `_category` VALUES ('423', 'Cake', null, 'icon-handbag', null, null, '', '50', 'true', '2', '/dashboard/cp/product/viewport/111115/cake', 'cms', '2015-07-04 09:14:34', '2015-07-20 16:26:54', null, '>50>423');
 INSERT INTO `_category` VALUES ('50', 'Content Provider', null, 'icon-home', null, null, '', '0', 'true', '1', '', 'cms', '2014-12-10 16:06:08', '2015-07-20 16:26:54', null, '>50');
 INSERT INTO `_category` VALUES ('51', 'Service Operator', null, 'icon-settings', null, null, '', '0', 'true', '2', '', 'cms', '2014-12-10 16:06:33', '2015-07-20 16:26:54', null, '>51');
-INSERT INTO `_category` VALUES ('419', 'Bánh sinh nhật', 'banh-sinh-nhat', '/data/image/banh-sinh-nhat.jpg', null, null, 'Bánh sinh nhật với những mẫu đẹp và dễ thương nhất 2015, với giá rẻ, mẫu mã đẹp, tại Tp. Hồ Chí Minh', '0', 'true', '0', '', 'cake', '2015-07-02 21:58:23', '2015-07-21 11:58:57', 'true', '>419');
+INSERT INTO `_category` VALUES ('419', 'Bánh sinh nhật', 'banh-sinh-nhat', '/data/image/banh-sinh-nhat.jpg', null, null, 'Bánh sinh nhật với những mẫu đẹp và dễ thương nhất 2015, với giá rẻ, mẫu mã đẹp, tại Tp. Hồ Chí Minh', '0', 'true', '0', '', 'cake', '2015-07-02 21:58:23', '2016-03-14 11:17:23', 'true', '>419');
 INSERT INTO `_category` VALUES ('434', 'Admin Account', null, 'fa fa-users', null, null, '', '51', 'true', '3', '/dashboard/so/account/viewport/111114/cms', 'cms', '2015-07-04 22:06:44', '2015-07-20 16:26:54', null, '>51>434');
-INSERT INTO `_category` VALUES ('420', 'Bánh cưới', 'banh-cuoi', '/data/image/banh-cuoi.jpg', null, null, 'Bánh cưới với những mẫu đẹp được sáng tạo với vẻ đẹp hiện đại, vừa có các chi tiết trang trí đa dạng, vừa mang sắc màu gây ấn tượng', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:25', '2015-07-21 11:58:57', 'true', '>420');
-INSERT INTO `_category` VALUES ('421', 'Bánh vẽ', 'banh-ve', '/data/image/banh-ve.jpg', null, null, 'Bánh vẽ là bánh sinh nhật và vẽ hình lên bánh, vẽ chân dung, vẽ nhân vật hoạt hình, vẽ chữ và trang trí', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:31', '2015-07-21 11:58:57', 'true', '>421');
-INSERT INTO `_category` VALUES ('422', 'Bánh cupcake', 'banh-cupcake', '/data/image/banh-cupcake.jpg', null, null, 'Những chiếc bánh cupcake vữa ngon lại còn được trang trí cầu kỳ khiến cho mọi người chỉ muốn được thưởng thức chúng ngay lập tức.', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:44', '2015-07-21 11:58:57', 'true', '>422');
+INSERT INTO `_category` VALUES ('420', 'Bánh cưới', 'banh-cuoi', '/data/image/banh-cuoi.jpg', null, null, 'Bánh cưới với những mẫu đẹp được sáng tạo với vẻ đẹp hiện đại, vừa có các chi tiết trang trí đa dạng, vừa mang sắc màu gây ấn tượng', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:25', '2016-03-14 11:17:23', 'true', '>420');
+INSERT INTO `_category` VALUES ('421', 'Bánh vẽ', 'banh-ve', '/data/image/banh-ve.jpg', null, null, 'Bánh vẽ là bánh sinh nhật và vẽ hình lên bánh, vẽ chân dung, vẽ nhân vật hoạt hình, vẽ chữ và trang trí', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:31', '2016-03-14 11:17:23', 'true', '>421');
+INSERT INTO `_category` VALUES ('422', 'Bánh cupcake', 'banh-cupcake', '/data/image/banh-cupcake.jpg', null, null, 'Những chiếc bánh cupcake vữa ngon lại còn được trang trí cầu kỳ khiến cho mọi người chỉ muốn được thưởng thức chúng ngay lập tức.', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:44', '2016-03-14 11:17:23', 'true', '>422');
 INSERT INTO `_category` VALUES ('433', 'File Manage', null, 'fa fa-file-image-o', null, null, '', '51', 'true', '2', '/dashboard/cp/kcfinder/viewport/111111/image', 'cms', '2015-07-04 16:34:01', '2015-07-20 16:26:54', null, '>51>433');
 INSERT INTO `_category` VALUES ('428', 'Social', 'social', null, null, null, '', '0', 'true', '3', '', 'scake', '2015-07-04 12:55:14', '2015-07-08 13:49:00', null, '>428');
 INSERT INTO `_category` VALUES ('429', 'Payment', 'payment', null, null, null, '', '0', 'true', '2', '', 'scake', '2015-07-04 12:55:21', '2015-07-08 13:49:00', null, '>429');
 INSERT INTO `_category` VALUES ('430', 'Information', 'information', null, null, null, '', '0', 'true', '1', '', 'scake', '2015-07-04 12:55:35', '2015-07-08 13:49:00', null, '>430');
 INSERT INTO `_category` VALUES ('431', 'Other', 'other', null, null, null, '', '0', 'true', '10', '', 'scake', '2015-07-04 12:55:50', '2015-07-08 13:49:00', null, '>431');
 INSERT INTO `_category` VALUES ('432', 'Setting', null, 'fa fa-cogs', null, null, '', '51', 'false', '0', '/dashboard/cp/data/viewport/010114/scake', 'cms', '2015-07-04 16:22:43', '2015-07-20 16:26:54', null, '>51>432');
-INSERT INTO `_category` VALUES ('435', 'Bánh tình yêu', 'banh-tinh-yeu', null, null, null, '', '0', 'false', '0', '', 'cake', '2015-07-06 19:25:49', '2015-07-21 11:58:57', null, '>435');
+INSERT INTO `_category` VALUES ('435', 'Bánh tình yêu', 'banh-tinh-yeu', null, null, null, '', '0', 'false', '0', '', 'cake', '2015-07-06 19:25:49', '2016-03-14 11:17:23', null, '>435');
 INSERT INTO `_category` VALUES ('436', 'Order - Contact us', null, 'fa fa-comment-o', null, null, '', '50', 'true', '5', '/dashboard/cp/contactus/viewport/011114', 'cms', '2015-07-06 23:30:10', '2015-07-20 16:26:54', null, '>50>436');
 INSERT INTO `_category` VALUES ('437', 'Setting', null, 'fa fa-cogs', null, null, '', '51', 'true', '1', '/dashboard/so/data/viewport/010114/scake', 'cms', '2015-07-08 13:44:46', '2015-07-20 16:26:54', null, '>51>437');
 INSERT INTO `_category` VALUES ('438', 'Công thức làm bánh', null, 'fa fa-file-text-o', null, null, '', '44', 'true', '1', '/dashboard/cp/content/viewportonly/010014/1', 'cms', '2015-07-09 16:38:07', '2015-07-20 16:26:54', null, '>50>44>438');
@@ -97,7 +524,7 @@ INSERT INTO `_category` VALUES ('441', 'Dạy nghề', null, 'fa fa-file-text-o'
 INSERT INTO `_category` VALUES ('442', 'Album Gallery', null, 'fa fa-image', null, null, '', '50', 'true', '6', '/dashboard/cp/album/viewport/111115/acake', 'cms', '2015-07-09 21:53:07', '2015-07-20 16:26:54', null, '>50>442');
 
 -- ----------------------------
--- Table structure for `_chart`
+-- Table structure for _chart
 -- ----------------------------
 DROP TABLE IF EXISTS `_chart`;
 CREATE TABLE `_chart` (
@@ -416,7 +843,7 @@ INSERT INTO `_chart` VALUES ('299', '160', '_product', '2015-04-07', null, '1', 
 INSERT INTO `_chart` VALUES ('300', '125', '_product', '2015-04-06', null, '1', 'Order');
 
 -- ----------------------------
--- Table structure for `_contactus`
+-- Table structure for _contactus
 -- ----------------------------
 DROP TABLE IF EXISTS `_contactus`;
 CREATE TABLE `_contactus` (
@@ -443,7 +870,7 @@ INSERT INTO `_contactus` VALUES ('6', 'Trường Khương', '0985747240', 'khuon
 INSERT INTO `_contactus` VALUES ('7', 'Trường Khương', '0985 747 240', 'khuongxuantruong@gmail.com', 'Tớ test chức năng liên hệ tại banhngononline.com.\r\nNếu cậu nhận được mail này thì chức năng thông báo khi có người đặt hàng hoặc gửi yêu cầu đã hoạt động.', '2015-07-07 15:18:09', 'Tôi Muốn Học Làm Bánh Kem', null, 'Contact us', '181/19 Hồng Lạc, P.10, Q.Tân Bình');
 
 -- ----------------------------
--- Table structure for `_content`
+-- Table structure for _content
 -- ----------------------------
 DROP TABLE IF EXISTS `_content`;
 CREATE TABLE `_content` (
@@ -473,7 +900,7 @@ INSERT INTO `_content` VALUES ('3', 'Dạy nghề', 'Lorem ipsum dolor sit amet,
 INSERT INTO `_content` VALUES ('4', 'Khuyến mãi ngày lễ Halloween', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', '<div style=\"box-sizing: border-box; font-family: \'Roboto Condensed\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18.5714302062988px;\">The standard Lorem Ipsum passage, used since the 1500s</div>\r\n\r\n<div style=\"box-sizing: border-box; font-family: \'Roboto Condensed\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18.5714302062988px;\">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;</div>\r\n\r\n<div style=\"box-sizing: border-box; font-family: \'Roboto Condensed\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18.5714302062988px;\">Section 1.10.32 of &quot;de Finibus Bonorum et Malorum&quot;, written by Cicero in 45 BC</div>\r\n\r\n<div style=\"box-sizing: border-box; font-family: \'Roboto Condensed\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18.5714302062988px;\"><span style=\"font-family:roboto condensed,helvetica neue,helvetica,arial,sans-serif; font-size:13px\">&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</span></div>\r\n', null, '', '0', '2015-07-07 11:03:58', '2015-07-09 16:29:17', 'true', '/data/image/walle.jpg', 'khuyen-mai-ngay-le-halloween', 'false', 'bánh Halloween, bánh kem, bánh sinh nhật');
 
 -- ----------------------------
--- Table structure for `_data`
+-- Table structure for _data
 -- ----------------------------
 DROP TABLE IF EXISTS `_data`;
 CREATE TABLE `_data` (
@@ -514,7 +941,7 @@ INSERT INTO `_data` VALUES ('13', '430', 'Keyword', 'keyword', 'Keyword tag', nu
 INSERT INTO `_data` VALUES ('14', '430', 'Image 250x250', 'image-250x250', 'Hình ảnh mặc định khi chia sẻ trên mạng xã hội', null, null, '/assets/cake/images/banh-sinh-nhat.jpg', null, '2015-07-07 12:26:44', '2015-07-07 12:27:00', 'true', 'scake', null, 'image', 'false');
 
 -- ----------------------------
--- Table structure for `_image`
+-- Table structure for _image
 -- ----------------------------
 DROP TABLE IF EXISTS `_image`;
 CREATE TABLE `_image` (
@@ -540,7 +967,7 @@ INSERT INTO `_image` VALUES ('2', '/data/image/slider1.jpg', 'Bánh kem dâu s�
 INSERT INTO `_image` VALUES ('3', '/data/image/food/9.jpg', 'Khuyến mãi đặc biệt', 'Đang cập nhật', '2015-07-03 14:04:05', '2015-07-06 16:33:07', '0', 'true', '', null, 'slider');
 
 -- ----------------------------
--- Table structure for `_product`
+-- Table structure for _product
 -- ----------------------------
 DROP TABLE IF EXISTS `_product`;
 CREATE TABLE `_product` (
@@ -697,10 +1124,10 @@ INSERT INTO `_product` VALUES ('169', 'CAKE131', 'Bánh kem ngộ nghĩnh BKNN21
 INSERT INTO `_product` VALUES ('170', 'CAKE132', 'Bánh kem ngộ nghĩnh BKNN217', 'banh-kem-ngo-nghinh-bknn217', 'http://banhngononline.com/components/com_product/img/product/Chuvoicon_1325061772.jpg', null, null, null, '0', 'true', 'cake', '2015-07-03 21:23:20', null, '419', null, null, '370000.00', '0', null, null);
 INSERT INTO `_product` VALUES ('171', 'CAKE133', 'Bánh kem ngộ nghĩnh BKNN216', 'banh-kem-ngo-nghinh-bknn216', 'http://banhngononline.com/components/com_product/img/product/BKNN216_1354465119.jpg', null, null, null, '0', 'true', 'cake', '2015-07-03 21:23:20', null, '419', null, null, '350000.00', '0', null, null);
 INSERT INTO `_product` VALUES ('172', 'CAKE134', 'Bánh kem ngộ nghĩnh BKNN219', 'banh-kem-ngo-nghinh-bknn219', 'http://banhngononline.com/components/com_product/img/product/Chodom2_1325092672.jpg', null, null, null, '0', 'true', 'cake', '2015-07-03 21:23:20', null, '419', null, null, '370000.00', '0', null, null);
-INSERT INTO `_product` VALUES ('173', 'CAKE136', 'Bánh kem ngộ nghĩnh BKNN224', 'banh-kem-ngo-nghinh-bknn224', 'http://banhngononline.com/components/com_product/img/product/McQueencar_1325216317.jpg', null, '', '', '0', 'true', 'cake', '2015-07-03 21:23:25', '2015-07-07 14:27:12', '419', '', null, '370000.00', '0', 'bánh sinh nhật, bánh kem', null);
+INSERT INTO `_product` VALUES ('173', 'CAKE136', 'Bánh kem ngộ nghĩnh BKNN224', 'banh-kem-ngo-nghinh-bknn224', 'http://banhngononline.com/components/com_product/img/product/McQueencar_1325216317.jpg', null, '', '', '0', 'true', 'cake', '2015-07-03 21:23:25', '2016-03-14 08:47:18', '420', '', null, '371000.00', '0', 'bánh sinh nhật, bánh kem', null);
 
 -- ----------------------------
--- Table structure for `_seo`
+-- Table structure for _seo
 -- ----------------------------
 DROP TABLE IF EXISTS `_seo`;
 CREATE TABLE `_seo` (
@@ -718,374 +1145,35 @@ CREATE TABLE `_seo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `auth_users`
+-- Table structure for _spin
 -- ----------------------------
-DROP TABLE IF EXISTS `auth_users`;
-CREATE TABLE `auth_users` (
-  `ause_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `ause_key` varchar(32) NOT NULL,
-  `ause_group` smallint(6) DEFAULT NULL,
-  `ause_name` varchar(100) NOT NULL,
-  `ause_username` varchar(50) NOT NULL,
-  `ause_email` varchar(50) NOT NULL,
-  `ause_secretkey` varchar(52) NOT NULL,
-  `ause_salt` varchar(32) NOT NULL,
-  `ause_password` varchar(32) NOT NULL,
-  `ause_position` smallint(6) NOT NULL,
-  `ause_status` varchar(10) DEFAULT 'false',
-  `ause_insert` datetime NOT NULL,
-  `ause_update` datetime DEFAULT NULL,
-  `ause_delete` datetime DEFAULT NULL,
-  `ause_picture` varchar(120) DEFAULT NULL,
-  `ause_authority` varchar(20) DEFAULT NULL,
-  `ause_lastlogin` datetime DEFAULT NULL,
-  PRIMARY KEY (`ause_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10025 DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `_spin`;
+CREATE TABLE `_spin` (
+  `spin_id` int(3) NOT NULL AUTO_INCREMENT,
+  `spin_name` varchar(255) DEFAULT NULL,
+  `spin_number` int(3) DEFAULT '0',
+  `spin_active` int(3) DEFAULT '0',
+  `spin_rate` float(4,2) DEFAULT '0.00',
+  `spin_status` varchar(10) DEFAULT NULL,
+  `spin_insert` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `spin_update` datetime DEFAULT NULL,
+  `spin_active_rate` float(4,2) DEFAULT '0.00',
+  `spin_value` int(2) DEFAULT NULL,
+  PRIMARY KEY (`spin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of auth_users
+-- Records of _spin
 -- ----------------------------
-INSERT INTO `auth_users` VALUES ('10001', 'V9ZXr6Uw', '10002', 'Trường Khương', 'khuongxuantruong@gmail.com', 'khuongxuantruong@gmail.com', '7PtY3oAdRdK6P7YncnroQ2KLnLoPjrnW', 'FA04iw9qhWlT', '27d168e16f3cafbdd8c5f0c1be19608e', '1', 'true', '2013-04-02 16:43:42', '2014-12-12 09:58:06', null, 'https://lh5.googleusercontent.com/-WAMgTlfd5og/AAAAAAAAAAI/AAAAAAAAAP0/b0LCEJbexS4/photo.jpg', 'Administrator', '2013-04-08 10:01:04');
-INSERT INTO `auth_users` VALUES ('10018', 'QOEb1vsc', null, 'Admin', 'admin', 'Admin@gmail.com', 'qBKh4pA07aiU4WNbLCHLjhzpaFnjWXYP', '7PrSkIXh', '0903ce30d609ba18172fc0605c2848c2', '2', 'true', '2014-12-11 23:01:35', '2014-12-12 05:07:50', null, null, 'Admin', null);
-INSERT INTO `auth_users` VALUES ('10020', 'h8ovaLKc', null, 'View', 'View', 'View@gmail.com', 'PMvaAlFujxu8GZvKzLPIjQOaCu4Eba5y', 'g5AVZC8K', '477b560f0f16773d3348ae9711052ba9', '2', 'false', '2014-12-12 08:31:32', '2015-07-04 22:09:45', null, null, 'View', null);
-
--- ----------------------------
--- Table structure for `lang_alias`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_alias`;
-CREATE TABLE `lang_alias` (
-  `als_id` int(11) NOT NULL AUTO_INCREMENT,
-  `als_alias` varchar(255) DEFAULT NULL,
-  `als_lang` varchar(10) DEFAULT NULL,
-  `als_token` varchar(255) DEFAULT NULL,
-  `als_insert` datetime DEFAULT NULL,
-  `als_update` datetime DEFAULT NULL,
-  `als_type` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`als_id`),
-  UNIQUE KEY `_title_lang` (`als_lang`,`als_token`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- ----------------------------
--- Records of lang_alias
--- ----------------------------
-INSERT INTO `lang_alias` VALUES ('1', 'birth-cake', 'en', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('2', 'banh-sinh-nhat', 'vi', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('3', 'draw-cake', 'en', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('4', 'banh-ve', 'vi', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('5', 'marry-cake', 'en', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('6', 'banh-cuoi', 'vi', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('7', 'dede', 'de', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
-INSERT INTO `lang_alias` VALUES ('8', 'frfrfr', 'fr', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
-INSERT INTO `lang_alias` VALUES ('9', 'marry-cake', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('10', 'banh-cuoi', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('21', 'birthday-cake', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
-INSERT INTO `lang_alias` VALUES ('22', 'banh-sinh-nhat', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
-
--- ----------------------------
--- Table structure for `lang_category`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_category`;
-CREATE TABLE `lang_category` (
-  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cat_thumb` varchar(255) DEFAULT NULL,
-  `cat_image` varchar(255) DEFAULT NULL,
-  `cat_cover` varchar(255) DEFAULT NULL,
-  `cat_parent` int(11) NOT NULL DEFAULT '0',
-  `cat_status` varchar(5) NOT NULL DEFAULT 'true',
-  `cat_position` int(4) NOT NULL,
-  `cat_link` varchar(255) NOT NULL,
-  `cat_type` varchar(50) NOT NULL DEFAULT 'Web',
-  `cat_insert` datetime DEFAULT NULL,
-  `cat_update` datetime DEFAULT NULL,
-  `cat_lock` varchar(5) DEFAULT NULL,
-  `cat_value` varchar(255) DEFAULT NULL,
-  `cat_token` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-
--- ----------------------------
--- Records of lang_category
--- ----------------------------
-INSERT INTO `lang_category` VALUES ('1', '', null, null, '0', 'true', '0', '', 'cake', '2015-07-20 15:11:37', '2015-07-21 09:45:07', null, '>1', 'a13415493f3ce8a05a0aa36895377235');
-INSERT INTO `lang_category` VALUES ('2', '', null, null, '0', 'true', '0', '', 'cake', '2015-07-20 15:12:00', '2015-07-20 15:12:56', null, '>2', '86b387e10308c39782a524a10ac15f45');
-INSERT INTO `lang_category` VALUES ('3', '', null, null, '0', 'true', '0', '', 'cake', '2015-07-20 15:16:32', '2015-07-21 11:59:36', null, '>3', 'd5be6c61fe5d4ed45cf08067a53a037d');
-
--- ----------------------------
--- Table structure for `lang_content`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_content`;
-CREATE TABLE `lang_content` (
-  `co_id` int(11) NOT NULL AUTO_INCREMENT,
-  `co_token` varchar(255) DEFAULT NULL,
-  `co_type` varchar(20) DEFAULT NULL,
-  `co_content` longtext,
-  `co_insert` datetime DEFAULT NULL,
-  `co_update` datetime DEFAULT NULL,
-  `co_lang` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`co_id`),
-  UNIQUE KEY `_content_lang` (`co_token`,`co_lang`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of lang_content
--- ----------------------------
-INSERT INTO `lang_content` VALUES ('1', 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake', 'updating', null, null, 'en');
-INSERT INTO `lang_content` VALUES ('2', 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake', 'cập nhật', null, null, 'vi');
-INSERT INTO `lang_content` VALUES ('3', '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', null, 'en');
-INSERT INTO `lang_content` VALUES ('4', '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', null, 'vi');
-
--- ----------------------------
--- Table structure for `lang_desc`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_desc`;
-CREATE TABLE `lang_desc` (
-  `de_desc` text,
-  `de_lang` varchar(10) NOT NULL DEFAULT '',
-  `de_insert` datetime DEFAULT NULL,
-  `de_update` datetime DEFAULT NULL,
-  `de_token` varchar(255) NOT NULL DEFAULT '',
-  `de_type` varchar(20) NOT NULL DEFAULT '',
-  PRIMARY KEY (`de_lang`,`de_token`),
-  UNIQUE KEY `_desc_lang` (`de_lang`,`de_token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of lang_desc
--- ----------------------------
-INSERT INTO `lang_desc` VALUES ('dede', 'de', null, null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
-INSERT INTO `lang_desc` VALUES ('', 'en', '2015-07-21 11:18:35', null, '54760b5cd376fbc4868776f1f11a8a79', 'cake');
-INSERT INTO `lang_desc` VALUES ('Draw Cake', 'en', '2015-07-20 15:12:00', null, '86b387e10308c39782a524a10ac15f45', 'cake');
-INSERT INTO `lang_desc` VALUES ('Birth Cake', 'en', '2015-07-20 15:11:37', null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
-INSERT INTO `lang_desc` VALUES ('', 'en', '2015-07-21 10:32:05', null, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake');
-INSERT INTO `lang_desc` VALUES ('Marry Cake', 'en', '2015-07-20 15:16:32', null, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake');
-INSERT INTO `lang_desc` VALUES ('frfr', 'fr', null, null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
-INSERT INTO `lang_desc` VALUES ('', 'vi', '2015-07-21 11:18:35', null, '54760b5cd376fbc4868776f1f11a8a79', 'cake');
-INSERT INTO `lang_desc` VALUES ('Bánh vẽ', 'vi', '2015-07-20 15:12:00', null, '86b387e10308c39782a524a10ac15f45', 'cake');
-INSERT INTO `lang_desc` VALUES ('Bánh sinh nhật', 'vi', '2015-07-20 15:11:37', null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
-INSERT INTO `lang_desc` VALUES ('', 'vi', '2015-07-21 10:32:05', null, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake');
-INSERT INTO `lang_desc` VALUES ('Bánh cưới', 'vi', '2015-07-20 15:16:32', null, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake');
-
--- ----------------------------
--- Table structure for `lang_price`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_price`;
-CREATE TABLE `lang_price` (
-  `pri_price` varchar(20) DEFAULT NULL,
-  `pri_lang` varchar(10) NOT NULL DEFAULT '',
-  `pri_insert` datetime DEFAULT NULL,
-  `pri_update` datetime DEFAULT NULL,
-  `pri_token` varchar(255) NOT NULL DEFAULT '',
-  `pri_type` varchar(20) NOT NULL DEFAULT '',
-  PRIMARY KEY (`pri_lang`,`pri_token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- ----------------------------
--- Records of lang_price
--- ----------------------------
-
--- ----------------------------
--- Table structure for `lang_product`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_product`;
-CREATE TABLE `lang_product` (
-  `product_id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_code` varchar(32) DEFAULT NULL,
-  `product_thumb` varchar(255) DEFAULT NULL,
-  `product_cover` varchar(255) DEFAULT NULL,
-  `product_position` int(3) DEFAULT NULL,
-  `product_status` varchar(5) DEFAULT NULL,
-  `product_type` varchar(100) DEFAULT NULL,
-  `product_insert` datetime DEFAULT NULL,
-  `product_update` datetime DEFAULT NULL,
-  `product_category` int(11) DEFAULT NULL,
-  `product_images` text,
-  `product_token` varchar(32) DEFAULT NULL,
-  `product_view` int(11) DEFAULT '0',
-  `product_lock` varchar(5) DEFAULT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- ----------------------------
--- Records of lang_product
--- ----------------------------
-INSERT INTO `lang_product` VALUES ('1', '1234', '/data/image/ILoveYouThisMuch-90421.jpg', null, null, 'true', 'cake', '2015-07-21 10:32:05', '2015-07-21 11:32:01', '3', '', 'b3ab7b1902fc1016af2a0372f02cdab9', '0', null);
-INSERT INTO `lang_product` VALUES ('4', 'BSK01', '/data/image/slider1.jpg', null, null, 'true', 'cake', '2015-07-21 11:18:35', '2015-07-21 11:19:19', '2', '', '54760b5cd376fbc4868776f1f11a8a79', '0', null);
-
--- ----------------------------
--- Table structure for `lang_tag`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_tag`;
-CREATE TABLE `lang_tag` (
-  `tag_tag` varchar(255) DEFAULT NULL,
-  `tag_lang` varchar(10) NOT NULL DEFAULT '',
-  `tag_token` varchar(255) NOT NULL DEFAULT '',
-  `tag_insert` datetime DEFAULT NULL,
-  `tag_update` datetime DEFAULT NULL,
-  `tag_type` varchar(20) NOT NULL DEFAULT '',
-  PRIMARY KEY (`tag_lang`,`tag_token`),
-  UNIQUE KEY `_title_lang` (`tag_lang`,`tag_token`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
--- ----------------------------
--- Records of lang_tag
--- ----------------------------
-INSERT INTO `lang_tag` VALUES ('', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
-INSERT INTO `lang_tag` VALUES ('', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
-INSERT INTO `lang_tag` VALUES ('', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
-INSERT INTO `lang_tag` VALUES ('', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
-
--- ----------------------------
--- Table structure for `lang_title`
--- ----------------------------
-DROP TABLE IF EXISTS `lang_title`;
-CREATE TABLE `lang_title` (
-  `ti_title` varchar(255) DEFAULT NULL,
-  `ti_lang` varchar(10) NOT NULL DEFAULT '',
-  `ti_token` varchar(255) NOT NULL DEFAULT '',
-  `ti_insert` datetime DEFAULT NULL,
-  `ti_update` datetime DEFAULT NULL,
-  `ti_type` varchar(20) NOT NULL DEFAULT '',
-  PRIMARY KEY (`ti_lang`,`ti_token`),
-  UNIQUE KEY `_title_lang` (`ti_lang`,`ti_token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of lang_title
--- ----------------------------
-INSERT INTO `lang_title` VALUES ('dêde', 'de', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
-INSERT INTO `lang_title` VALUES ('Birthday Cake', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Draw Cake', 'en', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Birth Cake', 'en', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Marry Cake', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Marry Cake', 'en', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
-INSERT INTO `lang_title` VALUES ('frfrfr', 'fr', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
-INSERT INTO `lang_title` VALUES ('Bánh sinh nhật', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Bánh vẽ', 'vi', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Bánh sinh nhật', 'vi', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Bánh cưới', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
-INSERT INTO `lang_title` VALUES ('Bánh cưới', 'vi', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
-
--- ----------------------------
--- Table structure for `languages`
--- ----------------------------
-DROP TABLE IF EXISTS `languages`;
-CREATE TABLE `languages` (
-  `lang_id` int(4) NOT NULL AUTO_INCREMENT,
-  `lang_name` varchar(255) DEFAULT NULL,
-  `lang_short` varchar(10) DEFAULT NULL,
-  `lang_insert` datetime DEFAULT NULL,
-  `lang_update` datetime DEFAULT NULL,
-  `lang_status` varchar(5) DEFAULT NULL,
-  PRIMARY KEY (`lang_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of languages
--- ----------------------------
-INSERT INTO `languages` VALUES ('1', 'English', 'en', null, null, 'true');
-INSERT INTO `languages` VALUES ('2', 'German', 'de', null, '2015-07-21 10:17:32', 'false');
-INSERT INTO `languages` VALUES ('3', 'French', 'fr', null, '2015-07-21 10:17:32', 'false');
-INSERT INTO `languages` VALUES ('4', 'Dutch', 'nl', null, null, 'false');
-INSERT INTO `languages` VALUES ('5', 'Italian', 'it', null, null, 'false');
-INSERT INTO `languages` VALUES ('6', 'Spanish', 'es', null, null, 'false');
-INSERT INTO `languages` VALUES ('7', 'Polish', 'pl', null, null, 'false');
-INSERT INTO `languages` VALUES ('8', 'Russian', 'ru', null, null, 'false');
-INSERT INTO `languages` VALUES ('9', 'Japanese', 'ja', null, null, 'false');
-INSERT INTO `languages` VALUES ('10', 'Portuguese', 'pt', null, null, 'false');
-INSERT INTO `languages` VALUES ('11', 'Swedish', 'sv', null, null, 'false');
-INSERT INTO `languages` VALUES ('12', 'Chinese', 'zh', null, null, 'false');
-INSERT INTO `languages` VALUES ('13', 'Catalan', 'ca', null, null, 'false');
-INSERT INTO `languages` VALUES ('14', 'Ukrainian', 'uk', null, null, 'false');
-INSERT INTO `languages` VALUES ('15', 'Norwegian (Bokmål)', 'no', null, null, 'false');
-INSERT INTO `languages` VALUES ('16', 'Finnish', 'fi', null, null, 'false');
-INSERT INTO `languages` VALUES ('17', 'Vietnamese', 'vi', null, '2015-07-20 14:54:20', 'true');
-INSERT INTO `languages` VALUES ('18', 'Czech', 'cs', null, null, 'false');
-INSERT INTO `languages` VALUES ('19', 'Hungarian', 'hu', null, null, 'false');
-INSERT INTO `languages` VALUES ('20', 'Korean', 'ko', null, null, 'false');
-INSERT INTO `languages` VALUES ('21', 'Indonesian', 'id', null, null, 'false');
-INSERT INTO `languages` VALUES ('22', 'Turkish', 'tr', null, null, 'false');
-INSERT INTO `languages` VALUES ('23', 'Romanian', 'ro', null, null, 'false');
-INSERT INTO `languages` VALUES ('24', 'Persian', 'fa', null, null, 'false');
-INSERT INTO `languages` VALUES ('25', 'Arabic', 'ar', null, null, 'false');
-INSERT INTO `languages` VALUES ('26', 'Danish', 'da', null, null, 'false');
-INSERT INTO `languages` VALUES ('27', 'Esperanto', 'eo', null, null, 'false');
-INSERT INTO `languages` VALUES ('28', 'Serbian', 'sr', null, null, 'false');
-INSERT INTO `languages` VALUES ('29', 'Lithuanian', 'lt', null, null, 'false');
-INSERT INTO `languages` VALUES ('30', 'Slovak', 'sk', null, null, 'false');
-INSERT INTO `languages` VALUES ('31', 'Malay', 'ms', null, null, 'false');
-INSERT INTO `languages` VALUES ('32', 'Hebrew', 'he', null, null, 'false');
-INSERT INTO `languages` VALUES ('33', 'Bulgarian', 'bg', null, null, 'false');
-INSERT INTO `languages` VALUES ('34', 'Slovenian', 'sl', null, null, 'false');
-INSERT INTO `languages` VALUES ('35', 'Volapük', 'vo', null, null, 'false');
-INSERT INTO `languages` VALUES ('36', 'Kazakh', 'kk', null, null, 'false');
-INSERT INTO `languages` VALUES ('37', 'Waray-Waray', 'war', null, null, 'false');
-INSERT INTO `languages` VALUES ('38', 'Basque', 'eu', null, null, 'false');
-INSERT INTO `languages` VALUES ('39', 'Croatian', 'hr', null, null, 'false');
-INSERT INTO `languages` VALUES ('40', 'Hindi', 'hi', null, null, 'false');
-INSERT INTO `languages` VALUES ('41', 'Estonian', 'et', null, null, 'false');
-INSERT INTO `languages` VALUES ('42', 'Azerbaijani', 'az', null, null, 'false');
-INSERT INTO `languages` VALUES ('43', 'Galician', 'gl', null, null, 'false');
-INSERT INTO `languages` VALUES ('44', 'Simple English', 'simple', null, null, 'false');
-INSERT INTO `languages` VALUES ('45', 'Norwegian (Nynorsk)', 'nn', null, null, 'false');
-INSERT INTO `languages` VALUES ('46', 'Thai', 'th', null, null, 'false');
-INSERT INTO `languages` VALUES ('47', 'Newar / Nepal Bhasa', 'new', null, null, 'false');
-INSERT INTO `languages` VALUES ('48', 'Greek', 'el', null, null, 'false');
-INSERT INTO `languages` VALUES ('49', 'Aromanian', 'roa-rup', null, null, 'false');
-INSERT INTO `languages` VALUES ('50', 'Latin', 'la', null, null, 'false');
-INSERT INTO `languages` VALUES ('51', 'Occitan', 'oc', null, null, 'false');
-INSERT INTO `languages` VALUES ('52', 'Tagalog', 'tl', null, null, 'false');
-INSERT INTO `languages` VALUES ('53', 'Haitian', 'ht', null, null, 'false');
-INSERT INTO `languages` VALUES ('54', 'Macedonian', 'mk', null, null, 'false');
-INSERT INTO `languages` VALUES ('55', 'Georgian', 'ka', null, null, 'false');
-INSERT INTO `languages` VALUES ('56', 'Serbo-Croatian', 'sh', null, null, 'false');
-INSERT INTO `languages` VALUES ('57', 'Telugu', 'te', null, null, 'false');
-INSERT INTO `languages` VALUES ('58', 'Piedmontese', 'pms', null, null, 'false');
-INSERT INTO `languages` VALUES ('59', 'Cebuano', 'ceb', null, null, 'false');
-INSERT INTO `languages` VALUES ('60', 'Tamil', 'ta', null, null, 'false');
-INSERT INTO `languages` VALUES ('61', 'Belarusian (Taraškievica)', 'be-x-old', null, null, 'false');
-INSERT INTO `languages` VALUES ('62', 'Breton', 'br', null, null, 'false');
-INSERT INTO `languages` VALUES ('63', 'Latvian', 'lv', null, null, 'false');
-INSERT INTO `languages` VALUES ('64', 'Javanese', 'jv', null, null, 'false');
-INSERT INTO `languages` VALUES ('65', 'Albanian', 'sq', null, null, 'false');
-INSERT INTO `languages` VALUES ('66', 'Belarusian', 'be', null, null, 'false');
-INSERT INTO `languages` VALUES ('67', 'Marathi', 'mr', null, null, 'false');
-INSERT INTO `languages` VALUES ('68', 'Welsh', 'cy', null, null, 'false');
-INSERT INTO `languages` VALUES ('69', 'Luxembourgish', 'lb', null, null, 'false');
-INSERT INTO `languages` VALUES ('70', 'Icelandic', 'is', null, null, 'false');
-INSERT INTO `languages` VALUES ('71', 'Bosnian', 'bs', null, null, 'false');
-INSERT INTO `languages` VALUES ('72', 'Yoruba', 'yo', null, null, 'false');
-INSERT INTO `languages` VALUES ('73', 'Malagasy', 'mg', null, null, 'false');
-INSERT INTO `languages` VALUES ('74', 'Aragonese', 'an', null, null, 'false');
-INSERT INTO `languages` VALUES ('75', 'Bishnupriya Manipuri', 'bpy', null, null, 'false');
-INSERT INTO `languages` VALUES ('76', 'Lombard', 'lmo', null, null, 'false');
-INSERT INTO `languages` VALUES ('77', 'West Frisian', 'fy', null, null, 'false');
-INSERT INTO `languages` VALUES ('78', 'Bengali', 'bn', null, null, 'false');
-INSERT INTO `languages` VALUES ('79', 'Ido', 'io', null, null, 'false');
-INSERT INTO `languages` VALUES ('80', 'Swahili', 'sw', null, null, 'false');
-INSERT INTO `languages` VALUES ('81', 'Gujarati', 'gu', null, null, 'false');
-INSERT INTO `languages` VALUES ('82', 'Malayalam', 'ml', null, null, 'false');
-INSERT INTO `languages` VALUES ('83', 'Western Panjabi', 'pnb', null, null, 'false');
-INSERT INTO `languages` VALUES ('84', 'Afrikaans', 'af', null, null, 'false');
-INSERT INTO `languages` VALUES ('85', 'Low Saxon', 'nds', null, null, 'false');
-INSERT INTO `languages` VALUES ('86', 'Sicilian', 'scn', null, null, 'false');
-INSERT INTO `languages` VALUES ('87', 'Urdu', 'ur', null, null, 'false');
-INSERT INTO `languages` VALUES ('88', 'Kurdish', 'ku', null, null, 'false');
-INSERT INTO `languages` VALUES ('89', 'Cantonese', 'zh-yue', null, null, 'false');
-INSERT INTO `languages` VALUES ('90', 'Armenian', 'hy', null, null, 'false');
-INSERT INTO `languages` VALUES ('91', 'Quechua', 'qu', null, null, 'false');
-INSERT INTO `languages` VALUES ('92', 'Sundanese', 'su', null, null, 'false');
-INSERT INTO `languages` VALUES ('93', 'Nepali', 'ne', null, null, 'false');
-INSERT INTO `languages` VALUES ('94', 'Zazaki', 'diq', null, null, 'false');
-INSERT INTO `languages` VALUES ('95', 'Asturian', 'ast', null, null, 'false');
-INSERT INTO `languages` VALUES ('96', 'Tatar', 'tt', null, null, 'false');
-INSERT INTO `languages` VALUES ('97', 'Neapolitan', 'nap', null, null, 'false');
-INSERT INTO `languages` VALUES ('98', 'Irish', 'ga', null, null, 'false');
-INSERT INTO `languages` VALUES ('99', 'Chuvash', 'cv', null, null, 'false');
-INSERT INTO `languages` VALUES ('100', 'Samogitian', 'bat-smg', null, null, 'false');
-INSERT INTO `languages` VALUES ('101', 'Walloon', 'wa', null, null, 'false');
-INSERT INTO `languages` VALUES ('102', 'Amharic', 'am', null, null, 'false');
-INSERT INTO `languages` VALUES ('103', 'Kannada', 'kn', null, null, 'false');
-INSERT INTO `languages` VALUES ('104', 'Alemannic', 'als', null, null, 'false');
-INSERT INTO `languages` VALUES ('105', 'Buginese', 'bug', null, null, 'false');
-INSERT INTO `languages` VALUES ('106', 'Burmese', 'my', null, null, 'false');
-INSERT INTO `languages` VALUES ('107', 'Interlingua', 'ia', null, null, 'false');
+INSERT INTO `_spin` VALUES ('1', 'Cây rửa đui', '25', '1', '1.00', 'true', '2016-03-15 13:52:48', '2016-03-15 10:34:20', '0.20', null);
+INSERT INTO `_spin` VALUES ('2', 'Khuân silicon', '20', '0', '1.00', 'true', '2016-03-15 13:11:15', '2016-03-15 10:34:53', '1.00', null);
+INSERT INTO `_spin` VALUES ('3', 'Khuân đổ socola', '25', '0', '1.00', 'true', '2016-03-15 13:11:13', '2016-03-15 10:37:14', '1.00', null);
+INSERT INTO `_spin` VALUES ('4', 'Cân điện tử', '2', '0', '0.00', 'true', '2016-03-15 11:16:39', '2016-03-15 10:37:38', '0.00', null);
+INSERT INTO `_spin` VALUES ('5', 'Ly giấy chịu nhiệt', '30', '0', '1.00', 'true', '2016-03-15 13:19:04', null, '1.00', '3');
+INSERT INTO `_spin` VALUES ('6', 'Hộp bột soda', '15', '1', '1.00', 'true', '2016-03-15 13:11:11', null, '1.00', null);
+INSERT INTO `_spin` VALUES ('7', 'Hương Vanila', '20', '0', '1.00', 'true', '2016-03-15 13:19:23', null, '1.00', '5');
+INSERT INTO `_spin` VALUES ('8', 'Mã giảm giá 3%', '999', '0', '33.00', 'true', '2016-03-15 13:19:13', null, '33.00', '4');
+INSERT INTO `_spin` VALUES ('9', 'Mã giảm giá 5%', '999', '0', '14.00', 'true', '2016-03-15 13:11:07', null, '14.00', null);
+INSERT INTO `_spin` VALUES ('10', 'Mã giảm giá 10%', '999', '0', '6.00', 'true', '2016-03-15 13:18:52', null, '6.00', '1');
+INSERT INTO `_spin` VALUES ('11', 'Mã giảm giá 15%', '999', '0', '4.00', 'true', '2016-03-15 13:11:03', null, '4.00', null);
+INSERT INTO `_spin` VALUES ('12', 'Chúc bạn may mắn lần sau', '9999', '50', '50.00', 'true', '2016-03-15 13:53:08', null, '49.30', '2');
