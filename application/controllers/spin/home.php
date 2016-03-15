@@ -73,7 +73,7 @@ class home extends CI_Controller {
                       Wheel has 10 sections.
                       Each section is 360/10 = 36deg.
                   */
-                  var deg = 360*6 + 360/16* ((index||0)+.5);//Math.round(Math.random() * 360),
+                  var deg = 360*6 + 360/16* ((index||0))+1;//Math.round(Math.random() * 360),
                       duration = 6000; //optimal 6 secs
 
                   _this.cache.wheelPos = deg;
