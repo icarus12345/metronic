@@ -56,5 +56,32 @@ class spin_model extends CI_Model {
             return true;
         return false;
     }
+    function updateUser($id){
+        $this->db
+            ->set('user_spin_num', 'user_spin_num - 1',false)
+            ->set('user_update', 'NOW()',false)
+            ->where('user_id', $id)
+            ->where('user_spin_num >', 0)
+            ->update('_user');
+        $count = $this->db->affected_rows(); //should return the number of rows affected by the last query
+        if ($count == 1)
+            return true;
+        return false;
+    }
+    function insertWheel($params) {
+        @$this->db->insert('_wheel', $params);
+        @$count = $this->db->affected_rows(); //should return the number of rows affected by the last query
+        if ($count == 1)
+            return true;
+        return false;
+    }
+    function getUser($id){
+        $query = $this->db
+            ->from('_user')
+            ->where('user_status', 'true')
+            ->where('user_id', $id)
+            ->get();
+        return $query->row();
+    }
 }
 ?>

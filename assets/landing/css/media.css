@@ -1,0 +1,136 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+
+/* Media Queries */
+
+
+/* Smaller than standard 960 (devices and browsers) */
+   @media only screen and (max-width: 959px) {
+   }
+
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+   @media only screen and (min-width: 768px) and (max-width: 959px) {
+   
+h1 {
+font-size: 70px;
+}
+
+h2 {
+font-size: 40px;
+}
+
+.intro {
+margin: 90px auto;
+}
+
+.intro h1 {
+font-size: 110px;
+}
+
+   }
+
+
+/* All Mobile Sizes (devices and browser) */
+   @media only screen and (max-width: 767px) {
+   }
+
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+   @media only screen and (min-width: 480px) and (max-width: 767px) {
+
+h1 {
+font-size: 55px;
+}
+
+h2 {
+font-size: 35px;
+}
+
+.intro {
+margin: 40px auto;
+}
+
+.intro h1 {
+font-size: 75px;
+}
+
+.introduction h3, .introduction div {
+font-size: 12px;
+}
+
+.introduction h3 {
+width: 240px;
+}
+
+.intro-line {
+width: 30px;
+}
+
+.countdown-animation {
+display: none;
+visibility: hidden;
+}
+	
+   }
+
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+   @media only screen and (max-width: 479px) {
+
+h1 {
+font-size: 50px;
+}
+
+h2 {
+font-size: 30px;
+}
+
+.intro {
+margin: 50px auto;
+}
+
+.intro h1 {
+font-size: 75px;
+}
+
+.introduction h3, .introduction div {
+font-size: 12px;
+}
+
+.introduction h3 {
+width: 240px;
+}
+
+.intro-line {
+width: 30px;
+}
+
+#countdown {
+width: 340px;
+height: auto;
+}
+
+ul#countdown li {
+width: 50px;
+}
+
+ul#countdown li span {
+font-size: 35px;
+}
+
+ul#countdown li p.timeRefDays,
+ul#countdown li p.timeRefHours,
+ul#countdown li p.timeRefMinutes,
+ul#countdown li p.timeRefSeconds {
+font-size: 11px;
+}
+	
+   }

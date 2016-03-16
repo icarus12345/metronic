@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2016-03-15 16:42:38
+Date: 2016-03-16 16:49:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1165,15 +1165,60 @@ CREATE TABLE `_spin` (
 -- ----------------------------
 -- Records of _spin
 -- ----------------------------
-INSERT INTO `_spin` VALUES ('1', 'Cây rửa đui', '25', '1', '1.00', 'true', '2016-03-15 13:52:48', '2016-03-15 10:34:20', '0.20', null);
-INSERT INTO `_spin` VALUES ('2', 'Khuân silicon', '20', '0', '1.00', 'true', '2016-03-15 13:11:15', '2016-03-15 10:34:53', '1.00', null);
+INSERT INTO `_spin` VALUES ('1', 'Cây rửa đui', '25', '2', '1.00', 'true', '2016-03-16 16:44:24', '2016-03-15 10:34:20', '0.80', '5');
+INSERT INTO `_spin` VALUES ('2', 'Khuân silicon', '20', '0', '1.00', 'true', '2016-03-16 16:45:00', '2016-03-15 10:34:53', '1.00', '10');
 INSERT INTO `_spin` VALUES ('3', 'Khuân đổ socola', '25', '0', '1.00', 'true', '2016-03-15 13:11:13', '2016-03-15 10:37:14', '1.00', null);
-INSERT INTO `_spin` VALUES ('4', 'Cân điện tử', '2', '0', '0.00', 'true', '2016-03-15 11:16:39', '2016-03-15 10:37:38', '0.00', null);
-INSERT INTO `_spin` VALUES ('5', 'Ly giấy chịu nhiệt', '30', '0', '1.00', 'true', '2016-03-15 13:19:04', null, '1.00', '3');
-INSERT INTO `_spin` VALUES ('6', 'Hộp bột soda', '15', '1', '1.00', 'true', '2016-03-15 13:11:11', null, '1.00', null);
-INSERT INTO `_spin` VALUES ('7', 'Hương Vanila', '20', '0', '1.00', 'true', '2016-03-15 13:19:23', null, '1.00', '5');
-INSERT INTO `_spin` VALUES ('8', 'Mã giảm giá 3%', '999', '0', '33.00', 'true', '2016-03-15 13:19:13', null, '33.00', '4');
-INSERT INTO `_spin` VALUES ('9', 'Mã giảm giá 5%', '999', '0', '14.00', 'true', '2016-03-15 13:11:07', null, '14.00', null);
-INSERT INTO `_spin` VALUES ('10', 'Mã giảm giá 10%', '999', '0', '6.00', 'true', '2016-03-15 13:18:52', null, '6.00', '1');
-INSERT INTO `_spin` VALUES ('11', 'Mã giảm giá 15%', '999', '0', '4.00', 'true', '2016-03-15 13:11:03', null, '4.00', null);
-INSERT INTO `_spin` VALUES ('12', 'Chúc bạn may mắn lần sau', '9999', '50', '50.00', 'true', '2016-03-15 13:53:08', null, '49.30', '2');
+INSERT INTO `_spin` VALUES ('4', 'Cân điện tử', '2', '0', '0.00', 'true', '2016-03-16 16:44:53', '2016-03-15 10:37:38', '0.00', '8');
+INSERT INTO `_spin` VALUES ('5', 'Ly giấy chịu nhiệt', '30', '0', '1.00', 'true', '2016-03-16 16:45:24', null, '1.00', '14');
+INSERT INTO `_spin` VALUES ('6', 'Hộp bột soda', '15', '1', '1.00', 'true', '2016-03-16 16:43:50', null, '1.00', '1');
+INSERT INTO `_spin` VALUES ('7', 'Hương Vanila', '20', '0', '1.00', 'true', '2016-03-16 16:45:08', null, '1.00', '12');
+INSERT INTO `_spin` VALUES ('8', 'Mã giảm giá 3%', '999', '0', '33.00', 'true', '2016-03-16 16:45:15', null, '33.00', '13');
+INSERT INTO `_spin` VALUES ('9', 'Mã giảm giá 5%', '999', '0', '14.00', 'true', '2016-03-16 16:44:05', null, '14.00', '3');
+INSERT INTO `_spin` VALUES ('10', 'Mã giảm giá 10%', '999', '0', '6.00', 'true', '2016-03-16 16:43:23', null, '6.00', '0');
+INSERT INTO `_spin` VALUES ('11', 'Mã giảm giá 15%', '999', '0', '4.00', 'true', '2016-03-16 16:44:35', null, '4.00', '6');
+INSERT INTO `_spin` VALUES ('12', 'Chúc bạn may mắn lần sau', '9999', '51', '50.00', 'true', '2016-03-16 16:43:58', null, '49.60', '2');
+
+-- ----------------------------
+-- Table structure for _user
+-- ----------------------------
+DROP TABLE IF EXISTS `_user`;
+CREATE TABLE `_user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_user_name` varchar(100) DEFAULT NULL,
+  `user_password` varchar(32) DEFAULT NULL,
+  `user_email` varchar(100) DEFAULT NULL,
+  `user_insert` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `user_status` varchar(10) DEFAULT 'true',
+  `user_spin_num` int(11) DEFAULT '0',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_name` (`user_user_name`),
+  UNIQUE KEY `user_email` (`user_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of _user
+-- ----------------------------
+INSERT INTO `_user` VALUES ('1', 'khuongxuantruong@gmail.com', null, 'khuongxuantruong@gmail.com', '2016-03-16 09:36:38', '2016-03-16 09:36:38', 'true', '0');
+
+-- ----------------------------
+-- Table structure for _wheel
+-- ----------------------------
+DROP TABLE IF EXISTS `_wheel`;
+CREATE TABLE `_wheel` (
+  `wheel_id` int(11) NOT NULL AUTO_INCREMENT,
+  `wheel_spin_id` int(11) DEFAULT NULL,
+  `wheel_user_id` int(11) DEFAULT NULL,
+  `wheel_insert` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `wheel_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `wheel_status` varchar(10) DEFAULT '0',
+  PRIMARY KEY (`wheel_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of _wheel
+-- ----------------------------
+INSERT INTO `_wheel` VALUES ('6', '1', '1', '2016-03-16 09:32:57', null, '0');
+INSERT INTO `_wheel` VALUES ('7', '12', '1', '2016-03-16 09:33:35', null, '0');
+INSERT INTO `_wheel` VALUES ('8', '1', '1', '2016-03-16 09:33:43', null, '0');
+INSERT INTO `_wheel` VALUES ('9', '1', '1', '2016-03-16 09:34:54', null, '0');

@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* google maps */
+.map-wrapper {
+position: relative;
+width: 100%;
+height: 350px;
+overflow: hidden;
+display: block;
+margin: 0;
+padding: 0;
+}
+
+#map {
+width: 100%;
+height: 350px;
+overflow: hidden;
+margin: 0;
+padding: 0;
+        filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");                                    /* Firefox 10+, Firefox for Android */
+        filter: gray;                                                         /* IE6 - 9 */
+-webkit-filter: grayscale(100%);                                              /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+#map-navigation {
+position: absolute;
+font-weight: normal;
+left: 10px;
+top: 10px;
+}
+
+#map-navigation a {
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-style: normal;
+font-weight: normal;
+text-decoration: none;
+text-transform: none;
+font-size: 11px;
+line-height: 11px;
+height: 11px;
+color: #000;
+display: block;
+margin: 0 5px 0 0;
+float: left;
+outline: none;
+}
+
+#map-navigation a:hover {
+color: #fff;
+text-decoration: none;
+background: #000;
+}
+
+#roadmap {
+line-height: 11px;
+padding: 10px;
+font-style: normal;
+font-weight: normal;
+background: #fff;
+}
+
+#satellite {
+line-height: 11px;
+padding: 10px;
+font-style: normal;
+font-weight: normal;
+background: #fff;
+}
+
+#hybrid {
+line-height: 11px;
+padding: 10px;
+font-style: normal;
+font-weight: normal;
+background: #fff;
+}
+
+#terrain {
+line-height: 11px;
+padding: 10px;
+font-style: normal;
+font-weight: normal;
+background: #fff;
+}
+
+#zoom-out {
+line-height: 15px;
+font-weight: normal;
+background: #fff;
+padding: 5px 10px 15px 10px;
+}
+
+#zoom-in {
+line-height: 15px;
+font-weight: normal;
+background: #fff;
+padding: 5px 10px 15px 10px;
+}
