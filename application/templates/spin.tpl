@@ -23,8 +23,11 @@
     <script src="/assets/landing/js/modernizr.custom.js" type="text/javascript">
     </script><!-- extras end -->
     <!-- the grid -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="/assets/landing/css/skeleton.css" media="all" rel="stylesheet" type="text/css">
     <link href="/assets/landing/css/media.css" media="all" rel="stylesheet" type="text/css"><!-- the grid end -->
+    
+
     <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -563,46 +566,46 @@
         <!-- contact || lower page end -->
     </div>
     <!-- page end -->
-    <!-- scripts -->
-    <script src="/assets/landing/js/jquery-1.9.1.min.js" type="text/javascript">
+    <!-- scripts --><script src="/assets/landing/js/jquery-1.9.1.min.js" type="text/javascript">
     </script> 
-    <script src="/assets/landing/js/supersized.3.2.7.min.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/supersized.3.2.7.bg.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/supersized.shutter.min.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/jquery.easing.1.3.min.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/contact-form.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/jquery.nicescroll.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/the-town.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/jquery.tweet.js" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/ticker.js" type="text/javascript">
-    </script> 
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript">
-    </script> 
-    <script src="/assets/landing/js/gmaps.js" type="text/javascript">
-    </script> 
+    <script src="/assets/landing/js/supersized.3.2.7.min.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/supersized.3.2.7.bg.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/supersized.shutter.min.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/jquery.easing.1.3.min.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/contact-form.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/jquery.nicescroll.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/the-town.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/jquery.tweet.js" type="text/javascript"></script> 
+    <script src="/assets/landing/js/ticker.js" type="text/javascript"></script> 
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script> 
+    <script src="/assets/landing/js/gmaps.js" type="text/javascript"></script> 
     <script src="/assets/landing/js/countdown.js" type="text/javascript">
-    </script> <!-- countdown -->
-     
+    </script>
+    <script type="text/javascript" src="/libraries/plugin/validation-engine/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="/libraries/plugin/validation-engine/jquery.validationEngine-vi.js"></script>
     <script type="text/javascript">
     //<![CDATA[
         $(document).ready(function(){
-        $("#countdown").countdown({
-            date: "01 Apri; 2016 10:00:00",
-            format: "on"
-        },
-            
-        function() {
-            // callback function
+            $("#countdown").countdown({
+                date: "01 Apri; 2016 10:00:00",
+                format: "on"
+            },
+                
+            function() {
+                // callback function
+            });
+
+            $('#regForm').validationEngine({
+                'scroll': false,
+                'prettySelect' : true,
+                'isPopup' : true
+            });
+            $('#signinForm').validationEngine({
+                'scroll': false,
+                'prettySelect' : true,
+                'isPopup' : true
+            });
         });
-      });
     //]]>
     </script> 
     <script src="/assets/landing/js/analytics.js" type="text/javascript">
@@ -614,8 +617,14 @@
 	        <div style="max-width:720px">
 	            <div class="head">
 	            	<ul class="tab-nav">
-	            		<li class="active">Thể lệ</li>
-	            		<li>Đăng ký</li>
+                        <li class="active">
+                        [{if $smarty.session.account}]
+                        Tài khoản
+                        [{else}]
+                        Đăng ký
+                        [{/if}]
+                        </li>
+	            		<li >Thể lệ</li>
 	            		<li>Hướng đẫn</li>
 	            		<li>Vòng quay</li>
 	            	</ul>
@@ -623,37 +632,110 @@
 	            <div class="body">
 	                <div class="tab-content">
 	                	<div class="reg">
-	                		<div class="col-sm-5">
-	                			[{if $smarty.session.account}]
-	                			Xin chào <strong>[{$smarty.session.account->user_display}]</strong>.
-	                			[{/if}]
-	                			<a href="/hauth/login/Facebook" class="fb-btn"><img src="/assets/spin/fb-btn.jpg"/></a>
-	                			<a href="/hauth/login/Google" class="g-btn"><img src="/assets/spin/f-btn.jpg"/></a>
-	                			<h3>Đăng Nhập</h3>
-	                			<div class="pull-bottom control-group">
-	                				<input type="text" 
-	                					class="form-control" 
-	                					placeholder="Tên Đăng Nhập" 
-	                					name="username" value="">
-	                			</div>
-	                			<div class="pull-bottom control-group">
-	                				<input type="text" 
-	                					class="form-control" 
-	                					placeholder="Tên Đăng Nhập" 
-	                					name="username" value="">
-	                			</div>
-	                		</div>
-	                		<div class="col-sm-5">
-	                			<button>Đăng Ký FaceBook</button>
-	                			<button>Đăng Ký Google</button>
-	                		</div>
-	                	</div>
+                			[{if $smarty.session.account}]
+                            <div class="col-sm-5">
+                                <center>
+                			     <div class="pull-bottom control-group">Chào bạn <strong>[{$smarty.session.account->user_display}]</strong>.</div>
+                                 <div class="pull-bottom control-group"><img class="avartar" src="[{$smarty.session.account->user_photo|default:'/libraries/images/image_available.gif'}]"></div>
+                                 <a href="/account/signout">Đăng xuất</a>
+                                 </center>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="pull-bottom control-group">
+                                    [{if $smarty.session.account->user_spin_num > 0}]
+                                    Bạn có <strong>[{$smarty.session.account->user_spin_num}]</strong> lần quay.
+                                    [{else}]
+                                    Đã hết số lần quay.
+                                    [{/if}]
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            [{else}]
+                            <div class="col-sm-5">
+                                <a href="/hauth/login/Facebook" class="fb-btn"><img src="/assets/spin/fb-btn.jpg"/></a>
+                                <a href="/hauth/login/Google" class="g-btn"><img src="/assets/spin/f-btn.jpg"/></a>
+                                <h3>Đăng Nhập</h3>
+                                <form name="signinForm" id="signinForm" target="integration_asynchronous">
+                                <div class="pull-bottom control-group">
+                                    <input type="text" 
+                                        class="form-control validate[required,minSize[4],maxSize[50]]" 
+                                        data-prompt-position="topLeft:0,20" 
+                                        placeholder="Tên Đăng Nhập" 
+                                        name="user_user_name" value="">
+                                        <span class="fa fa-user"></span>
+
+                                </div>
+                                <div class="pull-bottom control-group">
+                                    <input type="password" 
+                                        class="form-control validate[required,minSize[4],maxSize[50]]"
+                                        data-prompt-position="topLeft:0,20" 
+                                        placeholder="Mật khẩu" 
+                                        name="user_password" value="">
+                                        <span class="fa fa-ellipsis-h"></span>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-default">Đăng nhập</button>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="col-sm-5">
+                                <h3>Đăng ký nhanh</h3>
+                                <form name="regForm" id="regForm" target="integration_asynchronous">
+                                    <div class="pull-bottom control-group">
+                                        <input type="text" 
+                                            class="form-control validate[required,minSize[4],maxSize[50]]" 
+                                            placeholder="User name"
+                                            data-prompt-position="topLeft:0,20" 
+                                            name="user_user_name" value="">
+                                            <span class="fa fa-user"></span>
+                                    </div>
+                                    <div class="pull-bottom control-group">
+                                        <input type="email" 
+                                            class="form-control validate[required,custom[email]]" 
+                                            placeholder="Email" 
+                                            data-prompt-position="topLeft:0,20" 
+                                            name="user_email" value="">
+                                            <span class="fa fa-envelope-o"></span>
+                                    </div>
+                                    <div class="pull-bottom control-group">
+                                        <input type="password" 
+                                            class="form-control validate[required,minSize[4],maxSize[50]]" 
+                                            placeholder="Mật khẩu" 
+                                            data-prompt-position="topLeft:0,20" 
+                                            name="user_password" value="">
+                                            <span class="fa fa-ellipsis-h"></span>
+                                    </div>
+                                    <div class="pull-bottom control-group">
+                                        <input type="password" 
+                                            class="form-control validate[required,equals[password]]]" 
+                                            data-prompt-position="topLeft:0,20" 
+                                            placeholder="Xác nhận mật khẩu" 
+                                            name="user_password_confirm" value="">
+                                            <span class="fa fa-ellipsis-h"></span>
+                                    </div>
+                                    <div class="pull-bottom control-group captcha">
+                                        <input type="text" 
+                                            class="form-control validate[required,minSize[4],maxSize[4]]" 
+                                            data-prompt-position="topLeft:0,20"
+                                            placeholder="Mã xác thực" 
+                                            name="user_captcha" value="">
+                                        <img id="img-captcha" src="[{$smarty.session.captcha.image}]"/>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-default" type="submit">Đăng ký</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                			[{/if}]
+                        </div>
 	                </div>
 	            </div>
-	            <div class="foot-btns">
+                <iframe id="integration_asynchronous" name="integration_asynchronous" style="width: 0;height: 0;border: 0;position: absolute"></iframe>
+	            <!-- <div class="foot-btns">
 	                <div onclick="closeContactus()">Cancel</div>
 	                <div onclick="sendContactus()">Send</div>
-	            </div>
+	            </div> -->
 	        </div>
 	    </div>
 	</div>

@@ -5,10 +5,31 @@ class home extends CI_Controller {
         parent::__construct();
         $this->assigns = new stdClass();
         $this->load->model('spin/spin_model');
+        $this->load->helper('captcha');
+        $this->smarty->caching = 0;
+        $this->createCaptcha();
+    }
+    function createCaptcha($re=false){
+        if(!$re)
+            if($_SESSION['captcha']){
+                if(time()-7200 < $_SESSION['captcha']['time'])
+                return;
+            }
+        $cap_parm = array(
+            'length'  => 4,
+            'img_path'  => APPPATH.'../captcha/',
+            'img_url'   => '/captcha/',
+            //'font_path' => './path/to/fonts/texb.ttf',
+            'img_width' => 80,
+            'img_height' => 30,
+            'expiration' => 7200
+            );
+        $_SESSION['captcha'] = create_captcha($cap_parm);
     }
     function debug(){
       echo '<pre>';
       print_r($_SESSION['hauth']);
+      print_r($_SESSION['account']);
     }
     function index(){
       $this->smarty->view( 'spin', $this->assigns );
