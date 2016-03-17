@@ -31,11 +31,11 @@ jQuery(function($){
 					thumb_links				:	1,			// Individual thumb links for each slide
 					thumbnail_navigation    :   0,			// Thumbnail navigation
 					slides 					:  	[			// Slideshow Images
-												{image : 'images/background/1.jpg', title : '', thumb : '', url : ''},
-												{image : 'images/background/2.jpg', title : '', thumb : '', url : ''},
-												{image : 'images/background/3.jpg', title : '', thumb : '', url : ''},
-												{image : 'images/background/4.jpg', title : '', thumb : '', url : ''},
-												{image : 'images/background/5.jpg', title : '', thumb : '', url : ''}
+												{image : '/assets/landing/images/background/1.jpg', title : '', thumb : '', url : ''},
+												{image : '/assets/landing/images/background/2.jpg', title : '', thumb : '', url : ''},
+												{image : '/assets/landing/images/background/3.jpg', title : '', thumb : '', url : ''},
+												{image : '/assets/landing/images/background/4.jpg', title : '', thumb : '', url : ''},
+												{image : '/assets/landing/images/background/5.jpg', title : '', thumb : '', url : ''}
 												]
 					
 				});

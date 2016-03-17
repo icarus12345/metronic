@@ -3,6 +3,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class home extends CI_Controller {
     function __construct() {
         parent::__construct();
+        $this->assigns = new stdClass();
         $this->load->model('spin/spin_model');
     }
     function debug(){
@@ -10,6 +11,8 @@ class home extends CI_Controller {
       print_r($_SESSION['hauth']);
     }
     function index(){
+      $this->smarty->view( 'spin', $this->assigns );
+      return;
     	?>
     	<script src="/assets/spin/jquery-2.1.4.min.js"></script>
     	<script src="/assets/spin/jQueryRotate.js"></script>
@@ -110,7 +113,7 @@ class home extends CI_Controller {
                       var spin = _this.cache.wheelPos,
                           degrees = spin % 360,
                           percent = (degrees / 360) * 100,
-                          segment = Math.ceil((percent / 6)),  //divided by number of segments
+                          segment = Math.ceil((percent / 6));  //divided by number of segments
                           // win = _this.cache.wheelMapping[segment - 1]; //zero based array
 
                       console.log('spin = ' + spin);

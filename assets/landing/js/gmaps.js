@@ -36,7 +36,7 @@ var icons = new google.maps.Marker({
 		visible: false
 	});
 
-var image = 'gmaps/map-location.png';
+var image = '/assets/landing/gmaps/map-location.png';
 
   var LatLng = new google.maps.LatLng(48.858278,2.294254);
   var Marker = new google.maps.Marker({
