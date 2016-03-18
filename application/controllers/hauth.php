@@ -60,7 +60,8 @@ class HAuth extends CI_Controller {
 				         	log_message('debug', 'controllers.HAuth.login: logging out from service.');
 				         	$service->logout();
 				         }
-				         show_error('User has cancelled the authentication or the provider refused the connection.');
+				         // show_error('User has cancelled the authentication or the provider refused the connection.');
+				         redirect(base_url('account/cancelauth'));
 				         break;
 				case 6 : $error = 'User profile request failed. Most likely the user is not connected to the provider and he should to authenticate again.';
 				         break;

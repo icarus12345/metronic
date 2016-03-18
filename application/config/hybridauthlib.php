@@ -43,6 +43,8 @@ $config =
 					"id" => "1695423720698818", 
 					"secret" => "fba8b9b975f163ba6f81c397fad2a523" 
 				),
+				'scope'   => 'email',
+                'trustForwarded' => false
 			),
 
 			"Twitter" => array (

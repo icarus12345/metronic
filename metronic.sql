@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2016-03-16 16:49:37
+Date: 2016-03-18 16:08:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -503,18 +503,18 @@ INSERT INTO `_category` VALUES ('46', 'Application', null, ' fa fa-bars', null, 
 INSERT INTO `_category` VALUES ('423', 'Cake', null, 'icon-handbag', null, null, '', '50', 'true', '2', '/dashboard/cp/product/viewport/111115/cake', 'cms', '2015-07-04 09:14:34', '2015-07-20 16:26:54', null, '>50>423');
 INSERT INTO `_category` VALUES ('50', 'Content Provider', null, 'icon-home', null, null, '', '0', 'true', '1', '', 'cms', '2014-12-10 16:06:08', '2015-07-20 16:26:54', null, '>50');
 INSERT INTO `_category` VALUES ('51', 'Service Operator', null, 'icon-settings', null, null, '', '0', 'true', '2', '', 'cms', '2014-12-10 16:06:33', '2015-07-20 16:26:54', null, '>51');
-INSERT INTO `_category` VALUES ('419', 'Bánh sinh nhật', 'banh-sinh-nhat', '/data/image/banh-sinh-nhat.jpg', null, null, 'Bánh sinh nhật với những mẫu đẹp và dễ thương nhất 2015, với giá rẻ, mẫu mã đẹp, tại Tp. Hồ Chí Minh', '0', 'true', '0', '', 'cake', '2015-07-02 21:58:23', '2016-03-14 11:17:23', 'true', '>419');
+INSERT INTO `_category` VALUES ('419', 'Bánh sinh nhật', 'banh-sinh-nhat', '/data/image/banh-sinh-nhat.jpg', null, null, 'Bánh sinh nhật với những mẫu đẹp và dễ thương nhất 2015, với giá rẻ, mẫu mã đẹp, tại Tp. Hồ Chí Minh', '0', 'true', '0', '', 'cake', '2015-07-02 21:58:23', '2016-03-18 09:56:19', 'true', '>419');
 INSERT INTO `_category` VALUES ('434', 'Admin Account', null, 'fa fa-users', null, null, '', '51', 'true', '3', '/dashboard/so/account/viewport/111114/cms', 'cms', '2015-07-04 22:06:44', '2015-07-20 16:26:54', null, '>51>434');
-INSERT INTO `_category` VALUES ('420', 'Bánh cưới', 'banh-cuoi', '/data/image/banh-cuoi.jpg', null, null, 'Bánh cưới với những mẫu đẹp được sáng tạo với vẻ đẹp hiện đại, vừa có các chi tiết trang trí đa dạng, vừa mang sắc màu gây ấn tượng', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:25', '2016-03-14 11:17:23', 'true', '>420');
-INSERT INTO `_category` VALUES ('421', 'Bánh vẽ', 'banh-ve', '/data/image/banh-ve.jpg', null, null, 'Bánh vẽ là bánh sinh nhật và vẽ hình lên bánh, vẽ chân dung, vẽ nhân vật hoạt hình, vẽ chữ và trang trí', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:31', '2016-03-14 11:17:23', 'true', '>421');
-INSERT INTO `_category` VALUES ('422', 'Bánh cupcake', 'banh-cupcake', '/data/image/banh-cupcake.jpg', null, null, 'Những chiếc bánh cupcake vữa ngon lại còn được trang trí cầu kỳ khiến cho mọi người chỉ muốn được thưởng thức chúng ngay lập tức.', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:44', '2016-03-14 11:17:23', 'true', '>422');
+INSERT INTO `_category` VALUES ('420', 'Bánh cưới', 'banh-cuoi', '/data/image/banh-cuoi.jpg', null, null, 'Bánh cưới với những mẫu đẹp được sáng tạo với vẻ đẹp hiện đại, vừa có các chi tiết trang trí đa dạng, vừa mang sắc màu gây ấn tượng', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:25', '2016-03-18 09:56:19', 'true', '>420');
+INSERT INTO `_category` VALUES ('421', 'Bánh vẽ', 'banh-ve', '/data/image/banh-ve.jpg', null, null, 'Bánh vẽ là bánh sinh nhật và vẽ hình lên bánh, vẽ chân dung, vẽ nhân vật hoạt hình, vẽ chữ và trang trí', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:31', '2016-03-18 09:56:19', 'true', '>421');
+INSERT INTO `_category` VALUES ('422', 'Bánh cupcake', 'banh-cupcake', '/data/image/banh-cupcake.jpg', null, null, 'Những chiếc bánh cupcake vữa ngon lại còn được trang trí cầu kỳ khiến cho mọi người chỉ muốn được thưởng thức chúng ngay lập tức.', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:44', '2016-03-18 09:56:19', 'true', '>422');
 INSERT INTO `_category` VALUES ('433', 'File Manage', null, 'fa fa-file-image-o', null, null, '', '51', 'true', '2', '/dashboard/cp/kcfinder/viewport/111111/image', 'cms', '2015-07-04 16:34:01', '2015-07-20 16:26:54', null, '>51>433');
 INSERT INTO `_category` VALUES ('428', 'Social', 'social', null, null, null, '', '0', 'true', '3', '', 'scake', '2015-07-04 12:55:14', '2015-07-08 13:49:00', null, '>428');
 INSERT INTO `_category` VALUES ('429', 'Payment', 'payment', null, null, null, '', '0', 'true', '2', '', 'scake', '2015-07-04 12:55:21', '2015-07-08 13:49:00', null, '>429');
 INSERT INTO `_category` VALUES ('430', 'Information', 'information', null, null, null, '', '0', 'true', '1', '', 'scake', '2015-07-04 12:55:35', '2015-07-08 13:49:00', null, '>430');
 INSERT INTO `_category` VALUES ('431', 'Other', 'other', null, null, null, '', '0', 'true', '10', '', 'scake', '2015-07-04 12:55:50', '2015-07-08 13:49:00', null, '>431');
 INSERT INTO `_category` VALUES ('432', 'Setting', null, 'fa fa-cogs', null, null, '', '51', 'false', '0', '/dashboard/cp/data/viewport/010114/scake', 'cms', '2015-07-04 16:22:43', '2015-07-20 16:26:54', null, '>51>432');
-INSERT INTO `_category` VALUES ('435', 'Bánh tình yêu', 'banh-tinh-yeu', null, null, null, '', '0', 'false', '0', '', 'cake', '2015-07-06 19:25:49', '2016-03-14 11:17:23', null, '>435');
+INSERT INTO `_category` VALUES ('435', 'Bánh tình yêu', 'banh-tinh-yeu', null, null, null, '', '0', 'false', '0', '', 'cake', '2015-07-06 19:25:49', '2016-03-18 09:56:19', null, '>435');
 INSERT INTO `_category` VALUES ('436', 'Order - Contact us', null, 'fa fa-comment-o', null, null, '', '50', 'true', '5', '/dashboard/cp/contactus/viewport/011114', 'cms', '2015-07-06 23:30:10', '2015-07-20 16:26:54', null, '>50>436');
 INSERT INTO `_category` VALUES ('437', 'Setting', null, 'fa fa-cogs', null, null, '', '51', 'true', '1', '/dashboard/so/data/viewport/010114/scake', 'cms', '2015-07-08 13:44:46', '2015-07-20 16:26:54', null, '>51>437');
 INSERT INTO `_category` VALUES ('438', 'Công thức làm bánh', null, 'fa fa-file-text-o', null, null, '', '44', 'true', '1', '/dashboard/cp/content/viewportonly/010014/1', 'cms', '2015-07-09 16:38:07', '2015-07-20 16:26:54', null, '>50>44>438');
@@ -1160,23 +1160,28 @@ CREATE TABLE `_spin` (
   `spin_active_rate` float(4,2) DEFAULT '0.00',
   `spin_value` int(2) DEFAULT NULL,
   PRIMARY KEY (`spin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of _spin
 -- ----------------------------
-INSERT INTO `_spin` VALUES ('1', 'Cây rửa đui', '25', '2', '1.00', 'true', '2016-03-16 16:44:24', '2016-03-15 10:34:20', '0.80', '5');
-INSERT INTO `_spin` VALUES ('2', 'Khuân silicon', '20', '0', '1.00', 'true', '2016-03-16 16:45:00', '2016-03-15 10:34:53', '1.00', '10');
-INSERT INTO `_spin` VALUES ('3', 'Khuân đổ socola', '25', '0', '1.00', 'true', '2016-03-15 13:11:13', '2016-03-15 10:37:14', '1.00', null);
-INSERT INTO `_spin` VALUES ('4', 'Cân điện tử', '2', '0', '0.00', 'true', '2016-03-16 16:44:53', '2016-03-15 10:37:38', '0.00', '8');
-INSERT INTO `_spin` VALUES ('5', 'Ly giấy chịu nhiệt', '30', '0', '1.00', 'true', '2016-03-16 16:45:24', null, '1.00', '14');
-INSERT INTO `_spin` VALUES ('6', 'Hộp bột soda', '15', '1', '1.00', 'true', '2016-03-16 16:43:50', null, '1.00', '1');
-INSERT INTO `_spin` VALUES ('7', 'Hương Vanila', '20', '0', '1.00', 'true', '2016-03-16 16:45:08', null, '1.00', '12');
-INSERT INTO `_spin` VALUES ('8', 'Mã giảm giá 3%', '999', '0', '33.00', 'true', '2016-03-16 16:45:15', null, '33.00', '13');
-INSERT INTO `_spin` VALUES ('9', 'Mã giảm giá 5%', '999', '0', '14.00', 'true', '2016-03-16 16:44:05', null, '14.00', '3');
-INSERT INTO `_spin` VALUES ('10', 'Mã giảm giá 10%', '999', '0', '6.00', 'true', '2016-03-16 16:43:23', null, '6.00', '0');
-INSERT INTO `_spin` VALUES ('11', 'Mã giảm giá 15%', '999', '0', '4.00', 'true', '2016-03-16 16:44:35', null, '4.00', '6');
-INSERT INTO `_spin` VALUES ('12', 'Chúc bạn may mắn lần sau', '9999', '51', '50.00', 'true', '2016-03-16 16:43:58', null, '49.60', '2');
+INSERT INTO `_spin` VALUES ('1', 'Cây rửa đui', '25', '2', '1.00', 'true', '2016-03-18 14:22:02', '2016-03-15 10:34:20', '0.00', '5');
+INSERT INTO `_spin` VALUES ('2', 'Khuân silicon', '20', '1', '1.00', 'true', '2016-03-18 15:43:50', '2016-03-15 10:34:53', '0.10', '10');
+INSERT INTO `_spin` VALUES ('3', 'Khuân đổ socola', '25', '0', '1.00', 'false', '2016-03-18 15:35:46', '2016-03-15 10:37:14', '0.00', null);
+INSERT INTO `_spin` VALUES ('4', 'Cân điện tử', '2', '1', '1.00', 'true', '2016-03-18 15:44:02', '2016-03-15 10:37:38', '0.10', '8');
+INSERT INTO `_spin` VALUES ('5', 'Ly giấy chịu nhiệt', '30', '0', '1.00', 'true', '2016-03-18 14:22:02', null, '0.00', '14');
+INSERT INTO `_spin` VALUES ('6', 'Hộp bột soda', '15', '1', '1.00', 'true', '2016-03-18 14:22:02', null, '0.00', '1');
+INSERT INTO `_spin` VALUES ('7', 'Hương Vanila', '20', '0', '1.00', 'true', '2016-03-18 14:22:02', null, '0.00', '12');
+INSERT INTO `_spin` VALUES ('8', 'Mã giảm giá 3%', '999', '1', '33.00', 'true', '2016-03-18 16:07:14', null, '0.30', '13');
+INSERT INTO `_spin` VALUES ('9', 'Mã giảm giá 5%', '999', '1', '14.00', 'true', '2016-03-18 16:07:34', null, '0.40', '3');
+INSERT INTO `_spin` VALUES ('10', 'Mã giảm giá 10%', '999', '0', '6.00', 'true', '2016-03-18 14:22:02', null, '0.00', '0');
+INSERT INTO `_spin` VALUES ('11', 'Mã giảm giá 15%', '999', '0', '4.00', 'true', '2016-03-18 14:22:02', null, '0.00', '6');
+INSERT INTO `_spin` VALUES ('12', 'Chúc bạn may mắn lần sau', '9999', '1', '9.00', 'true', '2016-03-18 15:36:27', null, '0.20', '2');
+INSERT INTO `_spin` VALUES ('13', 'Tiếc quá, cố lên nào !', '9999', '1', '9.00', 'true', '2016-03-18 15:43:28', null, '0.10', '7');
+INSERT INTO `_spin` VALUES ('14', 'Hụt mất rồi, huhu ...', '9999', '1', '9.00', 'true', '2016-03-18 16:07:25', null, '0.20', '4');
+INSERT INTO `_spin` VALUES ('15', 'Cố lên nào bạn ơi', '9999', '1', '9.00', 'true', '2016-03-18 15:43:59', null, '0.10', '11');
+INSERT INTO `_spin` VALUES ('16', 'Hụt mất rồi, huhu ...', '9999', '1', '9.00', 'true', '2016-03-18 15:44:11', null, '0.10', '15');
+INSERT INTO `_spin` VALUES ('17', 'Chúc bạn may mắn lần sau', '9999', '0', '9.00', 'true', '2016-03-18 15:36:31', null, '0.00', '9');
 
 -- ----------------------------
 -- Table structure for _user
@@ -1194,12 +1199,15 @@ CREATE TABLE `_user` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_name` (`user_user_name`),
   UNIQUE KEY `user_email` (`user_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of _user
 -- ----------------------------
-INSERT INTO `_user` VALUES ('1', 'khuongxuantruong@gmail.com', null, 'khuongxuantruong@gmail.com', '2016-03-16 09:36:38', '2016-03-16 09:36:38', 'true', '0');
+INSERT INTO `_user` VALUES ('1', 'khuongxuantruong@gmail.com', null, 'khuongxuantruong@gmail.com', '2016-03-18 14:10:06', '2016-03-18 14:10:06', 'true', '3');
+INSERT INTO `_user` VALUES ('2', null, null, 'creativestudionoreply@gmail.com', '2016-03-18 14:10:06', '2016-03-18 14:10:06', 'true', '3');
+INSERT INTO `_user` VALUES ('5', 'khuongxuantruong2@gmail.com', '2d7d5f66eab6e84d6bdf440f5722c858', 'khuongxuantruong2@gmail.com', '2016-03-18 14:10:06', '2016-03-18 14:10:06', 'true', '3');
+INSERT INTO `_user` VALUES ('6', 'khuongxuantruong@gmail.com3', '2d7d5f66eab6e84d6bdf440f5722c858', 'khuongxuantruong4@gmail.com', '2016-03-18 16:07:34', '2016-03-18 16:07:34', 'true', '209');
 
 -- ----------------------------
 -- Table structure for _wheel
@@ -1213,7 +1221,7 @@ CREATE TABLE `_wheel` (
   `wheel_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `wheel_status` varchar(10) DEFAULT '0',
   PRIMARY KEY (`wheel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of _wheel
@@ -1222,3 +1230,25 @@ INSERT INTO `_wheel` VALUES ('6', '1', '1', '2016-03-16 09:32:57', null, '0');
 INSERT INTO `_wheel` VALUES ('7', '12', '1', '2016-03-16 09:33:35', null, '0');
 INSERT INTO `_wheel` VALUES ('8', '1', '1', '2016-03-16 09:33:43', null, '0');
 INSERT INTO `_wheel` VALUES ('9', '1', '1', '2016-03-16 09:34:54', null, '0');
+INSERT INTO `_wheel` VALUES ('10', '12', '6', '2016-03-18 13:39:11', null, '0');
+INSERT INTO `_wheel` VALUES ('11', '12', '6', '2016-03-18 13:40:39', null, '0');
+INSERT INTO `_wheel` VALUES ('12', '12', '6', '2016-03-18 14:08:12', null, '0');
+INSERT INTO `_wheel` VALUES ('13', '1', '6', '2016-03-18 14:10:09', null, '0');
+INSERT INTO `_wheel` VALUES ('14', '12', '6', '2016-03-18 14:10:20', null, '0');
+INSERT INTO `_wheel` VALUES ('15', '1', '6', '2016-03-18 14:21:44', null, '0');
+INSERT INTO `_wheel` VALUES ('16', '12', '6', '2016-03-18 14:22:13', null, '0');
+INSERT INTO `_wheel` VALUES ('17', '8', '6', '2016-03-18 14:42:07', null, '0');
+INSERT INTO `_wheel` VALUES ('18', '12', '6', '2016-03-18 14:42:16', null, '0');
+INSERT INTO `_wheel` VALUES ('19', '13', '6', '2016-03-18 15:43:28', null, '0');
+INSERT INTO `_wheel` VALUES ('20', '2', '6', '2016-03-18 15:43:50', null, '0');
+INSERT INTO `_wheel` VALUES ('21', '9', '6', '2016-03-18 15:43:56', null, '0');
+INSERT INTO `_wheel` VALUES ('22', '15', '6', '2016-03-18 15:43:59', null, '0');
+INSERT INTO `_wheel` VALUES ('23', '4', '6', '2016-03-18 15:44:02', null, '0');
+INSERT INTO `_wheel` VALUES ('24', '16', '6', '2016-03-18 15:44:11', null, '0');
+INSERT INTO `_wheel` VALUES ('25', '8', '6', '2016-03-18 15:44:20', null, '0');
+INSERT INTO `_wheel` VALUES ('26', '9', '6', '2016-03-18 16:05:33', null, '0');
+INSERT INTO `_wheel` VALUES ('27', '9', '6', '2016-03-18 16:06:18', null, '0');
+INSERT INTO `_wheel` VALUES ('28', '14', '6', '2016-03-18 16:07:05', null, '0');
+INSERT INTO `_wheel` VALUES ('29', '8', '6', '2016-03-18 16:07:14', null, '0');
+INSERT INTO `_wheel` VALUES ('30', '14', '6', '2016-03-18 16:07:25', null, '0');
+INSERT INTO `_wheel` VALUES ('31', '9', '6', '2016-03-18 16:07:34', null, '0');

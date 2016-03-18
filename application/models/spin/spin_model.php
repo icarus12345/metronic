@@ -22,6 +22,7 @@ class spin_model extends CI_Model {
             ->where('spin_rate >', 0)
             ->where('spin_rate > spin_active_rate')
             ->where('spin_number >', 0)
+            ->where('spin_value >=', 0)
             ->where('spin_number > spin_active')
             ->order_by('spin_rate','ASC')
             ->get();
