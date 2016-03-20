@@ -18,6 +18,9 @@ $(document).ready(function() {
         $('.dialog .tab-content>div').hide();
         $('.dialog .tab-content>div:eq(' + index + ')').show();
     });
+    $('.notice').click(function(){
+        $(this).hide();
+    })
     var spining = false;
     var spinClick = function() {
         if(spining) return;
@@ -26,7 +29,7 @@ $(document).ready(function() {
             type: 'POST',
             dataType: 'json',
             timeout: 10000,
-            url: '/spin/home/spin',
+            url: '/landing/home/spin',
             data: null,
             error: function(XMLHttpRequest, status, errorThrown) {
                 alert('Hệ thống đang bận, vui lòng thử lại sau.');
@@ -37,7 +40,9 @@ $(document).ready(function() {
                     if(data.spin_num) $('.spin-num').html(data.spin_num);
                     WHEELOFFORTUNE.spin(data.value,function(){
                         spining = false;
-                        alert(data.message)
+                        $('.notice>div>div').html(data.message);
+                        $('.notice').show();
+                        $('#his').append('<div>' + data.message + '</div>');
                     })
                 }else{;
                     alert(data.message);
@@ -58,7 +63,7 @@ $(document).ready(function() {
             var _this = this;
             this.cache.wheel = $('.wheel');
             this.cache.wheelMarker = $('.marker');
-            this.cache.wheelSpinBtn = $('.wheel');
+            this.cache.wheelSpinBtn = $('#btn-spin');
 
             //mapping is backwards as wheel spins clockwise //1=win
             this.cache.wheelMapping = ['10', '6', 'May man', '5%', 'Hut', 300, 60, 175, 500, 125, 75, 1000, 120, 200, 90, 600] //.reverse();

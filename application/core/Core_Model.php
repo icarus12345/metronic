@@ -173,6 +173,7 @@ class Core_Model extends CI_Model {
                     $filterdatafield = $method["filterdatafield" . $i];
                     // get the filter's operator.
                     $filteroperator = $method["filteroperator" . $i];
+                    $filterid = $method["filterid" . $i];
 
                     if ($filterdatafield[0] === "_" && $filterdatafield[strlen($filterdatafield) - 1] === "_") {
                         $filterdatafield = substr($filterdatafield, 1, -1);
@@ -244,7 +245,11 @@ class Core_Model extends CI_Model {
                             break;
                         case "EQUAL_CASE_SENSITIVE":
                         case "EQUAL":
-                            $where .= " $filterdatafield = '$filtervalue'";
+                            if($filterid){
+                                $where .= " ( $filterdatafield = '$filtervalue' OR $filterdatafield = '$filterid')";
+                            }else{
+                                $where .= " $filterdatafield = '$filtervalue'";
+                            }
                             break;
                         case "NOT_EQUAL":
                             $where .= " $filterdatafield <> '$filtervalue'";

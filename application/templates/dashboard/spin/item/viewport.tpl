@@ -11,7 +11,7 @@
             <div class="page-content-wrapper">
                 <div class="page-content">
                     [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/content/customizer.tpl"}]
-                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/la/product/pageheader.tpl"}]
+                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/spin/item/pageheader.tpl"}]
                     <!-- BEGIN PAGE CONTENT-->
                     <!-- <div class="row">
                             <div class="col-md-12">
@@ -24,15 +24,13 @@
                             </div>
                     </div> -->
                     <!-- END PAGE CONTENT-->
-                    <div id="entry-container" style="display: none"></div>
+
+                    <div style="display:none" id="entry-container"></div>
                     <div>
-                        <script type="text/javascript" src="/libraries/ckeditor/ckeditor.js" ></script>
                         <link href='/libraries/jqwidgets/styles/jqx.base.css' rel='stylesheet' type='text/css'>
                         <link href='/libraries/jqwidgets/styles/jqx.metro.css' rel='stylesheet' type='text/css'>
                         <script type="text/javascript" src="/libraries/jqwidgets/jqx-all.js"></script>
-                        <script type="text/javascript" src="/dashboard/la/product/loadscript/app/[{$unit}]"></script>
-                        <script type="text/javascript" src="/dashboard/cp/chart/app/"></script>
-                        <script type="text/javascript" src="/dashboard/la/data/loadscript/jApp/11111"></script>
+                        <script type="text/javascript" src="/dashboard/spin/item/loadscript/app/[{$unit}]"></script>
                         <script type="text/javascript">
                             var myApp;
                             $(document).ready(function(){
@@ -50,7 +48,7 @@
                                 [{if $action.ispopup==true}]
                                     myApp.isEntryDialog = true;
                                 [{/if}]
-                                    myApp.onInit();
+                                myApp.onInit();
                             })
                         </script>
                         <div style="display:none">
@@ -58,7 +56,6 @@
                                 <ul>
                                     <li data-action="add" id="jqxAddAction"><i class="fa fa-plus"></i> Add new Record</li>
                                     <li data-action="edit" id="jqxEditAction"><i class="fa fa-pencil-square"></i> Edit Selected Row</li>
-                                    <li data-action="price" id="jqxPriceAction"><i class="fa fa-dollar"></i> Prices</li>
                                     <li data-action="status" id="jqxStatusAction">
                                         <i class="fa fa-toggle-off"></i> Status
                                         <ul>
@@ -68,7 +65,6 @@
                                     </li>
                                     <li data-action="delete" id="jqxDeleteAction"><i class="fa fa-trash-o"></i> Delete Selected Row</li>
                                     <li data-action="view" id="jqxViewAction"><i class="fa fa-eye"></i> View Selected Row</li>
-                                    <li data-action="chart" id="jqxChartAction"><i class="fa fa-line-chart"></i> Chart</li>
                                 </ul>
                             </div>
                         </div>
@@ -76,8 +72,21 @@
 
 
                         <div class="widget" id="entry-list">
+                            <div class="pull-top">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="/dashboard/spin/item/viewport/01011/">List Items</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="/dashboard/spin/user/viewport/01011/">Account</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="/dashboard/spin/history/viewport/01011/">History</a>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="modal-header">
-                                <h4>[{$cname}] List</h4>
+                                <h4>List Items</h4>
                                 <ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
                                     <li>
                                         <a href="JavaScript:myApp.addItem()" title="Add Item" onclick=""><i class="fa fa-plus"></i></a>
@@ -86,38 +95,14 @@
                                         <a href="JavaScript:myApp.refreshList()" title="Refresh List" onclick=""><i class="fa fa-refresh"></i></a>
                                     </li>
                                     <li>
-                                        <a href="JavaScript:myChart.openWeekChart('_product',0,'[{date('Y-m-d')}]','View','Chart of Cake');" title="Chart" onclick=""><i class="fa fa-line-chart"></i></a>
-                                    </li><li>
                                         <a href="JavaScript:myApp.setting()" title="Setting" onclick=""><i class="fa fa-cogs"></i></a>
-                                    </li>
-                                    <li>
-                                    <span class="dropdown">
-                                      <a
-                                        title="Change Language" 
-                                        class=" dropdown-toggle" type="button" 
-                                        id="dropdownMenuLangSetting" 
-                                        data-toggle="dropdown" 
-                                        aria-haspopup="true" 
-                                        aria-expanded="true">
-                                        <i class="fa fa-language"></i>
-                                      </a>
-                                      <ul class="dropdown-menu pull-right " aria-labelledby="dropdownMenuLangSetting">
-                                        [{foreach $aLang 'la'}]
-                                        <li><a 
-                                                class="text-right" 
-                                                href="JavaScript:" 
-                                                onclick="myApp.changeLang('[{$la->lang_short}]')">[{$la->lang_name}]</a></li>
-                                        [{/foreach}]
-                                      </ul>
-                                    </span>
                                     </li>
                                 </ul>
                             </div>
-                            
                             <div class="">
                                 <div id="entry-setting" style="display:none"><div id="jqxListBoxSetting" style="height:200px"></div></div>
-                                <div style="height:400px;position:relative">
-                                    <div id= "jqwidget-entry-list" style="border-left:0;border-right:0;border-bottom:0;"></div>
+                                <div style="-height:400px;position:relative">
+                                    <div id= "jqwidget-entry-list" style="border:0"></div>
                                 </div>
                                 
 
@@ -125,7 +110,7 @@
                         </div>
 
                     </div>
-                    
+
 
 
 
@@ -135,6 +120,7 @@
         </div>
         <!-- END CONTAINER -->
         [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/footer.tpl"}]
+
 </body>
 
 <!-- END BODY -->

@@ -1,8 +1,8 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class spin extends CP_Controller {
+class history extends CP_Controller {
 	function __construct() {
-        parent::__construct('_spin', 'spin_', 'id');
+        parent::__construct('_wheel', 'wheel_', 'id');
         
     }
     function index(){
@@ -22,7 +22,7 @@ class spin extends CP_Controller {
     function viewport($unit='00000',$type=''){
     	$this->setAction($unit);
         $this->assigns->type = $type;
-        $this->smarty->view( 'dashboard/cp/spin/viewport', $this->assigns );
+        $this->smarty->view( 'dashboard/spin/history/viewport', $this->assigns );
     }
     function editpanel($type=''){
         $type=$this->input->post('type');
@@ -34,10 +34,10 @@ class spin extends CP_Controller {
         }
         switch ($layout){
             case '1':
-                $htmlreponse = $this->smarty->view( 'dashboard/cp/spin/editPanel', $this->assigns, true );
+                $htmlreponse = $this->smarty->view( 'dashboard/spin/history/editPanel', $this->assigns, true );
                 break;
             default :
-                $htmlreponse = $this->smarty->view( 'dashboard/cp/spin/editPanel', $this->assigns, true );
+                $htmlreponse = $this->smarty->view( 'dashboard/spin/history/editPanel', $this->assigns, true );
         }
         
         $output["result"] = 1;
@@ -49,21 +49,23 @@ class spin extends CP_Controller {
     }
     function databinding(){
         $this->Core_Model->datatables_config=array(
-            "table"     =>"{$this->table}",
+            "table"     =>"_wheel",
             "select"    =>"
                 SELECT SQL_CALC_FOUND_ROWS 
-                    {$this->table}.{$this->prefix}id,
-                    {$this->table}.{$this->prefix}name,
-                    {$this->table}.{$this->prefix}number,
-                    {$this->table}.{$this->prefix}active,
-                    {$this->table}.{$this->prefix}value,
-                    {$this->table}.{$this->prefix}rate,
-                    {$this->table}.{$this->prefix}insert,
-                    {$this->table}.{$this->prefix}update,
-                    {$this->table}.{$this->prefix}status
+                    wheel_id,
+                    user_email,
+                    spin_name,
+                    wheel_code,
+                    wheel_insert,
+                    wheel_update,
+                    wheel_status
                 ",
-            "from"      =>"FROM `{$this->table}` ",
-            // "order_by"  =>"ORDER BY `{$this->prefix}insert` DESC",
+            "from"      =>"
+            FROM `_wheel` 
+            INNER JOIN _spin ON (wheel_spin_id = spin_id)
+            INNER JOIN _user ON (wheel_user_id = user_id)
+            ",
+            "order_by"  =>"ORDER BY `wheel_insert` DESC",
             "columnmaps"=>array(
                 
             ),
@@ -78,7 +80,7 @@ class spin extends CP_Controller {
     function loadscript($src='',$unit='00000'){
     	$this->setAction($unit);
         $this->output->set_header('Content-type: application/x-javascript');
-        $this->smarty->view( 'dashboard/cp/spin/'.$src, $this->assigns );
+        $this->smarty->view( 'dashboard/spin/history/'.$src, $this->assigns );
 
     }
 }

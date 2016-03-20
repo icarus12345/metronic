@@ -13814,6 +13814,7 @@ Transparent Button
     border:0;
     border-bottom: 0px solid #FFF;
 }
+.nav-tabs > li > a:focus,
 .nav-tabs > li > a:hover{
     border:0;
     border-bottom: 1px solid #E03D22;
@@ -13924,3 +13925,6 @@ a:hover{
 .jqx-widget-metro a.jqx-grid-cell-selected-metro a, .jqx-grid-cell-selected-metro a{
   color: #fff
 }
+.lang-controls{position: relative;}
+.lang-controls > .invisible{border:0 !important;margin: 0 !important;padding:0 !important;width: 1px !important;height:1px !important;position: absolute !important;opacity: 0.001;top: 0;left: 0;z-index: 0}
+.btn-xs, .btn-group-xs > .btn{border-radius: 0}

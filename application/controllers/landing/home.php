@@ -8,6 +8,7 @@ class home extends CI_Controller {
         $this->smarty->caching = 0;
         $this->createCaptcha();
         $this->notItems = array(12,13,14,15,16,17);
+        $this->codeItems = array(8,9,10,11);
     }
     function createCaptcha($re=false){
         if(!$re)
@@ -27,14 +28,36 @@ class home extends CI_Controller {
         $_SESSION['captcha'] = create_captcha($cap_parm);
     }
     function debug(){
-      echo '<pre>';
-      print_r($_SESSION['hauth']);
-      print_r($_SESSION['account']);
+          echo '<pre>';
+          print_r($_SESSION['hauth']);
+          print_r($_SESSION['account']);
+          $userid = $_SESSION['account']->user_id;
+          $his = $this->spin_model->getHistory($userid);
+          print_r($his);
     }
     function index(){
+      if($_SESSION['account']){
+          $userid = $_SESSION['account']->user_id;
+          $this->assigns->his = $this->spin_model->getHistory($userid);
+      }
       $this->smarty->view( 'spin', $this->assigns );
     }
-
+    function sendMessage($to,$subject,$body){
+        $url = "http://banhyeu.com/excution/sendMessage";
+        $post_params = array(
+            'Params'=>array(
+                'to'      => $to,
+                'name'     => "An Phú",
+                'subject'      => $subject,
+                'body'   => $body
+            )
+        );
+        $rs = do_post_request($url,$post_params);
+        return $rs;
+    }
+    function mailbody(){
+      $this->smarty->view( 'mailtemplate/anphu', $this->assigns );
+    }
     function spin(){
     	$output["result"] = -1;
     	$output["message"] = "Bad request !";
@@ -70,10 +93,14 @@ class home extends CI_Controller {
                     $item = $this->items[0];
                 }
       	    	if($item){
-      	    		$aWheelParams = array(
-      	    			'wheel_spin_id'=>$item->spin_id,
-      	    			'wheel_user_id'=>$this->user->user_id
-      	    			);
+                    $aWheelParams = array(
+                        'wheel_spin_id'=>$item->spin_id,
+                        'wheel_user_id'=>$this->user->user_id
+                    );
+                    if(in_array($item->spin_id, $this->codeItems)){
+                        $code = 'AP-'. random_string('alnum', 6);
+                        $aWheelParams['wheel_code'] = $code;
+                    }
       	    		$this->db->trans_begin();
       	    		$rok = $this->spin_model->updateRate($item->spin_id);
       	    		$rok = $rok && $this->spin_model->updateUser($this->user->user_id);
@@ -83,7 +110,20 @@ class home extends CI_Controller {
       	                $output["value"] = $item->spin_value;
                         $output["message"] = $item->spin_name;
                         if(!in_array($item->spin_id, $this->notItems)){
-      	                 $output["message"] = "Bạn đã trúng " . $output["message"];
+                            $output["message"] = "Bạn đã trúng " . $output["message"];
+                            // send mail
+                            if($this->user->user_email){
+                                $this->assigns->giftcode = $code;
+                                $this->assigns->item_name = $item->spin_name;
+                                $body = $this->smarty->view( 'mailtemplate/anphu', $this->assigns,true);
+                                $to = $this->user->user_email;
+                                $subject = $output["message"];
+                                $this->sendMessage($to,$subject,$body);
+                            }
+                            if($code){
+                                $output["giftcode"] = $code;
+                                $output["message"] .= "<br/>Mã số: $code";
+                            }
                         }
                         $this->user = $this->spin_model->getUser($userid);
                         $_SESSION['account']->user_spin_num=$this->user->user_spin_num;

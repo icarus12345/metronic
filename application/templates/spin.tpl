@@ -310,7 +310,7 @@
 </div>
 </section>
 <!-- effect 6 end -->
-<p>Khai trương cửa hàng " DỤNG CỤ LÀM BÁNH AN PHÚ" tại 108/46 Trần Quang Diệu, Phường 12. Quận 3 - TP HCM vào ngày 01/04/2016.</p>
+<p>Khai trương cửa hàng " DỤNG CỤ LÀM BÁNH AN PHÚ" tại 108/46 Trần Quang Diệu, Phường 14. Quận 3 - TP HCM vào ngày 01/04/2016.</p>
 </div>
 <!-- column 3 end -->
 
@@ -358,7 +358,7 @@
 <!-- info 1 -->
 <div class="one-third column">
 <p><strong>Địa Chỉ</strong><br>
-108/46 Trần Quang Diệu, Phường 12<br>
+108/46 Trần Quang Diệu, Phường 14<br>
 Quận 3.
 TP Hồ Chí Minh</p>
 </div>
@@ -474,7 +474,7 @@ TP Hồ Chí Minh</p>
     <script src="/assets/spin/jQueryRotate.js"></script>
     <script src="/assets/spin/jquery.easing.min.js"></script>
     <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <div  class="dialog" style="z-index: 1100; display: table;">
 	    <div class="content">
 	        <div style="max-width:720px">
@@ -488,13 +488,16 @@ TP Hồ Chí Minh</p>
                         [{/if}]
                         </li>
 	            		<li >Thể lệ</li>
-	            		<li>Hướng đẫn</li>
+	            		<li>Hướng dẫn</li>
 	            		<li>Vòng quay</li>
 	            	</ul>
+                    <span class="fa fa-remove" 
+                    onclick="$('.dialog').hide()"
+                    style="position:absolute;cursor:pointer;top:16px;right:10px;"></span>
 	            </div>
 	            <div class="body">
 	                <div class="tab-content">
-	                	<div class="reg active">
+	                	<div class="reg active reg-line">
                 			[{if $smarty.session.account}]
                             <div class="col-sm-5">
                                 <center>
@@ -509,6 +512,19 @@ TP Hồ Chí Minh</p>
                                     Bạn có <strong class="spin-num">[{$smarty.session.account->user_spin_num}]</strong> lần quay.
                                     [{else}]
                                     Đã hết số lần quay.
+                                    [{/if}]
+                                </div>
+                                <div id="his" class="pull-bottom control-group">
+                                    [{if $his}]
+                                    <h3>Lịch sử quay số</h3>
+                                    [{foreach $his 'h'}]
+                                    <div>
+                                        [{$h->spin_name}]&nbsp;
+                                        [{if $h->wheel_code}]
+                                        ( [{$h->wheel_code}] )
+                                        [{/if}]
+                                    </div>
+                                    [{/foreach}]
                                     [{/if}]
                                 </div>
                             </div>
@@ -604,15 +620,67 @@ TP Hồ Chí Minh</p>
                 			[{/if}]
                         </div>
                         <div class="reg">
+                        <h2><span>Thể lệ</span></h2>
+                            <p>
+                            <strong>Đối tượng tham gia</strong>: <br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;- Là tất cả công dân đang sinh sống và làm việc tại thành phố Hồ Chí Minh.<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;- Tuổi từ 15 đến 60.
+                            </p>
+                            <p><strong>Thời gian</strong>: - Kể từ 00h00 - ngày 15/03/2016 đến ngày 00h00 - ngày 01/04/2016.</p>
 
+<p><strong>Cách thức tham gia</strong>: - Khi bạn truy cập vào website của chúng tôi trong khoảng thời gian trên, đăng ký tài khoản để tham gia quay vòng quay tại mục “VÒNG QUAY MAY MẮN” để tham gia quay thưởng, mỗi một ngày các bạn sẽ có 3 lượt quay cho một tài khoản đăng ký.</p>
+
+<div><strong>Phần thưởng</strong>: <br/>
+- Khi các bạn quay trúng phần thưởng chúng tôi sẽ có một mã nhận thưởng gửi vào email đăng ký của các bạn (cách nhận thưởng xem phần hướng dẫn nhận quà). Thời gian đổi quà từ 09h00 - 01/04/2016 đến hết ngày 15/04/2016.<br/>
+
+            - Phần thưởng gồm có:<br/>
+                <ul class="tl-list">
+                    <li>+ Mã mua hàng giảm giá</li>
+                    <li>+ Cân điện tử</li>
+                    <li>+ Chai hương vanila </li>                                
+                    <li>+ Bộ ly giấy chịu nhiệt</li>
+                    <li>+ Cây rửa đui bắt kem </li>                              
+                    <li>+ Bộ khuân silicon</li>
+                    <li>+ Bột soda </li>                                     
+                    <li>+ Khuẩn cầu đổ chocolate</li>
+                </ul>
+</div>
+
+<p style="font-style:italic;color:red">Lưu ý: - Mã nhận thưởng chỉ có giá trị nhận hiện vật không quy đổi ra tiền mặt.<br/>
+       - Và chỉ có giá trị quy đổi trong thời gian quy định.<br/>
+       - Và chỉ đổi cho những mã nhận được email từ hệ thống của chúng tôi. Chúng tôi không chấp nhận mọi khiếu kiện nếu những tài khoàn vi phạm những thể lệ trên.
+
+                            </p>
+                            <p style="font-style:italic;color:red">- Nhận quà trực tiếp tại: <br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;+ Cửa hàng Dụng Cụ Làm Bánh An Phú: <br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;+ 108/46 Trần Quang Diệu - Phường 14. Quận 3. <br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;+ 098 263 6618</p>
+                            <p><strong>Thời gian đổi thưởng</strong>: từ 09h00 đến 10h00 - 01/04/2016 đến 10h00 - 10/04/2016 (kể cả ngày lễ, thứ 7 và chủ nhật).</p>
+                            <p style="font-style:italic;color:red">Lưu ý: Mọi thắc mắc vui lòng xin liên hệ: 098 263 6618</p>
                         </div>
                         <div class="reg">
-
+                            <h2><span>Hướng dẫn nhận quà</span></h2>
+                            <p>
+                            - Đối với những bạn may mắn quay trúng phần thưởng tại “VÒNG QUAY MAY MẮN” và nhận được email từ hệ thống của chúng tôi có kèm mã nhận thưởng. Các bạn vui lòng chụp hình lại email đó, hoặc mang email đó tới trực tiếp của hàng của chúng tội để đổi quà.
+                            </p>
+                            <p style="font-style:italic;color:red">- Nhận quà trực tiếp tại: <br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;+ Cửa hàng Dụng Cụ Làm Bánh An Phú: <br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;+ 108/46 Trần Quang Diệu - Phường 14. Quận 3. <br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;+ 098 263 6618</p>
+                            <p><strong>Thời gian đổi thưởng</strong>: từ 09h00 đến 10h00 - 01/04/2016 đến 10h00 - 10/04/2016 (kể cả ngày lễ, thứ 7 và chủ nhật).</p>
+                            <p style="font-style:italic;color:red">Lưu ý: Mọi thắc mắc vui lòng xin liên hệ: 098 263 6618</p>
                         </div>
-                        <div class="reg">
+                        <div class="reg reg-line">
                             <div class="wheel-wrap">
                                 <div class="wheel"></div>
+                                <div class="wheel-content"></div>
                                 <img class="marker" src="/assets/spin/marker.png" />
+                                <div class="notice">
+                                    <div><div></div></div>
+                                </div>
+                            </div>
+                            <div class="pull-top control-group">
+                                <center><button id="btn-spin" class="btn btn-default" type="submit">Quay</button></center>
                             </div>
                         </div>
 	                </div>

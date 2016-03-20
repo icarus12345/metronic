@@ -14,6 +14,24 @@
             value="[{$item->product_id|default:''}]" 
             id="EntryId"
             />
+        [{if count($aLang)>1}]
+        <div class="pull-bottom">
+            <div class="btn-group btn-group-xs" data-toggle="buttons">
+                [{foreach $aLang 'la'}]
+                <label class="btn btn-default [{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]" title="[{$la->lang_name}]">
+                    <input 
+                        type="radio" name="radiolangs"
+                        value="[{$la->lang_short}]" 
+                        autocomplete="off" [{if $la->lang_short==$aLang[0]->lang_short}]checked[{/if}]
+                        onchange="radioLangsChange(this.value)"
+                        />
+                    [{$la->lang_name}]
+                </label>
+                [{/foreach}]
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        [{/if}] 
         <form name="entryForm" id="entryForm" target="integration_asynchronous">
             <input type="hidden" name="product_type" id="product_type" 
                 value="[{$item->product_type|default:$type|default:''}]"/>
@@ -34,75 +52,39 @@
                     <div class="row half pull-top">
                         <div class="col-mb-6 half">
                             <div class="pull-bottom control-group">
-                                <div>
-                                    Title :(*)
-                                    [{if count($aLang)>1}]
-                                    <div class="pull-right lang-tabs">
-                                        <ul class="nav-tabs">
-                                            [{foreach $aLang 'la'}]
-                                            <li class="[{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]">
-                                                <a  title="[{$la->lang_name}]" href="#tab_title_[{$la->lang_short}]" data-toggle="tab" >[{$la->lang_short|capitalize}]</a>
-                                            </li>
-                                            [{/foreach}]
-                                        </ul>
-                                    </div>
-                                    [{/if}]
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="controls tab-content">
+                                <div>Title :(*)</div>
+                                <div class="lang-controls">
                                     [{foreach $aLang 'la'}]
-                                    <div 
-                                        id="tab_title_[{$la->lang_short}]" 
-                                        class="tab-pane [{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]"
-                                        >
-                                        <input 
-                                            type="text" 
-                                            class="form-control validate[required,minSize[4],maxSize[255]]" 
-                                            placeholder="Title - [{$la->lang_name}]"
-                                            name="ti_title[[{$la->lang_short}]]"
-                                            data-prompt-position="topLeft:0,20"
-                                            value="[{$item->aTitle[$la->lang_short]|escape:'html'|default:''}]"
-                                            [{if $item->product_lock!='true'}]
-                                            onblur="AliasTo(this,'#entryForm input[name=\'als_alias[[{$la->lang_short}]]\']')" 
-                                            [{/if}]
-                                            /> 
-                                    </div>
+                                    <input 
+                                        type="text" 
+                                        data-lang="[{$la->lang_short}]"
+                                        class="form-control validate[required,minSize[4],maxSize[255]] [{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]" 
+                                        placeholder="Title - [{$la->lang_name}]"
+                                        name="ti_title[[{$la->lang_short}]]"
+                                        data-prompt-position="topLeft:0,20"
+                                        value="[{$item->aTitle[$la->lang_short]|escape:'html'|default:''}]"
+                                        [{if $item->product_lock!='true'}]
+                                        onblur="AliasTo(this,'#entryForm input[name=\'als_alias[[{$la->lang_short}]]\']')" 
+                                        [{/if}]
+                                        />
                                     [{/foreach}]
                                 </div>
                             </div>
                         </div>
                         <div class="col-mb-6 half">
                             <div class="pull-bottom control-group">
-                                <div>
-                                    Alias :(*)
-                                    [{if count($aLang)>1}]
-                                    <div class="pull-right lang-tabs">
-                                        <ul class="nav-tabs">
-                                            [{foreach $aLang 'la'}]
-                                            <li class="[{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]">
-                                                <a  title="[{$la->lang_name}]" href="#tab_alias_[{$la->lang_short}]" data-toggle="tab" >[{$la->lang_short|capitalize}]</a>
-                                            </li>
-                                            [{/foreach}]
-                                        </ul>
-                                    </div>
-                                    [{/if}]
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="controls tab-content">
+                                <div>Alias :(*)</div>
+                                <div class="lang-controls">
                                     [{foreach $aLang 'la'}]
-                                    <div 
-                                        id="tab_alias_[{$la->lang_short}]" 
-                                        class="tab-pane [{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]"
-                                        >
-                                        <input 
-                                            type="text" 
-                                            class="form-control validate[required,minSize[4],maxSize[255]]" 
-                                            placeholder="Alias - [{$la->lang_name}]"
-                                            name="als_alias[[{$la->lang_short}]]"
-                                            data-prompt-position="topLeft:0,20"
-                                            value="[{$item->aAlias[$la->lang_short]|escape:'html'|default:''}]"
-                                            />  
-                                    </div>
+                                    <input 
+                                        type="text" 
+                                        data-lang="[{$la->lang_short}]"
+                                        class="form-control validate[required,minSize[4],maxSize[255]] [{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]" 
+                                        placeholder="Alias - [{$la->lang_name}]"
+                                        name="als_alias[[{$la->lang_short}]]"
+                                        data-prompt-position="topLeft:0,20"
+                                        value="[{$item->aAlias[$la->lang_short]|escape:'html'|default:''}]"
+                                        />
                                     [{/foreach}]
                                 </div>
 
@@ -206,70 +188,34 @@
                         </div>
                     </div>
                     <div class="control-group pull-bottom">
-                        <div>
-                            Desc :
-                            [{if count($aLang)>1}]
-                            <div class="pull-right lang-tabs">
-                                <ul class="nav-tabs">
-                                    [{foreach $aLang 'la'}]
-                                    <li class="[{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]">
-                                        <a  title="[{$la->lang_name}]" href="#tab_desc_[{$la->lang_short}]" data-toggle="tab" >[{$la->lang_short|capitalize}]</a>
-                                    </li>
-                                    [{/foreach}]
-                                </ul>
-                            </div>
-                            [{/if}]
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="controls tab-content">
+                        <div>Desc :</div>
+                        <div class="lang-controls">
                             [{foreach $aLang 'la'}]
-                            <div 
-                                id="tab_desc_[{$la->lang_short}]" 
-                                class="tab-pane [{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]"
-                                >
-                                <textarea 
-                                    class="form-control" 
-                                    placeholder="Desc - [{$la->lang_name}]"
-                                    rows="2"
-                                    data-prompt-position="topLeft:0,20"
-                                    name="de_desc[[{$la->lang_short}]]"
-                                    >[{$item->aDesc[$la->lang_short]|escape:'html'|default:''}]</textarea>  
-                            </div>
+                            <textarea 
+                                data-lang="[{$la->lang_short}]"
+                                class="form-control [{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]" 
+                                placeholder="Desc - [{$la->lang_name}]"
+                                rows="2"
+                                data-prompt-position="topLeft:0,20"
+                                name="de_desc[[{$la->lang_short}]]"
+                                >[{$item->aDesc[$la->lang_short]|escape:'html'|default:''}]</textarea>
                             [{/foreach}]
                         </div>
                                 
                         <div class="erb error_desc"></div>
                     </div>
                     <div class="control-group pull-bottom">
-                        <div>
-                            Tag :
-                            [{if count($aLang)>1}]
-                            <div class="pull-right lang-tabs">
-                                <ul class="nav-tabs">
-                                    [{foreach $aLang 'la'}]
-                                    <li class="[{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]">
-                                        <a  title="[{$la->lang_name}]" href="#tab_tag_[{$la->lang_short}]" data-toggle="tab" >[{$la->lang_short|capitalize}]</a>
-                                    </li>
-                                    [{/foreach}]
-                                </ul>
-                            </div>
-                            [{/if}]
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="controls tab-content">
+                        <div>Tag :</div>
+                        <div class="lang-controls">
                             [{foreach $aLang 'la'}]
-                            <div 
-                                id="tab_tag_[{$la->lang_short}]" 
-                                class="tab-pane [{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]"
-                                >
-                                <textarea 
-                                    class="form-control" 
-                                    placeholder="Tag - [{$la->lang_name}]"
-                                    rows="2"
-                                    data-prompt-position="topLeft:0,20"
-                                    name="tag_tag[[{$la->lang_short}]]"
-                                    >[{$item->aTag[$la->lang_short]|escape:'html'|default:''}]</textarea>  
-                            </div>
+                            <textarea 
+                                data-lang="[{$la->lang_short}]"
+                                class="form-control [{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]" 
+                                placeholder="Tag - [{$la->lang_name}]"
+                                rows="2"
+                                data-prompt-position="topLeft:0,20"
+                                name="tag_tag[[{$la->lang_short}]]"
+                                >[{$item->aTag[$la->lang_short]|escape:'html'|default:''}]</textarea>
                             [{/foreach}]
                         </div>
                                 
@@ -315,25 +261,11 @@
                         <div class="code">Editor does not support in Mobile, please user desktop browser to edit.</div>
                     </div>
                     [{else}]
-                    <div>&nbsp;
-                    [{if count($aLang)>1}]
-                    <div class="pull-right lang-tabs">
-                        <ul class="nav-tabs">
-                            [{foreach $aLang 'la'}]
-                            <li class="[{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]">
-                                <a  title="[{$la->lang_name}]" href="#tab_content_[{$la->lang_short}]" data-toggle="tab" >[{$la->lang_short|capitalize}]</a>
-                            </li>
-                            [{/foreach}]
-                        </ul>
-                    </div>
-                    [{/if}]
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="controls tab-content">
+                    <div class="lang-controls">
                         [{foreach $aLang 'la'}]
                         <div 
-                            id="tab_content_[{$la->lang_short}]" 
-                            class="tab-pane [{if $la->lang_short==$aLang[0]->lang_short}]active[{/if}]"
+                            data-lang="[{$la->lang_short}]"
+                            class="[{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]" 
                             >
                             <textarea 
                                 class="form-control" 

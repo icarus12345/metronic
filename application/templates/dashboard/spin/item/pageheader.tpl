@@ -1,7 +1,7 @@
 <!-- BEGIN PAGE HEADER-->
 
 <h3 class="page-title">
-	Dashboard <small>Image</small>
+	Dashboard <small>Spin</small>
 </h3>
 
 <div class="page-bar">
@@ -16,7 +16,7 @@
 			<i class="fa fa-angle-right"></i>
 		</li>
 		<li>
-			<a href="/dashboard/cp/image">Quay So</a>
+			<a href="/dashboard/cp/image">Spin</a>
 		</li>
 	</ul>
 	<!-- <div class="page-toolbar">

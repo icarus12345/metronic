@@ -361,6 +361,7 @@ class product extends CP_Controller {
                     {$this->table}.{$this->prefix}category,
                     {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,
+                    {$this->table}.{$this->prefix}token,
                     {$this->table}.{$this->prefix}status,
                     {$this->table}.{$this->prefix}lock,
                     {$this->table}.{$this->prefix}token,
@@ -376,7 +377,7 @@ class product extends CP_Controller {
             // "group_by"  =>"GROUP BY {$this->prefix}id",
             "order_by"  =>"ORDER BY `{$this->prefix}insert` DESC",
             "columnmaps"=>array(
-                
+                'cat_title'=>"{$this->prefix}category"
             ),
             "filterfields"=>array(
 

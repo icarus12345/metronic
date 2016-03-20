@@ -7,6 +7,7 @@ var APP = function() {
     this.jqxgrid = '#jqwidget-entry-list';
     this.theme = 'metro',
     this.entryType = '';
+    this.lang = 'en';
     this.isEntryDialog = false;
     this.isAddItem = false;
     this.isEditItem = false;
@@ -16,69 +17,21 @@ var APP = function() {
     this.entryCommitUri = '/dashboard/la/product/oncommit/';
     this.entryDeleteUri = '/dashboard/la/product/ondelete/';
     var me = this;
-    this.bindingCate = function(){
-        this.cateApp._datafields = [
-            {name: '[{$catfrefix}]id' 	, type: 'int'},
-            {name: '[{$catfrefix}]title' 	},
-            {name: '[{$catfrefix}]status' , type: 'bool'},
-            {name: '[{$catfrefix}]insert' , type: 'date'},
-            {name: '[{$catfrefix}]update' , type: 'date'},
-        ];
-        this.cateApp._source = {
-            datatype 	: "json",
-            type 		: "POST",
-            datafields 	: me.cateApp._datafields,
-            url 		: '/dashboard/la/category/databinding/'+me.entryType,
-            id 			:'[{$catfrefix}]id',
-            root 		: 'rows'
-        };
-        this.cateApp._dataAdapter = new $.jqx.dataAdapter(me.cateApp._source, {
-            autoBind: true,
-            beforeLoadComplete: function (records) {
-                for (var i = 0; i < records.length; i++) {
-                    records[i].value = records[i].[{$catfrefix}]id;
-                    records[i].label = records[i].[{$catfrefix}]title;
-                }
-            },
-            loadComplete: function(records){
-            	me.bindingEntry();
-            },
-            loadError: function(xhr, status, error) {
-                addNotice("<b>Status</b>:" + xhr.status + "<br/><b>ThrownError</b>:" + error + "<br/>",'error');
-            }
-        });
-    };
-    this.createGrid = function(){
-    	this.bindingCate();
-    };
-    this.bindingEntry = function(){
-    	this._datafields = [
-            {name: '[{$frefix}]id' 	, type: 'int'},
-            {name: '[{$frefix}]category'    , type: 'int'},
-            {
-             name: '[{$catfrefix}]title'  ,
-             value: '[{$frefix}]category',
-             values: { 
-                 source: me.cateApp._dataAdapter.records, 
-                 value: 'value', name: 'label' 
-             }
-            },
-            {name: 'ti_title'    },
-            //{name: 'ti_lang'    },
-            {name: '[{$frefix}]code'    },
-            {name: '[{$frefix}]thumb'   },
-            {name: '[{$frefix}]view' 	, type: 'int'},
-            {name: '[{$frefix}]status' , type: 'bool'},
-            {name: '[{$frefix}]insert' , type: 'date'},
-            {name: '[{$frefix}]update' , type: 'date'},
-        ];
+    this.changeLang = function(lang){
+        if(this.lang == lang) return;
+        this.lang = lang;
+        this._getSource();
+        this._getCateSource()
+        $(me.jqxgrid).jqxGrid({source: this._dataAdapter});
+    }
+    this._getSource = function(){
         this._source = {
-            datatype 	: "json",
-            type 		: "POST",
-            datafields 	: me._datafields,
-            url 		: me.bindingUri + me.entryType,
-            id 			:'[{$frefix}]id',
-            root 		: 'rows',
+            datatype    : "json",
+            type        : "POST",
+            datafields  : me._datafields,
+            url         : me.bindingUri + me.entryType  + '/' +me.lang,
+            id          :'[{$frefix}]id',
+            root        : 'rows',
                     filter: function() {
                 $(me.jqxgrid).jqxGrid('updatebounddata', 'filter');
             },
@@ -91,9 +44,74 @@ var APP = function() {
                 addNotice("<b>Status</b>:" + xhr.status + "<br/><b>ThrownError</b>:" + error + "<br/>",'error');
             }
         });
+    }
+    this._getCateSource = function(){
+        this.cateApp._source = {
+            datatype    : "json",
+            type        : "POST",
+            datafields  : me.cateApp._datafields,
+            url         : '/dashboard/la/category/databinding/'+me.entryType + '/' +me.lang,
+            id          :'id',
+            root        : 'rows'
+        };
+        this.cateApp._dataAdapter = new $.jqx.dataAdapter(me.cateApp._source, {
+            autoBind: true,
+            beforeLoadComplete: function (records) {
+                for (var i = 0; i < records.length; i++) {
+                    records[i].value = records[i].[{$catfrefix}]id;
+                    records[i].label = records[i].[{$catfrefix}]title;
+                }
+            },
+            loadComplete: function(records){
+                me.bindingEntry();
+            },
+            loadError: function(xhr, status, error) {
+                addNotice("<b>Status</b>:" + xhr.status + "<br/><b>ThrownError</b>:" + error + "<br/>",'error');
+            }
+        });
+    }
+    this.bindingCate = function(){
+        this.cateApp._datafields = [
+            // {name: 'id'   , type: 'int'},
+            // {name: 'value'},
+            {name: '[{$catfrefix}]id' 	, type: 'int'},
+            {name: '[{$catfrefix}]title' 	},
+            {name: '[{$catfrefix}]status' , type: 'bool'},
+            {name: '[{$catfrefix}]insert' , type: 'date'},
+            {name: '[{$catfrefix}]update' , type: 'date'},
+        ];
+        this._getCateSource();
+    };
+    this.createGrid = function(){
+    	this.bindingCate();
+    };
+    this.bindingEntry = function(){
+    	this._datafields = [
+            {name: '[{$frefix}]id' 	, type: 'int'},
+            {name: '[{$frefix}]category'    , type: 'int'},
+            {
+                name: '[{$catfrefix}]title'  ,
+                value: '[{$frefix}]category',
+                values: { 
+                    source: me.cateApp._dataAdapter.records, 
+                    value: 'value',
+                    name: 'label' 
+                }
+            },
+            {name: 'ti_title'    },
+            //{name: 'ti_lang'    },
+            {name: '[{$frefix}]code'    },
+            {name: '[{$frefix}]thumb'   },
+            {name: '[{$frefix}]token'   },
+            {name: '[{$frefix}]view' 	, type: 'int'},
+            {name: '[{$frefix}]status' , type: 'bool'},
+            {name: '[{$frefix}]insert' , type: 'date'},
+            {name: '[{$frefix}]update' , type: 'date'},
+        ];
+        this._getSource();
 	    this._columns = [
 	        {
-	            text: '', dataField: '[{$frefix}]id', width: 52, pinned: true,
+	            text: '', dataField: '[{$frefix}]id', width: 72, pinned: true,
 	            filterable: false, sortable: true, editable: false, groupable:false,
 	            cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
 	                var str = "";
@@ -104,11 +122,16 @@ var APP = function() {
 	                    	"onclick=\"myApp.editItem(" + value + ");\" "+ 
 	                        "title='Edit :" + value + "'><i class=\"fa fa-pencil-square\"></i></a>\
 	                        ";
-	                        str += "<a href='JavaScript:void(0)'"+
-	                        "style='padding: 5px; float: left;margin-top: 2px;' " +
-	                    	"onclick=\"myApp.removeItem(" + value + ","+row+");\" "+
-	                        "title='Delete :" + value + "'><i class=\"fa fa-trash-o\"></i></a>\
-	                        ";
+                            str += "<a href='JavaScript:void(0)'"+
+                            "style='padding: 5px; float: left;margin-top: 2px;' " +
+                            "onclick=\"myApp.showPrices(" + value + ","+row+");\" "+
+                            "title='Prices :" + value + "'><i class=\"fa fa-dollar\"></i></a>\
+                            ";
+                            str += "<a href='JavaScript:void(0)'"+
+                            "style='padding: 5px; float: left;margin-top: 2px;' " +
+                            "onclick=\"myApp.removeItem(" + value + ","+row+");\" "+
+                            "title='Delete :" + value + "'><i class=\"fa fa-trash-o\"></i></a>\
+                            ";
 	                    } catch (e) {
 	                    }
 	                }
@@ -162,7 +185,12 @@ var APP = function() {
                     editor.jqxDropDownList({ 
                         source          : me.cateApp._dataAdapter.records,
                         displayMember   : "[{$catfrefix}]title", 
-                        valueMember     : "[{$catfrefix}]id"
+                        valueMember     : "[{$catfrefix}]id",
+                        // renderer: function (index, label, value) {
+                        //     console.log(index)
+                        //     var datarecord = me.cateApp._dataAdapter.records[index];
+                        //     return datarecord?datarecord.[{$catfrefix}]title:'';
+                        // }
                     });
                 },
                 // cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
@@ -246,7 +274,9 @@ var APP = function() {
 	                    me.addItem();
 	                }else if(action == 'edit'){
 	                    me.editItem(entryId);
-	                }else if(action == 'delete'){
+	                }else if(action == 'price'){
+                        me.showPrices(entryIdentryId);
+                    }else if(action == 'delete'){
 	                    me.removeItem(entryId,rowIndex);
 	                }else if(action == 'status'){
                 	}else if(action == 'statuson'){
@@ -413,8 +443,8 @@ var APP = function() {
 	                filterslength++;
 	            }
 	        }
-//	        console.log(JSON.stringify(data));
-//	        console.log(filterInformation);
+	        console.log(JSON.stringify(data));
+	        console.log(filterInformation);
 
 	    });
 		[{if $action.edit==true}]
@@ -715,4 +745,21 @@ var APP = function() {
         // apply the filters.
         $(me.jqxgrid).jqxGrid('applyfilters');
     };
+    this.showPrices = function(token,row){
+        if(row!=undefined){
+            var rowData = $(me.jqxgrid).jqxGrid('getrowdata', row);
+            token = rowData.[{$frefix}]token;
+        }
+        dataAPP.init({
+            title: 'Product Prices',
+            editurl:'/dashboard/la/data/productopt',
+            token: token,
+            unit:'111115',
+            type:'lang_product',
+            layout:1,
+            width:'480px',
+            lang: me.lang
+        });
+        dataAPP.showGridDialog();
+    }
 };

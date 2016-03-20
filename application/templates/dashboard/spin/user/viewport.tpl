@@ -11,7 +11,7 @@
             <div class="page-content-wrapper">
                 <div class="page-content">
                     [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/content/customizer.tpl"}]
-                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/cp/spin/pageheader.tpl"}]
+                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/spin/item/pageheader.tpl"}]
                     <!-- BEGIN PAGE CONTENT-->
                     <!-- <div class="row">
                             <div class="col-md-12">
@@ -30,7 +30,7 @@
                         <link href='/libraries/jqwidgets/styles/jqx.base.css' rel='stylesheet' type='text/css'>
                         <link href='/libraries/jqwidgets/styles/jqx.metro.css' rel='stylesheet' type='text/css'>
                         <script type="text/javascript" src="/libraries/jqwidgets/jqx-all.js"></script>
-                        <script type="text/javascript" src="/dashboard/cp/spin/loadscript/app/[{$unit}]"></script>
+                        <script type="text/javascript" src="/dashboard/spin/user/loadscript/app/[{$unit}]"></script>
                         <script type="text/javascript">
                             var myApp;
                             $(document).ready(function(){
@@ -72,8 +72,21 @@
 
 
                         <div class="widget" id="entry-list">
+                            <div class="pull-top">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" >
+                                        <a href="/dashboard/spin/item/viewport/01011/">List Items</a>
+                                    </li>
+                                    <li role="presentation" class="active">
+                                        <a href="/dashboard/spin/user/viewport/01011/">Account</a>
+                                    </li>
+                                    <li role="presentation" >
+                                        <a href="/dashboard/spin/history/viewport/01011/">History</a>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="modal-header">
-                                <h4>Slider List</h4>
+                                <h4>Account</h4>
                                 <ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
                                     <li>
                                         <a href="JavaScript:myApp.addItem()" title="Add Item" onclick=""><i class="fa fa-plus"></i></a>

@@ -70,7 +70,9 @@ class spin_model extends CI_Model {
         return false;
     }
     function insertWheel($params) {
-        @$this->db->insert('_wheel', $params);
+        @$this->db
+            ->set('wheel_insert', 'NOW()',false)
+            ->insert('_wheel', $params);
         @$count = $this->db->affected_rows(); //should return the number of rows affected by the last query
         if ($count == 1)
             return true;
@@ -83,6 +85,16 @@ class spin_model extends CI_Model {
             ->where('user_id', $id)
             ->get();
         return $query->row();
+    }
+    function getHistory($user_id){
+        $query = $this->db
+            ->from('_wheel')
+            ->join('_spin','wheel_spin_id = spin_id')
+            ->where('wheel_user_id', $user_id)
+            ->order_by('wheel_insert','DESC')
+            ->limit(3)
+            ->get();
+        return $query->result();
     }
 }
 ?>
