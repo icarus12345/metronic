@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','lang','smarty','user_agent','captcha');
+$autoload['libraries'] = array('database','lang','smarty','user_agent','captcha','CI_Phpmailer');
 
 
 /*

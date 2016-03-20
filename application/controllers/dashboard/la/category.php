@@ -258,6 +258,8 @@ class category extends CP_Controller {
             "table"     =>"{$this->table}",
             "select"    =>"
                 SELECT SQL_CALC_FOUND_ROWS 
+                    {$this->table}.{$this->prefix}id as 'id',
+                    {$this->table}.{$this->prefix}id as 'value',
                     {$this->table}.{$this->prefix}id,
                     {$this->table}.{$this->prefix}parent,
                     {$this->table}.{$this->prefix}insert,

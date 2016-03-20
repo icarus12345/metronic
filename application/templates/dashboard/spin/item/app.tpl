@@ -9,10 +9,10 @@ var APP = function() {
     this.isAddItem = false;
     this.isEditItem = false;
     this.isDeleteItem = false;
-    this.bindingUri = '/dashboard/cp/spin/databinding/';
-    this.entryEditUri = '/dashboard/cp/spin/editpanel/';
-    this.entryCommitUri = '/dashboard/cp/spin/oncommit/';
-    this.entryDeleteUri = '/dashboard/cp/spin/ondelete/';
+    this.bindingUri = '/dashboard/spin/item/databinding/';
+    this.entryEditUri = '/dashboard/spin/item/editpanel/';
+    this.entryCommitUri = '/dashboard/spin/item/oncommit/';
+    this.entryDeleteUri = '/dashboard/spin/item/ondelete/';
     var me = this;
     this.createGrid = function(){
     	this._datafields = [
@@ -47,30 +47,7 @@ var APP = function() {
 	    });
 	    this._columns = [
 	        {
-	            text: '', dataField: '[{$frefix}]id', width: 52, filterable: false, sortable: true,editable: false,
-	            cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
-	                var str = "";
-	                if (value && value > 0) {
-	                    try {
-	                        str += "<a href='JavaScript:void(0)'"+
-	                        "style='padding: 5px; float: left;margin-top: 2px;' " +
-	                    	"onclick=\"myApp.editItem(" + value + ");\" "+ 
-	                        "title='Edit :" + value + "'><i class=\"fa fa-pencil-square\"></i></a>\
-	                        ";
-	                     //    str += "<a href='JavaScript:void(0)'"+
-	                     //    "style='padding: 5px; float: left;margin-top: 2px;' " +
-	                    	// "onclick=\"myApp.removeItem(" + value + ","+row+");\" "+ 
-	                     //    "title='Delete :" + value + "'><i class=\"fa fa-trash-o\"></i></a>\
-	                     //    ";
-	                    } catch (e) {
-	                    }
-	                }
-	                if(me.isMobile)
-	                	return '<span style="position:absolute;top:50%;left:50%;margin:-7px 0 0 -7px;" class="fa fa-bars"></span>';
-	                return str;
-	            }
-	        },{
-	            text: 'Id'    , dataField: '[{$frefix}]id2' , displayfield:'[{$frefix}]id',cellsalign: 'right', 
+	            text: 'Id'    , dataField: '[{$frefix}]id' ,cellsalign: 'right', 
 	            width: 60, columntype: 'numberinput', filtertype: 'number',
 	            filterable: false, sortable: false,editable: false,hidden:true
             },{
@@ -78,10 +55,18 @@ var APP = function() {
 	            columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS'
 	            
 	        },{
-	            text: 'Amount', dataField: '[{$frefix}]number', width: 80, sortable: true,
+	            text: 'Amount', dataField: '[{$frefix}]number', width: 60, sortable: true,
 	            columntype: 'numberinput', filtertype: 'number',
 	            align: 'right', cellsalign: 'right',
           		validation: function (cell, value) {
+          			var cell = $(me.jqxgrid).jqxGrid('getselectedcell');
+            		var rowIndex = cell.rowindex;
+            		if(rowIndex>=0){
+			            var rowData = $(me.jqxgrid).jqxGrid('getrowdata', rowIndex);
+			            if(rowData && value < rowData.[{$frefix}]active){
+			            	return { result: false, message: "Amount should be great than Active" };
+			            }
+			        }
                     if (value < 0 || value > 999) {
                         return { result: false, message: "Amount should be in the 0-999 interval" };
                     }
@@ -92,8 +77,12 @@ var APP = function() {
                 }
 	            
 	        },{
+	            text: 'Active', dataField: '[{$frefix}]active', width: 60, sortable: true,
+	            columntype: 'numberinput', filtertype: 'number', editable: false,
+	            align: 'right', cellsalign: 'right', aggregates: ['sum']	            
+	        },{
 	            text: 'Rate', dataField: '[{$frefix}]rate', width: 80, sortable: true,
-	            columntype: 'numberinput', filtertype: 'number',
+	            columntype: 'numberinput', filtertype: 'number',cellsformat: 'p',
 	            align: 'right', cellsalign: 'right',
           		validation: function (cell, value) {
                     if (value < 0 || value > 99) {
@@ -103,8 +92,25 @@ var APP = function() {
                 },
                 createeditor: function (row, cellvalue, editor) {
                     editor.jqxNumberInput({ decimalDigits: 1, digits: 3 });
+                },
+	            aggregates: [{ 
+	            	'Total': function (aggregatedValue, currentValue, column, record) {
+                        return aggregatedValue + (record['[{$frefix}]status']?currentValue:0);
+                    }
+              	}]
+	        },{
+	            text: 'Value', dataField: '[{$frefix}]value', width: 60, sortable: true,
+	            columntype: 'numberinput', filtertype: 'number',
+	            align: 'right', cellsalign: 'right',
+          		validation: function (cell, value) {
+                    if (value < 0) {
+                        return { result: false, message: "Rate should be great than 0" };
+                    }
+                    return true;
+                },
+                createeditor: function (row, cellvalue, editor) {
+                    editor.jqxNumberInput({ decimalDigits: 0, digits: 2 });
                 }
-	            
 	        },{
 	            text: 'Status'    , dataField: '[{$frefix}]status' , cellsalign: 'center',
 	            width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
@@ -182,9 +188,9 @@ var APP = function() {
 		$('#contextMenu').jqxMenu('disable', 'jqxViewAction', true); 
 		$(me.jqxgrid).jqxGrid({
 	        width 				: '100%', //
-	        //autoheight:true,
-            rowsheight:28,
-	        height 				: '100%',
+	        autoheight:true,
+            // rowsheight:28,
+	        // height 				: '100%',
 	        source 				: this._dataAdapter,
 	        theme 				: me.theme,
 	        columns 			: this._columns,
@@ -194,6 +200,8 @@ var APP = function() {
 	        // showfilterrow 		: true,
 			sortable 			: true,
 			virtualmode 		: true,
+			showaggregates: true,
+			showstatusbar: true,
 	        // groupable 		    : true,
 	        // groups              : ['author_name','topic_title'],
 	        [{if $action.edit==true}]

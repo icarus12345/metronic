@@ -530,6 +530,7 @@ left: 0;
 position: absolute;
 bottom: 100%;
 background: none;
+margin-bottom: -2px;
 }
 
 .left-bottom li:hover ul {
@@ -1004,8 +1005,10 @@ color: #000;
 .dialog .content>div>.head{
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  padding: 8px 10px;
+  padding: 13px 10px;
   margin: 0;font-weight: bold;
+  background: url('/assets/spin/logo.jpg') no-repeat left center;
+  position: relative;
 }
 .dialog .content>div>.body{
   padding: 10px;
@@ -1025,7 +1028,7 @@ color: #000;
 .foot-btns>div:first-child{
   border-left:0px solid #ddd;
 }
-.tab-nav{position: relative;padding-left: 100px;text-align: center;}
+.tab-nav{position: relative;padding-left: 140px;text-align: right;padding-right: 20px}
 .tab-nav>li{margin: 0;display: inline-block;width: auto;padding: 0 10px;cursor: pointer;font-weight: normal;}
 .tab-nav>li.active{color: #42acf3;font-weight: normal;}
 .tab-nav>li:hover{color: #42acf3;font-weight: normal;}
@@ -1090,22 +1093,52 @@ color: #000;
 }
 .wheel-wrap{position: relative;margin: auto;max-width:532px;}
 .wheel-wrap .wheel{
-    position: relative;width: 100%;padding-bottom: 100%;background:url(/assets/spin/whell.png) center no-repeat;
+    position: relative;width: 100%;padding-bottom: 100%;background:url(/assets/spin/wheel.png) center no-repeat;
     background-size: 100% auto;
     -moz-background-size: 100% auto;
     -o-background-size: 100% auto;
     -webkit-background-size: 100% auto;
 }
+.wheel-wrap .wheel-content{
+    position: absolute;top: 0;left: 0;width: 100%;padding-bottom: 100%;background:url(/assets/spin/wheel-bg.png) center no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
+.notice{display:none;cursor:pointer;position: absolute;top: 50%;left: 50%;width: 347px;height: 437px;margin: -219px 0 0 -174px;background:url(/assets/spin/popup.png) center no-repeat;z-index: 1001}
+.notice>div{position: absolute;    width: 181px;
+    height: 105px;
+    top: 245px;
+    left: 64px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    display: table;
+}
+.notice>div>div{display: table-cell;vertical-align: middle}
 .wheel-wrap .marker{position: absolute;top: 45%;right: -5%;height: 10.057%}
 .formErrorPopup.formError:hover .formErrorContent{display: block}
 .form-control,.input-group-addon{border-radius: 0;border: 1px solid #bdc7d8;border: 1px solid #ddd;background-color:#FFF}
 .pull-bottom {padding-bottom: 10px;}
+.pull-top {padding-top: 10px;}
 .regErr,.signinErr{color: #F3553C;font-size:12px;padding-bottom: 10px;display: none;}
 .form-control:focus{border-color: #bdc7d8}
 .fb-btn img,.g-btn img{width: 100%;margin-bottom: 10px}
 .reg{margin: auto;max-width: 680px;padding: 10px 0;position: relative;}
 .dialog h3{font-size: 16px;font-weight: bold;color: #5d5d5d;position: relative;margin-bottom: 10px;}
 .dialog h3:after{display: block;width: 40px;height: 2px;background: #42acf3;content: '';}
+.dialog p{margin: 0;padding: 0 0 10px 0}
+.dialog h2{font-size: 18px;font-weight: bold;position: relative;margin-bottom: 10px;margin: 0;text-align: left;}
+.dialog h2>span{position: relative;display: inline-block;padding-right: 10px}
+.dialog h2>span:before{display: block;width: 100px;height: 1px;background: #ccc;content: '';top: 8px;left: 100%;position: absolute;}
+.dialog h2>span:after{display: block;width: 100px;height: 1px;background: #ccc;content: '';top: 10px;left: 100%;position: absolute;margin-left: 2px}
+.tl-list li{margin: 0;padding:0;padding-left: 30px;}
+#his>div {
+    border: 1px solid #ccc;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+}
 .dialog strong{font-weight: bold;}
 .avartar{display:block;margin:auto;max-width: 80px}
 .clearfix{clear: both;}
@@ -1117,11 +1150,11 @@ color: #000;
 .captcha .form-control{padding-left: 90px}
 .control-group .fa{font-size: 14px;position: absolute;color: #ccc;top: 6px;left: 6px;width: 22px;height: 18px;line-height: 18px;text-align: center; border-right: 1px solid #ccc;padding-right: 4px}
 @media (min-width: 768px) {
-  .reg:before{position: absolute;content: '';left: 50%;top: 40px;bottom: 40px;width: 1px;background: #ddd}
-
+  .reg-line:before{position: absolute;content: '';left: 50%;top: 40px;bottom: 40px;width: 1px;background: #ddd}
+  .tl-list li{width: 49%;display: inline-block;}
 }
 @media (max-width: 767px) {
   .col-sm-5{width: 100%;padding-left: 10px;padding: 10px}
-  .reg{max-width: 300px;}
+  .reg-line{max-width: 300px;}
   .dialog{position: absolute;}
 }

@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class home extends FE_Controller {
 	public function index(){
-		redirect('/assets/landing');
+		redirect('/landing');
 		$this->assigns->site = array(
 			'title'=>'',
 			'desc'=>'',

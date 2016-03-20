@@ -555,6 +555,10 @@ function accountdialog() {
         }]
     }).open();
 }
+function radioLangsChange(lang){
+    $('.lang-controls [data-lang]').addClass('invisible');
+    $('.lang-controls [data-lang='+lang+']').removeClass('invisible');
+}
 $(document).ready(function(){
     
 });
