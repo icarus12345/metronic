@@ -74,7 +74,8 @@ var APP = function() {
         this.cateApp._datafields = [
             // {name: 'id'   , type: 'int'},
             // {name: 'value'},
-            {name: '[{$catfrefix}]id' 	, type: 'int'},
+            {name: '[{$catfrefix}]id'   , type: 'int'},
+            {name: '[{$catfrefix}]level' 	, type: 'int'},
             {name: '[{$catfrefix}]title' 	},
             {name: '[{$catfrefix}]status' , type: 'bool'},
             {name: '[{$catfrefix}]insert' , type: 'date'},
@@ -188,9 +189,8 @@ var APP = function() {
                         displayMember   : "[{$catfrefix}]title", 
                         valueMember     : "[{$catfrefix}]id",
                         // renderer: function (index, label, value) {
-                        //     console.log(index)
                         //     var datarecord = me.cateApp._dataAdapter.records[index];
-                        //     return datarecord?datarecord.[{$catfrefix}]title:'';
+                        //     return  datarecord?('&nbsp;'.repeater(datarecord.[{$catfrefix}]level * 4) + datarecord.[{$catfrefix}]title):'';
                         // }
                     });
                 },
@@ -203,6 +203,10 @@ var APP = function() {
                         source: me.cateApp._dataAdapter.records,
                         displayMember: "[{$catfrefix}]title", valueMember: "[{$catfrefix}]id",
                         width: width, height: height, theme: me.theme,
+                        renderer: function (index, label, value) {
+                            var datarecord = me.cateApp._dataAdapter.records[index];
+                            return  datarecord?('&nbsp;'.repeater(datarecord.[{$catfrefix}]level * 4) + datarecord.[{$catfrefix}]title):'';
+                        }
                         // selectionRenderer: function() {
                         //     return "Please Choose:";
                         // }
