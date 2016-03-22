@@ -7,7 +7,7 @@ class home extends CI_Controller {
         $this->load->model('spin/spin_model');
         $this->smarty->caching = 0;
         $this->createCaptcha();
-        $this->notItems = array(12,13,14,15,16,17);
+        $this->notItems = array(12,13,14,15,17);
         $this->codeItems = array(8,9,10,11);
     }
     function createCaptcha($re=false){

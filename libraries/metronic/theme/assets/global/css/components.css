@@ -2577,7 +2577,7 @@ Dropdown Menu
   background-color: #ffffff;
   margin: 10px  0px 0px 0px;
   box-shadow: 5px 5px 5px rgba(102, 102, 102, 0.05);
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -2642,7 +2642,7 @@ Dropdown Menu
   right: auto;
   display: inline-block !important;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid #e0e0e0;
+  border-bottom: 8px solid #ccc;
   border-left: 8px solid transparent;
   content: '';
 }

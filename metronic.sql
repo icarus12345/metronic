@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2016-03-18 16:08:21
+Date: 2016-03-23 14:20:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -186,7 +186,7 @@ CREATE TABLE `lang_alias` (
   `als_type` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`als_id`),
   UNIQUE KEY `_title_lang` (`als_lang`,`als_token`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of lang_alias
@@ -213,6 +213,12 @@ INSERT INTO `lang_alias` VALUES ('37', 'packaging', 'en', '5bd6ea058447791bb8102
 INSERT INTO `lang_alias` VALUES ('38', 'bao-bi', 'vi', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', null, 'cake');
 INSERT INTO `lang_alias` VALUES ('39', 'equipments', 'en', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
 INSERT INTO `lang_alias` VALUES ('40', 'thiet-bi', 'vi', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
+INSERT INTO `lang_alias` VALUES ('41', 'news', 'en', '4a91b55bc064bd156f8a7517428912de', '2016-03-22 14:05:15', null, 'news');
+INSERT INTO `lang_alias` VALUES ('42', 'tin-tuc', 'vi', '4a91b55bc064bd156f8a7517428912de', '2016-03-22 14:05:15', null, 'news');
+INSERT INTO `lang_alias` VALUES ('43', 'guide', 'en', '5fb073f53e9a84ea16fb9342818dbc1e', '2016-03-22 14:06:11', null, 'news');
+INSERT INTO `lang_alias` VALUES ('44', 'huong-dan', 'vi', '5fb073f53e9a84ea16fb9342818dbc1e', '2016-03-22 14:06:11', null, 'news');
+INSERT INTO `lang_alias` VALUES ('45', 'what-is-lorem-ipsum-', 'en', 'e732425134b6675735264b1e9464c743', '2016-03-22 15:39:24', null, 'news');
+INSERT INTO `lang_alias` VALUES ('46', 'lorem-ipsum-la-gi-', 'vi', 'e732425134b6675735264b1e9464c743', '2016-03-22 15:39:24', null, 'news');
 
 -- ----------------------------
 -- Table structure for lang_category
@@ -234,7 +240,7 @@ CREATE TABLE `lang_category` (
   `cat_value` varchar(255) DEFAULT NULL,
   `cat_token` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of lang_category
@@ -247,6 +253,8 @@ INSERT INTO `lang_category` VALUES ('5', '', null, null, '1', 'true', '0', '', '
 INSERT INTO `lang_category` VALUES ('6', '', null, null, '1', 'true', '0', '', 'cake', '2016-03-14 10:06:53', null, null, '>1>6', 'a63da31c25eb1002839fc96d1effd4de');
 INSERT INTO `lang_category` VALUES ('7', '', null, null, '1', 'true', '0', '', 'cake', '2016-03-14 10:08:06', null, null, '>1>7', '89e6b18d941a36d529dbbc17cd523410');
 INSERT INTO `lang_category` VALUES ('9', '', null, null, '0', 'true', '0', '', 'cake', '2016-03-14 11:29:04', null, null, '>9', '2d82c0ce6ec298d8234797802fa04556');
+INSERT INTO `lang_category` VALUES ('10', '', null, null, '0', 'true', '0', '', 'news', '2016-03-22 14:05:15', null, null, '>10', '4a91b55bc064bd156f8a7517428912de');
+INSERT INTO `lang_category` VALUES ('11', '', null, null, '0', 'true', '0', '', 'news', '2016-03-22 14:06:11', null, null, '>11', '5fb073f53e9a84ea16fb9342818dbc1e');
 
 -- ----------------------------
 -- Table structure for lang_content
@@ -262,7 +270,7 @@ CREATE TABLE `lang_content` (
   `co_lang` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`co_id`),
   UNIQUE KEY `_content_lang` (`co_token`,`co_lang`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lang_content
@@ -271,6 +279,8 @@ INSERT INTO `lang_content` VALUES ('1', 'b3ab7b1902fc1016af2a0372f02cdab9', 'cak
 INSERT INTO `lang_content` VALUES ('2', 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake', 'cập nhật', null, null, 'vi');
 INSERT INTO `lang_content` VALUES ('3', '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', null, 'en');
 INSERT INTO `lang_content` VALUES ('4', '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', null, 'vi');
+INSERT INTO `lang_content` VALUES ('5', 'e732425134b6675735264b1e9464c743', 'news', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2016-03-22 15:39:24', null, 'en');
+INSERT INTO `lang_content` VALUES ('6', 'e732425134b6675735264b1e9464c743', 'news', 'Lorem Ipsum chỉ đơn giản l&agrave; một đoạn văn bản giả, được d&ugrave;ng v&agrave;o việc tr&igrave;nh b&agrave;y v&agrave; d&agrave;n trang phục vụ cho in ấn. Lorem Ipsum đ&atilde; được sử dụng như một văn bản chuẩn cho ng&agrave;nh c&ocirc;ng nghiệp in ấn từ những năm 1500, khi một họa sĩ v&ocirc; danh gh&eacute;p nhiều đoạn văn bản với nhau để tạo th&agrave;nh một bản mẫu văn bản. Đoạn văn bản n&agrave;y kh&ocirc;ng những đ&atilde; tồn tại năm thế kỉ, m&agrave; khi được &aacute;p dụng v&agrave;o tin học văn ph&ograve;ng, nội dung của n&oacute; vẫn kh&ocirc;ng hề bị thay đổi. N&oacute; đ&atilde; được phổ biến trong những năm 1960 nhờ việc b&aacute;n những bản giấy Letraset in những đoạn Lorem Ipsum, v&agrave; gần đ&acirc;y hơn, được sử dụng trong c&aacute;c ứng dụng d&agrave;n trang, như Aldus PageMaker.', '2016-03-22 15:39:24', null, 'vi');
 
 -- ----------------------------
 -- Table structure for lang_data
@@ -283,12 +293,14 @@ CREATE TABLE `lang_data` (
   `data_insert` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `data_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `data_type` varchar(32) DEFAULT NULL,
+  `data_status` varchar(10) DEFAULT 'true',
   PRIMARY KEY (`data_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lang_data
 -- ----------------------------
+INSERT INTO `lang_data` VALUES ('1', '{\"title\":{\"en\":\"Inox\",\"vi\":\"Inox\"},\"price\":{\"en\":\"12\",\"vi\":\"120000\"}}', '4', '2016-03-22 13:52:10', '2016-03-22 13:52:10', 'lang_product', 'false');
 
 -- ----------------------------
 -- Table structure for lang_desc
@@ -310,8 +322,10 @@ CREATE TABLE `lang_desc` (
 -- ----------------------------
 INSERT INTO `lang_desc` VALUES ('dede', 'de', null, null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
 INSERT INTO `lang_desc` VALUES ('Equipments', 'en', '2016-03-14 11:29:04', null, '2d82c0ce6ec298d8234797802fa04556', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'en', '2016-03-22 14:05:15', null, '4a91b55bc064bd156f8a7517428912de', 'news');
 INSERT INTO `lang_desc` VALUES ('', 'en', '2015-07-21 11:18:35', null, '54760b5cd376fbc4868776f1f11a8a79', 'cake');
 INSERT INTO `lang_desc` VALUES ('Packaging', 'en', '2016-03-14 11:28:29', null, '5bd6ea058447791bb81028d3e1bf76a1', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'en', '2016-03-22 14:06:11', null, '5fb073f53e9a84ea16fb9342818dbc1e', 'news');
 INSERT INTO `lang_desc` VALUES ('The powder', 'en', '2016-03-14 09:58:03', null, '690435f750175022aec45a00a7f4c87f', 'cake');
 INSERT INTO `lang_desc` VALUES ('Cake mold', 'en', '2015-07-20 15:12:00', null, '86b387e10308c39782a524a10ac15f45', 'cake');
 INSERT INTO `lang_desc` VALUES ('Additives-Spice', 'en', '2016-03-14 10:08:06', null, '89e6b18d941a36d529dbbc17cd523410', 'cake');
@@ -319,10 +333,13 @@ INSERT INTO `lang_desc` VALUES ('Material', 'en', '2015-07-20 15:11:37', null, '
 INSERT INTO `lang_desc` VALUES ('Ready-mixed powder', 'en', '2016-03-14 10:06:53', null, 'a63da31c25eb1002839fc96d1effd4de', 'cake');
 INSERT INTO `lang_desc` VALUES ('', 'en', '2015-07-21 10:32:05', null, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake');
 INSERT INTO `lang_desc` VALUES ('Tools', 'en', '2015-07-20 15:16:32', null, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake');
+INSERT INTO `lang_desc` VALUES ('Lorem Ipsum is simply dummy text of the printing and typesetting industry', 'en', '2016-03-22 15:39:24', null, 'e732425134b6675735264b1e9464c743', 'news');
 INSERT INTO `lang_desc` VALUES ('frfr', 'fr', null, null, 'a13415493f3ce8a05a0aa36895377235', 'cake');
 INSERT INTO `lang_desc` VALUES ('Thiết bị', 'vi', '2016-03-14 11:29:04', null, '2d82c0ce6ec298d8234797802fa04556', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'vi', '2016-03-22 14:05:15', null, '4a91b55bc064bd156f8a7517428912de', 'news');
 INSERT INTO `lang_desc` VALUES ('', 'vi', '2015-07-21 11:18:35', null, '54760b5cd376fbc4868776f1f11a8a79', 'cake');
 INSERT INTO `lang_desc` VALUES ('Bao bì', 'vi', '2016-03-14 11:28:29', null, '5bd6ea058447791bb81028d3e1bf76a1', 'cake');
+INSERT INTO `lang_desc` VALUES ('', 'vi', '2016-03-22 14:06:11', null, '5fb073f53e9a84ea16fb9342818dbc1e', 'news');
 INSERT INTO `lang_desc` VALUES ('Các loại bột', 'vi', '2016-03-14 09:58:03', null, '690435f750175022aec45a00a7f4c87f', 'cake');
 INSERT INTO `lang_desc` VALUES ('Khuôn - Khay', 'vi', '2015-07-20 15:12:00', null, '86b387e10308c39782a524a10ac15f45', 'cake');
 INSERT INTO `lang_desc` VALUES ('Phụ gia-Hương liệu', 'vi', '2016-03-14 10:08:06', null, '89e6b18d941a36d529dbbc17cd523410', 'cake');
@@ -330,6 +347,32 @@ INSERT INTO `lang_desc` VALUES ('Nguyên Liệu', 'vi', '2015-07-20 15:11:37', n
 INSERT INTO `lang_desc` VALUES ('bột trộn sẵn', 'vi', '2016-03-14 10:06:53', null, 'a63da31c25eb1002839fc96d1effd4de', 'cake');
 INSERT INTO `lang_desc` VALUES ('', 'vi', '2015-07-21 10:32:05', null, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake');
 INSERT INTO `lang_desc` VALUES ('Dụng cụ', 'vi', '2015-07-20 15:16:32', null, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake');
+INSERT INTO `lang_desc` VALUES ('Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn', 'vi', '2016-03-22 15:39:24', null, 'e732425134b6675735264b1e9464c743', 'news');
+
+-- ----------------------------
+-- Table structure for lang_news
+-- ----------------------------
+DROP TABLE IF EXISTS `lang_news`;
+CREATE TABLE `lang_news` (
+  `news_id` int(11) NOT NULL AUTO_INCREMENT,
+  `news_thumb` varchar(255) DEFAULT NULL,
+  `news_cover` varchar(255) DEFAULT NULL,
+  `news_position` int(3) DEFAULT NULL,
+  `news_status` varchar(5) DEFAULT NULL,
+  `news_type` varchar(100) DEFAULT NULL,
+  `news_insert` datetime DEFAULT NULL,
+  `news_update` datetime DEFAULT NULL,
+  `news_category` int(11) DEFAULT NULL,
+  `news_token` varchar(32) DEFAULT NULL,
+  `news_view` int(11) DEFAULT '0',
+  `news_lock` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`news_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of lang_news
+-- ----------------------------
+INSERT INTO `lang_news` VALUES ('5', '/data/image/ILoveYouThisMuch-90421.jpg', null, null, 'true', 'news', '2016-03-22 15:39:24', '2016-03-23 11:00:23', '10', 'e732425134b6675735264b1e9464c743', '0', null);
 
 -- ----------------------------
 -- Table structure for lang_price
@@ -397,8 +440,10 @@ CREATE TABLE `lang_tag` (
 -- ----------------------------
 INSERT INTO `lang_tag` VALUES ('', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
 INSERT INTO `lang_tag` VALUES ('', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+INSERT INTO `lang_tag` VALUES ('Lorem Ipsum', 'en', 'e732425134b6675735264b1e9464c743', '2016-03-22 15:39:24', null, 'news');
 INSERT INTO `lang_tag` VALUES ('', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
 INSERT INTO `lang_tag` VALUES ('', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
+INSERT INTO `lang_tag` VALUES ('Lorem Ipsum', 'vi', 'e732425134b6675735264b1e9464c743', '2016-03-22 15:39:24', null, 'news');
 
 -- ----------------------------
 -- Table structure for lang_title
@@ -420,8 +465,10 @@ CREATE TABLE `lang_title` (
 -- ----------------------------
 INSERT INTO `lang_title` VALUES ('dêde', 'de', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
 INSERT INTO `lang_title` VALUES ('Equipments', 'en', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
+INSERT INTO `lang_title` VALUES ('News', 'en', '4a91b55bc064bd156f8a7517428912de', '2016-03-22 14:05:15', null, 'news');
 INSERT INTO `lang_title` VALUES ('Birthday Cake', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Packaging', 'en', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Guide', 'en', '5fb073f53e9a84ea16fb9342818dbc1e', '2016-03-22 14:06:11', null, 'news');
 INSERT INTO `lang_title` VALUES ('The powder', 'en', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Cake mold', 'en', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Additives-Spice', 'en', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', null, 'cake');
@@ -429,10 +476,13 @@ INSERT INTO `lang_title` VALUES ('Material', 'en', 'a13415493f3ce8a05a0aa3689537
 INSERT INTO `lang_title` VALUES ('Ready-mixed powder', 'en', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Marry Cake', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Tools', 'en', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
+INSERT INTO `lang_title` VALUES ('What is Lorem Ipsum ?', 'en', 'e732425134b6675735264b1e9464c743', '2016-03-22 15:39:24', null, 'news');
 INSERT INTO `lang_title` VALUES ('frfrfr', 'fr', 'a13415493f3ce8a05a0aa36895377235', null, null, 'cake');
 INSERT INTO `lang_title` VALUES ('Thiết bị', 'vi', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Tin Tức', 'vi', '4a91b55bc064bd156f8a7517428912de', '2016-03-22 14:05:15', null, 'news');
 INSERT INTO `lang_title` VALUES ('Bánh sinh nhật', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Bao bì', 'vi', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Hướng dẫn', 'vi', '5fb073f53e9a84ea16fb9342818dbc1e', '2016-03-22 14:06:11', null, 'news');
 INSERT INTO `lang_title` VALUES ('Các loại bột', 'vi', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Khuôn - Khay', 'vi', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Phụ gia-Hương liệu', 'vi', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', null, 'cake');
@@ -440,6 +490,7 @@ INSERT INTO `lang_title` VALUES ('Nguyên Liệu', 'vi', 'a13415493f3ce8a05a0aa3
 INSERT INTO `lang_title` VALUES ('Bột trộn sẵn', 'vi', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Bánh cưới', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', null, 'cake');
 INSERT INTO `lang_title` VALUES ('Dụng cụ', 'vi', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', null, 'cake');
+INSERT INTO `lang_title` VALUES ('Lorem Ipsum là gì ?', 'vi', 'e732425134b6675735264b1e9464c743', '2016-03-22 15:39:24', null, 'news');
 
 -- ----------------------------
 -- Table structure for _album
@@ -503,18 +554,18 @@ INSERT INTO `_category` VALUES ('46', 'Application', null, ' fa fa-bars', null, 
 INSERT INTO `_category` VALUES ('423', 'Cake', null, 'icon-handbag', null, null, '', '50', 'true', '2', '/dashboard/cp/product/viewport/111115/cake', 'cms', '2015-07-04 09:14:34', '2015-07-20 16:26:54', null, '>50>423');
 INSERT INTO `_category` VALUES ('50', 'Content Provider', null, 'icon-home', null, null, '', '0', 'true', '1', '', 'cms', '2014-12-10 16:06:08', '2015-07-20 16:26:54', null, '>50');
 INSERT INTO `_category` VALUES ('51', 'Service Operator', null, 'icon-settings', null, null, '', '0', 'true', '2', '', 'cms', '2014-12-10 16:06:33', '2015-07-20 16:26:54', null, '>51');
-INSERT INTO `_category` VALUES ('419', 'Bánh sinh nhật', 'banh-sinh-nhat', '/data/image/banh-sinh-nhat.jpg', null, null, 'Bánh sinh nhật với những mẫu đẹp và dễ thương nhất 2015, với giá rẻ, mẫu mã đẹp, tại Tp. Hồ Chí Minh', '0', 'true', '0', '', 'cake', '2015-07-02 21:58:23', '2016-03-18 09:56:19', 'true', '>419');
+INSERT INTO `_category` VALUES ('419', 'Bánh sinh nhật', 'banh-sinh-nhat', '/data/image/banh-sinh-nhat.jpg', null, null, 'Bánh sinh nhật với những mẫu đẹp và dễ thương nhất 2015, với giá rẻ, mẫu mã đẹp, tại Tp. Hồ Chí Minh', '0', 'true', '0', '', 'cake', '2015-07-02 21:58:23', '2016-03-18 16:19:41', 'true', '>419');
 INSERT INTO `_category` VALUES ('434', 'Admin Account', null, 'fa fa-users', null, null, '', '51', 'true', '3', '/dashboard/so/account/viewport/111114/cms', 'cms', '2015-07-04 22:06:44', '2015-07-20 16:26:54', null, '>51>434');
-INSERT INTO `_category` VALUES ('420', 'Bánh cưới', 'banh-cuoi', '/data/image/banh-cuoi.jpg', null, null, 'Bánh cưới với những mẫu đẹp được sáng tạo với vẻ đẹp hiện đại, vừa có các chi tiết trang trí đa dạng, vừa mang sắc màu gây ấn tượng', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:25', '2016-03-18 09:56:19', 'true', '>420');
-INSERT INTO `_category` VALUES ('421', 'Bánh vẽ', 'banh-ve', '/data/image/banh-ve.jpg', null, null, 'Bánh vẽ là bánh sinh nhật và vẽ hình lên bánh, vẽ chân dung, vẽ nhân vật hoạt hình, vẽ chữ và trang trí', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:31', '2016-03-18 09:56:19', 'true', '>421');
-INSERT INTO `_category` VALUES ('422', 'Bánh cupcake', 'banh-cupcake', '/data/image/banh-cupcake.jpg', null, null, 'Những chiếc bánh cupcake vữa ngon lại còn được trang trí cầu kỳ khiến cho mọi người chỉ muốn được thưởng thức chúng ngay lập tức.', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:44', '2016-03-18 09:56:19', 'true', '>422');
+INSERT INTO `_category` VALUES ('420', 'Bánh cưới', 'banh-cuoi', '/data/image/banh-cuoi.jpg', null, null, 'Bánh cưới với những mẫu đẹp được sáng tạo với vẻ đẹp hiện đại, vừa có các chi tiết trang trí đa dạng, vừa mang sắc màu gây ấn tượng', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:25', '2016-03-18 16:19:41', 'true', '>420');
+INSERT INTO `_category` VALUES ('421', 'Bánh vẽ', 'banh-ve', '/data/image/banh-ve.jpg', null, null, 'Bánh vẽ là bánh sinh nhật và vẽ hình lên bánh, vẽ chân dung, vẽ nhân vật hoạt hình, vẽ chữ và trang trí', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:31', '2016-03-18 16:19:41', 'true', '>421');
+INSERT INTO `_category` VALUES ('422', 'Bánh cupcake', 'banh-cupcake', '/data/image/banh-cupcake.jpg', null, null, 'Những chiếc bánh cupcake vữa ngon lại còn được trang trí cầu kỳ khiến cho mọi người chỉ muốn được thưởng thức chúng ngay lập tức.', '0', 'true', '0', '', 'cake', '2015-07-02 22:14:44', '2016-03-18 16:19:41', 'true', '>422');
 INSERT INTO `_category` VALUES ('433', 'File Manage', null, 'fa fa-file-image-o', null, null, '', '51', 'true', '2', '/dashboard/cp/kcfinder/viewport/111111/image', 'cms', '2015-07-04 16:34:01', '2015-07-20 16:26:54', null, '>51>433');
 INSERT INTO `_category` VALUES ('428', 'Social', 'social', null, null, null, '', '0', 'true', '3', '', 'scake', '2015-07-04 12:55:14', '2015-07-08 13:49:00', null, '>428');
 INSERT INTO `_category` VALUES ('429', 'Payment', 'payment', null, null, null, '', '0', 'true', '2', '', 'scake', '2015-07-04 12:55:21', '2015-07-08 13:49:00', null, '>429');
 INSERT INTO `_category` VALUES ('430', 'Information', 'information', null, null, null, '', '0', 'true', '1', '', 'scake', '2015-07-04 12:55:35', '2015-07-08 13:49:00', null, '>430');
 INSERT INTO `_category` VALUES ('431', 'Other', 'other', null, null, null, '', '0', 'true', '10', '', 'scake', '2015-07-04 12:55:50', '2015-07-08 13:49:00', null, '>431');
 INSERT INTO `_category` VALUES ('432', 'Setting', null, 'fa fa-cogs', null, null, '', '51', 'false', '0', '/dashboard/cp/data/viewport/010114/scake', 'cms', '2015-07-04 16:22:43', '2015-07-20 16:26:54', null, '>51>432');
-INSERT INTO `_category` VALUES ('435', 'Bánh tình yêu', 'banh-tinh-yeu', null, null, null, '', '0', 'false', '0', '', 'cake', '2015-07-06 19:25:49', '2016-03-18 09:56:19', null, '>435');
+INSERT INTO `_category` VALUES ('435', 'Bánh tình yêu', 'banh-tinh-yeu', null, null, null, '', '0', 'false', '0', '', 'cake', '2015-07-06 19:25:49', '2016-03-18 16:19:41', null, '>435');
 INSERT INTO `_category` VALUES ('436', 'Order - Contact us', null, 'fa fa-comment-o', null, null, '', '50', 'true', '5', '/dashboard/cp/contactus/viewport/011114', 'cms', '2015-07-06 23:30:10', '2015-07-20 16:26:54', null, '>50>436');
 INSERT INTO `_category` VALUES ('437', 'Setting', null, 'fa fa-cogs', null, null, '', '51', 'true', '1', '/dashboard/so/data/viewport/010114/scake', 'cms', '2015-07-08 13:44:46', '2015-07-20 16:26:54', null, '>51>437');
 INSERT INTO `_category` VALUES ('438', 'Công thức làm bánh', null, 'fa fa-file-text-o', null, null, '', '44', 'true', '1', '/dashboard/cp/content/viewportonly/010014/1', 'cms', '2015-07-09 16:38:07', '2015-07-20 16:26:54', null, '>50>44>438');
@@ -1165,23 +1216,23 @@ CREATE TABLE `_spin` (
 -- ----------------------------
 -- Records of _spin
 -- ----------------------------
-INSERT INTO `_spin` VALUES ('1', 'Cây rửa đui', '25', '2', '1.00', 'true', '2016-03-18 14:22:02', '2016-03-15 10:34:20', '0.00', '5');
+INSERT INTO `_spin` VALUES ('1', 'Cây rửa đui', '25', '2', '1.30', 'true', '2016-03-18 16:43:39', '2016-03-18 16:43:39', '0.00', '5');
 INSERT INTO `_spin` VALUES ('2', 'Khuân silicon', '20', '1', '1.00', 'true', '2016-03-18 15:43:50', '2016-03-15 10:34:53', '0.10', '10');
 INSERT INTO `_spin` VALUES ('3', 'Khuân đổ socola', '25', '0', '1.00', 'false', '2016-03-18 15:35:46', '2016-03-15 10:37:14', '0.00', null);
 INSERT INTO `_spin` VALUES ('4', 'Cân điện tử', '2', '1', '1.00', 'true', '2016-03-18 15:44:02', '2016-03-15 10:37:38', '0.10', '8');
 INSERT INTO `_spin` VALUES ('5', 'Ly giấy chịu nhiệt', '30', '0', '1.00', 'true', '2016-03-18 14:22:02', null, '0.00', '14');
 INSERT INTO `_spin` VALUES ('6', 'Hộp bột soda', '15', '1', '1.00', 'true', '2016-03-18 14:22:02', null, '0.00', '1');
 INSERT INTO `_spin` VALUES ('7', 'Hương Vanila', '20', '0', '1.00', 'true', '2016-03-18 14:22:02', null, '0.00', '12');
-INSERT INTO `_spin` VALUES ('8', 'Mã giảm giá 3%', '999', '1', '33.00', 'true', '2016-03-18 16:07:14', null, '0.30', '13');
+INSERT INTO `_spin` VALUES ('8', 'Mã giảm giá 3%', '999', '1', '33.00', 'true', '2016-03-18 16:11:57', null, '0.40', '13');
 INSERT INTO `_spin` VALUES ('9', 'Mã giảm giá 5%', '999', '1', '14.00', 'true', '2016-03-18 16:07:34', null, '0.40', '3');
 INSERT INTO `_spin` VALUES ('10', 'Mã giảm giá 10%', '999', '0', '6.00', 'true', '2016-03-18 14:22:02', null, '0.00', '0');
 INSERT INTO `_spin` VALUES ('11', 'Mã giảm giá 15%', '999', '0', '4.00', 'true', '2016-03-18 14:22:02', null, '0.00', '6');
 INSERT INTO `_spin` VALUES ('12', 'Chúc bạn may mắn lần sau', '9999', '1', '9.00', 'true', '2016-03-18 15:36:27', null, '0.20', '2');
-INSERT INTO `_spin` VALUES ('13', 'Tiếc quá, cố lên nào !', '9999', '1', '9.00', 'true', '2016-03-18 15:43:28', null, '0.10', '7');
-INSERT INTO `_spin` VALUES ('14', 'Hụt mất rồi, huhu ...', '9999', '1', '9.00', 'true', '2016-03-18 16:07:25', null, '0.20', '4');
+INSERT INTO `_spin` VALUES ('13', 'Tiếc quá, cố lên nào !', '9999', '1', '9.00', 'true', '2016-03-18 16:12:44', null, '0.20', '7');
+INSERT INTO `_spin` VALUES ('14', 'Hụt mất rồi, huhu ...', '9999', '1', '9.00', 'true', '2016-03-18 16:12:26', null, '0.30', '4');
 INSERT INTO `_spin` VALUES ('15', 'Cố lên nào bạn ơi', '9999', '1', '9.00', 'true', '2016-03-18 15:43:59', null, '0.10', '11');
 INSERT INTO `_spin` VALUES ('16', 'Hụt mất rồi, huhu ...', '9999', '1', '9.00', 'true', '2016-03-18 15:44:11', null, '0.10', '15');
-INSERT INTO `_spin` VALUES ('17', 'Chúc bạn may mắn lần sau', '9999', '0', '9.00', 'true', '2016-03-18 15:36:31', null, '0.00', '9');
+INSERT INTO `_spin` VALUES ('17', 'Chúc bạn may mắn lần sau !', '9999', '1', '9.00', 'true', '2016-03-18 16:31:07', '2016-03-18 16:31:07', '0.10', '9');
 
 -- ----------------------------
 -- Table structure for _user
@@ -1207,7 +1258,7 @@ CREATE TABLE `_user` (
 INSERT INTO `_user` VALUES ('1', 'khuongxuantruong@gmail.com', null, 'khuongxuantruong@gmail.com', '2016-03-18 14:10:06', '2016-03-18 14:10:06', 'true', '3');
 INSERT INTO `_user` VALUES ('2', null, null, 'creativestudionoreply@gmail.com', '2016-03-18 14:10:06', '2016-03-18 14:10:06', 'true', '3');
 INSERT INTO `_user` VALUES ('5', 'khuongxuantruong2@gmail.com', '2d7d5f66eab6e84d6bdf440f5722c858', 'khuongxuantruong2@gmail.com', '2016-03-18 14:10:06', '2016-03-18 14:10:06', 'true', '3');
-INSERT INTO `_user` VALUES ('6', 'khuongxuantruong@gmail.com3', '2d7d5f66eab6e84d6bdf440f5722c858', 'khuongxuantruong4@gmail.com', '2016-03-18 16:07:34', '2016-03-18 16:07:34', 'true', '209');
+INSERT INTO `_user` VALUES ('6', 'khuongxuantruong@gmail.com3', '2d7d5f66eab6e84d6bdf440f5722c858', 'khuongxuantruong4@gmail.com', '2016-03-18 16:24:39', '2016-03-18 16:24:39', 'true', '205');
 
 -- ----------------------------
 -- Table structure for _wheel
@@ -1221,7 +1272,7 @@ CREATE TABLE `_wheel` (
   `wheel_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `wheel_status` varchar(10) DEFAULT '0',
   PRIMARY KEY (`wheel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of _wheel
@@ -1252,3 +1303,7 @@ INSERT INTO `_wheel` VALUES ('28', '14', '6', '2016-03-18 16:07:05', null, '0');
 INSERT INTO `_wheel` VALUES ('29', '8', '6', '2016-03-18 16:07:14', null, '0');
 INSERT INTO `_wheel` VALUES ('30', '14', '6', '2016-03-18 16:07:25', null, '0');
 INSERT INTO `_wheel` VALUES ('31', '9', '6', '2016-03-18 16:07:34', null, '0');
+INSERT INTO `_wheel` VALUES ('32', '8', '6', '2016-03-18 16:11:57', null, '0');
+INSERT INTO `_wheel` VALUES ('33', '14', '6', '2016-03-18 16:12:26', null, '0');
+INSERT INTO `_wheel` VALUES ('34', '13', '6', '2016-03-18 16:12:44', null, '0');
+INSERT INTO `_wheel` VALUES ('35', '17', '6', '2016-03-18 16:24:39', null, '0');

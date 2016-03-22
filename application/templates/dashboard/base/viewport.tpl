@@ -1,7 +1,19 @@
 
 [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/meta.tpl"}]
 <!-- BEGIN BODY -->
+[{foreach $template.css 'css'}]
+<link href='[{$css}]' rel='stylesheet' type='text/css'>
+[{/foreach}]
+[{foreach $template.js 'js'}]
+<script type="text/javascript" src="[{$js}]" ></script>
+[{/foreach}]
+
 <body class="page-header-fixed page-quick-sidebar-over-content page-style-square page-boxed" oncontextmenu="return false">
+[{if $template.contextmenu}]
+    [{include file=$smarty.const.APPPATH|cat:$template.contextmenu}]
+[{else}]
+    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/base/contextmenu.tpl"}]
+[{/if}]
     [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/header.tpl"}]
     <!-- BEGIN CONTAINER -->
     <div class="container">
@@ -10,8 +22,8 @@
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <div class="page-content">
-                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/content/customizer.tpl"}]
-                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/la/product/pageheader.tpl"}]
+                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/base/customizer.tpl"}]
+                    [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/base/pageheader.tpl"}]
                     <!-- BEGIN PAGE CONTENT-->
                     <!-- <div class="row">
                             <div class="col-md-12">
@@ -26,64 +38,19 @@
                     <!-- END PAGE CONTENT-->
                     <div id="entry-container" style="display: none"></div>
                     <div>
-                        <script type="text/javascript" src="/libraries/ckeditor/ckeditor.js" ></script>
-                        <link href='/libraries/jqwidgets/styles/jqx.base.css' rel='stylesheet' type='text/css'>
-                        <link href='/libraries/jqwidgets/styles/jqx.metro.css' rel='stylesheet' type='text/css'>
-                        <script type="text/javascript" src="/libraries/jqwidgets/jqx-all.js"></script>
-                        <script type="text/javascript" src="/dashboard/la/product/loadscript/app/[{$unit}]"></script>
-                        <script type="text/javascript" src="/dashboard/cp/chart/app/"></script>
-                        <script type="text/javascript" src="/dashboard/la/data/loadscript/jApp/11111"></script>
-                        <script type="text/javascript">
-                            var myApp;
-                            $(document).ready(function(){
-                                myApp = new APP();
-                                myApp.entryType='[{$type}]';
-                                [{if $action.add!=false}]
-                                    myApp.isAddItem = true;
-                                [{/if}]
-                                [{if $action.edit!=false}]
-                                    myApp.isEditItem = true;
-                                [{/if}]
-                                [{if $action.delete!=false}]
-                                    myApp.isDeleteItem = true;
-                                [{/if}]
-                                [{if $action.ispopup==true}]
-                                    myApp.isEntryDialog = true;
-                                [{/if}]
-                                    myApp.onInit();
-                            })
-                        </script>
-                        <div style="display:none">
-                            <div id='contextMenu' class="jqx-contextMenu">
-                                <ul>
-                                    <li data-action="add" id="jqxAddAction"><i class="fa fa-plus"></i> Add</li>
-                                    <li data-action="edit" id="jqxEditAction"><i class="fa fa-pencil-square"></i> Edit</li>
-                                    <li data-action="price" id="jqxPriceAction"><i class="fa fa-dollar"></i> Prices</li>
-                                    <li data-action="status" id="jqxStatusAction">
-                                        <i class="fa fa-toggle-off"></i> Status
-                                        <ul>
-                                            <li data-action="statuson" id="jqxStatusActionOn"><i class="fa fa-check-square-o"></i> Enable</li>
-                                            <li data-action="statusoff" id="jqxStatusActionOff"><i class="fa fa-square-o"></i> Disable</li>
-                                        </ul>
-                                    </li>
-                                    <li data-action="delete" id="jqxDeleteAction"><i class="fa fa-trash-o"></i> Delete</li>
-                                    <li data-action="view" id="jqxViewAction"><i class="fa fa-eye"></i> View</li>
-                                    <li data-action="chart" id="jqxChartAction"><i class="fa fa-line-chart"></i> Chart</li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-
                         <div class="widget" id="entry-list">
                             <div class="modal-header">
-                                <h4>[{$cname}] List</h4>
+                                <h4>[{$template.fulltitle}]</h4>
                                 <ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
+                                    [{if $action.add == 1}]
                                     <li>
-                                        <a href="JavaScript:myApp.addItem()" title="Add Item" onclick=""><i class="fa fa-plus"></i></a>
+                                        <a href="JavaScript:myApp.addItem()" title="Add Item" onclick=""><i class="fa fa-plus"></i>
+                                        </a>
                                     </li>
+                                    [{/if}]
                                     <li>
-                                        <a href="JavaScript:myApp.refreshList()" title="Refresh List" onclick=""><i class="fa fa-refresh"></i></a>
+                                        <a href="JavaScript:myApp.refreshList()" title="Refresh List" onclick=""><i class="fa fa-refresh"></i>
+                                        </a>
                                     </li>
                                     <li>
                                         <a href="JavaScript:myChart.openWeekChart('_product',0,'[{date('Y-m-d')}]','View','Chart of Cake');" title="Chart" onclick=""><i class="fa fa-line-chart"></i></a>
@@ -119,16 +86,9 @@
                                 <div style="height:400px;position:relative">
                                     <div id= "jqwidget-entry-list" style="border-left:0;border-right:0;border-bottom:0;"></div>
                                 </div>
-                                
-
                             </div>
                         </div>
-
                     </div>
-                    
-
-
-
                 </div>
             </div>
             <!-- END CONTENT -->
@@ -136,6 +96,5 @@
         <!-- END CONTAINER -->
         [{include file=$smarty.const.APPPATH|cat:"templates/dashboard/inc/footer.tpl"}]
 </body>
-
 <!-- END BODY -->
 </html>
