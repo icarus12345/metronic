@@ -1,5 +1,5 @@
 [{if false}]<script type="text/javascript">[{/if}]
-[{assign 'frefix' 'product_'}]
+[{assign 'frefix' 'news_'}]
 [{assign 'catfrefix' 'cat_'}]
 var APP = function() {
     this.isMobile = [{if $ci->agent->is_mobile()}]true[{else}]false[{/if}];
@@ -12,10 +12,10 @@ var APP = function() {
     this.isAddItem = false;
     this.isEditItem = false;
     this.isDeleteItem = false;
-    this.bindingUri = '/dashboard/la/product/databinding/';
-    this.entryEditUri = '/dashboard/la/product/editpanel/';
-    this.entryCommitUri = '/dashboard/la/product/oncommit/';
-    this.entryDeleteUri = '/dashboard/la/product/ondelete/';
+    this.bindingUri = '/dashboard/la/news/databinding/';
+    this.entryEditUri = '/dashboard/la/news/editpanel/';
+    this.entryCommitUri = '/dashboard/la/news/oncommit/';
+    this.entryDeleteUri = '/dashboard/la/news/ondelete/';
     var me = this;
     this.changeLang = function(lang){
         if(this.lang == lang) return;
@@ -102,7 +102,6 @@ var APP = function() {
             {name: '[{$frefix}]title'    },
             {name: 'ti_title'    },
             //{name: 'ti_lang'    },
-            {name: '[{$frefix}]code'    },
             {name: '[{$frefix}]thumb'   },
             {name: '[{$frefix}]token'   },
             {name: '[{$frefix}]view' 	, type: 'int'},
@@ -113,7 +112,7 @@ var APP = function() {
         this._getSource();
 	    this._columns = [
 	        {
-	            text: '', dataField: '[{$frefix}]id', width: 72, pinned: true,
+	            text: '', dataField: '[{$frefix}]id', width: 62, pinned: true,
 	            filterable: false, sortable: true, editable: false, groupable:false,
 	            cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
 	                var str = "";
@@ -124,11 +123,6 @@ var APP = function() {
 	                    	"onclick=\"myApp.editItem(" + value + ");\" "+ 
 	                        "title='Edit :" + value + "'><i class=\"fa fa-pencil-square\"></i></a>\
 	                        ";
-                            str += "<a href='JavaScript:void(0)'"+
-                            "style='padding: 5px; float: left;margin-top: 2px;' " +
-                            "onclick=\"myApp.showPrices(" + value + ","+row+");\" "+
-                            "title='Prices :" + value + "'><i class=\"fa fa-dollar\"></i></a>\
-                            ";
                             str += "<a href='JavaScript:void(0)'"+
                             "style='padding: 5px; float: left;margin-top: 2px;' " +
                             "onclick=\"myApp.removeItem(" + value + ","+row+");\" "+
@@ -162,17 +156,6 @@ var APP = function() {
                 validation: function (cell, value) {
                     if (value.length < 4 || value.length > 255) {
                         return { result: false, message: "Title must be not empty and length should be in the 4-255 interval" };
-                        return { result: false, message: "Quantity should be in the 0-150 interval" };
-                    }
-                    return true;
-                }
-	        },{
-	            text: 'Code', dataField: '[{$frefix}]code', width: 80, 
-	            sortable: true, groupable:false,
-	            columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS',
-                validation: function (cell, value) {
-                    if (value.length < 4 || value.length > 20) {
-                        return { result: false, message: "CODE must be not empty and length should be in the 4-20 interval" };
                         return { result: false, message: "Quantity should be in the 0-150 interval" };
                     }
                     return true;
@@ -290,7 +273,7 @@ var APP = function() {
             			me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'false'}, entryId, me.onRefresh);
                     }else if(action == 'chart'){
                         var chart_title = "Chart of "+rowData.[{$frefix}]title;
-                        myChart.openWeekChart('lang_product',entryId,'[{date('Y-m-d')}]','View',chart_title);
+                        myChart.openWeekChart('lang_news',entryId,'[{date('Y-m-d')}]','View',chart_title);
 	                }else{
 	                    addNotice("Function is updating !",'warning');
 	                }
@@ -754,17 +737,22 @@ var APP = function() {
         // apply the filters.
         $(me.jqxgrid).jqxGrid('applyfilters');
     };
-    this.showPrices = function(token){
-        dataAPP.init({
-            title: 'Product Prices',
-            editurl:'/dashboard/la/data/productopt',
-            token: token,
-            unit:'111115',
-            type:'lang_product',
-            layout:1,
-            width:'480px',
-            lang: me.lang
-        });
-        dataAPP.showGridDialog();
-    }
 };
+var myApp;
+$(document).ready(function(){
+    myApp = new APP();
+    myApp.entryType = '[{$smarty.get.type}]';
+    [{if $action.add!=false}]
+        myApp.isAddItem = true;
+    [{/if}]
+    [{if $action.edit!=false}]
+        myApp.isEditItem = true;
+    [{/if}]
+    [{if $action.delete!=false}]
+        myApp.isDeleteItem = true;
+    [{/if}]
+    [{if $action.ispopup==true}]
+        myApp.isEntryDialog = true;
+    [{/if}]
+        myApp.onInit();
+})

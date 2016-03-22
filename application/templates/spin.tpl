@@ -455,20 +455,7 @@ TP Hồ Chí Minh</p>
 <script type="text/javascript" src="/libraries/plugin/validation-engine/jquery.validationEngine.js"></script>
 <script type="text/javascript" src="/libraries/plugin/validation-engine/jquery.validationEngine-vi.js"></script>
 <!-- countdown -->
-<script type="text/javascript">
-//<![CDATA[
-        $(document).ready(function(){
-        $("#countdown").countdown({
-            date: "21 March 2016 00:00:00",
-            format: "on"
-        },
-            
-        function() {
-            // callback function
-        });
-      });
-//]]>
-</script>
+
 
     <script src="/assets/spin/spin.js" type="text/javascript"></script>
     <script src="/assets/spin/jQueryRotate.js"></script>

@@ -1,15 +1,30 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class product extends CP_Controller {
+class news extends CP_Controller {
 	function __construct() {
-        parent::__construct('lang_product', 'product_', 'id');
-        $this->assigns->cname = 'Product';
+        parent::__construct('lang_news', 'news_', 'id');
+        $this->assigns->cname = 'news';
         $this->load->model('dashboard/la/lang_model');
         $this->load->model('dashboard/la/category_model');
-        $this->load->model('dashboard/la/product_model');
+        $this->load->model('dashboard/la/news_model');
         $this->load->model('dashboard/la/alias_model');
         $this->assigns->aLang = $this->lang_model->getLanguage();
-        
+        $this->assigns->template=array(
+            'title'=>'News',
+            'fulltitle'=>'News List',
+            'css'=>array(
+                '/libraries/jqwidgets/styles/jqx.base.css',
+                '/libraries/jqwidgets/styles/jqx.metro.css',
+                ),
+            'js'=>array(
+                '/libraries/ckeditor/ckeditor.js',
+                '/libraries/jqwidgets/jqx-all.js',
+                //'/dashboard/la/news/loadscript/app/[{$unit}]',
+                '/dashboard/cp/chart/app/',
+                '/dashboard/la/data/loadscript/jApp/11111',
+                ),
+            // 'contextmenu'=>''
+        );
     }
     function index(){
 
@@ -28,7 +43,8 @@ class product extends CP_Controller {
     function viewport($unit='00000',$type=''){
     	$this->setAction($unit);
         $this->assigns->type = $type;
-        $this->smarty->view( 'dashboard/la/product/viewport', $this->assigns );
+        $this->assigns->template['js'][] = "/dashboard/la/news/loadscript/app/$unit?type=$type";
+        $this->smarty->view( 'dashboard/base/viewport', $this->assigns );
     }
     function editpanel($type=''){
         $type=$this->input->post('type');
@@ -44,12 +60,12 @@ class product extends CP_Controller {
         $this->assigns->type=$type;
         $Id=$this->input->post('Id');
         if($Id){
-            $this->assigns->item = $this->product_model->getProductById($Id);
+            $this->assigns->item = $this->news_model->getnewsById($Id);
         }
         switch ($layout){
             
             default :
-                $htmlreponse = $this->smarty->view( 'dashboard/la/product/editPanel', $this->assigns, true );
+                $htmlreponse = $this->smarty->view( 'dashboard/la/news/editPanel', $this->assigns, true );
         }
         
         $output["result"] = 1;
@@ -61,21 +77,17 @@ class product extends CP_Controller {
     }
     function beforeinsert(){
         $aParams = $this->input->get_post('Params');
-        $sType = $aParams['product_type'];
-        $sCode = $aParams['product_code'];
-        $aLang = $this->product_model->ArrayToList($this->assigns->aLang,'lang_short');
+        $sType = $aParams['news_type'];
+        $sCode = $aParams['news_code'];
+        $aLang = $this->news_model->ArrayToList($this->assigns->aLang,'lang_short');
         foreach ($aParams['als_alias'] as $sLang => $sAlias) {
             $this->db
                     ->where('als_lang',$sLang);
-            $tmp = $this->product_model->getProductByAlias($sAlias);
+            $tmp = $this->news_model->getnewsByAlias($sAlias);
             if($tmp){
                 $sLangTitle = $aLang[$sLang]->lang_name;
                 $aMsg[] ="Alias[$sLangTitle] is exists.";
             }
-        }
-        $oProduct = $this->product_model->getProductByCode($sCode);
-        if($oProduct){
-            $aMsg[] ="CODE is exists.";
         }
         if($aMsg){
             $output["result"] = -1;
@@ -91,9 +103,9 @@ class product extends CP_Controller {
         $aParams = $this->input->get_post('Params');
         if (!empty($aParams)) {
             $sToken = md5(time().strtoupper(random_string('alnum', 8)));
-            $sType = $aParams['product_type'];
+            $sType = $aParams['news_type'];
             $sDate = date('Y-m-d H:i:s');
-            $aParams['product_token'] = $sToken;
+            $aParams['news_token'] = $sToken;
             foreach ($aParams['ti_title'] as $sLang => $sTitle) {
                 $aTitleData[] = array(
                     'ti_title' => $aParams['ti_title'][$sLang],
@@ -159,31 +171,25 @@ class product extends CP_Controller {
     }
     function beforeupdate(){
         $aParams = $this->input->get_post('Params');
-        $sType = $aParams['product_type'];
-        $sCode = $aParams['product_code'];
+        $sType = $aParams['news_type'];
         $Id = $this->input->post('Id');
-        $oProduct = $this->product_model->getProductById($Id);
-        if($oProduct){
-            $sToken = $oProduct->product_token;
-            $aLang = $this->product_model->ArrayToList($this->assigns->aLang,'lang_short');
+        $onews = $this->news_model->getnewsById($Id);
+        if($onews){
+            $sToken = $onews->news_token;
+            $aLang = $this->news_model->ArrayToList($this->assigns->aLang,'lang_short');
             if($aParams['als_alias'])
             foreach ($aParams['als_alias'] as $sLang => $sAlias) {
                 $this->db
                     ->where('als_lang',$sLang)
                     ->where('als_token <>',$sToken);
-                $tmp = $this->product_model->getProductByAlias($sAlias);
+                $tmp = $this->news_model->getnewsByAlias($sAlias);
                 if($tmp){
                     $sLangTitle = $aLang[$sLang]->lang_name;
                     $aMsg[] ="Alias[$sLangTitle] is exists.";
                 }
             }
-            $this->db->where('product_id <>',$Id);
-            $oProduct = $this->product_model->getProductByCode($sCode);
-            if($oProduct){
-                $aMsg[] ="CODE is exists.";
-            }
         }else{
-            $aMsg[] ="Product is not exists.";
+            $aMsg[] ="news is not exists.";
         }
         if($aMsg){
             $output["result"] = -1;
@@ -200,13 +206,13 @@ class product extends CP_Controller {
         if (!empty($aParams)) {
             $Id = $this->input->post('Id');
             if (!empty($Id)) {
-                $oRecord = $this->product_model->getProductById($Id);
+                $oRecord = $this->news_model->getnewsById($Id);
                 if ($oRecord) {
                     $rRs = true;
                     $this->db->trans_begin();
-                    $sToken = $oRecord->product_token;
+                    $sToken = $oRecord->news_token;
                     $sDate = date('Y-m-d H:i:s');
-                    $sType = $oRecord->product_type;
+                    $sType = $oRecord->news_type;
                     if(!empty($aParams['ti_title']) && is_array($aParams['ti_title']))
                     foreach ($aParams['ti_title'] as $sLang => $sTitle) {
                         if($oRecord->aTitle[$sLang]!=$aParams['ti_title'][$sLang]){
@@ -268,7 +274,7 @@ class product extends CP_Controller {
                     unset($aParams['de_desc']);
                     unset($aParams['tag_tag']);
                     unset($aParams['co_content']);
-                    $rRs = $rRs && $this->Core_Model->onUpdate($oRecord->product_id,$aParams);
+                    $rRs = $rRs && $this->Core_Model->onUpdate($oRecord->news_id,$aParams);
 
                     if ($rRs === true) {
                         $output["result"] = 1;
@@ -313,7 +319,7 @@ class product extends CP_Controller {
                         $rRs = true;
                         $this->db->trans_begin();
                         $rRs = $this->Core_Model->onDelete($Id);
-                        $sToken = $oRecord->product_token;
+                        $sToken = $oRecord->news_token;
                         $rRs = $rRs && $this->db
                             ->where('ti_token',$sToken)
                             ->delete('lang_title');
@@ -356,7 +362,6 @@ class product extends CP_Controller {
             "select"    =>"
                 SELECT SQL_CALC_FOUND_ROWS 
                     {$this->table}.{$this->prefix}id,
-                    {$this->table}.{$this->prefix}code,
                     {$this->table}.{$this->prefix}thumb,
                     {$this->table}.{$this->prefix}category,
                     {$this->table}.{$this->prefix}insert,
@@ -364,7 +369,6 @@ class product extends CP_Controller {
                     {$this->table}.{$this->prefix}token,
                     {$this->table}.{$this->prefix}status,
                     {$this->table}.{$this->prefix}lock,
-                    {$this->table}.{$this->prefix}token,
                     lang_title.ti_title,
                     lang_title.ti_title as '{$this->prefix}title',
                     lang_title.ti_lang
@@ -372,7 +376,7 @@ class product extends CP_Controller {
                 ",
             "from"      =>"
                 FROM `{$this->table}` 
-                LEFT JOIN lang_title ON (product_token = ti_token and ti_lang = '$lang')
+                LEFT JOIN lang_title ON (news_token = ti_token and ti_lang = '$lang')
             ",
             "where"     =>"WHERE `{$this->prefix}type` = '$type'",
             // "group_by"  =>"GROUP BY {$this->prefix}id",
@@ -388,10 +392,10 @@ class product extends CP_Controller {
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));
     }
-    function loadscript($src='',$unit='00000'){
+    function loadscript($src='',$unit='00000',$type = ''){
     	$this->setAction($unit);
         $this->output->set_header('Content-type: application/x-javascript');
-        $this->smarty->view( 'dashboard/la/product/'.$src, $this->assigns );
+        $this->smarty->view( 'dashboard/la/news/'.$src, $this->assigns );
 
     }
 }
