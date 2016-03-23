@@ -45,7 +45,7 @@ class spin_model extends CI_Model {
     function updateRate($id){
         $this->db
             ->set('spin_active_rate', 'spin_active_rate + 0.1',false)
-            ->set('spin_active', 'spin_active_rate + 1',false)
+            ->set('spin_active', 'spin_active + 1',false)
             ->where('spin_id', $id)
             ->where('spin_rate >', 0)
             ->where('spin_rate > spin_active_rate')

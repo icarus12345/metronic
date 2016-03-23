@@ -45,7 +45,7 @@ var APP = function() {
             }
         });
     }
-    this._getCateSource = function(){
+    this._getCateSource = function(flag){
         this.cateApp._source = {
             datatype    : "json",
             type        : "POST",
@@ -63,7 +63,7 @@ var APP = function() {
                 }
             },
             loadComplete: function(records){
-                me.bindingEntry();
+                if(flag) me.bindingEntry();
             },
             loadError: function(xhr, status, error) {
                 addNotice("<b>Status</b>:" + xhr.status + "<br/><b>ThrownError</b>:" + error + "<br/>",'error');
@@ -81,7 +81,7 @@ var APP = function() {
             {name: '[{$catfrefix}]insert' , type: 'date'},
             {name: '[{$catfrefix}]update' , type: 'date'},
         ];
-        this._getCateSource();
+        this._getCateSource(true);
     };
     this.createGrid = function(){
     	this.bindingCate();
@@ -757,7 +757,6 @@ var APP = function() {
     this.showPrices = function(token){
         dataAPP.init({
             title: 'Product Prices',
-            editurl:'/dashboard/la/data/productopt',
             token: token,
             unit:'111115',
             type:'lang_product',

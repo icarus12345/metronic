@@ -2087,7 +2087,7 @@ Page content
   letter-spacing: -1px;
   display: block;
   color: #666;
-  margin: 0px 0px 15px 0px;
+  margin: 5px 0px 15px 0px;
   font-weight: 300;
   /* subtitle */
 }
@@ -2228,7 +2228,7 @@ Page content
     margin-left: 235px;
     margin-top: 0px;
     min-height: 600px;
-    padding: 25px 20px 10px 20px;
+    padding: 15px;
   }
   .page-content-wrapper .page-content.no-min-height {
     min-height: auto;
@@ -2293,7 +2293,7 @@ Page content
   /* 767px */
   /* Page content */
   .page-content-wrapper .page-content {
-    padding: 20px 10px 10px 10px !important;
+    padding: 10px 10px 10px 10px !important;
     overflow: hidden;
     /* Page title */
   }
@@ -2467,7 +2467,7 @@ Theme Panel
 ***/
 .theme-panel {
   width: 420px;
-  margin-top: -13px;
+  margin-top: -4px;
   margin-right: 0px;
   z-index: 310;
   float: right;

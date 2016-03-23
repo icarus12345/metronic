@@ -44,7 +44,7 @@ var Layout = function () {
                     height = Metronic.getViewPort().height - headerHeight - footerHeight;
                 }
             }
-            content.attr('style', 'min-height:' + height + 'px');
+            content.attr('style', 'min-height:' + (height - 1) + 'px');
         }
     };
 

@@ -6,7 +6,7 @@ var dataAPP = (function() {
     $('body').append('<div id="entry-jdata"></div>');
 	$('body').append('<div id="dialog-data-app"><div id="jqxgrid-data"></div></div>');
     var jqxgrid = '#jqxgrid-data';
-    var bindingUri = '/dashboard/la/data/databinding/';
+    var bindingUri = '/dashboard/la/data/databindingbytoken/';
     var entryEditUri = '/dashboard/la/data/editpanel/';
     var entryCommitUri = '/dashboard/la/data/oncommit/';
     var entryDeleteUri = '/dashboard/la/data/ondelete/';
@@ -23,8 +23,8 @@ var dataAPP = (function() {
             entryToken = token;
             _datafields = [
                 {name: 'data_id'  , type: 'int'},
-                {name: 'data_title'     },
-                {name: 'data_price'},
+                {name: 'data_title', map:'data_data>title>' +_option.lang},
+                {name: 'data_price', map:'data_data>price>' +_option.lang},
                 {name: 'data_status' , type: 'bool'},
                 {name: 'data_insert' , type: 'date'},
                 {name: 'data_update' , type: 'date'},
@@ -235,7 +235,7 @@ var dataAPP = (function() {
         editItem: function(id){
             dataAPP.loadFormUrl({
                 title: _option.title,
-                url:_option.editurl,
+                url: entryEditUri,
                 data:{
                     token: _option.token,
                     unit: _option.unit,

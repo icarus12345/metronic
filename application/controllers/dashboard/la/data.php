@@ -5,11 +5,33 @@ class data extends CP_Controller {
         parent::__construct('lang_data', 'data_', 'id');
         $this->assigns->cname = 'Category';
         $this->load->model('dashboard/la/lang_model');
+        $this->load->model('dashboard/la/category_model');
         $this->assigns->aLang = $this->lang_model->getLanguage();
-        
+        $this->assigns->template=array(
+            'title'=>'Setting',
+            'fulltitle'=>'Setting List',
+            'css'=>array(
+                '/libraries/jqwidgets/styles/jqx.base.css',
+                '/libraries/jqwidgets/styles/jqx.metro.css',
+                ),
+            'js'=>array(
+                '/libraries/ckeditor/ckeditor.js',
+                '/libraries/jqwidgets/jqx-all.js',
+                //'/dashboard/la/news/loadscript/app/[{$unit}]',
+                '/dashboard/cp/chart/app/',
+                // '/dashboard/la/data/loadscript/app/11111',
+                ),
+            // 'contextmenu'=>''
+        );
     }
     function index(){
 
+    }
+    function viewport($unit='00000',$type=''){
+        $this->setAction($unit);
+        $this->assigns->type = $type;
+        $this->assigns->template['js'][] = "/dashboard/la/data/loadscript/app/$unit?type=$type";
+        $this->smarty->view( 'dashboard/base/viewport', $this->assigns );
     }
     private function setAction($unit){
         $this->assigns->unit = $unit;
@@ -24,26 +46,54 @@ class data extends CP_Controller {
     }
     function beforecommit(){
         if(is_array($_POST['Params']['data_data'])){
-            $_POST['Params']['data_data'] = json_encode($_POST['Params']['data_data']);
+            $id=$this->input->post('Id');
+            $data_data = $_POST['Params']['data_data'];
+            if($id){
+                $item = $this->Core_Model->onGet($id);
+                $item->data_data = json_decode($item->data_data, true);
+                $data_data = array_merge($item->data_data, $data_data);
+
+            }
+            $_POST['Params']['data_data'] = json_encode($data_data);
         }
     }
-    function productopt(){
-        $layout=$this->input->post('layout');
-        $id=$this->input->post('id');
+    function editpanel(){
+        $layout = $this->input->post('layout');
+        $id=$this->input->post('Id');
         $token=$this->input->post('token');
         $unit=$this->input->post('unit');
         $this->setAction($unit);
         $type=$this->input->post('type');
         $this->assigns->type=$type;
         $this->assigns->token=$token;
+        $aCategory = $this->category_model->getCategoryByType($type);
+        if($aCategory){
+            $aCategory = $this->cate_model->buildTreeArray($aCategory);
+            $this->assigns->aCategory=$aCategory;
+        }
         if($id){
             $this->assigns->item = $item = $this->Core_Model->onGet($id);
             $item->data_data = json_decode($item->data_data, true);
             $this->assigns->item = $item;
+            if(!empty($this->assigns->item->data_data['data_type']))
+                $layout = $this->assigns->item->data_data['data_type'];
         }
         switch ($layout){
-            default :
+            case 1:
                 $htmlreponse = $this->smarty->view( 'dashboard/la/data/optPanel', $this->assigns, true );
+                break;
+            case 2:
+                $htmlreponse = $this->smarty->view( 'dashboard/la/data/editPanel', $this->assigns, true );
+                break;
+            case 'string':
+            case 'text':
+                $htmlreponse = $this->smarty->view( 'dashboard/la/data/editPanelText', $this->assigns, true );
+                break;
+            case 'image':
+                $htmlreponse = $this->smarty->view( 'dashboard/la/data/editPanelImage', $this->assigns, true );
+                break;
+            default :
+                $htmlreponse = $this->smarty->view( 'dashboard/la/data/editPanel', $this->assigns, true );
         }
         
         $output["result"] = 1;
@@ -57,18 +107,52 @@ class data extends CP_Controller {
         $this->output->set_header('Content-type: application/x-javascript');
         $this->smarty->view( 'dashboard/la/data/'.$src, $this->assigns );
     }
-    function databinding($token='',$lang='en'){
+    function databinding($type='',$lang='en'){
         $this->Core_Model->datatables_config=array(
             "table"     =>"{$this->table}",
             "select"    =>"
                 SELECT SQL_CALC_FOUND_ROWS 
                     {$this->table}.{$this->prefix}id,
                     {$this->table}.{$this->prefix}data,
+                    {$this->table}.{$this->prefix}category,
                     {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,
                     {$this->table}.{$this->prefix}status
                 ",
-            "from"      =>"FROM `{$this->table}` ",
+            "from"      =>"
+                FROM `{$this->table}`
+                ",
+            "where" =>"WHERE data_type = '{$type}'",
+            "order_by"  =>"ORDER BY `{$this->prefix}insert` DESC",
+            "columnmaps"=>array(
+                
+            ),
+            "filterfields"=>array(
+
+            )
+        );
+        $output = $this->Core_Model->jqxBinding();
+        foreach ($output['rows'] as $key => $value) {
+            $output['rows'][$key]->data_data = json_decode($value->data_data, true);
+        }
+        $this->output->set_header('Content-type: application/json');
+        $this->output->set_output(json_encode($output));
+    }
+    function databindingbytoken($token='',$lang='en'){
+        $this->Core_Model->datatables_config=array(
+            "table"     =>"{$this->table}",
+            "select"    =>"
+                SELECT SQL_CALC_FOUND_ROWS 
+                    {$this->table}.{$this->prefix}id,
+                    {$this->table}.{$this->prefix}data,
+                    {$this->table}.{$this->prefix}category,
+                    {$this->table}.{$this->prefix}insert,
+                    {$this->table}.{$this->prefix}update,
+                    {$this->table}.{$this->prefix}status
+                ",
+            "from"      =>"
+                FROM `{$this->table}`
+                ",
             "where" =>"WHERE data_token = '{$token}'",
             "order_by"  =>"ORDER BY `{$this->prefix}insert` DESC",
             "columnmaps"=>array(
@@ -80,9 +164,7 @@ class data extends CP_Controller {
         );
         $output = $this->Core_Model->jqxBinding();
         foreach ($output['rows'] as $key => $value) {
-            $data_data = json_decode($value->data_data, true);
-            $output['rows'][$key]->data_title = $data_data['title'][$lang];
-            $output['rows'][$key]->data_price = $data_data['price'][$lang];
+            $output['rows'][$key]->data_data = json_decode($value->data_data, true);
         }
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));

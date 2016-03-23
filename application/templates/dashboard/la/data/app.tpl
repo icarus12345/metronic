@@ -1,5 +1,5 @@
 [{if false}]<script type="text/javascript">[{/if}]
-[{assign 'frefix' 'news_'}]
+[{assign 'frefix' 'data_'}]
 [{assign 'catfrefix' 'cat_'}]
 var APP = function() {
     this.isMobile = [{if $ci->agent->is_mobile()}]true[{else}]false[{/if}];
@@ -12,16 +12,16 @@ var APP = function() {
     this.isAddItem = false;
     this.isEditItem = false;
     this.isDeleteItem = false;
-    this.bindingUri = '/dashboard/la/news/databinding/';
-    this.entryEditUri = '/dashboard/la/news/editpanel/';
-    this.entryCommitUri = '/dashboard/la/news/oncommit/';
-    this.entryDeleteUri = '/dashboard/la/news/ondelete/';
+    this.bindingUri = '/dashboard/la/data/databinding/';
+    this.entryEditUri = '/dashboard/la/data/editpanel/';
+    this.entryCommitUri = '/dashboard/la/data/oncommit/';
+    this.entryDeleteUri = '/dashboard/la/data/ondelete/';
     var me = this;
     this.changeLang = function(lang){
         if(this.lang == lang) return;
         this.lang = lang;
         this._getSource();
-        this._getCateSource()
+        this._getCateSource(false)
         $(me.jqxgrid).jqxGrid({source: this._dataAdapter});
     }
     this._getSource = function(){
@@ -37,12 +37,8 @@ var APP = function() {
                     name: 'label' 
                 }
             },
-            {name: '[{$frefix}]title'    },
-            {name: 'ti_title'    },
-            //{name: 'ti_lang'    },
-            {name: '[{$frefix}]thumb'   },
-            {name: '[{$frefix}]token'   },
-            {name: '[{$frefix}]view'    , type: 'int'},
+            {name: '[{$frefix}]title', map:'data_data>title>' + me.lang},
+            {name: '[{$frefix}]type',  map:'data_data>data_type'    },
             {name: '[{$frefix}]status' , type: 'bool'},
             {name: '[{$frefix}]insert' , type: 'date'},
             {name: '[{$frefix}]update' , type: 'date'},
@@ -141,72 +137,17 @@ var APP = function() {
 	            width: 60, columntype: 'numberinput', filtertype: 'number', pinned: false,
 	            filterable: false, sortable: false,editable: false, groupable:false, hidden:true
             },{
-                text: 'Thumb'     , dataField: '[{$frefix}]thumb'   ,width:60, pinned: false,
-                filterable:false ,sortable: false, editable: false,hidden:true, groupable:false,
-                cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
-                    if(value==undefined || value=='')
-                        return '';
-                    else{
-                        return '<div class="bg-cover cell-thumb" style="background-image:url(' + (value) + ');"></div>';
-                    }
-                }
-	        },{
-	            text: 'Title', dataField: 'ti_title', minWidth: 220, 
-	            sortable: true, groupable:false, pinned: !me.isMobile, editable : false,
-	            columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS',
-                validation: function (cell, value) {
-                    if (value.length < 4 || value.length > 255) {
-                        return { result: false, message: "Title must be not empty and length should be in the 4-255 interval" };
-                        return { result: false, message: "Quantity should be in the 0-150 interval" };
-                    }
-                    return true;
-                }
-	        },{
+                text: 'Title', dataField: '[{$frefix}]title', minWidth: 180, 
+                sortable: true, editable: false, groupable:false,
+                columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS'
+            },{
+                text: 'Type', dataField: '[{$frefix}]type', width: 80, sortable: true,
+                editable: false,
+                columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS'
+            },{
                 text: 'Category', width: 120, cellsalign: 'left',
                 columntype: 'dropdownlist',filtertype: 'list', filtercondition: 'EQUAL',
-                dataField: '[{$frefix}]category', displayfield:'[{$catfrefix}]title',
-                editable: true,
-                filteritems: me.cateApp._dataAdapter.records, 
-                createfilterwidget: function (column, htmlElement, editor) {
-                    editor.jqxDropDownList({ 
-                        source          : me.cateApp._dataAdapter.records,
-                        displayMember   : "[{$catfrefix}]title", 
-                        valueMember     : "[{$catfrefix}]id",
-                        // renderer: function (index, label, value) {
-                        //     var datarecord = me.cateApp._dataAdapter.records[index];
-                        //     return  datarecord?('&nbsp;'.repeater(datarecord.[{$catfrefix}]level * 4) + datarecord.[{$catfrefix}]title):'';
-                        // }
-                    });
-                },
-                // cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
-                	
-                // },
-                createeditor: function(row, cellvalue, editor, cellText, width, height) {
-                    // construct the editor. 
-                    editor.jqxDropDownList({
-                        source: me.cateApp._dataAdapter.records,
-                        displayMember: "[{$catfrefix}]title", valueMember: "[{$catfrefix}]id",
-                        width: width, height: height, theme: me.theme,
-                        renderer: function (index, label, value) {
-                            var datarecord = me.cateApp._dataAdapter.records[index];
-                            return  datarecord?('&nbsp;'.repeater(datarecord.[{$catfrefix}]level * 4) + datarecord.[{$catfrefix}]title):'';
-                        }
-                        // selectionRenderer: function() {
-                        //     return "Please Choose:";
-                        // }
-                    });
-                },
-                initeditor: function(row, cellvalue, editor, celltext, pressedkey) {
-                    // set the editor's current value. The callback is called each time the editor is displayed.
-//                        editor.jqxDropDownList('setContent', celltext); 
-                },
-                geteditorvalue: function(row, cellvalue, editor) {
-                    // return the editor's value.
-                    return editor.val();
-                }
-            },{
-                text: 'View'    , dataField: '[{$frefix}]view' , cellsalign: 'center',
-                width: 60, filterable: false, sortable: true,editable: false, groupable:false,
+                dataField: '[{$catfrefix}]title', //displayfield:'[{$catfrefix}]title',
             },{
 	            text: 'Status'    , dataField: '[{$frefix}]status' , cellsalign: 'center',
 	            width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
@@ -293,20 +234,20 @@ var APP = function() {
 		$('#contextMenu').jqxMenu('disable', 'jqxViewAction', true); 
 		$(me.jqxgrid).jqxGrid({
 	        width 				: '100%', //
-	        //autoheight:true,
+	        // autoheight:true,
             rowsheight:28,
 	        height 				: '100%',
-	        source 				: this._dataAdapter,
+	        source 				: me._dataAdapter,
 	        theme 				: me.theme,
-	        columns 			: this._columns,
+	        columns 			: me._columns,
 	        selectionmode 		: 'singlecell',
 			filterable 			: true,
 	        autoshowfiltericon	: true,
-	        showfilterrow 		: true,
+	        // showfilterrow 		: true,
 			sortable 			: true,
 			virtualmode 		: true,
-	        groupable 		    : true,
-	        // groups              : ['author_name','topic_title'],
+	        groupable          : true,
+            groups              : ['[{$catfrefix}]title'],
 	        [{if $action.edit==true}]
 	        editable            : true,//[{if $unit|strpos:"x0e"!==false}]true[{else}]false[{/if}],
 	        editmode 			: 'dblclick',
@@ -327,8 +268,8 @@ var APP = function() {
 	                me._cancel=true;
 	            }
 	        },
-	    // }).on("bindingcomplete", function (event) {
-	    //     $(me.jqxgrid).jqxGrid('expandallgroups');
+	    }).on("bindingcomplete", function (event) {
+	        $(me.jqxgrid).jqxGrid('expandallgroups');
 	    }).on('contextmenu', function () {
 	        return false;
 	    }).on('cellclick', function (event) {
@@ -582,7 +523,7 @@ var APP = function() {
                             html:true
                         })
                         if(me.isEntryDialog>0){
-                        	showEntryDialog(Id==0?'Add Item':'Edit Item');
+                        	showEntryDialog(id==0?'Add Item':'Edit Item');
                         }else{
                         	$('#entry-container').show();
                         	$('#entry-list').hide();
