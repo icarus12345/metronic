@@ -807,7 +807,7 @@ Horizontal Menu
   }
   .page-header.navbar .top-menu {
     display: block;
-    clear: both;
+    /*clear: both;*/
     float: none;
   }
   .page-header.navbar .top-menu .navbar-nav {
@@ -2298,7 +2298,7 @@ Page content
     /* Page title */
   }
   .page-content-wrapper .page-content .page-title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 18px;
   }
   .page-content-wrapper .page-content .page-title small {
@@ -2310,8 +2310,8 @@ Page content
   /* 480px */
   /* Dashboard date range panel */
   .page-content-wrapper .page-content .page-title small {
-    display: block;
-    clear: both;
+    /*display: block;*/
+    /*clear: both;*/
   }
 }
 /***

@@ -40,6 +40,9 @@ class data extends CP_Controller {
         $action['edit'] = (bool)$arr[1];
         $action['delete'] = (bool)$arr[2];
         $action['ispopup'] = (int)$arr[3];
+        $ispopup = $this->input->post('ispopup');
+        if($ispopup === true) $action['ispopup'] = 1;
+        if($ispopup === false) $action['ispopup'] = 0;
         $action['layout'] = $arr[4];
         $action['col'] = max((int)$arr[5],3);
         $this->assigns->action = $action;

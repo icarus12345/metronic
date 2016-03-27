@@ -3,8 +3,8 @@
     <div class="modal-header">
         <h4>Data <small>option</small></h4>
         <ul class="navbar-icons" style="position: absolute;right: 0;top:0px;">
-            <li><a href="JavaScript:dataApp.onSave()" title="Save" onclick=""><i class="fa fa-save"></i></a></li>
-            <li><a href="JavaScript:dataApp.onCancel()" title="Go Back" onclick=""><i class="fa fa-reply-all"></i></a></li>
+            <li><a href="JavaScript:myApp.onSave()" title="Save" onclick=""><i class="fa fa-save"></i></a></li>
+            <li><a href="JavaScript:myApp.onCancel()" title="Go Back" onclick=""><i class="fa fa-reply-all"></i></a></li>
         </ul>
     </div>
     <div class="modal-body" >
@@ -140,8 +140,8 @@
             </div>
             [{if $action.ispopup!=1}]
             <div class="control-group">
-                <button class="btn btn-default" type="button" onclick="dataApp.onSave()">Save</button>
-                <button class="btn btn-default" type="button" onclick="dataApp.onCancel()">Cancel</button>
+                <button class="btn btn-default" type="button" onclick="myApp.onSave()">Save</button>
+                <button class="btn btn-default" type="button" onclick="myApp.onCancel()">Cancel</button>
             </div>
             [{/if}]
         </form>

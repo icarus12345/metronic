@@ -887,7 +887,7 @@ Page Footer
     background-color: #1f1f1f;
   }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
-    background-color: #3b3b3b;
+    /*background-color: #3b3b3b;*/
   }
   .page-header-fixed-mobile .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
     background: none;

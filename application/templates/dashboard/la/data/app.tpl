@@ -109,7 +109,7 @@ var APP = function() {
         this._getSource();
 	    this._columns = [
 	        {
-	            text: '', dataField: '[{$frefix}]id', width: 62, pinned: true,
+	            text: '', dataField: '[{$frefix}]id', width: me.isMobile?32:62, pinned: true,
 	            filterable: false, sortable: true, editable: false, groupable:false,
 	            cellsrenderer: function (row, columnfield, value, defaulthtml, columnproperties) {
 	                var str = "";
@@ -142,7 +142,7 @@ var APP = function() {
                 columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS'
             },{
                 text: 'Type', dataField: '[{$frefix}]type', width: 80, sortable: true,
-                editable: false,
+                editable: false,hidden: me.isMobile,
                 columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS'
             },{
                 text: 'Category', width: 120, cellsalign: 'left',
@@ -155,7 +155,7 @@ var APP = function() {
 	        },{
 	            text: 'Created' , dataField: '[{$frefix}]insert', width: 120, cellsalign: 'right', align: 'right',
 	            filterable: true, columntype: 'datetimeinput', filtertype: 'range', cellsformat: 'yyyy-MM-dd HH:mm:ss',
-	            sortable: true,editable: false, groupable:false
+	            sortable: true,editable: false, groupable:false, hidden: me.isMobile
 	        },{
 	            text: 'Modifield' , dataField: '[{$frefix}]update', width: 120, cellsalign: 'right', align: 'right',
 	            filterable: true, columntype: 'datetimeinput', filtertype: 'range', cellsformat: 'yyyy-MM-dd HH:mm:ss',
@@ -498,6 +498,7 @@ var APP = function() {
                     'Id'  :   Id,
                     'type':   me.entryType,
                     'layout' : '[{$action.layout}]',
+                    'ispopup':me.isEntryDialog,
                     'unit' : '[{$unit}]'
                 },
                 'callback'    :   function(rsdata){
@@ -694,7 +695,7 @@ $(document).ready(function(){
         myApp.isDeleteItem = true;
     [{/if}]
     [{if $action.ispopup==true}]
-        myApp.isEntryDialog = true;
+        myApp.isEntryDialog = true && !myApp.isMobile;
     [{/if}]
         myApp.onInit();
 })
