@@ -515,7 +515,7 @@ var APP = function() {
                         $('#entryForm .selectpicker').selectpicker();
                         [{foreach $aLang 'la'}]
                         if($('#co_content_[{$la->lang_short}]').length==1){
-                            addEditorFeature('co_content_[{$la->lang_short}]',240);
+                            addEditorBasic('co_content_[{$la->lang_short}]',160);
                         }
                         [{/foreach}]
                         

@@ -5,8 +5,8 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 
 body.cke_editable{
 	/* Font */
-	font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
-	font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
 
 	/* Text color */
 	color: #333;
