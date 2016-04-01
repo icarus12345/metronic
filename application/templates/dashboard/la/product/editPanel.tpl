@@ -132,7 +132,7 @@
                                         [{if $aCategory|default:null}]
                                         [{foreach from=$aCategory item=c}]
                                             <option 
-                                                data-content="<span style='padding-left: [{$c->cat_level*20}]px;'>[{$c->ti_title|escape}]</span>"
+                                                data-content="<span class='lang-controls' style='padding-left: [{$c->cat_level*20+20}]px;'>[{foreach $aLang 'la'}]<span data-lang='[{$la->lang_short}]' class='[{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]'>[{$c->title[$la->lang_short]|escape}]</span>[{/foreach}]</span>"
                                                 [{if $c->cat_id == $item->product_category}]selected="1"[{/if}]
                                                 value="[{$c->cat_id|default:''}]">
                                                     [{$c->ti_title|default:''}]

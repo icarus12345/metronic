@@ -20,8 +20,8 @@ var APP = function() {
     this.changeLang = function(lang){
         if(this.lang == lang) return;
         this.lang = lang;
-        this._getSource();
-        this._getCateSource()
+        //this._getSource();
+        this._getCateSource(true)
         $(me.jqxgrid).jqxGrid({source: this._dataAdapter});
     }
     this._getSource = function(){
@@ -753,7 +753,7 @@ $(document).ready(function(){
         myApp.isDeleteItem = true;
     [{/if}]
     [{if $action.ispopup==true}]
-        myApp.isEntryDialog = true;
+        myApp.isEntryDialog = false;
     [{/if}]
         myApp.onInit();
 })

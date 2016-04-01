@@ -1,16 +1,15 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class category extends CP_Controller {
+class menu extends CP_Controller {
 	function __construct() {
-        parent::__construct('lang_category', 'cat_', 'id');
-        $this->assigns->cname = 'Category';
+        parent::__construct('lang_menu', 'menu_', 'id');
+        $this->assigns->cname = 'Menu';
         $this->load->model('dashboard/la/lang_model');
-        $this->load->model('dashboard/la/category_model');
+        $this->load->model('dashboard/la/menu_model');
         $this->assigns->aLang = $this->lang_model->getLanguage();
     }
     function index(){
-        $aCategory = $this->category_model->getCategoryByType($type);
-        echo json_encode($aCategory);
+
     }
     private function setAction($unit){
         $this->assigns->unit = $unit;
@@ -26,7 +25,7 @@ class category extends CP_Controller {
     function viewport($unit='00000',$type=''){
     	$this->setAction($unit);
         $this->assigns->type = $type;
-        $this->smarty->view( 'dashboard/la/category/viewport', $this->assigns );
+        $this->smarty->view( 'dashboard/la/menu/viewport', $this->assigns );
     }
     function editpanel($type=''){
         $type=$this->input->post('type');
@@ -34,26 +33,26 @@ class category extends CP_Controller {
         $unit=$this->input->post('unit');
         $this->setAction($unit);
 
-        $aCategory = $this->category_model->getCategoryByType($type);
-        if($aCategory){
-            $aCategory = $this->cate_model->buildTreeArray($aCategory);
-            $this->assigns->aCategory=$aCategory;
+        $aMenu = $this->menu_model->getMenuByType($type);
+        if($aMenu){
+            $aMenu = $this->menu_model->buildTreeArray($aMenu);
+            $this->assigns->aMenu=$aMenu;
         }
         $this->assigns->type=$type;
         $Id=$this->input->post('Id');
         if($Id){
-            $this->assigns->item = $this->category_model->getCategoryById($Id);
+            $this->assigns->item = $this->menu_model->getMenuById($Id);
         }
         switch ($layout){
             case '1':
-                $htmlreponse = $this->smarty->view( 'dashboard/la/category/editPanelList', $this->assigns, true );
+                $htmlreponse = $this->smarty->view( 'dashboard/la/menu/editPanelList', $this->assigns, true );
                 break;
             case 'm':
             case '3':
-                $htmlreponse = $this->smarty->view( 'dashboard/la/category/editPanelMenu', $this->assigns, true );
+                $htmlreponse = $this->smarty->view( 'dashboard/la/menu/editPanelMenu', $this->assigns, true );
                 break;
             default :
-                $htmlreponse = $this->smarty->view( 'dashboard/la/category/editPanel', $this->assigns, true );
+                $htmlreponse = $this->smarty->view( 'dashboard/la/menu/editPanel', $this->assigns, true );
         }
         
         $output["result"] = 1;
@@ -70,9 +69,9 @@ class category extends CP_Controller {
         $Params = $this->input->get_post('Params');
         if (!empty($Params)) {
             $sToken = md5(time().strtoupper(random_string('alnum', 8)));
-            $sType = $Params['cat_type'];
+            $sType = $Params['menu_type'];
             $sDate = date('Y-m-d H:i:s');
-            $Params['cat_token'] = $sToken;
+            $Params['menu_token'] = $sToken;
             foreach ($Params['ti_title'] as $sLang => $sTitle) {
                 $aTitleData[] = array(
                     'ti_title' => $Params['ti_title'][$sLang],
@@ -125,14 +124,14 @@ class category extends CP_Controller {
         if (!empty($aParams)) {
             $Id = $this->input->post('Id');
             if (!empty($Id)) {
-                $oRecord = $this->category_model->getCategoryById($Id);
+                $oRecord = $this->menu_model->getMenuById($Id);
                 if ($oRecord) {
                     $rRs = true;
                     $this->db->trans_begin();
-                    $sToken = $oRecord->cat_token;
+                    $sToken = $oRecord->menu_token;
                     $sDate = date('Y-m-d H:i:s');
-                    $sType = $oRecord->cat_type;
-                    $aParams['cat_token'] = $sToken;
+                    $sType = $oRecord->menu_type;
+                    $aParams['menu_token'] = $sToken;
                     foreach ($aParams['ti_title'] as $sLang => $sTitle) {
                         if($oRecord->aTitle[$sLang]!=$aParams['ti_title'][$sLang]){
                             $aTitleParams = array(
@@ -170,7 +169,7 @@ class category extends CP_Controller {
                     unset($aParams['ti_title']);
                     unset($aParams['als_alias']);
                     unset($aParams['de_desc']);
-                    $rRs = $rRs && $this->Core_Model->onUpdate($oRecord->cat_id,$aParams);
+                    $rRs = $rRs && $this->Core_Model->onUpdate($oRecord->menu_id,$aParams);
 
                     if ($rRs === true) {
                         $output["result"] = 1;
@@ -215,7 +214,7 @@ class category extends CP_Controller {
                         $rRs = true;
                         $this->db->trans_begin();
                         $rRs = $this->Core_Model->onDelete($Id);
-                        $sToken = $oRecord->cat_token;
+                        $sToken = $oRecord->menu_token;
                         $rRs = $rRs && $this->db
                             ->where('ti_token',$sToken)
                             ->delete('lang_title');
@@ -247,10 +246,10 @@ class category extends CP_Controller {
     }
     function updateBatch($aData){
         if(!empty($aData)) foreach ($aData as $c){
-            if($c->value!=$c->cat_value){
+            if($c->value!=$c->menu_value){
                 $this->db
-                    ->where('cat_id',$c->cat_id)
-                    ->update('lang_category',array('cat_value'=>$c->value));
+                    ->where('menu_id',$c->menu_id)
+                    ->update('lang_menu',array('menu_value'=>$c->value));
             }
         }
     }
@@ -266,7 +265,6 @@ class category extends CP_Controller {
                     {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,
                     {$this->table}.{$this->prefix}status,
-                    {$this->table}.{$this->prefix}lock,
                     {$this->table}.{$this->prefix}token,
                     {$this->table}.{$this->prefix}value,
                     lang_title.ti_title as '{$this->prefix}title'
@@ -274,7 +272,7 @@ class category extends CP_Controller {
                 ",
             "from"      =>"
                 FROM `{$this->table}` 
-                LEFT JOIN lang_title ON (cat_token = ti_token and ti_lang = '$lang')
+                LEFT JOIN lang_title ON (menu_token = ti_token and ti_lang = '$lang')
             ",
             "where"     =>"WHERE `{$this->prefix}type` = '$type'",
             // "group_by"  =>"GROUP BY {$this->prefix}id",
@@ -287,7 +285,7 @@ class category extends CP_Controller {
             )
         );
         $output = $this->Core_Model->jqxBinding();
-        $output['rows']=$this->category_model->buildTreeArray($output['rows']);
+        $output['rows']=$this->menu_model->buildTreeArray($output['rows']);
         $this->updateBatch($output['rows']);
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));
@@ -295,7 +293,7 @@ class category extends CP_Controller {
     function loadscript($src='',$unit='00000'){
     	$this->setAction($unit);
         $this->output->set_header('Content-type: application/x-javascript');
-        $this->smarty->view( 'dashboard/la/category/'.$src, $this->assigns );
+        $this->smarty->view( 'dashboard/la/menu/'.$src, $this->assigns );
 
     }
 }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.12
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2016 at 06:55 PM
--- Server version: 5.6.25
--- PHP Version: 5.6.11
+-- Generation Time: Apr 01, 2016 at 09:04 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `metronic`
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `auth_users` (
-  `ause_id` smallint(6) NOT NULL,
+  `ause_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `ause_key` varchar(32) NOT NULL,
   `ause_group` smallint(6) DEFAULT NULL,
   `ause_name` varchar(100) NOT NULL,
@@ -43,8 +43,9 @@ CREATE TABLE IF NOT EXISTS `auth_users` (
   `ause_delete` datetime DEFAULT NULL,
   `ause_picture` varchar(120) DEFAULT NULL,
   `ause_authority` varchar(20) DEFAULT NULL,
-  `ause_lastlogin` datetime DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=10025 DEFAULT CHARSET=utf8;
+  `ause_lastlogin` datetime DEFAULT NULL,
+  PRIMARY KEY (`ause_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10025 ;
 
 --
 -- Dumping data for table `auth_users`
@@ -62,13 +63,14 @@ INSERT INTO `auth_users` (`ause_id`, `ause_key`, `ause_group`, `ause_name`, `aus
 --
 
 CREATE TABLE IF NOT EXISTS `languages` (
-  `lang_id` int(4) NOT NULL,
+  `lang_id` int(4) NOT NULL AUTO_INCREMENT,
   `lang_name` varchar(255) DEFAULT NULL,
   `lang_short` varchar(10) DEFAULT NULL,
   `lang_insert` datetime DEFAULT NULL,
   `lang_update` datetime DEFAULT NULL,
-  `lang_status` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+  `lang_status` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`lang_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=108 ;
 
 --
 -- Dumping data for table `languages`
@@ -190,14 +192,16 @@ INSERT INTO `languages` (`lang_id`, `lang_name`, `lang_short`, `lang_insert`, `l
 --
 
 CREATE TABLE IF NOT EXISTS `lang_alias` (
-  `als_id` int(11) NOT NULL,
+  `als_id` int(11) NOT NULL AUTO_INCREMENT,
   `als_alias` varchar(255) DEFAULT NULL,
   `als_lang` varchar(10) DEFAULT NULL,
   `als_token` varchar(255) DEFAULT NULL,
   `als_insert` datetime DEFAULT NULL,
   `als_update` datetime DEFAULT NULL,
-  `als_type` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  `als_type` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`als_id`),
+  UNIQUE KEY `_title_lang` (`als_lang`,`als_token`) USING BTREE
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=59 ;
 
 --
 -- Dumping data for table `lang_alias`
@@ -229,7 +233,19 @@ INSERT INTO `lang_alias` (`als_id`, `als_alias`, `als_lang`, `als_token`, `als_i
 (41, 'information', 'en', '5c4b83f3a1094b86ef2b78ffd7c7d060', '2016-03-25 22:21:41', NULL, 'setting'),
 (42, 'thong-tin', 'vi', '5c4b83f3a1094b86ef2b78ffd7c7d060', '2016-03-25 22:21:41', NULL, 'setting'),
 (43, 'socials', 'en', '41bfcc7ecae70d62025e95288cc1f15d', '2016-03-25 22:22:08', NULL, 'setting'),
-(44, 'mang-xa-hoi', 'vi', '41bfcc7ecae70d62025e95288cc1f15d', '2016-03-25 22:22:08', NULL, 'setting');
+(44, 'mang-xa-hoi', 'vi', '41bfcc7ecae70d62025e95288cc1f15d', '2016-03-25 22:22:08', NULL, 'setting'),
+(45, 'news', 'en', '4a91b55bc064bd156f8a7517428912de', '2016-03-22 14:05:15', NULL, 'news'),
+(46, 'tin-tuc', 'vi', '4a91b55bc064bd156f8a7517428912de', '2016-03-22 14:05:15', NULL, 'news'),
+(47, 'guide', 'en', '5fb073f53e9a84ea16fb9342818dbc1e', '2016-03-22 14:06:11', NULL, 'news'),
+(48, 'huong-dan', 'vi', '5fb073f53e9a84ea16fb9342818dbc1e', '2016-03-22 14:06:11', NULL, 'news'),
+(49, 'lorem-ipsum-is-simply-dummy-text-of-the-printing-and-typesetting-industry', 'en', 'e732425134b6675735264b1e9464c743', NULL, NULL, 'news'),
+(50, 'lorem-ipsum-chi-don-gian-la-mot-doan-van-ban-gia', 'vi', 'e732425134b6675735264b1e9464c743', NULL, NULL, 'news'),
+(51, 'home', 'en', '84ea08af3b40c738f1e59532487b8a85', '2016-04-01 09:30:15', NULL, '0'),
+(52, 'trang-chu', 'vi', '84ea08af3b40c738f1e59532487b8a85', '2016-04-01 09:30:15', NULL, '0'),
+(55, 'home', 'en', '1077f01ec16e71793dfcc7198e3c1702', '2016-04-01 09:41:14', NULL, 'menu'),
+(56, 'trang-chu', 'vi', '1077f01ec16e71793dfcc7198e3c1702', '2016-04-01 09:41:14', NULL, 'menu'),
+(57, 'product', 'en', '54ea60efe56dc75e1fcd5284a29476ea', '2016-04-01 09:44:52', NULL, 'menu'),
+(58, 'san-pham', 'vi', '54ea60efe56dc75e1fcd5284a29476ea', '2016-04-01 09:44:52', NULL, 'menu');
 
 -- --------------------------------------------------------
 
@@ -238,7 +254,7 @@ INSERT INTO `lang_alias` (`als_id`, `als_alias`, `als_lang`, `als_token`, `als_i
 --
 
 CREATE TABLE IF NOT EXISTS `lang_category` (
-  `cat_id` int(11) NOT NULL,
+  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_thumb` varchar(255) DEFAULT NULL,
   `cat_image` varchar(255) DEFAULT NULL,
   `cat_cover` varchar(255) DEFAULT NULL,
@@ -251,8 +267,9 @@ CREATE TABLE IF NOT EXISTS `lang_category` (
   `cat_update` datetime DEFAULT NULL,
   `cat_lock` varchar(5) DEFAULT NULL,
   `cat_value` varchar(255) DEFAULT NULL,
-  `cat_token` varchar(32) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  `cat_token` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `lang_category`
@@ -268,7 +285,9 @@ INSERT INTO `lang_category` (`cat_id`, `cat_thumb`, `cat_image`, `cat_cover`, `c
 (7, '', NULL, NULL, 1, 'true', 0, '', 'cake', '2016-03-14 10:08:06', NULL, NULL, '>1>7', '89e6b18d941a36d529dbbc17cd523410'),
 (9, '', NULL, NULL, 0, 'true', 0, '', 'cake', '2016-03-14 11:29:04', NULL, NULL, '>9', '2d82c0ce6ec298d8234797802fa04556'),
 (10, '', NULL, NULL, 0, 'true', 0, '', 'setting', '2016-03-25 22:21:41', '2016-03-25 22:22:21', NULL, '>10', '5c4b83f3a1094b86ef2b78ffd7c7d060'),
-(11, '', NULL, NULL, 0, 'true', 0, '', 'setting', '2016-03-25 22:22:08', NULL, NULL, '>11', '41bfcc7ecae70d62025e95288cc1f15d');
+(11, '', NULL, NULL, 0, 'true', 0, '', 'setting', '2016-03-25 22:22:08', NULL, NULL, '>11', '41bfcc7ecae70d62025e95288cc1f15d'),
+(12, '', NULL, NULL, 0, 'true', 0, '', 'news', '2016-03-22 14:05:15', '2016-04-01 08:33:42', NULL, '>12', '4a91b55bc064bd156f8a7517428912de'),
+(13, '', NULL, NULL, 0, 'true', 0, '', 'news', '2016-03-22 14:06:11', '2016-04-01 08:33:51', NULL, '>13', '5fb073f53e9a84ea16fb9342818dbc1e');
 
 -- --------------------------------------------------------
 
@@ -277,14 +296,16 @@ INSERT INTO `lang_category` (`cat_id`, `cat_thumb`, `cat_image`, `cat_cover`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `lang_content` (
-  `co_id` int(11) NOT NULL,
+  `co_id` int(11) NOT NULL AUTO_INCREMENT,
   `co_token` varchar(255) DEFAULT NULL,
   `co_type` varchar(20) DEFAULT NULL,
   `co_content` longtext,
   `co_insert` datetime DEFAULT NULL,
   `co_update` datetime DEFAULT NULL,
-  `co_lang` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `co_lang` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`co_id`),
+  UNIQUE KEY `_content_lang` (`co_token`,`co_lang`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `lang_content`
@@ -294,7 +315,9 @@ INSERT INTO `lang_content` (`co_id`, `co_token`, `co_type`, `co_content`, `co_in
 (1, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake', 'updating', NULL, NULL, 'en'),
 (2, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake', 'cập nhật', NULL, NULL, 'vi'),
 (3, '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', NULL, 'en'),
-(4, '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', NULL, 'vi');
+(4, '54760b5cd376fbc4868776f1f11a8a79', 'cake', '', '2015-07-21 11:18:35', NULL, 'vi'),
+(5, 'e732425134b6675735264b1e9464c743', 'news', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', NULL, NULL, 'en'),
+(6, 'e732425134b6675735264b1e9464c743', 'news', 'Lorem Ipsum chỉ đơn giản l&agrave; một đoạn văn bản giả, được d&ugrave;ng v&agrave;o việc tr&igrave;nh b&agrave;y v&agrave; d&agrave;n trang phục vụ cho in ấn. Lorem Ipsum đ&atilde; được sử dụng như một văn bản chuẩn cho ng&agrave;nh c&ocirc;ng nghiệp in ấn từ những năm 1500, khi một họa sĩ v&ocirc; danh gh&eacute;p nhiều đoạn văn bản với nhau để tạo th&agrave;nh một bản mẫu văn bản. Đoạn văn bản n&agrave;y kh&ocirc;ng những đ&atilde; tồn tại năm thế kỉ, m&agrave; khi được &aacute;p dụng v&agrave;o tin học văn ph&ograve;ng, nội dung của n&oacute; vẫn kh&ocirc;ng hề bị thay đổi. N&oacute; đ&atilde; được phổ biến trong những năm 1960 nhờ việc b&aacute;n những bản giấy Letraset in những đoạn Lorem Ipsum, v&agrave; gần đ&acirc;y hơn, được sử dụng trong c&aacute;c ứng dụng d&agrave;n trang, như Aldus PageMaker.', NULL, NULL, 'vi');
 
 -- --------------------------------------------------------
 
@@ -303,15 +326,16 @@ INSERT INTO `lang_content` (`co_id`, `co_token`, `co_type`, `co_content`, `co_in
 --
 
 CREATE TABLE IF NOT EXISTS `lang_data` (
-  `data_id` int(11) NOT NULL,
+  `data_id` int(11) NOT NULL AUTO_INCREMENT,
   `data_data` text,
   `data_token` varchar(32) DEFAULT NULL,
   `data_insert` datetime DEFAULT NULL,
   `data_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `data_type` varchar(32) DEFAULT NULL,
   `data_status` varchar(10) DEFAULT 'true',
-  `data_category` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+  `data_category` int(11) DEFAULT NULL,
+  PRIMARY KEY (`data_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `lang_data`
@@ -327,7 +351,8 @@ INSERT INTO `lang_data` (`data_id`, `data_data`, `data_token`, `data_insert`, `d
 (8, '{"title":{"en":"Address","vi":"\\u0110\\u1ecba ch\\u1ec9"},"desc":{"en":"Tang 20, Center Building - Hapulico Complex, 1 Nguyen Huy Tuong, Thanh Xuan, Ha Noi.","vi":"T\\u1ea7ng 20, T\\u00f2a nh\\u00e0 Center Building - Hapulico Complex, S\\u1ed1 1 Nguy\\u1ec5n Huy T\\u01b0\\u1edfng, Thanh Xu\\u00e2n, H\\u00e0 N\\u1ed9i."},"value":{"en":"Tang 20, Center Building - Hapulico Complex, 1 Nguyen Huy Tuong, Thanh Xuan, Ha Noi.","vi":"T\\u1ea7ng 20, T\\u00f2a nh\\u00e0 Center Building - Hapulico Complex, S\\u1ed1 1 Nguy\\u1ec5n Huy T\\u01b0\\u1edfng, Thanh Xu\\u00e2n, H\\u00e0 N\\u1ed9i."},"data_type":"text"}', '10', '2016-03-25 22:27:57', '2016-03-26 09:37:42', 'setting', 'true', 10),
 (9, '{"title":{"en":"Phone","vi":"\\u0110i\\u1ec7n tho\\u1ea1i"},"data_type":"string","desc":{"en":"+84 0985747240","vi":"0985747240"}}', '', '2016-03-25 22:43:16', '2016-03-25 23:42:42', 'setting', 'true', 10),
 (10, '{"title":{"en":"Avatar","vi":"\\u1ea2nh \\u0111\\u1ea1i di\\u1ec7n"},"data_type":"image","desc":{"en":"","vi":""},"value":{"en":"","vi":""},"image":"\\/data\\/image\\/ILoveYouThisMuch-90421.jpg"}', '', '2016-03-26 09:46:36', '2016-03-26 09:55:14', 'setting', 'true', 10),
-(11, '{"title":{"en":"Facebook","vi":"Facebook"},"data_type":"string","desc":{"en":"","vi":""},"value":{"en":"http:\\/\\/hdsieunhanh.com\\/phim-scream-at-the-devil-tieng-thet-quy-du-hd-31373736346864.html","vi":"http:\\/\\/hdsieunhanh.com\\/phim-scream-at-the-devil-tieng-thet-quy-du-hd-31373736346864.html"}}', '', '2016-03-26 14:41:24', NULL, 'setting', 'true', 11);
+(11, '{"title":{"en":"Facebook","vi":"Facebook"},"data_type":"string","desc":{"en":"","vi":""},"value":{"en":"http:\\/\\/hdsieunhanh.com\\/phim-scream-at-the-devil-tieng-thet-quy-du-hd-31373736346864.html","vi":"http:\\/\\/hdsieunhanh.com\\/phim-scream-at-the-devil-tieng-thet-quy-du-hd-31373736346864.html"}}', '', '2016-03-26 14:41:24', NULL, 'setting', 'true', 11),
+(12, '{"title":{"en":"About us","vi":"V\\u1ec1 ch\\u00fang t\\u00f4i"},"data_type":"html","desc":{"en":"","vi":""},"value":{"en":"<span style=\\"color:#EE82EE;\\">Lorem Ipsum<\\/span><span style=\\"color:#00FF00;\\">&nbsp;<\\/span><span style=\\"color:rgb(0, 0, 0)\\">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\\/span>","vi":"Lorem Ipsum<span style=\\"color:rgb(0, 0, 0)\\">&nbsp;ch\\u1ec9 \\u0111\\u01a1n gi\\u1ea3n l&agrave; m\\u1ed9t \\u0111o\\u1ea1n v\\u0103n b\\u1ea3n gi\\u1ea3, \\u0111\\u01b0\\u1ee3c d&ugrave;ng v&agrave;o vi\\u1ec7c tr&igrave;nh b&agrave;y v&agrave; d&agrave;n trang ph\\u1ee5c v\\u1ee5 cho in \\u1ea5n. Lorem Ipsum \\u0111&atilde; \\u0111\\u01b0\\u1ee3c s\\u1eed d\\u1ee5ng nh\\u01b0 m\\u1ed9t v\\u0103n b\\u1ea3n chu\\u1ea9n cho ng&agrave;nh c&ocirc;ng nghi\\u1ec7p in \\u1ea5n t\\u1eeb nh\\u1eefng n\\u0103m 1500, khi m\\u1ed9t h\\u1ecda s\\u0129 v&ocirc; danh gh&eacute;p nhi\\u1ec1u \\u0111o\\u1ea1n v\\u0103n b\\u1ea3n v\\u1edbi nhau \\u0111\\u1ec3 t\\u1ea1o th&agrave;nh m\\u1ed9t b\\u1ea3n m\\u1eabu v\\u0103n b\\u1ea3n. \\u0110o\\u1ea1n v\\u0103n b\\u1ea3n n&agrave;y kh&ocirc;ng nh\\u1eefng \\u0111&atilde; t\\u1ed3n t\\u1ea1i n\\u0103m th\\u1ebf k\\u1ec9, m&agrave; khi \\u0111\\u01b0\\u1ee3c &aacute;p d\\u1ee5ng v&agrave;o tin h\\u1ecdc v\\u0103n ph&ograve;ng, n\\u1ed9i dung c\\u1ee7a n&oacute; v\\u1eabn kh&ocirc;ng h\\u1ec1 b\\u1ecb thay \\u0111\\u1ed5i. N&oacute; \\u0111&atilde; \\u0111\\u01b0\\u1ee3c ph\\u1ed5 bi\\u1ebfn trong nh\\u1eefng n\\u0103m 1960 nh\\u1edd vi\\u1ec7c b&aacute;n nh\\u1eefng b\\u1ea3n gi\\u1ea5y Letraset in nh\\u1eefng \\u0111o\\u1ea1n Lorem Ipsum, v&agrave; g\\u1ea7n \\u0111&acirc;y h\\u01a1n, \\u0111\\u01b0\\u1ee3c s\\u1eed d\\u1ee5ng trong c&aacute;c \\u1ee9ng d\\u1ee5ng d&agrave;n trang, nh\\u01b0 Aldus PageMaker.<\\/span>"}}', '', '2016-03-31 11:11:05', '2016-03-31 11:21:43', 'setting', 'true', 10);
 
 -- --------------------------------------------------------
 
@@ -341,7 +366,9 @@ CREATE TABLE IF NOT EXISTS `lang_desc` (
   `de_insert` datetime DEFAULT NULL,
   `de_update` datetime DEFAULT NULL,
   `de_token` varchar(255) NOT NULL DEFAULT '',
-  `de_type` varchar(20) NOT NULL DEFAULT ''
+  `de_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`de_lang`,`de_token`),
+  UNIQUE KEY `_desc_lang` (`de_lang`,`de_token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -350,31 +377,96 @@ CREATE TABLE IF NOT EXISTS `lang_desc` (
 
 INSERT INTO `lang_desc` (`de_desc`, `de_lang`, `de_insert`, `de_update`, `de_token`, `de_type`) VALUES
 ('dede', 'de', NULL, NULL, 'a13415493f3ce8a05a0aa36895377235', 'cake'),
+('', 'en', '2016-04-01 09:41:14', NULL, '1077f01ec16e71793dfcc7198e3c1702', 'menu'),
 ('Equipments', 'en', '2016-03-14 11:29:04', NULL, '2d82c0ce6ec298d8234797802fa04556', 'cake'),
 ('', 'en', '2016-03-25 22:22:08', NULL, '41bfcc7ecae70d62025e95288cc1f15d', 'setting'),
 ('', 'en', '2015-07-21 11:18:35', NULL, '54760b5cd376fbc4868776f1f11a8a79', 'cake'),
+('', 'en', '2016-04-01 09:44:52', NULL, '54ea60efe56dc75e1fcd5284a29476ea', 'menu'),
 ('Packaging', 'en', '2016-03-14 11:28:29', NULL, '5bd6ea058447791bb81028d3e1bf76a1', 'cake'),
 ('', 'en', '2016-03-25 22:21:41', NULL, '5c4b83f3a1094b86ef2b78ffd7c7d060', 'setting'),
 ('The powder', 'en', '2016-03-14 09:58:03', NULL, '690435f750175022aec45a00a7f4c87f', 'cake'),
+('', 'en', '2016-04-01 09:30:15', NULL, '84ea08af3b40c738f1e59532487b8a85', '0'),
 ('Cake mold', 'en', '2015-07-20 15:12:00', NULL, '86b387e10308c39782a524a10ac15f45', 'cake'),
 ('Additives-Spice', 'en', '2016-03-14 10:08:06', NULL, '89e6b18d941a36d529dbbc17cd523410', 'cake'),
 ('Material', 'en', '2015-07-20 15:11:37', NULL, 'a13415493f3ce8a05a0aa36895377235', 'cake'),
 ('Ready-mixed powder', 'en', '2016-03-14 10:06:53', NULL, 'a63da31c25eb1002839fc96d1effd4de', 'cake'),
 ('', 'en', '2015-07-21 10:32:05', NULL, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake'),
 ('Tools', 'en', '2015-07-20 15:16:32', NULL, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake'),
+('Lorem Ipsum is simply dummy text of the printing and typesetting industry', 'en', NULL, NULL, 'e732425134b6675735264b1e9464c743', 'news'),
 ('frfr', 'fr', NULL, NULL, 'a13415493f3ce8a05a0aa36895377235', 'cake'),
+('', 'vi', '2016-04-01 09:41:14', NULL, '1077f01ec16e71793dfcc7198e3c1702', 'menu'),
 ('Thiết bị', 'vi', '2016-03-14 11:29:04', NULL, '2d82c0ce6ec298d8234797802fa04556', 'cake'),
 ('', 'vi', '2016-03-25 22:22:08', NULL, '41bfcc7ecae70d62025e95288cc1f15d', 'setting'),
 ('', 'vi', '2015-07-21 11:18:35', NULL, '54760b5cd376fbc4868776f1f11a8a79', 'cake'),
+('', 'vi', '2016-04-01 09:44:52', NULL, '54ea60efe56dc75e1fcd5284a29476ea', 'menu'),
 ('Bao bì', 'vi', '2016-03-14 11:28:29', NULL, '5bd6ea058447791bb81028d3e1bf76a1', 'cake'),
 ('', 'vi', '2016-03-25 22:21:41', NULL, '5c4b83f3a1094b86ef2b78ffd7c7d060', 'setting'),
 ('Các loại bột', 'vi', '2016-03-14 09:58:03', NULL, '690435f750175022aec45a00a7f4c87f', 'cake'),
+('', 'vi', '2016-04-01 09:30:15', NULL, '84ea08af3b40c738f1e59532487b8a85', '0'),
 ('Khuôn - Khay', 'vi', '2015-07-20 15:12:00', NULL, '86b387e10308c39782a524a10ac15f45', 'cake'),
 ('Phụ gia-Hương liệu', 'vi', '2016-03-14 10:08:06', NULL, '89e6b18d941a36d529dbbc17cd523410', 'cake'),
 ('Nguyên Liệu', 'vi', '2015-07-20 15:11:37', NULL, 'a13415493f3ce8a05a0aa36895377235', 'cake'),
 ('bột trộn sẵn', 'vi', '2016-03-14 10:06:53', NULL, 'a63da31c25eb1002839fc96d1effd4de', 'cake'),
 ('', 'vi', '2015-07-21 10:32:05', NULL, 'b3ab7b1902fc1016af2a0372f02cdab9', 'cake'),
-('Dụng cụ', 'vi', '2015-07-20 15:16:32', NULL, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake');
+('Dụng cụ', 'vi', '2015-07-20 15:16:32', NULL, 'd5be6c61fe5d4ed45cf08067a53a037d', 'cake'),
+('Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.', 'vi', NULL, NULL, 'e732425134b6675735264b1e9464c743', 'news');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lang_menu`
+--
+
+CREATE TABLE IF NOT EXISTS `lang_menu` (
+  `menu_id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_parent` int(11) NOT NULL DEFAULT '0',
+  `menu_status` varchar(5) NOT NULL DEFAULT 'true',
+  `menu_position` int(4) NOT NULL,
+  `menu_link` varchar(255) NOT NULL,
+  `menu_type` varchar(50) NOT NULL DEFAULT 'Web',
+  `menu_insert` datetime DEFAULT NULL,
+  `menu_update` datetime DEFAULT NULL,
+  `menu_value` varchar(255) DEFAULT NULL,
+  `menu_token` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`menu_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=16 ;
+
+--
+-- Dumping data for table `lang_menu`
+--
+
+INSERT INTO `lang_menu` (`menu_id`, `menu_parent`, `menu_status`, `menu_position`, `menu_link`, `menu_type`, `menu_insert`, `menu_update`, `menu_value`, `menu_token`) VALUES
+(15, 0, 'true', 0, '', 'menu', '2016-04-01 09:44:52', NULL, '>15', '54ea60efe56dc75e1fcd5284a29476ea'),
+(14, 0, 'true', 0, '', 'menu', '2016-04-01 09:41:14', NULL, '>14', '1077f01ec16e71793dfcc7198e3c1702');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lang_news`
+--
+
+CREATE TABLE IF NOT EXISTS `lang_news` (
+  `news_id` int(11) NOT NULL AUTO_INCREMENT,
+  `news_thumb` varchar(255) DEFAULT NULL,
+  `news_cover` varchar(255) DEFAULT NULL,
+  `news_position` int(3) DEFAULT NULL,
+  `news_status` varchar(5) DEFAULT NULL,
+  `news_type` varchar(100) DEFAULT NULL,
+  `news_insert` datetime DEFAULT NULL,
+  `news_update` datetime DEFAULT NULL,
+  `news_category` int(11) DEFAULT NULL,
+  `news_token` varchar(32) DEFAULT NULL,
+  `news_view` int(11) DEFAULT '0',
+  `news_lock` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`news_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `lang_news`
+--
+
+INSERT INTO `lang_news` (`news_id`, `news_thumb`, `news_cover`, `news_position`, `news_status`, `news_type`, `news_insert`, `news_update`, `news_category`, `news_token`, `news_view`, `news_lock`) VALUES
+(5, '/data/image/ILoveYouThisMuch-90421.jpg', NULL, NULL, 'true', 'news', '2016-03-22 15:39:24', '2016-04-01 08:35:36', 12, 'e732425134b6675735264b1e9464c743', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -388,7 +480,8 @@ CREATE TABLE IF NOT EXISTS `lang_price` (
   `pri_insert` datetime DEFAULT NULL,
   `pri_update` datetime DEFAULT NULL,
   `pri_token` varchar(255) NOT NULL DEFAULT '',
-  `pri_type` varchar(20) NOT NULL DEFAULT ''
+  `pri_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`pri_lang`,`pri_token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -398,7 +491,7 @@ CREATE TABLE IF NOT EXISTS `lang_price` (
 --
 
 CREATE TABLE IF NOT EXISTS `lang_product` (
-  `product_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_code` varchar(32) DEFAULT NULL,
   `product_thumb` varchar(255) DEFAULT NULL,
   `product_cover` varchar(255) DEFAULT NULL,
@@ -411,8 +504,9 @@ CREATE TABLE IF NOT EXISTS `lang_product` (
   `product_images` text,
   `product_token` varchar(32) DEFAULT NULL,
   `product_view` int(11) DEFAULT '0',
-  `product_lock` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  `product_lock` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `lang_product`
@@ -434,7 +528,9 @@ CREATE TABLE IF NOT EXISTS `lang_tag` (
   `tag_token` varchar(255) NOT NULL DEFAULT '',
   `tag_insert` datetime DEFAULT NULL,
   `tag_update` datetime DEFAULT NULL,
-  `tag_type` varchar(20) NOT NULL DEFAULT ''
+  `tag_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`tag_lang`,`tag_token`),
+  UNIQUE KEY `_title_lang` (`tag_lang`,`tag_token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
@@ -459,7 +555,9 @@ CREATE TABLE IF NOT EXISTS `lang_title` (
   `ti_token` varchar(255) NOT NULL DEFAULT '',
   `ti_insert` datetime DEFAULT NULL,
   `ti_update` datetime DEFAULT NULL,
-  `ti_type` varchar(20) NOT NULL DEFAULT ''
+  `ti_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`ti_lang`,`ti_token`),
+  UNIQUE KEY `_title_lang` (`ti_lang`,`ti_token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -468,31 +566,43 @@ CREATE TABLE IF NOT EXISTS `lang_title` (
 
 INSERT INTO `lang_title` (`ti_title`, `ti_lang`, `ti_token`, `ti_insert`, `ti_update`, `ti_type`) VALUES
 ('dêde', 'de', 'a13415493f3ce8a05a0aa36895377235', NULL, NULL, 'cake'),
+('Home', 'en', '1077f01ec16e71793dfcc7198e3c1702', '2016-04-01 09:41:14', NULL, 'menu'),
 ('Equipments', 'en', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', NULL, 'cake'),
 ('Socials', 'en', '41bfcc7ecae70d62025e95288cc1f15d', '2016-03-25 22:22:08', NULL, 'setting'),
+('News', 'en', '4a91b55bc064bd156f8a7517428912de', '2016-03-22 14:05:15', NULL, 'news'),
 ('Birthday Cake', 'en', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', NULL, 'cake'),
+('Product', 'en', '54ea60efe56dc75e1fcd5284a29476ea', '2016-04-01 09:44:52', NULL, 'menu'),
 ('Packaging', 'en', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', NULL, 'cake'),
 ('Information', 'en', '5c4b83f3a1094b86ef2b78ffd7c7d060', '2016-03-25 22:21:41', NULL, 'setting'),
+('Guide', 'en', '5fb073f53e9a84ea16fb9342818dbc1e', '2016-03-22 14:06:11', NULL, 'news'),
 ('The powder', 'en', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', NULL, 'cake'),
+('Home', 'en', '84ea08af3b40c738f1e59532487b8a85', '2016-04-01 09:30:15', NULL, '0'),
 ('Cake mold', 'en', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', NULL, 'cake'),
 ('Additives-Spice', 'en', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', NULL, 'cake'),
 ('Material', 'en', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', NULL, 'cake'),
 ('Ready-mixed powder', 'en', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', NULL, 'cake'),
 ('Marry Cake', 'en', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', NULL, 'cake'),
 ('Tools', 'en', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', NULL, 'cake'),
+('Lorem Ipsum is simply dummy text of the printing and typesetting industry', 'en', 'e732425134b6675735264b1e9464c743', NULL, NULL, 'news'),
 ('frfrfr', 'fr', 'a13415493f3ce8a05a0aa36895377235', NULL, NULL, 'cake'),
+('Trang chủ', 'vi', '1077f01ec16e71793dfcc7198e3c1702', '2016-04-01 09:41:14', NULL, 'menu'),
 ('Thiết bị', 'vi', '2d82c0ce6ec298d8234797802fa04556', '2016-03-14 11:29:04', NULL, 'cake'),
 ('Mạng xã hội', 'vi', '41bfcc7ecae70d62025e95288cc1f15d', '2016-03-25 22:22:08', NULL, 'setting'),
+('Tin tức', 'vi', '4a91b55bc064bd156f8a7517428912de', NULL, NULL, 'news'),
 ('Bánh sinh nhật', 'vi', '54760b5cd376fbc4868776f1f11a8a79', '2015-07-21 11:18:35', NULL, 'cake'),
+('Sản Phẩm', 'vi', '54ea60efe56dc75e1fcd5284a29476ea', '2016-04-01 09:44:52', NULL, 'menu'),
 ('Bao bì', 'vi', '5bd6ea058447791bb81028d3e1bf76a1', '2016-03-14 11:28:29', NULL, 'cake'),
 ('Thông tin', 'vi', '5c4b83f3a1094b86ef2b78ffd7c7d060', '2016-03-25 22:21:41', NULL, 'setting'),
+('Hướng dẫn', 'vi', '5fb073f53e9a84ea16fb9342818dbc1e', NULL, NULL, 'news'),
 ('Các loại bột', 'vi', '690435f750175022aec45a00a7f4c87f', '2016-03-14 09:58:03', NULL, 'cake'),
+('Trang chủ', 'vi', '84ea08af3b40c738f1e59532487b8a85', '2016-04-01 09:30:15', NULL, '0'),
 ('Khuôn - Khay', 'vi', '86b387e10308c39782a524a10ac15f45', '2015-07-20 15:12:00', NULL, 'cake'),
 ('Phụ gia-Hương liệu', 'vi', '89e6b18d941a36d529dbbc17cd523410', '2016-03-14 10:08:06', NULL, 'cake'),
 ('Nguyên Liệu', 'vi', 'a13415493f3ce8a05a0aa36895377235', '2015-07-20 15:11:37', NULL, 'cake'),
 ('Bột trộn sẵn', 'vi', 'a63da31c25eb1002839fc96d1effd4de', '2016-03-14 10:06:53', NULL, 'cake'),
 ('Bánh cưới', 'vi', 'b3ab7b1902fc1016af2a0372f02cdab9', '2015-07-21 10:32:05', NULL, 'cake'),
-('Dụng cụ', 'vi', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', NULL, 'cake');
+('Dụng cụ', 'vi', 'd5be6c61fe5d4ed45cf08067a53a037d', '2015-07-20 15:16:32', NULL, 'cake'),
+('Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả', 'vi', 'e732425134b6675735264b1e9464c743', NULL, NULL, 'news');
 
 -- --------------------------------------------------------
 
@@ -501,7 +611,7 @@ INSERT INTO `lang_title` (`ti_title`, `ti_lang`, `ti_token`, `ti_insert`, `ti_up
 --
 
 CREATE TABLE IF NOT EXISTS `_album` (
-  `album_id` int(11) NOT NULL,
+  `album_id` int(11) NOT NULL AUTO_INCREMENT,
   `album_title` varchar(255) DEFAULT NULL,
   `album_alias` varchar(255) DEFAULT NULL,
   `album_thumb` varchar(255) DEFAULT NULL,
@@ -515,8 +625,9 @@ CREATE TABLE IF NOT EXISTS `_album` (
   `album_category` int(11) DEFAULT NULL,
   `album_images` text,
   `album_view` int(11) DEFAULT '0',
-  `album_tag` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
+  `album_tag` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`album_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1001 ;
 
 --
 -- Dumping data for table `_album`
@@ -532,7 +643,7 @@ INSERT INTO `_album` (`album_id`, `album_title`, `album_alias`, `album_thumb`, `
 --
 
 CREATE TABLE IF NOT EXISTS `_category` (
-  `cat_id` int(11) NOT NULL,
+  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_title` varchar(255) NOT NULL,
   `cat_alias` varchar(255) DEFAULT NULL,
   `cat_thumb` varchar(255) DEFAULT NULL,
@@ -547,8 +658,9 @@ CREATE TABLE IF NOT EXISTS `_category` (
   `cat_insert` datetime DEFAULT NULL,
   `cat_update` datetime DEFAULT NULL,
   `cat_lock` varchar(5) DEFAULT NULL,
-  `cat_value` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=444 DEFAULT CHARSET=utf8;
+  `cat_value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=444 ;
 
 --
 -- Dumping data for table `_category`
@@ -589,14 +701,15 @@ INSERT INTO `_category` (`cat_id`, `cat_title`, `cat_alias`, `cat_thumb`, `cat_i
 --
 
 CREATE TABLE IF NOT EXISTS `_chart` (
-  `chart_id` int(11) NOT NULL,
+  `chart_id` int(11) NOT NULL AUTO_INCREMENT,
   `chart_count` varchar(20) NOT NULL DEFAULT '0',
   `chart_table` varchar(30) DEFAULT NULL,
   `chart_insert` date DEFAULT NULL,
   `chart_update` date DEFAULT NULL,
   `chart_row` int(11) DEFAULT NULL,
-  `chart_type` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=301 DEFAULT CHARSET=utf8;
+  `chart_type` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`chart_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=301 ;
 
 --
 -- Dumping data for table `_chart`
@@ -911,7 +1024,7 @@ INSERT INTO `_chart` (`chart_id`, `chart_count`, `chart_table`, `chart_insert`, 
 --
 
 CREATE TABLE IF NOT EXISTS `_contactus` (
-  `contact_id` int(11) NOT NULL,
+  `contact_id` int(11) NOT NULL AUTO_INCREMENT,
   `contact_name` varchar(255) DEFAULT NULL,
   `contact_phone` varchar(255) DEFAULT NULL,
   `contact_email` varchar(255) DEFAULT NULL,
@@ -920,8 +1033,9 @@ CREATE TABLE IF NOT EXISTS `_contactus` (
   `contact_subject` varchar(255) DEFAULT NULL,
   `contact_update` datetime DEFAULT NULL,
   `contact_type` varchar(20) DEFAULT NULL,
-  `contact_data` text
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `contact_data` text,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `_contactus`
@@ -941,7 +1055,7 @@ INSERT INTO `_contactus` (`contact_id`, `contact_name`, `contact_phone`, `contac
 --
 
 CREATE TABLE IF NOT EXISTS `_content` (
-  `content_id` int(11) NOT NULL,
+  `content_id` int(11) NOT NULL AUTO_INCREMENT,
   `content_title` varchar(255) DEFAULT NULL,
   `content_desc` varchar(255) DEFAULT NULL,
   `content_content` text,
@@ -954,8 +1068,9 @@ CREATE TABLE IF NOT EXISTS `_content` (
   `content_thumb` varchar(255) DEFAULT NULL,
   `content_alias` varchar(255) DEFAULT NULL,
   `content_lock` varchar(5) DEFAULT 'false',
-  `content_tag` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `content_tag` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`content_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `_content`
@@ -974,7 +1089,7 @@ INSERT INTO `_content` (`content_id`, `content_title`, `content_desc`, `content_
 --
 
 CREATE TABLE IF NOT EXISTS `_data` (
-  `data_id` int(11) NOT NULL,
+  `data_id` int(11) NOT NULL AUTO_INCREMENT,
   `data_category` int(11) DEFAULT NULL,
   `data_title` varchar(255) DEFAULT NULL,
   `data_alias` varchar(255) DEFAULT NULL,
@@ -989,8 +1104,9 @@ CREATE TABLE IF NOT EXISTS `_data` (
   `data_type` varchar(100) DEFAULT NULL,
   `data_link` varchar(255) DEFAULT NULL,
   `data_datatype` varchar(10) DEFAULT NULL,
-  `data_lock` varchar(5) DEFAULT 'false'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  `data_lock` varchar(5) DEFAULT 'false',
+  PRIMARY KEY (`data_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `_data`
@@ -1018,7 +1134,7 @@ INSERT INTO `_data` (`data_id`, `data_category`, `data_title`, `data_alias`, `da
 --
 
 CREATE TABLE IF NOT EXISTS `_image` (
-  `image_id` int(11) NOT NULL,
+  `image_id` int(11) NOT NULL AUTO_INCREMENT,
   `image_src` varchar(255) DEFAULT NULL,
   `image_title` varchar(255) DEFAULT NULL,
   `image_desc` varchar(1000) DEFAULT NULL,
@@ -1028,8 +1144,9 @@ CREATE TABLE IF NOT EXISTS `_image` (
   `image_status` varchar(5) DEFAULT NULL,
   `image_token` varchar(32) DEFAULT '',
   `image_category` int(11) DEFAULT NULL,
-  `image_type` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `image_type` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`image_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `_image`
@@ -1047,7 +1164,7 @@ INSERT INTO `_image` (`image_id`, `image_src`, `image_title`, `image_desc`, `ima
 --
 
 CREATE TABLE IF NOT EXISTS `_product` (
-  `product_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_code` varchar(32) DEFAULT NULL,
   `product_title` varchar(255) DEFAULT NULL,
   `product_alias` varchar(255) DEFAULT NULL,
@@ -1066,8 +1183,9 @@ CREATE TABLE IF NOT EXISTS `_product` (
   `product_price` float(11,2) DEFAULT '0.00',
   `product_view` int(11) DEFAULT '0',
   `product_tag` varchar(255) DEFAULT NULL,
-  `product_lock` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8;
+  `product_lock` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=174 ;
 
 --
 -- Dumping data for table `_product`
@@ -1155,10 +1273,10 @@ INSERT INTO `_product` (`product_id`, `product_code`, `product_title`, `product_
 (124, 'CAKE86', 'Bánh Sinh Nhật BSN 15', 'banh-sinh-nhat-bsn-15', 'http://banhngononline.com/components/com_product/img/product/BSN CB 50_1368401734.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:22:59', NULL, 419, NULL, NULL, 350000.00, 0, NULL, NULL),
 (125, 'CAKE87', 'Bánh Sinh Nhật BSN 14', 'banh-sinh-nhat-bsn-14', 'http://banhngononline.com/components/com_product/img/product/SAM_0526_1368401421.JPG', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:22:59', NULL, 419, NULL, NULL, 450000.00, 0, NULL, NULL),
 (126, 'CAKE88', 'Bánh Sinh Nhật BSN 13', 'banh-sinh-nhat-bsn-13', 'http://banhngononline.com/components/com_product/img/product/SAM_0532_1368401138.JPG', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:22:59', NULL, 419, NULL, NULL, 500000.00, 0, NULL, NULL),
-(127, 'CAKE89', 'Bánh Sinh Nhật BSN 12', 'banh-sinh-nhat-bsn-12', 'http://banhngononline.com/components/com_product/img/product/hinh_bsn_1_1368360175.png', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:22:59', NULL, 419, NULL, NULL, 700000.00, 0, NULL, NULL),
-(128, 'CAKE90', 'Bánh kem Noel BKN716', 'banh-kem-noel-bkn716', 'http://banhngononline.com/components/com_product/img/product/BKN 716_1354804215.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:22:59', NULL, 419, NULL, NULL, 250000.00, 0, NULL, NULL),
-(129, 'CAKE91', 'Bánh kem Noel BKN715', 'banh-kem-noel-bkn715', 'http://banhngononline.com/components/com_product/img/product/BKN 715_1354802914.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:23:11', NULL, 419, NULL, NULL, 250000.00, 0, NULL, NULL);
+(127, 'CAKE89', 'Bánh Sinh Nhật BSN 12', 'banh-sinh-nhat-bsn-12', 'http://banhngononline.com/components/com_product/img/product/hinh_bsn_1_1368360175.png', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:22:59', NULL, 419, NULL, NULL, 700000.00, 0, NULL, NULL);
 INSERT INTO `_product` (`product_id`, `product_code`, `product_title`, `product_alias`, `product_thumb`, `product_cover`, `product_desc`, `product_content`, `product_position`, `product_status`, `product_type`, `product_insert`, `product_update`, `product_category`, `product_images`, `product_token`, `product_price`, `product_view`, `product_tag`, `product_lock`) VALUES
+(128, 'CAKE90', 'Bánh kem Noel BKN716', 'banh-kem-noel-bkn716', 'http://banhngononline.com/components/com_product/img/product/BKN 716_1354804215.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:22:59', NULL, 419, NULL, NULL, 250000.00, 0, NULL, NULL),
+(129, 'CAKE91', 'Bánh kem Noel BKN715', 'banh-kem-noel-bkn715', 'http://banhngononline.com/components/com_product/img/product/BKN 715_1354802914.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:23:11', NULL, 419, NULL, NULL, 250000.00, 0, NULL, NULL),
 (130, 'CAKE92', 'Bánh kem Noel BKN714', 'banh-kem-noel-bkn714', 'http://banhngononline.com/components/com_product/img/product/BKN 714_1354802179.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:23:11', NULL, 419, NULL, NULL, 250000.00, 0, NULL, NULL),
 (131, 'CAKE93', 'Bánh kem BKV 416', 'banh-kem-bkv-416', 'http://banhngononline.com/components/com_product/img/product/kem-large_1354520293.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:23:11', NULL, 419, NULL, NULL, 200000.00, 0, NULL, NULL),
 (132, 'CAKE94', 'Bánh Sinh Nhật BSN119', 'banh-sinh-nhat-bsn119', 'http://banhngononline.com/components/com_product/img/product/BSN119_1354466601.jpg', NULL, NULL, NULL, 0, 'true', 'cake', '2015-07-03 21:23:11', NULL, 419, NULL, NULL, 250000.00, 0, NULL, NULL),
@@ -1211,13 +1329,14 @@ INSERT INTO `_product` (`product_id`, `product_code`, `product_title`, `product_
 --
 
 CREATE TABLE IF NOT EXISTS `_seo` (
-  `seo_id` int(11) NOT NULL,
+  `seo_id` int(11) NOT NULL AUTO_INCREMENT,
   `seo_item` varchar(100) DEFAULT NULL,
   `seo_social_title` varchar(255) DEFAULT NULL,
   `seo_social_image` varchar(255) DEFAULT NULL,
   `seo_social_desc` varchar(255) DEFAULT NULL,
-  `seo_social_keyword` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `seo_social_keyword` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`seo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1226,7 +1345,7 @@ CREATE TABLE IF NOT EXISTS `_seo` (
 --
 
 CREATE TABLE IF NOT EXISTS `_spin` (
-  `spin_id` int(3) NOT NULL,
+  `spin_id` int(3) NOT NULL AUTO_INCREMENT,
   `spin_name` varchar(255) DEFAULT NULL,
   `spin_number` int(3) DEFAULT '0',
   `spin_active` int(3) DEFAULT '0',
@@ -1235,8 +1354,9 @@ CREATE TABLE IF NOT EXISTS `_spin` (
   `spin_insert` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `spin_update` datetime DEFAULT NULL,
   `spin_active_rate` float(4,2) DEFAULT '0.00',
-  `spin_value` int(2) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+  `spin_value` int(2) DEFAULT NULL,
+  PRIMARY KEY (`spin_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `_spin`
@@ -1268,7 +1388,7 @@ INSERT INTO `_spin` (`spin_id`, `spin_name`, `spin_number`, `spin_active`, `spin
 --
 
 CREATE TABLE IF NOT EXISTS `_user` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_user_name` varchar(100) DEFAULT NULL,
   `user_password` varchar(32) DEFAULT NULL,
   `user_email` varchar(100) DEFAULT NULL,
@@ -1278,8 +1398,11 @@ CREATE TABLE IF NOT EXISTS `_user` (
   `user_spin_num` int(11) DEFAULT '0',
   `user_provider` varchar(20) DEFAULT NULL,
   `user_display` varchar(50) DEFAULT NULL,
-  `user_identifier` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `user_identifier` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_name` (`user_user_name`),
+  UNIQUE KEY `user_email` (`user_email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `_user`
@@ -1298,14 +1421,15 @@ INSERT INTO `_user` (`user_id`, `user_user_name`, `user_password`, `user_email`,
 --
 
 CREATE TABLE IF NOT EXISTS `_wheel` (
-  `wheel_id` int(11) NOT NULL,
+  `wheel_id` int(11) NOT NULL AUTO_INCREMENT,
   `wheel_spin_id` int(11) DEFAULT NULL,
   `wheel_user_id` int(11) DEFAULT NULL,
   `wheel_insert` datetime DEFAULT CURRENT_TIMESTAMP,
   `wheel_update` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `wheel_status` varchar(10) DEFAULT '0',
-  `wheel_code` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+  `wheel_code` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`wheel_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `_wheel`
@@ -1339,254 +1463,6 @@ INSERT INTO `_wheel` (`wheel_id`, `wheel_spin_id`, `wheel_user_id`, `wheel_inser
 (30, 14, 6, '2016-03-18 16:07:25', NULL, '0', NULL),
 (31, 9, 6, '2016-03-18 16:07:34', NULL, '0', NULL);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `auth_users`
---
-ALTER TABLE `auth_users`
-  ADD PRIMARY KEY (`ause_id`);
-
---
--- Indexes for table `languages`
---
-ALTER TABLE `languages`
-  ADD PRIMARY KEY (`lang_id`);
-
---
--- Indexes for table `lang_alias`
---
-ALTER TABLE `lang_alias`
-  ADD PRIMARY KEY (`als_id`),
-  ADD UNIQUE KEY `_title_lang` (`als_lang`,`als_token`) USING BTREE;
-
---
--- Indexes for table `lang_category`
---
-ALTER TABLE `lang_category`
-  ADD PRIMARY KEY (`cat_id`);
-
---
--- Indexes for table `lang_content`
---
-ALTER TABLE `lang_content`
-  ADD PRIMARY KEY (`co_id`),
-  ADD UNIQUE KEY `_content_lang` (`co_token`,`co_lang`);
-
---
--- Indexes for table `lang_data`
---
-ALTER TABLE `lang_data`
-  ADD PRIMARY KEY (`data_id`);
-
---
--- Indexes for table `lang_desc`
---
-ALTER TABLE `lang_desc`
-  ADD PRIMARY KEY (`de_lang`,`de_token`),
-  ADD UNIQUE KEY `_desc_lang` (`de_lang`,`de_token`);
-
---
--- Indexes for table `lang_price`
---
-ALTER TABLE `lang_price`
-  ADD PRIMARY KEY (`pri_lang`,`pri_token`);
-
---
--- Indexes for table `lang_product`
---
-ALTER TABLE `lang_product`
-  ADD PRIMARY KEY (`product_id`);
-
---
--- Indexes for table `lang_tag`
---
-ALTER TABLE `lang_tag`
-  ADD PRIMARY KEY (`tag_lang`,`tag_token`),
-  ADD UNIQUE KEY `_title_lang` (`tag_lang`,`tag_token`) USING BTREE;
-
---
--- Indexes for table `lang_title`
---
-ALTER TABLE `lang_title`
-  ADD PRIMARY KEY (`ti_lang`,`ti_token`),
-  ADD UNIQUE KEY `_title_lang` (`ti_lang`,`ti_token`);
-
---
--- Indexes for table `_album`
---
-ALTER TABLE `_album`
-  ADD PRIMARY KEY (`album_id`);
-
---
--- Indexes for table `_category`
---
-ALTER TABLE `_category`
-  ADD PRIMARY KEY (`cat_id`);
-
---
--- Indexes for table `_chart`
---
-ALTER TABLE `_chart`
-  ADD PRIMARY KEY (`chart_id`);
-
---
--- Indexes for table `_contactus`
---
-ALTER TABLE `_contactus`
-  ADD PRIMARY KEY (`contact_id`);
-
---
--- Indexes for table `_content`
---
-ALTER TABLE `_content`
-  ADD PRIMARY KEY (`content_id`);
-
---
--- Indexes for table `_data`
---
-ALTER TABLE `_data`
-  ADD PRIMARY KEY (`data_id`);
-
---
--- Indexes for table `_image`
---
-ALTER TABLE `_image`
-  ADD PRIMARY KEY (`image_id`);
-
---
--- Indexes for table `_product`
---
-ALTER TABLE `_product`
-  ADD PRIMARY KEY (`product_id`);
-
---
--- Indexes for table `_seo`
---
-ALTER TABLE `_seo`
-  ADD PRIMARY KEY (`seo_id`);
-
---
--- Indexes for table `_spin`
---
-ALTER TABLE `_spin`
-  ADD PRIMARY KEY (`spin_id`);
-
---
--- Indexes for table `_user`
---
-ALTER TABLE `_user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `user_name` (`user_user_name`),
-  ADD UNIQUE KEY `user_email` (`user_email`);
-
---
--- Indexes for table `_wheel`
---
-ALTER TABLE `_wheel`
-  ADD PRIMARY KEY (`wheel_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `auth_users`
---
-ALTER TABLE `auth_users`
-  MODIFY `ause_id` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10025;
---
--- AUTO_INCREMENT for table `languages`
---
-ALTER TABLE `languages`
-  MODIFY `lang_id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=108;
---
--- AUTO_INCREMENT for table `lang_alias`
---
-ALTER TABLE `lang_alias`
-  MODIFY `als_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
---
--- AUTO_INCREMENT for table `lang_category`
---
-ALTER TABLE `lang_category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `lang_content`
---
-ALTER TABLE `lang_content`
-  MODIFY `co_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `lang_data`
---
-ALTER TABLE `lang_data`
-  MODIFY `data_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `lang_product`
---
-ALTER TABLE `lang_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `_album`
---
-ALTER TABLE `_album`
-  MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1001;
---
--- AUTO_INCREMENT for table `_category`
---
-ALTER TABLE `_category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=444;
---
--- AUTO_INCREMENT for table `_chart`
---
-ALTER TABLE `_chart`
-  MODIFY `chart_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=301;
---
--- AUTO_INCREMENT for table `_contactus`
---
-ALTER TABLE `_contactus`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `_content`
---
-ALTER TABLE `_content`
-  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `_data`
---
-ALTER TABLE `_data`
-  MODIFY `data_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT for table `_image`
---
-ALTER TABLE `_image`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `_product`
---
-ALTER TABLE `_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=174;
---
--- AUTO_INCREMENT for table `_seo`
---
-ALTER TABLE `_seo`
-  MODIFY `seo_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `_spin`
---
-ALTER TABLE `_spin`
-  MODIFY `spin_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `_user`
---
-ALTER TABLE `_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `_wheel`
---
-ALTER TABLE `_wheel`
-  MODIFY `wheel_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

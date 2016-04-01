@@ -32,14 +32,42 @@ class category_model extends Core_Model {
     function getCategoryByType($type=null,$lang='en'){
         if($type!=null)$this->db->where('cat_type',$type);
         $query=$this->db
+            ->select('lang_category.*, ti_lang, ti_title, de_lang, de_desc, als_lang, als_alias')
             ->from('lang_category')
             ->join('lang_title','cat_token = ti_token')
-            ->where('ti_lang',$lang)
+            ->join('lang_desc','cat_token = de_token')
+            ->join('lang_alias','cat_token = als_token')
+            // ->where('ti_lang',$lang)
             ->order_by('cat_parent','ASC')
             ->order_by('cat_position','ASC')
             ->order_by('cat_insert','ASC')
-            ->get(); 
-        return $query->result();
+            ->get();
+        $tmpdata = $query->result();
+        $index = 0;
+        $aId = array();
+        if($tmpdata)
+            foreach ($tmpdata as $key => $value) {
+                if(!array_key_exists($value->cat_id,$aId)){
+                    $data[$index] = $value;
+                    $data[$index]->title = array();
+                    $aId[$value->cat_id] = $index++;
+                    $data[$aId[$value->cat_id]]->title[$value->ti_lang] = $value->ti_title;
+                    $data[$aId[$value->cat_id]]->desc[$value->de_lang] = $value->de_desc;
+                    $data[$aId[$value->cat_id]]->alias[$value->als_lang] = $value->als_alias;
+                    unset($data[$aId[$value->cat_id]]->ti_lang);
+                    unset($data[$aId[$value->cat_id]]->ti_title);
+                    unset($data[$aId[$value->cat_id]]->de_lang);
+                    unset($data[$aId[$value->cat_id]]->de_lang);
+                    unset($data[$aId[$value->cat_id]]->de_desc);
+                    unset($data[$aId[$value->cat_id]]->als_lang);
+                    unset($data[$aId[$value->cat_id]]->als_alias);
+                } else {
+                    $data[$aId[$value->cat_id]]->title[$value->ti_lang] = $value->ti_title;
+                    $data[$aId[$value->cat_id]]->desc[$value->de_lang] = $value->de_desc;
+                    $data[$aId[$value->cat_id]]->alias[$value->als_lang] = $value->als_alias;
+                }
+            }
+        return $data;
     }
     function buildTree(array $elements, $parentId = 0,$parents=array(0)) {
         $branch = array();

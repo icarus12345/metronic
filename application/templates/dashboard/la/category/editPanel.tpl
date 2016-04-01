@@ -81,7 +81,7 @@
                                         [{assign var="level" value=-1}]
                                     [{/if}]
                                     <option 
-                                        data-content="<span style='padding-left: [{$c->cat_level*20+20}]px;'>[{$c->ti_title|escape}]</span>"
+                                        data-content="<span class='lang-controls' style='padding-left: [{$c->cat_level*20+20}]px;'>[{foreach $aLang 'la'}]<span data-lang='[{$la->lang_short}]' class='[{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]'>[{$c->title[$la->lang_short]|escape}]</span>[{/foreach}]</span>"
                                         [{if $c->cat_id == $item->cat_parent}]selected="1"[{/if}]
                                         [{if $level!=-1 and $level < $c->cat_level}]disabled=1[{/if}]
                                         [{if $c->cat_id == $item->cat_id}]disabled=1[{/if}]
@@ -103,7 +103,7 @@
                     />
             </div>
             <div class="row half">
-                <div class="col-sm-6 half">
+                <div class="col-xs-6 half">
                     <div class="control-group pull-bottom">
                         <div>Image :</div>
                         <div class="input-append">
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3 half">
+                <div class="col-xs-3 col-xs-6 half">
                     <div class="control-group pull-bottom">
                         <div>Position :</div>
                         <input type="number" 
@@ -126,7 +126,7 @@
                                 >
                     </div>
                 </div>
-                <div class="col-sm-3 half">
+                <div class="col-xs-3 half">
                     <div class="control-group pull-bottom">
                         <div>Status :</div>
                         <select name="cat_status" class="form-control selectpicker">
