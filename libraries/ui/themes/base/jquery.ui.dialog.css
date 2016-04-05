@@ -18,7 +18,7 @@ body .ui-widget-overlay{background:rgba(0,0,0,.35);opacity:1}
 .ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
 .ui-dialog .ui-dialog-titlebar img{float:left}
 .ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0;line-height: 16px; }
-.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 20px; margin: -10px 0 0 0; padding: 1px; height: 20px; }
 .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
 .ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; /*background: none; overflow: auto;*/ zoom: 1; }
@@ -90,37 +90,34 @@ body .ui-widget-overlay{background:rgba(0,0,0,.35);opacity:1}
 .ui-dialog .ui-button.ui-corner-all{
     
 }
-.ui-dialog .ui-widget-header .ui-icon,.close-icon{
-    width: 9px;
-    height: 9px;
+.ui-dialog-titlebar-close{
+}
+.ui-dialog .ui-widget-header .ui-icon{
     overflow: hidden;
     display: block;
     background: url('images/close.png') no-repeat center;
-    right: 0px;
-    top: 0px;
+    width: 16px;height: 16px;
+    position: absolute;
+    left: 50%;top: 50%;
+    margin: -8px 0 0 -8px;
 }
-
-.ui-dialog-titlebar-close.ui-corner-all.ui-state-hover{border:none;background: none;}
+.ui-dialog-titlebar-close.ui-corner-all.ui-state-focus,
+.ui-dialog-titlebar-close.ui-corner-all.ui-state-hover{
+	border-radius: 50%;
+	border:none;
+}
 .ui-dialog-titlebar-close.ui-corner-all.ui-state-hover span{opacity: 1}
 .ui-dialog .ui-dialog-titlebar-close{
-    position: absolute;
-    right: .3em;
+        position: absolute;
+    right: 4px;
     top: 50%;
-    width: 20px;
-    margin: -11px 0 0 0;
+    width: 24px;
+    margin: -12px 0 0 0;
     padding: 0px;
-    height: 20px;
+    height: 24px;
 }
 .ui-dialog .ui-dialog-titlebar-close span{margin: 0}
-.ui-dialog .ui-widget-header .ui-icon{
-    height: 9px;
-    opacity: 1;
-    outline: 0;
-    position: absolute;
-    right: 7px;
-    top: 7px;
-    width: 9px;
-}
+
 .ui-timepicker-div{font-size: 11px}
 .ui-dialog-buttonset button{
     padding: 3px 12px 3px 12px;line-height: 18px;

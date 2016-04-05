@@ -3,16 +3,16 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,vietnamese);
 */
 body{
-	font-family: "Roboto Condensed","Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;
-	background: url('../images/bg.jpg') repeat top center;
 }
 h1,h2,h3,h4,h5,h6{margin: 0}
-a,a:link,a:active,a:hover{color: inherit;}
-.container{max-width: 960px;width: auto;position: relative;}
+a,a:link,a:active{color:#333;}
+a:focus,
+a:hover{color: #2ea3f2;}
+.container{max-width: 1200px;width: auto;position: relative;}
 .head-banner{
-	background: url('../images/head.png') repeat-x top center;
-	height: 126px;margin-bottom: 20px;z-index: 10;position: relative;
+	height: 50px;z-index: 10;position: relative;
 }
 .logo{display: inline-block;}
 .logo>img{height: 90px}
@@ -21,7 +21,7 @@ a,a:link,a:active,a:hover{color: inherit;}
 .slogan{display: inline-block;margin: auto;padding: 0 20px}
 .hot-line{position: absolute;right: 100px;top: 50%;margin-top: -16px;height: 32px;}
 .hot-line>img{height: 100%}
-.navbar-toggle .icon-bar{background: #D1659B}
+.navbar-toggle .icon-bar{background: #2ea3f2}
 .cart-info{
 	width: 72px;height: 142px;position: absolute;top:0;right: 0;
 	background: url('../images/cart.png') 0 0 no-repeat;cursor: pointer;
@@ -234,45 +234,24 @@ fieldset.c legend{margin: auto;padding-left:20px;}
     border-color: transparent;
 }
 .album-item .nailthumb-mark{height: auto;top: auto;bottom: 0;background: rgba(0,0,0,.5);color: #fff;padding: 5px;text-align: center;}
+.navbar-brand{padding: 0;background: url(/assets/cake/imgs/logo.png) no-repeat left center;width: 160px}
 @media (min-width: 768px){
 	.navbar .container{
-		padding-left: 32px;
-		padding-right: 32px;
 		position: relative;
 	}
-	.navbar .container::before{
-		position: absolute;
-		top: 0;left: 0;
-		width: 32px;height: 72px;
-		background: url('../images/left-menu.png') no-repeat 0 0;
-	}
-	.navbar .container::after{
-		position: absolute;
-		top: 0;right: 0;
-		width: 32px;height: 72px;
-		background: url('../images/right-menu.png') no-repeat 0 0;
-	}
-	.navbar .container>div{
-		background: url('../images/menu.png') repeat-x 0 0;
-		padding: 10px 0;
-	}
-	.navbar .container > div .navbar-nav{display: block;width: 100%}
-	.navbar .container > div .navbar-nav > li{
-		width: 14.28571428571429%
-	}
+	.navbar-collapse{padding: 0}
+	.navbar-header{position: absolute;left: 0;top: 0}
+	.navbar .container > div .navbar-nav{float: right;}
 	.navbar .container > div .navbar-nav > li > a{
-		font-weight: bold;
+		text-transform: uppercase;
 		text-align: center;
 		font-size: 16px;
-		text-shadow: 1px 1px #ccc;
-		-moz-text-shadow: 1px 1px #ccc;
-		-o-text-shadow: 1px 1px #ccc;
-		-webkit-text-shadow: 1px 1px #ccc;
-		color:#7d7d7d;
+		color:#333;
+		padding: 15px 10px;
 	}
 	.navbar .container > div .navbar-nav > li > a:hover,
 	.navbar .container > div .navbar-nav > li > a:focus{
-		background: none;color: #d5689f;
+		background: none;color: #2ea3f2;
 	}
 	.navbar .container > div .navbar-nav > li:hover > .dropdown-menu{display: block;}
 	.navbar .container > div .navbar-nav > li > .dropdown-menu{
@@ -315,7 +294,13 @@ fieldset.c legend{margin: auto;padding-left:20px;}
 	.logo>img{height: 45px}
 	.slogan{display: none;}
 	.hot-line{height: 24px;margin-top: -12px;right: 70px}
-	.navbar-header{border: 1px solid #FE98CB;background: url(../images/slogan.png) no-repeat 10px center #E1ECE8}
+	.navbar,.navbar-brand{height: 50px}
+	.navbar-toggle{margin: 10px 0;border:1px solid #2ea3f2;border-radius: 0}
+	.navbar-header{}
+	.navbar-collapse>ul::before{border-bottom-color: #2ea3f2;}
+	.navbar-collapse .navbar-nav, .navbar-collapse .navbar-nav.pull-right{
+		    border: 1px solid #2ea3f2;
+	}
 	.head-banner{
 		background-size: 38px 63px;
 		-moz-background-size: 38px 63px;
