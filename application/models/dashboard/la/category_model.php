@@ -34,9 +34,9 @@ class category_model extends Core_Model {
         $query=$this->db
             ->select('lang_category.*, ti_lang, ti_title, de_lang, de_desc, als_lang, als_alias')
             ->from('lang_category')
-            ->join('lang_title','cat_token = ti_token')
-            ->join('lang_desc','cat_token = de_token')
-            ->join('lang_alias','cat_token = als_token')
+            ->join('lang_title','cat_token = ti_token','left')
+            ->join('lang_desc','cat_token = de_token','left')
+            ->join('lang_alias','cat_token = als_token','left')
             // ->where('ti_lang',$lang)
             ->order_by('cat_parent','ASC')
             ->order_by('cat_position','ASC')

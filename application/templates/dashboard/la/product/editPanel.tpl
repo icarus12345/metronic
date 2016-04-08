@@ -158,16 +158,16 @@
                                     >
                             </div>
                         </div>
-                        <!-- <div class="col-xs-6 half col-mb-3">
+                        <div class="col-xs-6 half col-mb-3">
                             <div class="control-group pull-bottom">
-                                <div>Price (*):</div>
+                                <div>Discount (%):</div>
                                 <input type="number" 
                                     data-prompt-position="topLeft:0,20"
-                                    class="form-control validate[required]" 
-                                    value="[{$item->product_price|default:''|string_format:'%d'}]" 
-                                    name="product_price">
+                                    class="form-control" 
+                                    value="[{$item->product_discount|default:'0'|string_format:'%d'}]" 
+                                    name="product_discount">
                             </div>
-                        </div> -->
+                        </div>
                         <!-- <div class="col-xs-6 half col-mb-3">
                             <div class="control-group pull-bottom">
                                 <div>Position :</div>

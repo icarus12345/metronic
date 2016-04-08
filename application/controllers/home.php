@@ -2,29 +2,17 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class home extends FE_Controller {
 	public function index(){
-		redirect('/landing');
+		redirect('landing');
 		$this->assigns->site = array(
 			'title'=>'',
 			'desc'=>'',
 			'image'=>''
 		);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bsn'])
-			->limit(10);
-		$this->assigns->bsn_list = $this->product_model->onGetByType($this->assigns->fecog['cake']);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bc'])
-			->limit(10);
-		$this->assigns->bc_list = $this->product_model->onGetByType($this->assigns->fecog['cake']);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bv'])
-			->limit(10);
-		$this->assigns->bv_list = $this->product_model->onGetByType($this->assigns->fecog['cake']);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bcupket'])
-			->limit(10);
-		$this->assigns->bcupket_list = $this->product_model->onGetByType($this->assigns->fecog['cake']);
+		//print_r($this->assigns->aCategory);
         $this->smarty->view( 'cake/home', $this->assigns );
+	}
+	function demo(){
+		$this->smarty->view( 'cake/home', $this->assigns );
 	}
 	function product($cat_alias='',$page=1){
 		$this->assigns->site = array(

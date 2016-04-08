@@ -1,58 +1,89 @@
-[{strip}]
-        <div class="head-banner">
-            <div class="container">
-                <a href="/" class="logo">
-                    <img src="/assets/cake/images/logo.png"/>
+<header id="navbar" class="navbar -navbar-fixed-top" role="banner">
+    <!-- top head [ -->
+    <div class="comic-header">
+        <!-- <div class="container">
+            <div class="row">
+                <a href="#" class="head-logo">
                 </a>
-                <div class="slogan">
-                    <img src="/assets/cake/images/slogan.png"/>
+                <div class="search-control">
+                    <input type="text" class="" 
+                        placeholder="Nội dung tìm kiếm"
+                        onblur="$('.comic-header').removeClass('search-on')" onfocus="$('.comic-header').addClass('search-on')" />
+                    <button class="search-btn" onclick="$(this).prev().focus()"></button>
                 </div>
-                <a href="" class="hot-line"><img src="/assets/cake/images/hot-line.png"/></a>
-                <div class="cart-info">
-                    <span>0</span>
-                </div>
-            </div>
-        </div>
-        <header id="navbar" class="navbar" role="banner">
-            <div class="container">
-                <div>
-                    <div class="navbar-header">
-                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                            <span>
-                                <span class="icon-bar line-1"></span>
-                                <span class="icon-bar line-2"></span>
-                                <span class="icon-bar line-3"></span>
-                            </span>
-                        </button>
-                    </div>
-                    <nav id="navigation" class="collapse navbar-collapse bs-navbar-collapse" role="navigation" style="overflow: hidden" >
-                        <ul class="nav navbar-nav">
-                            <li><a href='/'>Trang chủ</a></li>
-                            <li>
-                                <a href="#" data-toggle="dropdown">Sản Phẩm</a>
-                                <ul class="dropdown-menu">
-                                    [{foreach $cates 'foo'}]
-                                    <li><a href="[{if !in_array($foo->cat_alias,$fecog.knownCate)}]/san-pham[{/if}]/[{$foo->cat_alias|escape:'html'}]">[{$foo->cat_title|escape:'html'}]</a></li>
-                                    [{/foreach}]
-                                </ul>
-                            </li>
-                            <!-- <li><a href="#" onclick="dialog('order-dialog')">Đặt hàng</a></li> -->
-                            <li><a href="/hinh-anh" >Ảnh đẹp</a></li>
-                            <!-- <li>
-                                <a href="#" data-toggle="dropdown">Ảnh đẹp</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href='#'>Ảnh đẹp trong tháng</a></li>
-                                    <li><a href='#'>Album bánh cưới</a></li>
-                                    <li><a href='#'>Album bánh sinh nhật</a></li>
-                                </ul>
-                            </li> -->
-                            <li><a href="/cong-thuc">Công thức</a></li>
-                            <li><a href="/day-nghe">Dạy nghề</a></li>
-                            <li><a href="/nguyen-lieu">Nguyên liệu</a></li>
-                            <li><a href="/lien-he" -onclick="dialog('order-dialog')">Liên Hệ</a></li>
+                <div class="login-head">
+                    <div>
+                        <a href="#" class="user-icon" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href='#'>Đăng Nhập</a></li>
+                            <li><a href='#'>Đăng Ký</a></li>
                         </ul>
-                    </nav>
+                        <a href="#">Đăng nhập</a>
+                        <span> | </span>
+                        <a href="#">Đăng ký</a>
+                    </div>
+                </div>
+                <div class="quick-menu-head">
+                    <a href="#" class="quick-ico music-ico">
+                        <span>Nhạc</span>
+                    </a>
+                    <a href="#" class="quick-ico video-ico">
+                        <span>Video</span>
+                    </a>
+                    <a href="#" class="quick-ico news-ico">
+                        <span>Tin tức</span>
+                    </a>
                 </div>
             </div>
-        </header>
-[{/strip}]
+            <div class="clearfix"></div>
+        </div> -->
+    </div>
+    <!-- top head ] -->
+    <!-- Menu [ -->
+    <div class="nav-menu">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">
+                    
+                </a>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navigation">
+                    <span>
+                        <span class="icon-bar line-1"></span>
+                        <span class="icon-bar line-2"></span>
+                        <span class="icon-bar line-3"></span>
+                    </span>
+                </button>
+            </div>
+            <nav id="navigation" class="collapse navbar-collapse bs-navbar-collapse" role="navigation" style="overflow: hidden" >
+
+                <ul class="nav navbar-nav">
+                    <li><a href='#'>Trang chủ</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Sản phẩm</a>
+                        <i data-toggle="dropdown"></i>
+                        <div class="dropdown-menu x5">
+                            [{foreach $aCategory 'cat'}]
+                            <ul>
+                                <li class="group-header"><span>[{$cat->title.vi}]</span></li>
+                                [{foreach $cat->cat_children 'subcat'}]
+                                <li><a href='#'>[{$subcat->title.vi}]</a></li>
+                                [{/foreach}]
+                            </ul>
+                            [{/foreach}]
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Công thức - Kinh nghiệm</a>
+                    </li>
+                    <li>
+                        <a href="#">Hướng dẫn<span class="hidden-sm"> mua hàng</span></a>
+                    </li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Menu ] -->
+</header>

@@ -6,32 +6,13 @@ class FE_Controller extends CI_Controller {
         $this->smarty->caching = false;
         $this->assigns = new stdClass();
         $this->load->library('pagination');
-        $this->load->model('front/category_model');
-        $this->load->model('front/image_model');
-        $this->load->model('front/product_model');
-        $this->load->model('front/album_model');
-        $this->load->model('front/content_model');
-        $this->load->model('front/data_model');
-        $this->assigns->settting_data = $this->data_model->loadData('scake');
-        $this->assigns->fecog = array(
-            'slider'=> 'slider',
-            'cake'=> 'cake',
-            'bsn'=> '419',
-            'bc'=> '420',
-            'bv'=> '421',
-            'bcupket'=> '422',
-            'knownCate'=>array(
-                'banh-sinh-nhat',
-                'banh-cuoi',
-                'banh-ve',
-                'banh-cupcake'
-            )
-        );
-        if(!$this->input->is_ajax_request()){
-            $this->assigns->cates = $this->category_model->onGetByType($this->assigns->fecog['cake']);
-            $this->assigns->sliders = $this->image_model->onGetByType($this->assigns->fecog['slider']);
+        $this->load->model('dashboard/la/lang_model');
+        $this->load->model('dashboard/la/category_model');
+        $aCategory = $this->category_model->getCategoryByType('cake');
+        if($aCategory){
+            $aCategory = $this->category_model->buildTree($aCategory);
+            $this->assigns->aCategory=$aCategory;
         }
-
         // $pos = strpos($_SERVER['SERVER_NAME'], 'en.');
         // if ($pos === false) {
         //     $this->assigns->lang = 'vi';
