@@ -72,10 +72,24 @@ class product_model extends Core_Model {
         $query=$this->db
             ->from('lang_product')
             ->join('lang_title','product_token = ti_token')
+            ->join('lang_data','product_token = data_token')
             ->where('ti_lang',$lang)
             ->order_by('product_insert','DESC')
             ->get(); 
-        return $query->result();
+        $tmpdata = $query->result();
+        $index = 0;
+        $aId = array();
+        if($tmpdata)
+            foreach ($tmpdata as $key => $value) {
+                if(!array_key_exists($value->product_id,$aId)){
+                    $data[$index] = $value;
+                    $data[$index]->title = array();
+                    $aId[$value->product_id] = $index++;
+                    
+                }
+                $data[$aId[$value->product_id]]->data[] = json_decode($value->data_data);
+            }
+        return $data;
     }
     
 }

@@ -8,6 +8,9 @@ class FE_Controller extends CI_Controller {
         $this->load->library('pagination');
         $this->load->model('dashboard/la/lang_model');
         $this->load->model('dashboard/la/category_model');
+        $this->load->model('dashboard/la/news_model');
+        $this->load->model('dashboard/la/product_model');
+        $this->load->model('dashboard/la/data_model');
         $aCategory = $this->category_model->getCategoryByType('cake');
         if($aCategory){
             $aCategory = $this->category_model->buildTree($aCategory);

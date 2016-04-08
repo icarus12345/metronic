@@ -537,10 +537,11 @@ h1,h2,h3,h4,p{margin:0}
 .tags a{border: 1px solid #999;padding: 2px 4px;margin-right: 8px;display: inline-block;margin-bottom: 10px;}
 .page-title{line-height: 32px;padding: 10px 0}
 .box > div a{display: block;height: 32px;background: url(../imgs/readmore.png) no-repeat center;}
-.testimonies{position: relative;background: #fff;padding: 20px 20px 20px 100px}
+.testimonies{position: relative;background: #fff;padding: 20px 20px 20px 100px;height: 168px}
 .testimonies p{padding-bottom: 20px;}
 .footer-menu a{color: #999;display: inline-block;padding: 10px;}
 .footer-menu a:first-child{padding-left: 0}
+.testimonies>img{position: absolute;top: 20px;left: 20px;width: 70px}
 @media (min-width: 768px){
     .navbar-nav>li>a{
         padding-top: 20px;

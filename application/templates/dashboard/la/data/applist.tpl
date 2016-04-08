@@ -27,16 +27,6 @@ var APP = function() {
     this._getSource = function(){
         this._datafields = [
             {name: '[{$frefix}]id'  , type: 'int'},
-            {name: '[{$frefix}]category'    , type: 'int'},
-            {
-                name: '[{$catfrefix}]title'  ,
-                value: '[{$frefix}]category',
-                values: { 
-                    source: me.cateApp._dataAdapter.records, 
-                    value: 'value',
-                    name: 'label' 
-                }
-            },
             {name: '[{$frefix}]title', map:'data_data>title>' + me.lang},
             {name: '[{$frefix}]type',  map:'data_data>data_type'    },
             {name: '[{$frefix}]status' , type: 'bool'},
@@ -63,46 +53,8 @@ var APP = function() {
             }
         });
     }
-    this._getCateSource = function(flag){
-        this.cateApp._source = {
-            datatype    : "json",
-            type        : "POST",
-            datafields  : me.cateApp._datafields,
-            url         : '/dashboard/la/category/databinding/'+me.entryType + '/' +me.lang,
-            id          :'id',
-            root        : 'rows'
-        };
-        this.cateApp._dataAdapter = new $.jqx.dataAdapter(me.cateApp._source, {
-            autoBind: true,
-            beforeLoadComplete: function (records) {
-                for (var i = 0; i < records.length; i++) {
-                    records[i].value = records[i].[{$catfrefix}]id;
-                    records[i].label = records[i].[{$catfrefix}]title;
-                }
-            },
-            loadComplete: function(records){
-                if(flag) me.bindingEntry();
-            },
-            loadError: function(xhr, status, error) {
-                addNotice("<b>Status</b>:" + xhr.status + "<br/><b>ThrownError</b>:" + error + "<br/>",'error');
-            }
-        });
-    }
-    this.bindingCate = function(){
-        this.cateApp._datafields = [
-            // {name: 'id'   , type: 'int'},
-            // {name: 'value'},
-            {name: '[{$catfrefix}]id'   , type: 'int'},
-            {name: '[{$catfrefix}]level' 	, type: 'int'},
-            {name: '[{$catfrefix}]title' 	},
-            {name: '[{$catfrefix}]status' , type: 'bool'},
-            {name: '[{$catfrefix}]insert' , type: 'date'},
-            {name: '[{$catfrefix}]update' , type: 'date'},
-        ];
-        this._getCateSource(true);
-    };
     this.createGrid = function(){
-    	this.bindingCate();
+    	this.bindingEntry();
     };
     this.bindingEntry = function(){
     	
@@ -140,14 +92,6 @@ var APP = function() {
                 text: 'Title', dataField: '[{$frefix}]title', minWidth: 180, 
                 sortable: true, editable: false, groupable:false,
                 columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS'
-            },{
-                text: 'Type', dataField: '[{$frefix}]type', width: 80, sortable: true,
-                editable: false,hidden: me.isMobile,
-                columntype: 'textbox', filtertype: 'textbox', filtercondition: 'CONTAINS'
-            },{
-                text: 'Category', width: 120, cellsalign: 'left',
-                columntype: 'dropdownlist',filtertype: 'list', filtercondition: 'EQUAL',
-                dataField: '[{$catfrefix}]title', //displayfield:'[{$catfrefix}]title',
             },{
 	            text: 'Status'    , dataField: '[{$frefix}]status' , cellsalign: 'center',
 	            width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
@@ -246,8 +190,8 @@ var APP = function() {
 	        // showfilterrow 		: true,
 			sortable 			: true,
 			virtualmode 		: true,
-	        groupable          : true,
-            groups              : ['[{$catfrefix}]title'],
+	        // groupable          : true,
+            // groups              : ['[{$catfrefix}]title'],
 	        [{if $action.edit==true}]
 	        editable            : true,//[{if $unit|strpos:"x0e"!==false}]true[{else}]false[{/if}],
 	        editmode 			: 'dblclick',
@@ -268,8 +212,8 @@ var APP = function() {
 	                me._cancel=true;
 	            }
 	        },
-	    }).on("bindingcomplete", function (event) {
-	        $(me.jqxgrid).jqxGrid('expandallgroups');
+	    // }).on("bindingcomplete", function (event) {
+	        // $(me.jqxgrid).jqxGrid('expandallgroups');
 	    }).on('contextmenu', function () {
 	        return false;
 	    }).on('cellclick', function (event) {

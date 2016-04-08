@@ -56,7 +56,9 @@ class news_model extends Core_Model {
         $query=$this->db
             ->from('lang_news')
             ->join('lang_title','news_token = ti_token')
+            ->join('lang_desc','news_token = de_token')
             ->where('ti_lang',$lang)
+            ->where('de_lang',$lang)
             ->order_by('news_insert','DESC')
             ->get(); 
         return $query->result();

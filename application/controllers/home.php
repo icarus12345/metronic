@@ -12,6 +12,19 @@ class home extends FE_Controller {
         $this->smarty->view( 'cake/home', $this->assigns );
 	}
 	function demo(){
+		$this->db
+			->where('news_category',12)
+			->limit(5);
+		$news = $this->news_model->getCategoryByType('news','vi');
+
+		$this->db->limit(12);
+		$products = $this->product_model->getCategoryByType('cake','vi');
+
+		$this->assigns->news_list = $news;
+		$this->assigns->products = $products;
+
+		$this->assigns->sliders = $this->data_model->getByType('slider');
+		$this->assigns->testimonies = $this->data_model->getByType('testimonies');
 		$this->smarty->view( 'cake/home', $this->assigns );
 	}
 	function product($cat_alias='',$page=1){

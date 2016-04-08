@@ -27,6 +27,22 @@ class data extends CP_Controller {
     function index(){
 
     }
+    function testimonies($unit='00000',$type=''){
+        $this->assigns->template['title'] = 'Testimonies';
+        $this->assigns->template['fulltitle'] = 'Testimonies List';
+        $this->viewportList($unit, $type);
+    }
+    function slider($unit='00000',$type=''){
+        $this->assigns->template['title'] = 'Slider';
+        $this->assigns->template['fulltitle'] = 'Slider List';
+        $this->viewportList($unit, $type);
+    }
+    function viewportList($unit='00000',$type=''){
+        $this->setAction($unit);
+        $this->assigns->type = $type;
+        $this->assigns->template['js'][] = "/dashboard/la/data/loadscript/applist/$unit?type=$type";
+        $this->smarty->view( 'dashboard/base/viewport', $this->assigns );
+    }
     function viewport($unit='00000',$type=''){
         $this->setAction($unit);
         $this->assigns->type = $type;
@@ -61,11 +77,11 @@ class data extends CP_Controller {
         }
     }
     function editpanel(){
-        $layout = $this->input->post('layout');
         $id=$this->input->post('Id');
         $token=$this->input->post('token');
         $unit=$this->input->post('unit');
         $this->setAction($unit);
+        $layout = $this->assigns->action['layout'];//$this->input->post('layout');
         $type=$this->input->post('type');
         $this->assigns->type=$type;
         $this->assigns->token=$token;
@@ -87,6 +103,12 @@ class data extends CP_Controller {
                 break;
             case 2:
                 $htmlreponse = $this->smarty->view( 'dashboard/la/data/editPanel', $this->assigns, true );
+                break;
+            case 3:
+                $htmlreponse = $this->smarty->view( 'dashboard/la/data/sliderPanel', $this->assigns, true );
+                break;
+            case 4:
+                $htmlreponse = $this->smarty->view( 'dashboard/la/data/testimonyPanel', $this->assigns, true );
                 break;
             case 'string':
             case 'text':
