@@ -12,7 +12,17 @@ class home extends FE_Controller {
         $this->smarty->view( 'cake/home', $this->assigns );
 	}
 	function product_detail($id=''){
-		
+		$this->db->limit(12);
+		$products = $this->product_model->getCategoryByType('cake','vi');
+		foreach ($products as $key => $value) {
+			$products[$key]->cat = $this->getCatById($value->product_category);
+		}
+		$this->assigns->products = $products;
+		$product = $this->product_model->getProductById($id);
+		$product->product_prices=json_decode($product->product_prices,true);
+		$product->cat = $this->getCatById($product->product_category);
+		$this->assigns->product = $product;
+		$this->smarty->view( 'cake/product_detail', $this->assigns );
 	}
 	function demo(){
 		$this->db
