@@ -1,6 +1,6 @@
 <html lang="en">
     <head>
-        <title>Comic</title>
+        <title>Dụng Cụ Làm Bánh An Phú</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="/libraries/bootstrap/css/bootstrap.css"/>

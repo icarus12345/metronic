@@ -8,6 +8,7 @@ class product extends CP_Controller {
         $this->load->model('dashboard/la/category_model');
         $this->load->model('dashboard/la/product_model');
         $this->load->model('dashboard/la/alias_model');
+        $this->load->model('dashboard/la/data_model');
         $this->assigns->aLang = $this->lang_model->getLanguage();
         
     }
@@ -29,6 +30,68 @@ class product extends CP_Controller {
     	$this->setAction($unit);
         $this->assigns->type = $type;
         $this->smarty->view( 'dashboard/la/product/viewport', $this->assigns );
+    }
+    function updateOpts(){
+        $output["result"] = -1;
+        $output["message"]='Bad Request !';
+        $id= $this->input->post('token');
+        // $id=4;
+        $item = $this->product_model->getProductById($id);
+        if($item){
+            // if(count($item->aPrices)>1){
+                foreach ($item->aPrices as $value1) {
+                    foreach ($value1->data_data['price'] as $key => $value2) {
+                            if(empty($min[$key])){
+                                $min[$key] = $value2;
+                                $strMin[$key] = $value1->data_data['title'][$key];
+                            }else{
+                                if($min[$key] > $value2){
+                                    $min[$key] = $value2;
+                                    $strMin[$key] = $value1->data_data['title'][$key];
+                                }
+                            }
+                            if(empty($max[$key])){
+                                $max[$key] = $value2;
+                                $strMax[$key] = $value1->data_data['title'][$key];
+                            }else{
+                                if($max[$key] < $value2){
+                                    $max[$key] = $value2;
+                                    $strMax[$key] = $value1->data_data['title'][$key];
+                                }
+                            }
+                    }
+                }
+                foreach ($min as $key => $value) {
+                    // if(
+                        // $strMin[$key]!=$strMax[$key] && 
+                        // $min[$key]!=$max[$key]
+                        // ){
+                        $product_prices['min'][$key] = array(
+                            'tit'=>$strMin[$key],
+                            'val'=>$min[$key]
+                            );
+                        $product_prices['max'][$key] = array(
+                            'tit'=>$strMax[$key],
+                            'val'=>$max[$key]
+                            );
+                    // }
+                }
+            // }
+            $rok = $this->product_model->onUpdate($id,array(
+                'product_prices'=>json_encode($product_prices)
+            ));
+            if($rok){
+                $output["result"] = 1;
+                $output["message"]='Success !';
+            }else{
+                $output["message"]='Update Fail !';
+            }
+        }else{
+            
+            $output["message"]='Item doest exists !';
+        }
+        $this->output->set_header('Content-type: application/json');
+        $this->output->set_output(json_encode($output));
     }
     function editpanel($type=''){
         $type=$this->input->post('type');

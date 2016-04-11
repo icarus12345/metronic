@@ -225,7 +225,17 @@ class Core_Controller extends CI_Controller {
 
     protected function beforedelete() {
     }
+    protected function afterinsert() {
+    }
 
+    protected function afterupdate() {
+    }
+
+    protected function aftercommit() {
+    }
+
+    protected function afterdelete() {
+    }
     function oncommit() {
         $this->beforecommit();
         $output["result"] = -1;
@@ -237,6 +247,7 @@ class Core_Controller extends CI_Controller {
             } else {
                 $this->oninsert();
             }
+            $this->aftercommit();
         }else{
             $this->output->set_header('Content-type: application/json');
             $this->output->set_output(json_encode($output));
@@ -257,6 +268,7 @@ class Core_Controller extends CI_Controller {
                     if ($rs === true) {
                         $output["result"] = 1;
                         $output["message"] = ("Record successfully updated.");
+                        $this->afterupdate();
                     } else {
                         $output["result"] = -1;
                         $output["message"] = ("Record faily to update. Please check data input and try again.<br/>");
@@ -281,6 +293,7 @@ class Core_Controller extends CI_Controller {
             if ($rs === true) {
                 $output["result"] = 1;
                 $output["message"] = ("Record successfully inserted .");
+                $this->afterinsert();
             } else {
                 $output["result"] = -1;
                 $output["message"] = ("Record faily to insert. Please check data input and try again.<br/>");
@@ -316,6 +329,7 @@ class Core_Controller extends CI_Controller {
                         if ($rs === true) {
                             $output["result"] = 1;
                             $output["message"] = ("Record have been deleted.");
+                            $this->afterdelete();
                         } else {
                             $output["result"] = -1;
                             $output["error_number"] = $this->Core_Model->db->_error_number();

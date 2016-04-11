@@ -13,20 +13,26 @@ class FE_Controller extends CI_Controller {
         $this->load->model('dashboard/la/data_model');
         $aCategory = $this->category_model->getCategoryByType('cake');
         if($aCategory){
+            $this->assigns->listCategory=$aCategory;
             $aCategory = $this->category_model->buildTree($aCategory);
             $this->assigns->aCategory=$aCategory;
         }
-        // $pos = strpos($_SERVER['SERVER_NAME'], 'en.');
-        // if ($pos === false) {
-        //     $this->assigns->lang = 'vi';
-        // }else{
-        //     $this->assigns->lang = 'en';
-        // }
+        $pos = strpos($_SERVER['SERVER_NAME'], 'en.');
+        if ($pos === false) {
+            $this->assigns->lang = 'vi';
+        }else{
+            $this->assigns->lang = 'en';
+        }
         // $this->iLanguage =new CI_Language();
         // $this->assigns->languages = $this->iLanguage->load('all',$this->assigns->lang,true);
         
     }
-    
+    function getCatById($Id){
+        foreach ($this->assigns->listCategory as $key => $value) {
+            if($value->cat_id == $Id) return $value;
+        }
+        return null;
+    }
     
     function nothing(){}
     function _addView($table='',$prefix='',$id){

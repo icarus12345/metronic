@@ -66,9 +66,9 @@
                         <div class="dropdown-menu x5">
                             [{foreach $aCategory 'cat'}]
                             <ul>
-                                <li class="group-header"><span>[{$cat->title.vi}]</span></li>
+                                <li class="group-header"><span>[{$cat->title[$lang]}]</span></li>
                                 [{foreach $cat->cat_children 'subcat'}]
-                                <li><a href='#'>[{$subcat->title.vi}]</a></li>
+                                <li><a href='#'>[{$subcat->title[$lang]}]</a></li>
                                 [{/foreach}]
                             </ul>
                             [{/foreach}]

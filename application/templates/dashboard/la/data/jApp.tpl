@@ -219,6 +219,7 @@ var dataAPP = (function() {
                 if(rsdata.result>0){
                     dataAPP.onRefresh();
                     dataAPP.onCancel();
+                    myApp.updateOpts(entryToken)
                 }
             });
         },
@@ -241,7 +242,7 @@ var dataAPP = (function() {
                     unit: _option.unit,
                     type: _option.type,
                     layout:_option.layout,
-                    id: id,
+                    Id: id,
                 }
             });
         },
@@ -267,11 +268,13 @@ var dataAPP = (function() {
                             } else {
                                 addNotice(rsdata.message,'success');
                                 dataAPP.onRefresh();
+                                myApp.updateOpts(entryToken);
                             }
                         }
                     }).call();
                 }
             );
-        }
+        },
+        
 	};
 }());

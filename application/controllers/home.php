@@ -11,6 +11,9 @@ class home extends FE_Controller {
 		//print_r($this->assigns->aCategory);
         $this->smarty->view( 'cake/home', $this->assigns );
 	}
+	function product_detail($id=''){
+		
+	}
 	function demo(){
 		$this->db
 			->where('news_category',12)
@@ -19,9 +22,15 @@ class home extends FE_Controller {
 
 		$this->db->limit(12);
 		$products = $this->product_model->getCategoryByType('cake','vi');
-
+		foreach ($products as $key => $value) {
+			$products[$key]->cat = $this->getCatById($value->product_category);
+		}
+		$this->db->limit(10);
+		$discount_products = $this->product_model->getByDiscount('vi');
 		$this->assigns->news_list = $news;
 		$this->assigns->products = $products;
+		$this->assigns->discount_products = $discount_products;
+		// print_r($products);die;
 
 		$this->assigns->sliders = $this->data_model->getByType('slider');
 		$this->assigns->testimonies = $this->data_model->getByType('testimonies');

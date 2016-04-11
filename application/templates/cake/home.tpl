@@ -81,18 +81,31 @@
                             </a>
                             <div class="space-line-half"></div>
                             <div class="product-name f16 line-clamp-1">
-                                [{$pr->ti_title}][{if $pr->data[1]}] ([{$pr->data[0]->title->vi}][{if $pr->data[1]}]/[{$pr->data[1]->title->vi}][{/if}])[{/if}]
+                                [{$pr->ti_title}]
+                                [{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]
+                                ([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])
+                                [{/if}]
                             </div>
                             <div class="space-line-half"></div>
                             <div class="stars">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
                                 <i class="fa fa-star-half-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
                             </div>
                             <div class="product-price">
-                                [{if $pr->data[0]}][{$pr->data[0]->price->vi}][{if $pr->data[1]}]-[{$pr->data[1]->price->vi}][{/if}]D[{/if}]
+                                [{if $pr->product_discount>0}]
+                                <span class="line-through">[{if $pr->product_prices}]
+                                [{$pr->product_prices.min[$lang].val|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}]
+                                [{/if}]
+                                </span>
+                                [{/if}]
+                                <span class="[{if $pr->product_discount>0}]pull-right[{/if}]">
+                                [{if $pr->product_prices}]
+                                [{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                                [{/if}]
+                                </span>
                             </div>
                             <div class="space-line"></div>
                             <div class="space-line"></div>
@@ -104,48 +117,59 @@
                 <div class="col-lg-3 col-md-4">
                     <div class="f16 page-title">SẢN PHẨM KHUYẾN MÃI</div>
                     <div class="row">
+                        [{foreach $discount_products 'pr'}]
                         <div class="col-md-12 col-sm-6 ">
                             <div class="cake-item-small">
-                                <div class="line-clamp-1">Súng bơm cookies (kim loại/nhựa)</div>
+                                <div class="line-clamp-1 pr-title-small">
+                                [{$pr->ti_title}]
+                                [{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]
+                                ([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])
+                                [{/if}]
+                                </div>
                                 <div class="space-line-half"></div>
                                 <div class="stars">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
                                     <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
                                 </div>
-                                <div class="product-price line-clamp-1">120000-150000</div>
+                                <div class="product-price line-clamp-1">
+                                    [{if $pr->product_discount>0}]
+                                    <span class="line-through">[{if $pr->product_prices}]
+                                    [{$pr->product_prices.min[$lang].val|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}]
+                                    [{/if}]
+                                    </span>
+                                    [{/if}]
+                                    <span class="[{if $pr->product_discount>0}][{/if}]">
+                                    [{if $pr->product_prices}]
+                                    &nbsp;&nbsp;&nbsp;&nbsp;[{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                                    [{/if}]
+                                    </span>
+                                </div>
                                 <div class="nailthumb">
                                     <div class="nailthumb-figure-square">
                                         <a href="#" class="nailthumb-container">
-                                            <img data-original="/assets/cake/imgs/1.jpg" class="lazy"/>
+                                            <img data-original="[{$pr->product_thumb}]" class="lazy"/>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-6 ">
-                            <div class="cake-item-small">
-                                <div class="line-clamp-1">Súng bơm cookies (kim loại/nhựa)</div>
-                                <div class="space-line-half"></div>
-                                <div class="stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="product-price line-clamp-1">120000-150000</div>
-                                <div class="nailthumb">
-                                    <div class="nailthumb-figure-square">
-                                        <a href="#" class="nailthumb-container">
-                                            <img data-original="/assets/cake/imgs/1.jpg" class="lazy"/>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        [{/foreach}]
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div>
+                            <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=1695423720698818";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-page" data-href="https://www.facebook.com/dungculambanhanphu/" data-tabs="events,messages" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/dungculambanhanphu/"><a href="https://www.facebook.com/dungculambanhanphu/">Dụng Cụ Làm Bánh AnPhu</a></blockquote></div></div>
                     </div>
                 </div>
             </div>
@@ -160,7 +184,7 @@
                 <div class="col-sm-6">
                     <div class="testimonies">
                         <img src="[{$te->data_data.image}]">
-                        <p class="world-wrap">[{$te->data_data.desc.vi}]</p>
+                        <p class="word-wrap">[{$te->data_data.desc.vi}]</p>
                         <b>[{$te->data_data.title.vi}]</b>
                     </div>
                 </div>

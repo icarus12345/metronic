@@ -766,4 +766,20 @@ var APP = function() {
         });
         dataAPP.showGridDialog();
     }
+    this.updateOpts = function(token){
+        httpRequest({
+            'url': '/dashboard/la/product/updateOpts/',
+            'data': {
+                'token': token
+            },
+            'callback': function(rsdata) {
+                if (rsdata.result < 0) {
+                    addNotice(rsdata.message,'error');
+                } else {
+                    addNotice(rsdata.message,'success');
+                    dataAPP.onRefresh();
+                }
+            }
+        }).call();
+    }
 };

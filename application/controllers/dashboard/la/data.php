@@ -76,6 +76,18 @@ class data extends CP_Controller {
             $_POST['Params']['data_data'] = json_encode($data_data);
         }
     }
+    function afterinsert(){
+
+    }
+    function afterupdate(){
+        
+    }
+    function afterdelete(){
+        
+    }
+    function updateProduct(){
+        
+    }
     function editpanel(){
         $id=$this->input->post('Id');
         $token=$this->input->post('token');

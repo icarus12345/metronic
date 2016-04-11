@@ -18,4 +18,17 @@ class data_model extends Core_Model {
         }
         return $data;
     }
+    function getByToken($token=null){
+        if($token!=null)$this->db->where('data_token',$token);
+        $query=$this->db
+            ->from('lang_data')
+            ->order_by('data_insert','DESC')
+            ->get(); 
+        $tmpdata = $query->result();
+        foreach ($tmpdata as $key => $value) {
+            $value->data_data = json_decode($value->data_data, true);
+            $data[] = $value;
+        }
+        return $data;
+    }
 }

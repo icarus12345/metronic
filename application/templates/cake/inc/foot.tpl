@@ -19,36 +19,43 @@
                         <div class="col-sm-4 list-info">
                             <div class="titl"><b>SẢN PHẨM MỚI</b></div>
                             <div class="space-line"></div>
+                            [{foreach from=$products key=i item=pr name=foo}]
+                                [{if $smarty.foreach.foo.index == 2}]
+                                    [{break}]
+                                [{/if}]
                             <div class="cake-item-small2">
-                                <div class="line-clamp-1">Súng bơm cookies (kim loại/nhựa)</div>
+                                <div class="line-clamp-1 pr-title-small">
+                                    [{$pr->ti_title}]
+                                    [{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]
+                                    ([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])
+                                    [{/if}]
+                                </div>
                                 <div class="space-line-half"></div>
                                 <div class="">
-                                    <i class="fa fa-tags"></i> Thiết bị
+                                    <i class="fa fa-tags"></i> [{if $pr->cat}][{$pr->cat->title[$lang]}][{/if}]
                                 </div>
-                                <div class="product-price line-clamp-1">120000-150000</div>
+                                <div class="product-price line-clamp-1">
+                                    [{if $pr->product_discount>0}]
+                                    <span class="line-through">[{if $pr->product_prices}]
+                                    [{$pr->product_prices.min[$lang].val|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}]
+                                    [{/if}]
+                                    </span>
+                                    [{/if}]
+                                    <span class="[{if $pr->product_discount>0}][{/if}]">
+                                    [{if $pr->product_prices}]
+                                    &nbsp;&nbsp;&nbsp;&nbsp;[{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                                    [{/if}]
+                                    </span>
+                                </div>
                                 <div class="nailthumb">
                                     <div class="nailthumb-figure-square">
                                         <a href="#" class="nailthumb-container">
-                                            <img data-original="assets/imgs/1.jpg" class="lazy"/>
+                                            <img data-original="[{$pr->product_thumb}]" class="lazy"/>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="cake-item-small2">
-                                <div class="line-clamp-1">Súng bơm cookies (kim loại/nhựa)</div>
-                                <div class="space-line-half"></div>
-                                <div class="">
-                                    <i class="fa fa-tags"></i> Thiết bị
-                                </div>
-                                <div class="product-price line-clamp-1">120000-150000</div>
-                                <div class="nailthumb">
-                                    <div class="nailthumb-figure-square">
-                                        <a href="#" class="nailthumb-container">
-                                            <img data-original="assets/imgs/1.jpg" class="lazy"/>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            [{/foreach}]
                             <div class="space-line"></div>
                             <div class="space-line"></div>
                         </div>
@@ -76,10 +83,10 @@
         <div class="footer-menu">
             <div class="container">
                 <a href="#">Trang chủ</a>
-                <a href="#">Trang chủ</a>
-                <a href="#">Trang chủ</a>
-                <a href="#">Trang chủ</a>
-                <a href="#">Trang chủ</a>
+                <a href="#">Giỏ hàng</a>
+                <a href="#">Tài Khoản của bạn</a>
+                <a href="#">Về Chúng Tôi</a>
+                <a href="#">Liên Hệ</a>
             </div>
         </div>
         <div class="footer">
@@ -88,7 +95,7 @@
                     <div class="space-line"></div>
                     <div class="space-line"></div>
                     <div class="col-sm-6">Power by Creative Design Studio</div>
-                    <div class="col-sm-6 text-right">Power by Creative Design Studio</div>
+                    <div class="col-sm-6 text-right"></div>
                     <div class="clearfix"></div>
                     <div class="space-line"></div>
                     <div class="space-line"></div>
