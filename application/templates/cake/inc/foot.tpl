@@ -24,11 +24,13 @@
                                     [{break}]
                                 [{/if}]
                             <div class="cake-item-small2">
-                                <div class="line-clamp-1 pr-title-small">
-                                    [{$pr->ti_title}]
-                                    [{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]
-                                    ([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])
-                                    [{/if}]
+                                <div>
+                                    <a href="/san-pham/[{$pr->product_id}]" class="line-clamp-1 pr-title-small">
+                                        [{$pr->ti_title}]
+                                        [{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]
+                                        ([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])
+                                        [{/if}]
+                                    </a>
                                 </div>
                                 <div class="space-line-half"></div>
                                 <div class="">
@@ -49,7 +51,7 @@
                                 </div>
                                 <div class="nailthumb">
                                     <div class="nailthumb-figure-square">
-                                        <a href="#" class="nailthumb-container">
+                                        <a href="/san-pham/[{$pr->product_id}]" class="nailthumb-container">
                                             <img data-original="[{$pr->product_thumb}]" class="lazy"/>
                                         </a>
                                     </div>
@@ -82,11 +84,11 @@
         </div>
         <div class="footer-menu">
             <div class="container">
-                <a href="#">Trang chủ</a>
+                <a href="/">Trang chủ</a>
                 <a href="#">Giỏ hàng</a>
                 <a href="#">Tài Khoản của bạn</a>
-                <a href="#">Về Chúng Tôi</a>
-                <a href="#">Liên Hệ</a>
+                <a href="/ve-chung-toi">Về Chúng Tôi</a>
+                <a href="/lien-he">Liên Hệ</a>
             </div>
         </div>
         <div class="footer">

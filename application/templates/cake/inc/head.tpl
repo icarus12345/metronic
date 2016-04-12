@@ -1,44 +1,20 @@
 <header id="navbar" class="navbar -navbar-fixed-top" role="banner">
     <!-- top head [ -->
-    <div class="comic-header">
-        <!-- <div class="container">
-            <div class="row">
-                <a href="#" class="head-logo">
-                </a>
-                <div class="search-control">
-                    <input type="text" class="" 
-                        placeholder="Nội dung tìm kiếm"
-                        onblur="$('.comic-header').removeClass('search-on')" onfocus="$('.comic-header').addClass('search-on')" />
-                    <button class="search-btn" onclick="$(this).prev().focus()"></button>
-                </div>
-                <div class="login-head">
-                    <div>
-                        <a href="#" class="user-icon" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href='#'>Đăng Nhập</a></li>
-                            <li><a href='#'>Đăng Ký</a></li>
-                        </ul>
-                        <a href="#">Đăng nhập</a>
-                        <span> | </span>
-                        <a href="#">Đăng ký</a>
-                    </div>
-                </div>
-                <div class="quick-menu-head">
-                    <a href="#" class="quick-ico music-ico">
-                        <span>Nhạc</span>
-                    </a>
-                    <a href="#" class="quick-ico video-ico">
-                        <span>Video</span>
-                    </a>
-                    <a href="#" class="quick-ico news-ico">
-                        <span>Tin tức</span>
-                    </a>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div> -->
+    <div class="top-header visible-lg">
+        <div class="container">
+            <ul class="top-menu">
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/ve-chung-toi">Về chúng tôi</a></li>
+                <li><a href="#">Tài khoản</a></li>
+                <li><a href="#">Kiểm tra đơn hàng</a></li>
+                <li><a href="/lien-he">Liên hệ</a></li>
+            </ul>
+            <ul class="top-menu pull-right">
+                <li><a href="#"><span class="fa fa-phone"></span> +(84) 982 636 618</a></li>
+                <li><a href="#"><span class="fa fa-envelope-o"></span> dongocmai179@yahoo.com</a></li>
+                <li><a href="#"><span class="fa fa-language"></span> Ngôn ngữ</a></li>
+            </ul>
+        </div>
     </div>
     <!-- top head ] -->
     <!-- Menu [ -->
@@ -59,7 +35,7 @@
             <nav id="navigation" class="collapse navbar-collapse bs-navbar-collapse" role="navigation" style="overflow: hidden" >
 
                 <ul class="nav navbar-nav">
-                    <li><a href='#'>Trang chủ</a></li>
+                    <li><a href='/'>Trang chủ</a></li>
                     <li class="has-submenu">
                         <a href="#">Sản phẩm</a>
                         <i data-toggle="dropdown"></i>
@@ -75,12 +51,12 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#">Công thức - Kinh nghiệm</a>
+                        <a href="/cong-thuc-kinh-nghiem">Công thức - Kinh nghiệm</a>
                     </li>
                     <li>
-                        <a href="#">Hướng dẫn<span class="hidden-sm"> mua hàng</span></a>
+                        <a href="/huong-dan">Hướng dẫn<span class="hidden-sm"> mua hàng</span></a>
                     </li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="/lien-he">Liên hệ</a></li>
                 </ul>
             </nav>
         </div>

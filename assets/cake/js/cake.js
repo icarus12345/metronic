@@ -9,34 +9,32 @@ $(document).ready(function(){
     //     $(this).attr('src',$(this).data('original'));
     //     $(this.parentNode).nailthumb();
     // });
-    if($('#owl-upcoming').length==1){
-        $("#owl-upcoming").owlCarousel({
+    var owl1,owl2;
+    if($('#owl-product-detail').length==1){
+        owl1 = $("#owl-product-detail").owlCarousel({
             autoPlay: false,
+            // margin:10,
             items : 1,
             lazyLoad: true,
-            nav : true,
-            navText : ["", ""],
+            nav : false,
+            navText : ['<i class="fa fa-angle-left fa-2"></i>', '<i class="fa fa-angle-right fa-2"></i>'],
             responsive : {
-                0:      {items: 1, nav: true},
-                480:    {items: 2, nav: true},
-                960:    {items: 3, nav: true},
-                1200:   {items: 1, nav: true},
+                0:      {items: 1, nav: false}
             }
         });
     }
-    if($('#owl-rank').length==1){
-        $("#owl-rank").owlCarousel({
+    if($('#owl-product-thumb').length==1){
+        owl2 = $("#owl-product-thumb").owlCarousel({
             autoPlay: false,
+            // margin:10,
             items : 3,
             lazyLoad: true,
-            nav : true,
+            nav : false,
             navText : ['<i class="fa fa-angle-left fa-2"></i>', '<i class="fa fa-angle-right fa-2"></i>'],
-            responsive : {
-                0:      {items: 1, nav: true},
-                480:    {items: 2, nav: true},
-                960:    {items: 3, nav: true},
-                1200:   {items: 3, nav: true},
-            }
+            // responsive : {
+            //     0:      {items: 3, nav: false}
+            // }
+            
         });
     }
     if($('#owl-related').length==1){

@@ -71,9 +71,9 @@ class product_model extends Core_Model {
     }
     function getByDiscount($lang){
         $this->db->where('product_discount >',0);
-        return $this->getCategoryByType('cake',$lang);
+        return $this->getByType('cake',$lang);
     }
-    function getCategoryByType($type=null,$lang='en'){
+    function getByType($type=null,$lang='en'){
         if($type!=null)$this->db->where('product_type',$type);
         $query=$this->db
             ->from('lang_product')
@@ -99,6 +99,14 @@ class product_model extends Core_Model {
             }
         return $data;
     }
-    
+
+    function getByCategory($cat,$lang){
+        $this->db->where('product_category',$cat);
+        return $this->getByType('cake',$lang);
+    }
+    function getReleted($pr,$lang){
+        $this->db->where('product_id <>',$pr->product_id);
+        return $this->getByCategory($pr->product_category,$lang);
+    }
 }
 ?>

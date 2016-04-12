@@ -17,7 +17,7 @@
         <script type="text/javascript" src="/libraries/plugin/owl-carousel/owl.carousel.js"></script>
         <script type="text/javascript" src="/libraries/plugin/jquery.nailthumb.1.1.js"></script>
         <script type="text/javascript" src="/libraries/plugin/jquery.lazyload.min.js"></script>
-        <script type="text/javascript" src="/assets/cake/js/comic.js"></script>
+        <script type="text/javascript" src="/assets/cake/js/cake.js"></script>
 
         <!--[if IE]>
             <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
