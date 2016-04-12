@@ -41,7 +41,7 @@
             <div class="space-line"></div>
 	    </div>
 	    <div class="col-sm-6">
-	    	<h1 class="pr-title">
+	    	<h1 class="pr-title f20">
 	    	[{$product->aTitle[$lang]}]
 	    	[{if $product->product_prices && ($product->product_prices.min[$lang].val != $product->product_prices.max.vi.val)}]
             ([{$product->product_prices.min[$lang].tit}]/[{$product->product_prices.max[$lang].tit}])
