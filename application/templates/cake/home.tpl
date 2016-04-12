@@ -80,6 +80,9 @@
                                     </div>
                                     <div class="nailthumb-mark hvr-wobble-vertical"></div>
                                 </div>
+                                [{if $pr->product_discount>0}]
+                                <span class="discount-label">-[{$pr->product_discount}]%</span>
+                                [{/if}]
                             </a>
                             <div class="space-line-half"></div>
                             <div class="product-name f16 line-clamp-1">
@@ -98,14 +101,29 @@
                             </div>
                             <div class="product-price">
                                 [{if $pr->product_discount>0}]
-                                <span class="line-through">[{if $pr->product_prices}]
-                                [{$pr->product_prices.min[$lang].val|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}]
+                                [{if $pr->product_prices}]
+                                    <span class="line-through">
+                                    [{$pr->product_prices.min[$lang].val|number_format:0:",":"."}]
+                                    </span>
+                                    <sup>Đ</sup>
+                                    [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                                        -
+                                        <span class="line-through">
+                                        [{$pr->product_prices.max[$lang].val|number_format:0:",":"."}]
+                                        </span>
+                                        <sup>Đ</sup>
+                                    [{/if}]
                                 [{/if}]
-                                </span>
                                 [{/if}]
                                 <span class="[{if $pr->product_discount>0}]pull-right[{/if}]">
                                 [{if $pr->product_prices}]
-                                [{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                                    [{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                                    <sup>Đ</sup>
+                                    [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                                        -
+                                        [{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                                        <sup>Đ</sup>
+                                    [{/if}]
                                 [{/if}]
                                 </span>
                             </div>

@@ -21,7 +21,7 @@
     <div class="nav-menu">
         <div class="container">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">
+                <a href="/" class="navbar-brand">
                     
                 </a>
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navigation">
@@ -37,14 +37,14 @@
                 <ul class="nav navbar-nav">
                     <li><a href='/'>Trang chủ</a></li>
                     <li class="has-submenu">
-                        <a href="#">Sản phẩm</a>
+                        <a href="/san-pham/">Sản phẩm</a>
                         <i data-toggle="dropdown"></i>
                         <div class="dropdown-menu x5">
                             [{foreach $aCategory 'cat'}]
                             <ul>
                                 <li class="group-header"><span>[{$cat->title[$lang]}]</span></li>
                                 [{foreach $cat->cat_children 'subcat'}]
-                                <li><a href='#'>[{$subcat->title[$lang]}]</a></li>
+                                <li><a href='/danh-muc/[{$subcat->cat_id}]/'>[{$subcat->title[$lang]}]</a></li>
                                 [{/foreach}]
                             </ul>
                             [{/foreach}]

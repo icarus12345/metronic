@@ -34,18 +34,18 @@
                                 </div>
                                 <div class="space-line-half"></div>
                                 <div class="">
-                                    <i class="fa fa-tags"></i> [{if $pr->cat}][{$pr->cat->title[$lang]}][{/if}]
+                                    <a href="/danh-muc/[{$pr->product_category}]"><i class="fa fa-tags"></i> [{if $pr->cat}][{$pr->cat->title[$lang]}][{/if}]</a>
                                 </div>
                                 <div class="product-price line-clamp-1">
                                     [{if $pr->product_discount>0}]
                                     <span class="line-through">[{if $pr->product_prices}]
-                                    [{$pr->product_prices.min[$lang].val|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}]
+                                    [{$pr->product_prices.min[$lang].val|number_format:0:",":"."}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:",":"."}][{/if}]
                                     [{/if}]
                                     </span>
                                     [{/if}]
                                     <span class="[{if $pr->product_discount>0}][{/if}]">
                                     [{if $pr->product_prices}]
-                                    &nbsp;&nbsp;&nbsp;&nbsp;[{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                                    &nbsp;&nbsp;&nbsp;&nbsp;[{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}][{/if}] Đ
                                     [{/if}]
                                     </span>
                                 </div>

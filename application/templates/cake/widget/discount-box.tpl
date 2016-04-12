@@ -21,14 +21,29 @@
                                 </div>
                                 <div class="product-price line-clamp-1">
                                     [{if $pr->product_discount>0}]
-                                    <span class="line-through">[{if $pr->product_prices}]
-                                    [{$pr->product_prices.min[$lang].val|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}]
-                                    [{/if}]
-                                    </span>
-                                    [{/if}]
-                                    <span class="[{if $pr->product_discount>0}][{/if}]">
                                     [{if $pr->product_prices}]
-                                    &nbsp;&nbsp;&nbsp;&nbsp;[{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                                        <span class="line-through">
+                                        [{$pr->product_prices.min[$lang].val|number_format:0:",":"."}]
+                                        </span>
+                                        <sup>Đ</sup>
+                                        [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                                            -
+                                            <span class="line-through">
+                                            [{$pr->product_prices.max[$lang].val|number_format:0:",":"."}]
+                                            </span>
+                                            <sup>Đ</sup>
+                                        [{/if}]
+                                    [{/if}]
+                                    [{/if}]
+                                    <span class="[{if $pr->product_discount>0}]pull-right[{/if}]">
+                                    [{if $pr->product_prices}]
+                                        [{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                                        <sup>Đ</sup>
+                                        [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                                            -
+                                            [{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                                            <sup>Đ</sup>
+                                        [{/if}]
                                     [{/if}]
                                     </span>
                                 </div>

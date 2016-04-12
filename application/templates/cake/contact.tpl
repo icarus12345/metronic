@@ -1,6 +1,7 @@
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/meta.tpl"}]
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/head.tpl"}]
-<div class="container" style="background:#fafafa">
+<style type="text/css">body{background: #fafafa}</style>
+<div class="container">
     <ol class="breadcrumb">
         <li><a href="/">Trang chủ</a></li>
         <li class="active">

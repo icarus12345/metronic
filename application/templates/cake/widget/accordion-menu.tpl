@@ -11,7 +11,7 @@
       <div class="panel-body">
       <ul>
         [{foreach $cat->cat_children 'subcat'}]
-        <li><a href='#'>[{$subcat->title[$lang]}]</a></li>
+        <li><a href='/danh-muc/[{$subcat->cat_id}]'>[{$subcat->title[$lang]}]</a></li>
         [{/foreach}]
       </ul> 
       </div>
