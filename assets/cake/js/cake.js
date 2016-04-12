@@ -37,6 +37,20 @@ $(document).ready(function(){
             
         });
     }
+    if($('#owl-video').length==1){
+        $("#owl-video").owlCarousel({
+            autoPlay: false,
+            margin:10,
+            items : 4,
+            lazyLoad: true,
+            nav : true,
+            navText : ['<i class="fa fa-angle-left fa-2"></i>', '<i class="fa fa-angle-right fa-2"></i>'],
+            // responsive : {
+            //     0:      {items: 3, nav: false}
+            // }
+            
+        });
+    }
     if($('#owl-related').length==1){
         $("#owl-related").owlCarousel({
             autoPlay: false,

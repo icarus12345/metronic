@@ -48,8 +48,13 @@
 
 // $route["san-pham/([a-z0-9-]{4,255})/page/(:num)"] = "home/product/$1/$2";
 // $route["san-pham/([a-z0-9-]{4,255})/page"] = "home/product/$1";
+
+$route["(danh-muc|category)/(:num)"] = "home/category/$2";
+$route["(danh-muc|category)/(:num)/(:any)"] = "home/category/$2";
 $route["(san-pham|product)/(:num)"] = "home/product_detail/$2";
 $route["(san-pham|product)/(:num)/(:any)"] = "home/product_detail/$2";
+$route["(ve-chung-toi|about)"] = "home/about";
+$route["(cong-thuc-kinh-nghiem|formula)"] = "home/formula";
 
 $route["cong-thuc"] = "home/contentdetail/1";
 $route["nguyen-lieu"] = "home/contentdetail/2";

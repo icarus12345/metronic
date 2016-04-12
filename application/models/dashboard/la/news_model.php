@@ -5,7 +5,7 @@ class news_model extends Core_Model {
     function __construct(){
         parent::__construct('lang_news', 'news_', 'id');
     }
-    function getnewsById($id){
+    function getNewsById($id){
         $info = $this->onGet($id);
         if($info){
             $info->aTitle = $this->lang_model->getTitleByToken($info->news_token);

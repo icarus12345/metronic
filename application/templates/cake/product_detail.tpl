@@ -62,13 +62,13 @@
             <h3 class="pr-price">
             	[{if $product->product_discount>0}]
                 <span class="line-through">[{if $product->product_prices}]
-                [{$product->product_prices.min[$lang].val|number_format:0:".":" "}][{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]-[{$product->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}] Đ
+                [{$product->product_prices.min[$lang].val|number_format:0:",":"."}][{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]-[{$product->product_prices.max[$lang].val|number_format:0:",":"."}][{/if}] Đ
                 [{/if}]
                 </span>
                 [{/if}]
                 <span class="[{if $product->product_discount>0}]pull-right[{/if}]">
                 [{if $product->product_prices}]
-                [{($product->product_prices.min[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:".":" "}][{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]-[{($product->product_prices.max[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                [{($product->product_prices.min[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}][{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]-[{($product->product_prices.max[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}][{/if}] Đ
                 [{/if}]
                 </span>
             </h3>
@@ -109,13 +109,13 @@
     <div class="danh-gia">
     	<!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
-	    <li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Đánh giá (0)</a></li>
-	    <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Mô tả ngắn gọn</a></li>
+	    <li role="presentation" ><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Đánh giá (0)</a></li>
+	    <li role="presentation" class="active"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Mô tả ngắn gọn</a></li>
 	  </ul>
 
 	  <!-- Tab panes -->
 	  <div class="tab-content">
-	    <div role="tabpanel" class="tab-pane active" id="tab1">
+	    <div role="tabpanel" class="tab-pane " id="tab1">
 	    	<div class="space-line-md"></div>
 	    	<div class="f16">Đánh giá của khách hàng</div>
 	    	<div class="stars">
@@ -128,7 +128,7 @@
             </div>
             <div class="space-line-md"></div>
 	    </div>
-	    <div role="tabpanel" class="tab-pane" id="tab2">
+	    <div role="tabpanel" class="tab-pane active" id="tab2">
 	    	<div class="space-line-md"></div>
 	    	<div class="ckeditor">
                 [{$product->aContent[$lang]}]
@@ -153,6 +153,9 @@
                         </div>
                         <div class="nailthumb-mark hvr-wobble-vertical"></div>
                     </div>
+                    [{if $pr->product_discount>0}]
+                    <span class="discount-label">-[{$pr->product_discount}]%</span>
+                    [{/if}]
                 </a>
                 <div class="space-line-half"></div>
                 <div class="product-name f16 line-clamp-1">
@@ -171,14 +174,29 @@
                 </div>
                 <div class="product-price">
                     [{if $pr->product_discount>0}]
-                    <span class="line-through">[{if $pr->product_prices}]
-                    [{$pr->product_prices.min[$lang].val|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:".":" "}][{/if}]
+                    [{if $pr->product_prices}]
+                        <span class="line-through">
+                        [{$pr->product_prices.min[$lang].val|number_format:0:",":"."}]
+                        </span>
+                        <sup>Đ</sup>
+                        [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                            -
+                            <span class="line-through">
+                            [{$pr->product_prices.max[$lang].val|number_format:0:",":"."}]
+                            </span>
+                            <sup>Đ</sup>
+                        [{/if}]
                     [{/if}]
-                    </span>
                     [{/if}]
                     <span class="[{if $pr->product_discount>0}]pull-right[{/if}]">
                     [{if $pr->product_prices}]
-                    [{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:".":" "}][{/if}] Đ
+                        [{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                        <sup>Đ</sup>
+                        [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                            -
+                            [{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                            <sup>Đ</sup>
+                        [{/if}]
                     [{/if}]
                     </span>
                 </div>

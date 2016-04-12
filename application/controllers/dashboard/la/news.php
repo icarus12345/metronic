@@ -20,8 +20,8 @@ class news extends CP_Controller {
                 '/libraries/ckeditor/ckeditor.js',
                 '/libraries/jqwidgets/jqx-all.js',
                 //'/dashboard/la/news/loadscript/app/[{$unit}]',
-                '/dashboard/cp/chart/app/',
-                '/dashboard/la/data/loadscript/jApp/11111',
+                // '/dashboard/cp/chart/app/',
+                // '/dashboard/la/data/loadscript/jApp/11111',
                 ),
             // 'contextmenu'=>''
         );
@@ -46,11 +46,19 @@ class news extends CP_Controller {
         $this->assigns->template['js'][] = "/dashboard/la/news/loadscript/app/$unit?type=$type";
         $this->smarty->view( 'dashboard/base/viewport', $this->assigns );
     }
+    function viewportlist($unit='00000',$type=''){
+        $this->assigns->template['title'] = 'Content';
+        $this->assigns->template['fulltitle'] = 'Content List';
+        $this->setAction($unit);
+        $this->assigns->type = $type;
+        $this->assigns->template['js'][] = "/dashboard/la/news/loadscript/appList/$unit?type=$type";
+        $this->smarty->view( 'dashboard/base/viewport', $this->assigns );
+    }
     function editpanel($type=''){
         $type=$this->input->post('type');
-        $layout=$this->input->post('layout');
         $unit=$this->input->post('unit');
         $this->setAction($unit);
+        $layout=$this->input->post('layout');
 
         $aCategory = $this->category_model->getCategoryByType($type);
         if($aCategory){
@@ -63,7 +71,9 @@ class news extends CP_Controller {
             $this->assigns->item = $this->news_model->getnewsById($Id);
         }
         switch ($layout){
-            
+            case 2:
+                $htmlreponse = $this->smarty->view( 'dashboard/la/news/editPanelList', $this->assigns, true );
+                break;
             default :
                 $htmlreponse = $this->smarty->view( 'dashboard/la/news/editPanel', $this->assigns, true );
         }

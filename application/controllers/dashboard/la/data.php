@@ -122,6 +122,10 @@ class data extends CP_Controller {
             case 4:
                 $htmlreponse = $this->smarty->view( 'dashboard/la/data/testimonyPanel', $this->assigns, true );
                 break;
+            case 5:
+                $htmlreponse = $this->smarty->view( 'dashboard/la/data/videoPanel', $this->assigns, true );
+                break;
+
             case 'string':
             case 'text':
                 $htmlreponse = $this->smarty->view( 'dashboard/la/data/editPanelText', $this->assigns, true );

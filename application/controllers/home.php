@@ -2,22 +2,27 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class home extends FE_Controller {
 	public function index(){
-		redirect('landing');
-		$this->assigns->site = array(
-			'title'=>'',
-			'desc'=>'',
-			'image'=>''
-		);
-		//print_r($this->assigns->aCategory);
-        $this->smarty->view( 'cake/home', $this->assigns );
+		// redirect('landing');
+		$this->demo();
+	}
+	
+	function category($catid){
+		$this->_get_new_product();
+		$this->_get_discount_product();
+		$this->assigns->cat = $this->getCatById($catid);
+
+		$this->assigns->cat_product_list = $this->product_model->getByCategory($catid, $this->assigns->lang);
+		$this->smarty->view( 'cake/category', $this->assigns );
+	}
+	function formula(){
+		$this->_get_new_product();
+		$this->_get_discount_product();
+		$this->assigns->videos = $this->data_model->getByType('video');
+		$this->smarty->view( 'cake/formula', $this->assigns );
 	}
 	function product_detail($id=''){
-		$this->db->limit(12);
-		$products = $this->product_model->getByType('cake',$this->assigns->lang);
-		foreach ($products as $key => $value) {
-			$products[$key]->cat = $this->getCatById($value->product_category);
-		}
-		$this->assigns->products = $products;
+		$this->_get_new_product();
+		
 		$product = $this->product_model->getProductById($id);
 		if($product){
 			$product->product_prices=json_decode($product->product_prices,true);
@@ -26,22 +31,23 @@ class home extends FE_Controller {
 			$this->assigns->product = $product;
 			$this->db->limit(4);
 			$related_products = $this->product_model->getReleted($product,$this->assigns->lang);
-			$related_products = array_merge($related_products,$products);
+			if($related_products)
+				$related_products = array_merge($related_products,$products);
+			else $related_products = $products;
 			$this->assigns->related_products = $related_products;
 		}
 
 		$this->smarty->view( 'cake/product_detail', $this->assigns );
 	}
+	function about(){
+		$this->_get_new_product();
+		$this->_get_discount_product();
+		$this->assigns->news_detail = $this->news_model->getNewsById(10);
+		$this->smarty->view( 'cake/about', $this->assigns );
+	}
 	function contact(){
-		$this->db->limit(12);
-		$products = $this->product_model->getByType('cake',$this->assigns->lang);
-		foreach ($products as $key => $value) {
-			$products[$key]->cat = $this->getCatById($value->product_category);
-		}
-		$this->db->limit(10);
-		$discount_products = $this->product_model->getByDiscount($this->assigns->lang);
-		$this->assigns->products = $products;
-		$this->assigns->discount_products = $discount_products;
+		$this->_get_new_product();
+		$this->_get_discount_product();
 		$this->smarty->view( 'cake/contact', $this->assigns );
 	}
 	function demo(){
@@ -49,18 +55,10 @@ class home extends FE_Controller {
 			->where('news_category',12)
 			->limit(5);
 		$news = $this->news_model->getByType('news',$this->assigns->lang);
-
-		$this->db->limit(12);
-		$products = $this->product_model->getByType('cake',$this->assigns->lang);
-		foreach ($products as $key => $value) {
-			$products[$key]->cat = $this->getCatById($value->product_category);
-		}
-		$this->db->limit(10);
-		$discount_products = $this->product_model->getByDiscount($this->assigns->lang);
 		$this->assigns->news_list = $news;
-		$this->assigns->products = $products;
-		$this->assigns->discount_products = $discount_products;
-		// print_r($products);die;
+
+		$this->_get_new_product();
+		$this->_get_discount_product();
 
 		$this->assigns->sliders = $this->data_model->getByType('slider');
 		$this->assigns->testimonies = $this->data_model->getByType('testimonies');

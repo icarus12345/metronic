@@ -33,7 +33,19 @@ class FE_Controller extends CI_Controller {
         }
         return null;
     }
-    
+    function _get_new_product(){
+        $this->db->limit(12);
+        $products = $this->product_model->getByType('cake',$this->assigns->lang);
+        foreach ($products as $key => $value) {
+            $products[$key]->cat = $this->getCatById($value->product_category);
+        }
+        $this->assigns->products = $products;
+    }
+    function _get_discount_product(){
+        $this->db->limit(10);
+        $discount_products = $this->product_model->getByDiscount($this->assigns->lang);
+        $this->assigns->discount_products = $discount_products;
+    }
     function nothing(){}
     function _addView($table='',$prefix='',$id){
         if($_SESSION["addviews"][date('Y-m-d-H-i')]["$table$id"]) return;
