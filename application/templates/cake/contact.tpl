@@ -1,25 +1,30 @@
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/meta.tpl"}]
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/head.tpl"}]
-
-<div class="space-line"></div>
-<div class="space-line"></div>
-<div class="container">
-    <div class="white-box">
-    
-        <div class="">
-            <div style="padding-bottom:44.6%;position:relative">
-                <div id="map" style="position:absolute;width:100%;height:100%"></div>
+<div class="container" style="background:#fafafa">
+    <ol class="breadcrumb">
+        <li><a href="/">Trang chủ</a></li>
+        <li class="active">
+            <span>Liên hệ</span>
+        </li>
+    </ol>
+    <div>
+            <div class="contact-map">
+                <div>
+                    <div id="map" style="position:absolute;width:100%;height:100%"></div>
+                </div>
+                <p class="space-line"></p>
+                <p>08/46 Trần Quang Diệu P.10 Q.3 TP.HCM</p>
             </div>
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
             <script type="text/javascript">
                 // When the window has finished loading create our google map below
                 google.maps.event.addDomListener(window, 'load', init);
                 function init() {
-                    var latlon = [[{$settting_data['google-map']}]];
+                    var latlon = [10.792048, 106.679982];
                     var lat  = latlon[0], lon = latlon[1];
                     // Basic options for a simple Google Map
                     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-                    [{literal}]
+                    
                     var mapOptions = {
                         // How zoomed in you want the map to start at (always required)
                         zoom: 16,
@@ -29,9 +34,88 @@
 
                         // How you would like to style the map. 
                         // This is where you would paste any style found on Snazzy Maps.
-                        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#575757"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#fbd8f1"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#fbcdf4"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":"100"}]},{"featureType":"transit.line","elementType":"labels.text.stroke","stylers":[{"visibility":"on"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#e84dc1"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#d6d6d6"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]}]
+                        styles: [
+                            {
+                                "featureType": "administrative",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#444444"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "landscape",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "color": "#f2f2f2"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "saturation": -100
+                                    },
+                                    {
+                                        "lightness": 45
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "visibility": "simplified"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "labels.icon",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "color": "#46bcec"
+                                    },
+                                    {
+                                        "visibility": "on"
+                                    }
+                                ]
+                            }
+                        ]
                     };
-                    [{/literal}]
+                    
                     // Get the HTML DOM element that will contain your map 
                     // We are using a div with id="map" seen below in the <body>
                     var mapElement = document.getElementById('map');
@@ -50,15 +134,15 @@
                             new google.maps.Point(20, 28),
                             new google.maps.Size(40, 56)
                         ),
-                        title: 'Bánh Ngon !'
+                        title: 'Dụng cụ làm bánh An Phú !'
                     });
                     var infowindow = new google.maps.InfoWindow();
                     var content_info ='\
-                          <div style="width:320px">\
+                          <div style="width:360px;font-size:13px;">\
                               <img src="/assets/cake/images/logo-min.png" style="float:left;margin-right:5px"/>\
-                              <div><h4 style="margin:0;padding:4px 0;color:#ee4034">Bánh ngon Online</h4></div>\
-                              <div>Phone : [{$settting_data['phone']|default:''|escape:'html'}]<br/>Email: [{$settting_data['email']|default:''|escape:'html'}]</div>\
-                              <div>Đ/c : <i>[{$settting_data['address']|default:''|escape:'html'}]</i></div>\
+                              <div><h4 style="margin:0;padding:4px 0;color:#ee4034">Dụng cụ làm bánh An Phú</h4></div>\
+                              <div>Phone : 098 263 6618<br/>Email: hotro@dungculambanhanphu.com</div>\
+                              <div>Đ/c : <i>108/46 Trần Quang Diệu P.10 Q.3 TP.HCM</i></div>\
                           </div>';
                     infowindow.setPosition(new google.maps.LatLng(lat, lon));
                     infowindow.setContent(content_info);
@@ -75,27 +159,28 @@
                     
                 });
             </script>
-        </div>
-        <div style="-max-width:880px;margin:auto;text-align:justify">
-            <div class="space-line"></div>
-            <h3 class="title-01">LIÊN HỆ</h3>
-             <div class="space-line"></div>
-            <fieldset class="c">
-                <legend><h3>Thông Tin Liên Hệ</h3></legend>
-                <div class="distance">
-                    <p>Email :  [{$settting_data['email']|default:''|escape:'html'}]</p>
-                    <p>Điện thoại : [{$settting_data['phone']|default:''|escape:'html'}]</p>
-                    <p>Hotline :    [{$settting_data['phone']|default:''|escape:'html'}]</p>
-                    <p>Địa chỉ :    [{$settting_data['address']|default:''|escape:'html'}]</p>
-                </div>
-            </fieldset>
-            <div class="space-line"></div>
-            <fieldset class="c">
-                <legend><h3>Gửi Yêu Cầu Tới banhngononline</h3></legend>
+
+    </div>
+    <div class="space-line"></div>
+    <div class="space-line"></div>
+    <div class="">
+        <div class="row">
+            <div class="col-lg-9 col-md-8">
+                <div class="big-title f24"><b>LIÊN HỆ VỚI CHÚNG TÔI</b></div>
+                <div class="space-line"></div>
+                <div class="space-line"></div>
+                <div><b>CỬA HÀNG DỤNG CỤ LÀM BÁNH AN PHÚ</b></div>
+                <div class="space-line"></div>
+                <div><i class="fa fa-map-marker"></i> 108/46 Trần Quang Diệu P.10 Q.3 TP.HCM</div>
+                <div><i class="fa fa-mobile"></i> 098 263 6618</a></div>
+                <div><i class="fa fa-envelope"></i> hotro@dungculambanhanphu.com</a></div>
+                <div class="space-line"></div>
+                <div class="space-line"></div>
+                <div><b>Gửi Yêu Cầu Tới banhngononline</b></div>
                 <div class="space-line"></div>
                 <div class="space-line"></div>                                 
                 <form name="contactForm" id="contactForm" target="integration_asynchronous">
-                    <div style="max-width:620px;margin:auto">
+                    <div>
                         <div class="row half">
                             <div class="col-xs-6 half">
                                 <div class="input-group">
@@ -104,7 +189,7 @@
                                         name="contact_name" 
                                         class="form-control dark validate[required,minSize[4],maxSize[255]]" 
                                         data-prompt-position="topLeft:0,20"
-                                        placeholder="Ví dụ : Trường Khương">
+                                        placeholder="">
                                 </div>
                                 <div class="space-line"></div>
                             </div>
@@ -115,7 +200,7 @@
                                         name="contact_phone" 
                                         class="form-control dark validate[required,minSize[7],maxSize[12]]" 
                                         data-prompt-position="topLeft:0,20"
-                                        placeholder="Ví dụ : 0985 747 240">
+                                        placeholder="">
                                 </div>
                                 <div class="space-line"></div>
                             </div>
@@ -128,7 +213,7 @@
                                         name="contact_email" value="" 
                                         class="form-control dark validate[required,custom[email],maxSize[100]]" 
                                         data-prompt-position="topLeft:0,20"
-                                        placeholder="Ví dụ : khuongxuantruong@gmail.com">
+                                        placeholder="">
                                 </div>
                                 <div class="space-line"></div>
                             </div>
@@ -139,7 +224,7 @@
                                         name="contact_data" 
                                         class="form-control dark validate[required,minSize[20],maxSize[255]]" 
                                         data-prompt-position="topLeft:0,20"
-                                        placeholder="Ví dụ : 181 Hồng Lạc, P.10, Q.Tân Bình">
+                                        placeholder="">
                                 </div>
                                 <div class="space-line"></div>
                             </div>
@@ -152,7 +237,7 @@
                                         name="contact_subject" 
                                         class="form-control dark validate[required,minSize[20],maxSize[255]]" 
                                         data-prompt-position="topLeft:0,20"
-                                        placeholder="Ví dụ : Tôi muốn học làm bánh kem">
+                                        placeholder="">
                                 </div>
                                 <div class="space-line"></div>
                             </div>
@@ -163,9 +248,10 @@
                                     <div>Nội dung</div>
                                     <textarea 
                                         name="contact_message" 
+                                        rows="8" 
                                         class="form-control dark validate[required,minSize[20],maxSize[4000]]"
                                         data-prompt-position="topLeft:0,20"
-                                        placeholder="Ví dụ : Vợ tôi muốn học làm bánh và mở tiệm bánh, Ad có thể giúp tôi không"></textarea>
+                                        placeholder=""></textarea>
                                 </div>
                                 <div class="space-line"></div>
                             </div>
@@ -177,19 +263,21 @@
                                 
                             </div>
                             <div class="col-xs-6 half">
-                                <button class="btn btn-default btn-block" type="button" onclick="contactus()">Gửi yêu cầu</button>
+                                <button class="btn btn-info btn-block" type="button" onclick="contactus()">Gửi yêu cầu</button>
                             </div>
                         </div>
                     </div>
                 </form>
-            </fieldset>
-            <div class="space-line"></div>
-            <div class="space-line"></div>
-            <img src="/assets/cake/images/hoa.png" style="margin:auto;display:block"/>
-            <div class="space-line"></div>
+                <div class="space-line"></div>
+                <div class="space-line"></div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/accordion-menu.tpl"}]
+                [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/discount-box.tpl"}]
+                [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/like-box.tpl"}]
+            </div>
         </div>
-        
     </div>
 </div>
+
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/foot.tpl"}]
-[{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/orderpopup.tpl"}]

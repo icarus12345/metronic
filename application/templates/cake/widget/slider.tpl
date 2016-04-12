@@ -42,5 +42,3 @@
     </div>
     <!-- Slider ] -->
 </div>
-<div class="space-line"></div>
-<div class="space-line"></div>

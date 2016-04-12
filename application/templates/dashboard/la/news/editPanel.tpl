@@ -155,7 +155,7 @@
                                     name="news_price">
                             </div>
                         </div> -->
-                        <!-- <div class="col-xs-6 half col-mb-3">
+                        <div class="col-xs-6 half col-mb-3">
                             <div class="control-group pull-bottom">
                                 <div>Position :</div>
                                 <input type="number" 
@@ -163,7 +163,7 @@
                                     name="news_position"
                                     >
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-xs-6 half col-mb-3">
                             <div class="control-group pull-bottom">
                                 <div>Status :</div>

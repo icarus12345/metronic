@@ -2,7 +2,9 @@
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/head.tpl"}]
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/slider.tpl"}]
         
-
+<div style="background:#f7f7f7">
+<div class="space-line"></div>
+<div class="space-line"></div>
         <div class="container">
             <div class="row">
                 [{if $news_list[0]}]
@@ -63,7 +65,7 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-        
+</div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-8">

@@ -13,30 +13,50 @@ class home extends FE_Controller {
 	}
 	function product_detail($id=''){
 		$this->db->limit(12);
-		$products = $this->product_model->getCategoryByType('cake','vi');
+		$products = $this->product_model->getByType('cake',$this->assigns->lang);
 		foreach ($products as $key => $value) {
 			$products[$key]->cat = $this->getCatById($value->product_category);
 		}
 		$this->assigns->products = $products;
 		$product = $this->product_model->getProductById($id);
-		$product->product_prices=json_decode($product->product_prices,true);
-		$product->cat = $this->getCatById($product->product_category);
-		$this->assigns->product = $product;
+		if($product){
+			$product->product_prices=json_decode($product->product_prices,true);
+			$product->cat = $this->getCatById($product->product_category);
+			$product->product_images = explode(chr(10),$product->product_images);
+			$this->assigns->product = $product;
+			$this->db->limit(4);
+			$related_products = $this->product_model->getReleted($product,$this->assigns->lang);
+			$related_products = array_merge($related_products,$products);
+			$this->assigns->related_products = $related_products;
+		}
+
 		$this->smarty->view( 'cake/product_detail', $this->assigns );
+	}
+	function contact(){
+		$this->db->limit(12);
+		$products = $this->product_model->getByType('cake',$this->assigns->lang);
+		foreach ($products as $key => $value) {
+			$products[$key]->cat = $this->getCatById($value->product_category);
+		}
+		$this->db->limit(10);
+		$discount_products = $this->product_model->getByDiscount($this->assigns->lang);
+		$this->assigns->products = $products;
+		$this->assigns->discount_products = $discount_products;
+		$this->smarty->view( 'cake/contact', $this->assigns );
 	}
 	function demo(){
 		$this->db
 			->where('news_category',12)
 			->limit(5);
-		$news = $this->news_model->getCategoryByType('news','vi');
+		$news = $this->news_model->getByType('news',$this->assigns->lang);
 
 		$this->db->limit(12);
-		$products = $this->product_model->getCategoryByType('cake','vi');
+		$products = $this->product_model->getByType('cake',$this->assigns->lang);
 		foreach ($products as $key => $value) {
 			$products[$key]->cat = $this->getCatById($value->product_category);
 		}
 		$this->db->limit(10);
-		$discount_products = $this->product_model->getByDiscount('vi');
+		$discount_products = $this->product_model->getByDiscount($this->assigns->lang);
 		$this->assigns->news_list = $news;
 		$this->assigns->products = $products;
 		$this->assigns->discount_products = $discount_products;
@@ -90,14 +110,7 @@ class home extends FE_Controller {
 		$this->assigns->product_list = $this->product_model->getRelated($product,1,5);
 		$this->smarty->view( 'cake/product_detail', $this->assigns );
 	}
-	function contact(){
-		$this->assigns->site = array(
-			'title'=>'',
-			'desc'=>'',
-			'image'=>''
-		);
-		$this->smarty->view( 'cake/contact', $this->assigns );
-	}
+	
 	function gallery(){
 		$this->assigns->site = array(
 			'title'=>'Hình Ảnh Bánh Sinh Nhật Đẹp Nhất',
