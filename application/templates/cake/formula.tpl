@@ -36,7 +36,8 @@
             <div class="col-lg-9 col-md-8">
                 <div class="nailthumb">
                     <div id="video-play" class="nailthumb-figure bg-cover" style="background-image:url([{$videos[0]->data_data.image}])">
-                        <div class="nailthumb-fluid" onclick="playVideo('[{$videos[0]->data_data.video}]')"></div>
+                        <div class="nailthumb-fluid bg-play" onclick="playVideo('[{$videos[0]->data_data.video}]')"
+                            title="[{$videos[0]->data_data.title[$lang]}]" ></div>
                     </div>
                 </div>
                 <div class="space-line"></div>
@@ -48,8 +49,11 @@
                     <div class="item">
                         <div class="nailthumb">
                             <div class="nailthumb-figure-square bg-cover" 
+                            title="[{$video->data_data.title[$lang]}]" 
                             onclick="playVideo('[{$video->data_data.video}]')" 
-                            style="background-image:url([{$video->data_data.image}])"></div>
+                            style="background-image:url([{$video->data_data.image}])">
+                            <div class="nailthumb-fluid bg-play"></div>
+                            </div>
                         </div>
                     </div>
                     <!-- Item ] -->
@@ -65,4 +69,5 @@
             </div>
         </div>
     </div>
+</div>
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/foot.tpl"}]

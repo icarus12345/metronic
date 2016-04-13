@@ -426,6 +426,7 @@ class product extends CP_Controller {
                     {$this->table}.{$this->prefix}update,
                     {$this->table}.{$this->prefix}token,
                     {$this->table}.{$this->prefix}status,
+                    {$this->table}.{$this->prefix}isnew,
                     {$this->table}.{$this->prefix}lock,
                     {$this->table}.{$this->prefix}token,
                     lang_title.ti_title,

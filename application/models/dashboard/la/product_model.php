@@ -4,6 +4,7 @@ class product_model extends Core_Model {
 
     function __construct(){
         parent::__construct('lang_product', 'product_', 'id');
+        $this->status = null;
     }
     function getProductById($id){
         $info = $this->onGet($id);
@@ -19,6 +20,7 @@ class product_model extends Core_Model {
         return $info;
     }
     function getProductByToken($token){
+        if($this->status!=null)$this->db->where('product_status',$this->status);
         $query=$this->db
             ->from('lang_product')
             ->where('product_token',$token)
@@ -36,6 +38,7 @@ class product_model extends Core_Model {
         return $info;
     }
     function getProductByCode($code){
+        if($this->status!=null)$this->db->where('product_status',$this->status);
         $query=$this->db
             ->from('lang_product')
             ->where('product_code',$code)
@@ -52,6 +55,7 @@ class product_model extends Core_Model {
         return $info;
     }
     function getProductByAlias($sAlias=''){
+        if($this->status!=null)$this->db->where('product_status',$this->status);
         $query=$this->db
             ->select('lang_product.*')
             ->from('lang_product')
@@ -74,6 +78,7 @@ class product_model extends Core_Model {
         return $this->getByType('cake',$lang);
     }
     function getByType($type=null,$lang='en'){
+        if($this->status!=null)$this->db->where('product_status',$this->status);
         if($type!=null)$this->db->where('product_type',$type);
         $query=$this->db
             ->from('lang_product')

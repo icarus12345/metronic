@@ -107,6 +107,8 @@ var APP = function() {
             {name: '[{$frefix}]token'   },
             {name: '[{$frefix}]view' 	, type: 'int'},
             {name: '[{$frefix}]status' , type: 'bool'},
+            {name: '[{$frefix}]isnew' , type: 'bool'},
+            {name: '[{$frefix}]lock' , type: 'bool'},
             {name: '[{$frefix}]insert' , type: 'date'},
             {name: '[{$frefix}]update' , type: 'date'},
         ];
@@ -228,6 +230,10 @@ var APP = function() {
 	            width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
 	            filterable: true, sortable: true,editable: true, groupable:false,
 	        },{
+                text: 'New'    , dataField: '[{$frefix}]isnew' , cellsalign: 'center',
+                width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
+                filterable: true, sortable: true,editable: true, groupable:false,
+            },{
 	            text: 'Created' , dataField: '[{$frefix}]insert', width: 120, cellsalign: 'right', align: 'right',
 	            filterable: true, columntype: 'datetimeinput', filtertype: 'range', cellsformat: 'yyyy-MM-dd HH:mm:ss',
 	            sortable: true,editable: false, groupable:false
@@ -280,7 +286,7 @@ var APP = function() {
 	                }else if(action == 'edit'){
 	                    me.editItem(entryId);
 	                }else if(action == 'price'){
-                        me.showPrices(entryIdentryId);
+                        me.showPrices(entryId);
                     }else if(action == 'delete'){
 	                    me.removeItem(entryId,rowIndex);
 	                }else if(action == 'status'){
@@ -471,40 +477,16 @@ var APP = function() {
 	                me.onRefresh();
 	            };
 	            switch (_column) {
-	                case '[{$frefix}]title':
-	                    if (_value != _data.[{$frefix}]title && _value!='')
-	                        me.onCommit(
-	                        	me.entryCommitUri,
-	                        	{[{$frefix}]title: _value},
-	                        	_id
-	                    	);
-	                    break;
-	                case '[{$frefix}]category':
-	                    if (_value != _data.[{$frefix}]category && _value!='')
-	                        me.onCommit(
-	                        	me.entryCommitUri,
-	                        	{[{$frefix}]category: _value},
-	                        	_id,function(){
-	                        		me.onRefresh()
-	                        	}
-	                    	);
-	                    break;
-                        case '[{$frefix}]price':
-	                    if (_value != _data.[{$frefix}]price && _value!='')
-	                        me.onCommit(
-	                        	me.entryCommitUri,
-	                        	{[{$frefix}]price: _value},
-	                        	_id
-	                    	);
-	                    break;
-                        case '[{$frefix}]code':
-	                    if (_value != _data.[{$frefix}]code && _value!='')
-	                        me.onCommit(
-	                        	me.entryCommitUri,
-	                        	{[{$frefix}]code: _value},
-	                        	_id
-	                    	);
-	                    break;
+	                 case '[{$frefix}]isnew':
+                        if (_value)
+                            me.onCommit(
+                                me.entryCommitUri,{[{$frefix}]isnew: 'true'}, _id
+                            );
+                        else
+                            me.onCommit(
+                                me.entryCommitUri,{[{$frefix}]isnew: 'false'}, _id
+                            );
+                        break;
 	                case '[{$frefix}]status':
 	                    if (_value)
 	                        me.onCommit(

@@ -212,6 +212,10 @@ var APP = function() {
 	            width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
 	            filterable: true, sortable: true,editable: true, groupable:false,
 	        },{
+                text: 'Lock'    , dataField: '[{$frefix}]lock' , cellsalign: 'center',
+                width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
+                filterable: true, sortable: true,editable: false, hidden: true
+            },{
 	            text: 'Created' , dataField: '[{$frefix}]insert', width: 120, cellsalign: 'right', align: 'right',
 	            filterable: true, columntype: 'datetimeinput', filtertype: 'range', cellsformat: 'yyyy-MM-dd HH:mm:ss',
 	            sortable: true,editable: false, groupable:false
@@ -264,7 +268,7 @@ var APP = function() {
 	                }else if(action == 'edit'){
 	                    me.editItem(entryId);
 	                }else if(action == 'price'){
-                        me.showPrices(entryIdentryId);
+                        me.showPrices(entryId);
                     }else if(action == 'delete'){
 	                    me.removeItem(entryId,rowIndex);
 	                }else if(action == 'status'){
@@ -272,6 +276,10 @@ var APP = function() {
                 		me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'true'}, entryId, me.onRefresh);
             		}else if(action == 'statusoff'){
             			me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'false'}, entryId, me.onRefresh);
+                    }else if(action == 'lockon'){
+                        me.onCommit(me.entryCommitUri,{[{$frefix}]lock: 'true'}, entryId, me.onRefresh);
+                    }else if(action == 'lockoff'){
+                        me.onCommit(me.entryCommitUri,{[{$frefix}]lock: 'false'}, entryId, me.onRefresh);
                     }else if(action == 'chart'){
                         var chart_title = "Chart of "+rowData.[{$frefix}]title;
                         myChart.openWeekChart('lang_news',entryId,'[{date('Y-m-d')}]','View',chart_title);
@@ -389,9 +397,9 @@ var APP = function() {
                         $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOn', dataRow.[{$frefix}]status); 
                         $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOff', !dataRow.[{$frefix}]status); 
                     [{/if}]
-                    [{if $smarty.session.auth.user->ause_authority=='Administrator'}]
-                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOn', dataRow.[{$frefix}]lock); 
-                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOff', !dataRow.[{$frefix}]lock);
+                    [{if $smarty.session.auth.user->ause_authority!='Administrator'}]
+                    $('#contextMenu').jqxMenu('disable', 'jqxLockActionOn', dataRow.[{$frefix}]lock); 
+                    $('#contextMenu').jqxMenu('disable', 'jqxLockActionOff', !dataRow.[{$frefix}]lock);
                     [{/if}]
                     // $('#contextMenu').jqxMenu('disable', 'jqxDeleteAction', dataRow.[{$frefix}]lock); 
                     event.stopPropagation();
@@ -509,12 +517,44 @@ var APP = function() {
 	    });
 		[{/if}]
     }
+    this.lockItem = function(Id,rowIndex){
+        [{if $smarty.session.auth.user->ause_authority!='Administrator'}]
+            addNotice('This function to requires an administrative account.<br/>Please check your authority, and try again.','warning');
+            return;     
+        [{/if}]
+        var _data = $(me.jqxgrid).jqxGrid('getrowdata', rowIndex);
+        var itemName = _data.[{$frefix}]title;
+        ConfirmMsg(
+            'Lock item ?',
+            'Do you want lock "'+itemName+'".<br/>These items will be permanently lock and cannot delete. Are you sure ?',
+            function(){
+                // httpRequest({
+                //     'url': me.entryDeleteUri,
+                //     'data': {
+                //         'Id': Id
+                //     },
+                //     'callback': function(rsdata) {
+                //         if (rsdata.result < 0) {
+                //             addNotice(rsdata.message,'error');
+                //         } else {
+                //             addNotice(rsdata.message,'success');
+                //             me.onRefresh();
+                //         }
+                //     }
+                // }).call();
+            }
+        );
+    };
     this.removeItem = function(Id,rowIndex){
         [{if $action.delete==false}]
             addNotice('This function to requires an administrative account.<br/>Please check your authority, and try again.','warning');
             return;     
         [{/if}]
         var _data = $(me.jqxgrid).jqxGrid('getrowdata', rowIndex);
+        if(_data.[{$frefix}]lock){
+            addNotice('You can not delete this Item.','warning');
+            return; 
+        }
         var itemName = _data.[{$frefix}]title;
     	ConfirmMsg(
             'Delete item ?',

@@ -34,6 +34,7 @@ var APP = function() {
             {name: '[{$frefix}]token'   },
             {name: '[{$frefix}]view'    , type: 'int'},
             {name: '[{$frefix}]status' , type: 'bool'},
+            {name: '[{$frefix}]lock' , type: 'bool'},
             {name: '[{$frefix}]insert' , type: 'date'},
             {name: '[{$frefix}]update' , type: 'date'},
         ];
@@ -122,6 +123,10 @@ var APP = function() {
 	            width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
 	            filterable: true, sortable: true,editable: true, groupable:false,
 	        },{
+                text: 'Lock'    , dataField: '[{$frefix}]lock' , cellsalign: 'center',
+                width: 44, columntype: 'checkbox', threestatecheckbox: false, filtertype: 'bool',
+                filterable: true, sortable: true,editable: false, hidden: true
+            },{
 	            text: 'Created' , dataField: '[{$frefix}]insert', width: 120, cellsalign: 'right', align: 'right',
 	            filterable: true, columntype: 'datetimeinput', filtertype: 'range', cellsformat: 'yyyy-MM-dd HH:mm:ss',
 	            sortable: true,editable: false, groupable:false
@@ -182,6 +187,10 @@ var APP = function() {
                 		me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'true'}, entryId, me.onRefresh);
             		}else if(action == 'statusoff'){
             			me.onCommit(me.entryCommitUri,{[{$frefix}]status: 'false'}, entryId, me.onRefresh);
+                    }else if(action == 'lockon'){
+                        me.onCommit(me.entryCommitUri,{[{$frefix}]lock: 'true'}, entryId, me.onRefresh);
+                    }else if(action == 'lockoff'){
+                        me.onCommit(me.entryCommitUri,{[{$frefix}]lock: 'false'}, entryId, me.onRefresh);
                     }else if(action == 'chart'){
                         var chart_title = "Chart of "+rowData.[{$frefix}]title;
                         myChart.openWeekChart('lang_news',entryId,'[{date('Y-m-d')}]','View',chart_title);
@@ -299,9 +308,9 @@ var APP = function() {
                         $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOn', dataRow.[{$frefix}]status); 
                         $('#contextMenu').jqxMenu('disable', 'jqxStatusActionOff', !dataRow.[{$frefix}]status); 
                     [{/if}]
-                    [{if $smarty.session.auth.user->ause_authority=='Administrator'}]
-                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOn', dataRow.[{$frefix}]lock); 
-                    // $('#contextMenu').jqxMenu('disable', 'jqxLockActionOff', !dataRow.[{$frefix}]lock);
+                    [{if $smarty.session.auth.user->ause_authority!='Administrator'}]
+                    $('#contextMenu').jqxMenu('disable', 'jqxLockActionOn', dataRow.[{$frefix}]lock); 
+                    $('#contextMenu').jqxMenu('disable', 'jqxLockActionOff', !dataRow.[{$frefix}]lock);
                     [{/if}]
                     // $('#contextMenu').jqxMenu('disable', 'jqxDeleteAction', dataRow.[{$frefix}]lock); 
                     event.stopPropagation();
@@ -425,6 +434,10 @@ var APP = function() {
             return;     
         [{/if}]
         var _data = $(me.jqxgrid).jqxGrid('getrowdata', rowIndex);
+        if(_data.[{$frefix}]lock){
+            addNotice('You can not delete this Item.','warning');
+            return; 
+        }
         var itemName = _data.[{$frefix}]title;
     	ConfirmMsg(
             'Delete item ?',

@@ -145,11 +145,11 @@
             [{if $smarty.foreach.foo.index == 4}]
                 [{break}]
             [{/if}]
-            <div class="col-sm-6 cake-item col-mb-6 col-md-3">
+            <div class="col-sm-6 cake-item col-mb-6 col-md-3" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]"> 
                 <a href="/san-pham/[{$pr->product_id}]/[{$pr->als_alias}]" class="nailthumb">
                     <div class="nailthumb-figure-square">
                         <div class="nailthumb-container">
-                            <img data-original="[{$pr->product_thumb}]" class="lazy"/>
+                            <img data-original="[{$pr->product_thumb}]" class="lazy" alt="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]"/>
                         </div>
                         <div class="nailthumb-mark hvr-wobble-vertical"></div>
                     </div>

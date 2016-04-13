@@ -25,11 +25,8 @@
                                 [{/if}]
                             <div class="cake-item-small2">
                                 <div>
-                                    <a href="/san-pham/[{$pr->product_id}]" class="line-clamp-1 pr-title-small">
-                                        [{$pr->ti_title}]
-                                        [{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]
-                                        ([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])
-                                        [{/if}]
+                                    <a href="/san-pham/[{$pr->product_id}]" class="line-clamp-1 pr-title-small" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
+                                        [{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]
                                     </a>
                                 </div>
                                 <div class="space-line-half"></div>
@@ -38,21 +35,36 @@
                                 </div>
                                 <div class="product-price line-clamp-1">
                                     [{if $pr->product_discount>0}]
-                                    <span class="line-through">[{if $pr->product_prices}]
-                                    [{$pr->product_prices.min[$lang].val|number_format:0:",":"."}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{$pr->product_prices.max[$lang].val|number_format:0:",":"."}][{/if}]
-                                    [{/if}]
-                                    </span>
-                                    [{/if}]
-                                    <span class="[{if $pr->product_discount>0}][{/if}]">
                                     [{if $pr->product_prices}]
-                                    &nbsp;&nbsp;&nbsp;&nbsp;[{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}][{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]-[{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}][{/if}] Đ
+                                        <span class="line-through">
+                                        [{$pr->product_prices.min[$lang].val|number_format:0:",":"."}]
+                                        </span>
+                                        <sup>Đ</sup>
+                                        [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                                            -
+                                            <span class="line-through">
+                                            [{$pr->product_prices.max[$lang].val|number_format:0:",":"."}]
+                                            </span>
+                                            <sup>Đ</sup>
+                                        [{/if}]
+                                    [{/if}]
+                                    [{/if}]
+                                    <span class="[{if $pr->product_discount>0}]pull-right[{/if}]">
+                                    [{if $pr->product_prices}]
+                                        [{($pr->product_prices.min[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                                        <sup>Đ</sup>
+                                        [{if $pr->product_prices.min[$lang].val != $pr->product_prices.max[$lang].val}]
+                                            -
+                                            [{($pr->product_prices.max[$lang].val*(100-$pr->product_discount|default:0)/100)|number_format:0:",":"."}]
+                                            <sup>Đ</sup>
+                                        [{/if}]
                                     [{/if}]
                                     </span>
                                 </div>
                                 <div class="nailthumb">
                                     <div class="nailthumb-figure-square">
-                                        <a href="/san-pham/[{$pr->product_id}]" class="nailthumb-container">
-                                            <img data-original="[{$pr->product_thumb}]" class="lazy"/>
+                                        <a href="/san-pham/[{$pr->product_id}]" class="nailthumb-container" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
+                                            <img data-original="[{$pr->product_thumb}]" class="lazy" alt="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]"/>
                                         </a>
                                     </div>
                                 </div>

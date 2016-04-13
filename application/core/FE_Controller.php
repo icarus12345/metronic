@@ -11,6 +11,7 @@ class FE_Controller extends CI_Controller {
         $this->load->model('dashboard/la/news_model');
         $this->load->model('dashboard/la/product_model');
         $this->load->model('dashboard/la/data_model');
+        $this->product_model->status = 'true';
         $aCategory = $this->category_model->getCategoryByType('cake');
         if($aCategory){
             $this->assigns->listCategory=$aCategory;
@@ -34,7 +35,9 @@ class FE_Controller extends CI_Controller {
         return null;
     }
     function _get_new_product(){
-        $this->db->limit(12);
+        $this->db
+            ->where('product_isnew','true')
+            ->limit(12);
         $products = $this->product_model->getByType('cake',$this->assigns->lang);
         foreach ($products as $key => $value) {
             $products[$key]->cat = $this->getCatById($value->product_category);
