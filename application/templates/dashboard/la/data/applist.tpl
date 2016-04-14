@@ -176,6 +176,8 @@ var APP = function() {
 		$('#contextMenu').jqxMenu('disable', 'jqxDeleteAction', true); 
 		[{/if}]
 		$('#contextMenu').jqxMenu('disable', 'jqxViewAction', true); 
+		var _h = $(window).height() - $('#grid-list-data').offset().top - 50;
+        $('#grid-list-data').css('height',Math.max(400,_h)+'px');
 		$(me.jqxgrid).jqxGrid({
 	        width 				: '100%', //
 	        // autoheight:true,

@@ -77,14 +77,19 @@ class product_model extends Core_Model {
         $this->db->where('product_discount >',0);
         return $this->getByType('cake',$lang);
     }
+    function select(){
+        $this->db->select("
+            SQL_CALC_FOUND_ROWS *
+        ",false);
+    }
     function getByType($type=null,$lang='en'){
         if($this->status!=null)$this->db->where('product_status',$this->status);
         if($type!=null)$this->db->where('product_type',$type);
         $query=$this->db
             ->from('lang_product')
-            ->join('lang_title','product_token = ti_token','left')
+            ->join('lang_title',"product_token = ti_token and ti_lang = '$lang'",'left')
             // ->join('lang_data','product_id = data_token','left')
-            ->where('ti_lang',$lang)
+            // ->where('ti_lang',$lang)
             ->order_by('product_insert','DESC')
             ->get(); 
         $tmpdata = $query->result();
@@ -106,6 +111,7 @@ class product_model extends Core_Model {
     }
 
     function getByCategory($cat,$lang){
+        if($cat)
         $this->db->where('product_category',$cat);
         return $this->getByType('cake',$lang);
     }

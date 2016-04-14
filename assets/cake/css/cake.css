@@ -140,11 +140,11 @@ a,a:link,a:active,a:hover{color: inherit;}
 }
 .dropdown-menu{font-size: inherit;}
 .btn.btn-white{background: #fff;border: 1px solid #ddd}
-.btn-default{
+.btn-default2{
     background: none;border: 2px solid #fafafa;
     border-radius: 17px;
 }
-.btn-default:hover,.btn-default:focus{
+.btn-default2:hover,.btn-default2:focus{
     background: #2ea3f2; color: #fff;border: 1px solid #FFF;
 }
 .btn-warning{background: #eeb510;border-color: #eeb510}
@@ -193,7 +193,7 @@ h1,h2,h3,h4,p{margin:0}
     vertical-align: middle;
 }
 .pagination{display: block;width: 100%;text-align: center;margin: 0;padding-bottom: 10px;}
-.pagination>li{display: inline-block;}
+.pagination>li{display: inline-block;margin: 0 2px;}
 .pagination>li>a,
 .pagination>li>span{display: inline-block;
   border-radius: 3px;

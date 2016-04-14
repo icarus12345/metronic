@@ -120,7 +120,7 @@
                                 <div id="entry-setting" style="display:none">
                                     <div id="jqxListBoxSetting" style="height:200px"></div>
                                 </div>
-                                <div style="height:400px;position:relative">
+                                <div id="grid-list-data" style="height:400px;position:relative">
                                     <div id= "jqwidget-entry-list" style="border:0"></div>
                                 </div>
                                 
@@ -128,10 +128,6 @@
                         </div>
 
                     </div>
-
-
-
-
                 </div>
             </div>
             <!-- END CONTENT -->

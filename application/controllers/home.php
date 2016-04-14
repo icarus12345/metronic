@@ -6,18 +6,47 @@ class home extends FE_Controller {
 		$this->demo();
 	}
 	
-	function category($catid){
+	function category($catid='',$page=1){
+		$perpage = 12;
+		$limit = ($page-1) * $perpage;
 		$this->_get_new_product();
 		$this->_get_discount_product();
 		$this->assigns->cat = $this->getCatById($catid);
 
-		$this->assigns->cat_product_list = $this->product_model->getByCategory($catid, $this->assigns->lang);
+		$this->getProducts($catid,$limit,$perpage);
+		if($catid==0 || $catid=='' || $catid==null){
+			$url = "/san-pham/page/";
+		}else{
+			$url = "/danh-muc/$catid/page/";
+		}
+        $this->assigns->paging = $this->_getPaging($page,$perpage,$url);
 		$this->smarty->view( 'cake/category', $this->assigns );
 	}
-	function formula(){
+	function manual(){
+		$this->newsdetail(11);
+	}
+	function newsdetail($id=''){
+		$this->_get_new_product();
+		$this->_get_discount_product();
+		$this->assigns->news_detail = $this->news_model->getNewsById($id);
+		$this->smarty->view( 'cake/newsdetail', $this->assigns );
+	}
+	function formuladetail($id=''){
+		$this->_get_new_product();
+		$this->_get_discount_product();
+		$this->assigns->news_detail = $this->news_model->getNewsById($id);
+		$this->smarty->view( 'cake/formuladetail', $this->assigns );
+	}
+	function formula($page=1){
+		$perpage = 5;
+		$limit = ($page-1) * $perpage;
+		if($limit<0) $limit = 0;
 		$this->_get_new_product();
 		$this->_get_discount_product();
 		$this->assigns->videos = $this->data_model->getByType('video');
+		$this->getFormula($limit,$perpage);
+		$url = "/cong-thuc-kinh-nghiem/page/";
+        $this->assigns->paging = $this->_getPaging($page,$perpage,$url);
 		$this->smarty->view( 'cake/formula', $this->assigns );
 	}
 	function product_detail($id=''){
@@ -64,29 +93,8 @@ class home extends FE_Controller {
 		$this->assigns->testimonies = $this->data_model->getByType('testimonies');
 		$this->smarty->view( 'cake/home', $this->assigns );
 	}
-	function product($cat_alias='',$page=1){
-		$this->assigns->site = array(
-			'title'=>'',
-			'desc'=>'',
-			'image'=>''
-		);
-		$perpage = 20;
-		$cate = $this->category_model->onGetByAlias($cat_alias);
-		if(!empty($cate->cat_thumb) && strrpos($cate->cat_thumb, 'http')===false){
-			$cate->cat_thumb = base_url($cate->cat_thumb);
-		}
-		$this->assigns->site['title'] = $cate->cat_title.' - Bánh Ngon Online';
-		$this->assigns->site['desc'] = $cate->cat_desc;
-		$this->assigns->site['image'] = $cate->cate_thumb;
-		$this->assigns->cate = $cate;
-        $this->assigns->product_list = $this->product_model->getLatest($cate->cat_value,$page,$perpage);
-        if(in_array($cate->cat_alias,$this->assigns->fecog['knownCate'])){
-        	$url = "/{$cat_alias}/page/";
-        }else{
-        	$url = "/san-pham/{$cat_alias}/page/";
-        }
-        $this->assigns->paging = $this->_getPaging($page,$perpage,$url);
-		$this->smarty->view( 'cake/product_list', $this->assigns );
+	function products($page=1){
+		$this->category(null,$page);
 	}
 	function productdetail($alias=''){
 		$this->assigns->site = array(

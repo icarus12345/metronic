@@ -4,8 +4,10 @@ class news_model extends Core_Model {
 
     function __construct(){
         parent::__construct('lang_news', 'news_', 'id');
+        $this->status = null;
     }
     function getNewsById($id){
+        if($this->status!=null)$this->db->where('news_status',$this->status);
         $info = $this->onGet($id);
         if($info){
             $info->aTitle = $this->lang_model->getTitleByToken($info->news_token);
@@ -18,6 +20,7 @@ class news_model extends Core_Model {
         return $info;
     }
     function getnewsByToken($token){
+        if($this->status!=null)$this->db->where('news_status',$this->status);
         $query=$this->db
             ->from('lang_news')
             ->where('news_token',$token)
@@ -34,6 +37,7 @@ class news_model extends Core_Model {
         return $info;
     }
     function getnewsByAlias($sAlias=''){
+        if($this->status!=null)$this->db->where('news_status',$this->status);
         $query=$this->db
             ->select('lang_news.*')
             ->from('lang_news')
@@ -51,7 +55,13 @@ class news_model extends Core_Model {
         }
         return $info;
     }
+    function select(){
+        $this->db->select("
+            SQL_CALC_FOUND_ROWS *
+        ",false);
+    }
     function getByType($type=null,$lang='en'){
+        if($this->status!=null)$this->db->where('news_status',$this->status);
         if($type!=null)$this->db->where('news_type',$type);
         $query=$this->db
             ->from('lang_news')

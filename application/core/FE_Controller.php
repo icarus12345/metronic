@@ -12,6 +12,7 @@ class FE_Controller extends CI_Controller {
         $this->load->model('dashboard/la/product_model');
         $this->load->model('dashboard/la/data_model');
         $this->product_model->status = 'true';
+        $this->news_model->status = 'true';
         $aCategory = $this->category_model->getCategoryByType('cake');
         if($aCategory){
             $this->assigns->listCategory=$aCategory;
@@ -27,6 +28,20 @@ class FE_Controller extends CI_Controller {
         // $this->iLanguage =new CI_Language();
         // $this->assigns->languages = $this->iLanguage->load('all',$this->assigns->lang,true);
         
+    }
+    function getProducts($catid=null,$start=0,$limit=10){
+        $this->product_model->select();
+        $this->db->limit($limit,$start);
+        $products = $this->product_model->getByCategory($catid, $this->assigns->lang);
+        $this->assigns->product_list = $products;
+    }
+    function getFormula($start=0,$limit=10){
+        $this->news_model->select();
+        $this->db
+            ->where('news_category',14)
+            ->limit($limit,$start);
+        $news = $this->news_model->getByType('news',$this->assigns->lang);
+        $this->assigns->formulas = $news;
     }
     function getCatById($Id){
         foreach ($this->assigns->listCategory as $key => $value) {
