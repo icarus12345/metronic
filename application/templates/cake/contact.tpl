@@ -1,5 +1,7 @@
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/meta.tpl"}]
 [{include file=$smarty.const.APPPATH|cat:"templates/cake/inc/head.tpl"}]
+<script type="text/javascript" src="/assets/cake/libraries/plugin/validation-engine/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="/assets/cake/libraries/plugin/validation-engine/jquery.validationEngine-vi.js"></script>
 <style type="text/css">body{background: #fafafa}</style>
 <div class="container">
     <ol class="breadcrumb">
@@ -259,6 +261,7 @@
                         </div>
                     
                         <input type="hidden" name="contact_type" value="Contact us">
+                        <div class="message"></div>
                         <div class="row half">
                             <div class="col-xs-6 half">
                                 

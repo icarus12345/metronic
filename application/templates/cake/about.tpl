@@ -11,7 +11,7 @@
     <div>
         <div class="contact-map">
             <div>
-                <div id="map" class="bg-cover" style="background-image:url([{$news_detail->news_thumb|default:'/assets/cake/imgs/about.jpg'}])"></div>
+                <div id="map" class="bg-cover" style="background-image:url([{$news_detail->news_cover|default:'/assets/cake/imgs/about.jpg'}])"></div>
             </div>
             <p class="space-line"></p>
             <p>08/46 Trần Quang Diệu P.10 Q.3 TP.HCM</p>

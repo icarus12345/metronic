@@ -13,7 +13,7 @@
                         <div>
                             <div class="f20">[{$news_list[0]->ti_title}]</div>
                             <p class="line-clamp-f-3">[{$news_list[0]->de_desc}]</p>
-                            <a href="#"></a>
+                            <a href="/tin-tuc/[{$news_list[0]->news_id}]"></a>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                         <div>
                             <div class="f20">[{$news_list[1]->ti_title}]</div>
                             <p class="line-clamp-f-3">[{$news_list[1]->de_desc}]</p>
-                            <a href="#"></a>
+                            <a href="/tin-tuc/[{$news_list[1]->news_id}]"></a>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <div>
                             <div class="f20">[{$news_list[2]->ti_title}]</div>
                             <p class="line-clamp-f-1">[{$news_list[2]->de_desc}]</p>
-                            <a href="#"></a>
+                            <a href="/tin-tuc/[{$news_list[2]->news_id}]"></a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                         <div>
                             <div class="f20">[{$news_list[3]->ti_title}]</div>
                             <p class="line-clamp-f-1">[{$news_list[3]->de_desc}]</p>
-                            <a href="#"></a>
+                            <a href="/tin-tuc/[{$news_list[3]->news_id}]"></a>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div>
                             <div class="f20">[{$news_list[4]->ti_title}]</div>
                             <p class="line-clamp-f-1">[{$news_list[4]->de_desc}]</p>
-                            <a href="#"></a>
+                            <a href="/tin-tuc/[{$news_list[4]->news_id}]"></a>
                         </div>
                     </div>
                 </div>

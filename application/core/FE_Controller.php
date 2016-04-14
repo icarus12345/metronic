@@ -12,6 +12,7 @@ class FE_Controller extends CI_Controller {
         $this->load->model('dashboard/la/product_model');
         $this->load->model('dashboard/la/data_model');
         $this->product_model->status = 'true';
+        $this->news_model->status = 'true';
         $aCategory = $this->category_model->getCategoryByType('cake');
         if($aCategory){
             $this->assigns->listCategory=$aCategory;
@@ -28,16 +29,30 @@ class FE_Controller extends CI_Controller {
         // $this->assigns->languages = $this->iLanguage->load('all',$this->assigns->lang,true);
         
     }
+    function getProducts($catid=null,$start=0,$limit=10){
+        $this->product_model->select();
+        $this->db->limit($limit,$start);
+        $products = $this->product_model->getByCategory($catid, $this->assigns->lang);
+        $this->assigns->product_list = $products;
+    }
+    function getFormula($start=0,$limit=10){
+        $this->news_model->select();
+        $this->db
+            ->where('news_category',14)
+            ->limit($limit,$start);
+        $news = $this->news_model->getByType('news',$this->assigns->lang);
+        $this->assigns->formulas = $news;
+    }
     function getCatById($Id){
         foreach ($this->assigns->listCategory as $key => $value) {
             if($value->cat_id == $Id) return $value;
         }
         return null;
     }
-    function _get_new_product(){
+    function _get_new_product($num=12){
         $this->db
             ->where('product_isnew','true')
-            ->limit(12);
+            ->limit($num);
         $products = $this->product_model->getByType('cake',$this->assigns->lang);
         foreach ($products as $key => $value) {
             $products[$key]->cat = $this->getCatById($value->product_category);

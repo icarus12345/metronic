@@ -95,12 +95,17 @@
                 </div>
             </div>
             <div class="control-group pull-bottom">
-                <div>Link :</div>
-                <input type="text" class="form-control" 
-                    placeholder="Link"
-                    name="cat_link"
-                    value="[{$item->cat_link|quotes_to_entities|default:''}]"
-                    />
+                <div>Cover :</div>
+                <div class="input-append">
+                    <input type="text" class="form-control" 
+                        placeholder="Cover"
+                        name="cat_cover" id="cat_cover"
+                        value="[{$item->cat_cover|quotes_to_entities|default:''}]"
+                        />
+                        <span class="add-on" onclick="BrowseServer('#cat_cover')">
+                            <i class="fa fa-image"></i>
+                        </span>
+                </div>
             </div>
             <div class="row half">
                 <div class="col-xs-6 half">

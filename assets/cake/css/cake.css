@@ -140,11 +140,11 @@ a,a:link,a:active,a:hover{color: inherit;}
 }
 .dropdown-menu{font-size: inherit;}
 .btn.btn-white{background: #fff;border: 1px solid #ddd}
-.btn-default{
+.btn-default2{
     background: none;border: 2px solid #fafafa;
     border-radius: 17px;
 }
-.btn-default:hover,.btn-default:focus{
+.btn-default2:hover,.btn-default2:focus{
     background: #2ea3f2; color: #fff;border: 1px solid #FFF;
 }
 .btn-warning{background: #eeb510;border-color: #eeb510}
@@ -187,13 +187,38 @@ a,a:link,a:active,a:hover{color: inherit;}
     height: 100%;position: relative;
     overflow:hidden;
 }
+.formError{color: #d9534f;}
+.form-control.has-error{border-color:#E03D22;}
+.formErrorPopup.formError { z-index: 990; }
+.formErrorPopup.formError .formErrorContent { z-index: 991; line-height: 20px; }
+.formErrorPopup.formError .formErrorArrow { z-index: 996; }
+.formErrorPopup.formErrorInsideDialog.formError { z-index: 5000; }
+.formErrorInsideDialog.formError .formErrorContent { z-index: 5001; }
+.formErrorPopup.formErrorInsideDialog.formError .formErrorArrow { z-index: 5006; }
+.formErrorPopup.formError { position: absolute;  display: block; cursor: pointer; }
+.formErrorPopup.formError{
+    width: 16px;height: 16px;left: 0;margin-left: -16px;top: 0;margin-top: 5px;
+    background: url('/libraries/ui/themes/base/images/dialog_warning.png')
+}
+.formErrorPopup.formError .formErrorContent{
+    width: 224px;position: absolute;
+    padding: 2px 8px;
+    bottom:18px;
+    background: #fcf8e3;
+    border: 0px solid #ddd;
+    display: none;
+    line-height: 18px;
+    font-size: 12px;
+}
+.formErrorPopup.formError:hover .formErrorContent{display: block}
+
 h1,h2,h3,h4,p{margin:0}
 .table{font-size: inherit;margin: 0}
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
     vertical-align: middle;
 }
 .pagination{display: block;width: 100%;text-align: center;margin: 0;padding-bottom: 10px;}
-.pagination>li{display: inline-block;}
+.pagination>li{display: inline-block;margin: 0 2px;}
 .pagination>li>a,
 .pagination>li>span{display: inline-block;
   border-radius: 3px;
@@ -410,7 +435,7 @@ h1,h2,h3,h4,p{margin:0}
 .tags a{border: 1px solid #999;padding: 2px 4px;margin-right: 8px;display: inline-block;margin-bottom: 10px;}
 .page-title{line-height: 32px;padding: 10px 0}
 .box > div a{display: block;height: 32px;background: url(../imgs/readmore.png) no-repeat center;}
-.testimonies{position: relative;background: #fff;padding: 20px 20px 20px 100px;height: 168px}
+.testimonies{position: relative;background: #fff;padding: 20px 20px 20px 100px;height: 168px;margin-bottom: 20px;}
 .testimonies p{padding-bottom: 20px;}
 .footer-menu a{color: #999;display: inline-block;padding: 10px;}
 .footer-menu a:first-child{padding-left: 0}

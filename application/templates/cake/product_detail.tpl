@@ -20,6 +20,7 @@
 	                <div id="img-detail" class="nailthumb-figure-75 bg-cover" style="background-image:url([{$product->product_images[0]}])"></div>
 	            </div>
 	            <div class="space-line"></div>
+                [{if $product->product_images|count>1}]
 	            <div class="row-half">
 		            <div id="owl-product-thumb" class="owl-carousel" data-num="">
 		            	[{foreach $product->product_images 'img'}]
@@ -35,6 +36,7 @@
 		                [{/foreach}]
 		            </div>
 	            </div>
+                [{/if}]
             </div>
             <!-- Slider ] -->
             <div class="space-line"></div>
@@ -61,15 +63,31 @@
             <div class="space-line"></div>
             <h3 class="pr-price">
             	[{if $product->product_discount>0}]
-                <span class="line-through">[{if $product->product_prices}]
-                [{$product->product_prices.min[$lang].val|number_format:0:",":"."}][{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]-[{$product->product_prices.max[$lang].val|number_format:0:",":"."}][{/if}] Đ
+                [{if $product->product_prices}]
+                    <span class="line-through">
+                    [{$product->product_prices.min[$lang].val|number_format:0:",":"."}]
+                    </span>
+                    <sup>Đ</sup>
+                    [{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]
+                        -
+                        <span class="line-through">
+                        [{$product->product_prices.max[$lang].val|number_format:0:",":"."}]
+                        </span>
+                        <sup>Đ</sup>
+                    [{/if}]
                 [{/if}]
-                </span>
                 [{/if}]
                 <span class="[{if $product->product_discount>0}]pull-right[{/if}]">
                 [{if $product->product_prices}]
-                [{($product->product_prices.min[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}][{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]-[{($product->product_prices.max[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}][{/if}] Đ
+                    [{($product->product_prices.min[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}]
+                    <sup>Đ</sup>
+                    [{if $product->product_prices.min[$lang].val != $product->product_prices.max[$lang].val}]
+                        -
+                        [{($product->product_prices.max[$lang].val*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}]
+                        <sup>Đ</sup>
+                    [{/if}]
                 [{/if}]
+                </span>
                 </span>
             </h3>
             <div class="space-line"></div>
@@ -79,17 +97,39 @@
             </div>
             <div class="space-line"></div>
             <div class="space-line"></div>
-            <div class="prcode f16"><b>Mã sản phẩm : [{$product->product_code}]</b></div>
+            <div class="prcode f16"><b>Mã sản phẩm : <span class="notice-red">[{$product->product_code}]</span></b></div>
             <div class="space-line"></div>
             <div class="space-line"></div>
-            <div class="pr-quanlity">
-            	<b>Số Lượng Sản Phẩm</b> : 
-            	<div class="btn-group" role="group" aria-label="...">
-				  <button type="button" class="btn btn-in"><span class="fa fa-minus"></span></button>
-				  <button type="button" class="btn btn-num">1</button>
-				  <button type="button" class="btn btn-out"><span class="fa fa-plus"></span></button>
-				</div>
-            </div>
+            <table class="">
+                [{if $product->aPrices|count > 1}]
+                <tr>
+                    <td><b>Loại</b></td>
+                    <td>
+                        <select id="product_option" onchange="updatePrice()">
+                            [{foreach $product->aPrices 'price'}]
+                            <option value="[{$price->data_id}]">[{$price->data_data.title[$lang]}]</option>
+                            [{/foreach}]
+                        </select>
+                    </td>
+                </tr>
+                [{/if}]
+                <tr>
+                    <td><b>Giá </b></td>
+                    <td>
+                        <b id="product_price">[{$product->aPrices[0]->data_data.price[$lang]|number_format:0:",":"."}] <sup>Đ</sup></b>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Số Lượng </b></td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="...">
+                          <button type="button" class="btn btn-in" onclick="down()"><span class="fa fa-minus"></span></button>
+                          <button id="quantity" type="button" class="btn btn-num">1</button>
+                          <button type="button" class="btn btn-out" onclick="up()"><span class="fa fa-plus"></span></button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <div class="space-line"></div>
             <div class="space-line"></div>
             <div class="notice-red f16">
@@ -105,12 +145,41 @@
     </div>
 	    <div class="clearfix"></div>
     </div>
-
+    <style type="text/css">
+    table td{padding: 10px 0;padding-right: 20px}
+    </style>
+<link rel="stylesheet" type="text/css" href="/libraries/bootstrap/css/bootstrap-select.min.css"/>
+<script type="text/javascript" src="/libraries/bootstrap/js/bootstrap-select.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        if($('#product_option').length==1)
+            $('#product_option').selectpicker();
+    });
+    var quantity = 1;
+    function up(){
+        quantity++;
+        $('#quantity').html(quantity);
+    }
+    function down(){
+        if(quantity<=1) return;
+        quantity--;
+        $('#quantity').html(quantity);
+    }
+    function updatePrice(){
+        var priceid=$('#product_option').val();
+        $('#product_price').html(prices[priceid])
+        
+    }
+    var prices = {};
+    [{foreach $product->aPrices 'pri'}];
+    prices['[{$pri->data_id}]'] = '[{($pri->data_data.price[$lang]*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}] <sup>Đ</sup>';
+    [{/foreach}]
+</script>
     <div class="danh-gia">
     	<!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
 	    <li role="presentation" ><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Đánh giá (0)</a></li>
-	    <li role="presentation" class="active"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Mô tả ngắn gọn</a></li>
+	    <li role="presentation" class="active"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Thông tin sản phẩm</a></li>
 	  </ul>
 
 	  <!-- Tab panes -->

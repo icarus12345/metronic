@@ -103,6 +103,30 @@
                                 </div>
                             </div>  
                         </div>
+                        <div class="col-xs-6 half col-mb-6">
+                            <div class="control-group pull-bottom">
+                                <div>Cover:</div>
+                                <div class="input-append">
+                                    <input type="text" 
+                                        class="form-control validate[required,maxSize[255]]"
+                                        data-prompt-position="topLeft:0,20"
+                                        value="[{$item->news_cover|escape:'html'|default:''}]" 
+                                        name="news_cover" 
+                                        id="news_cover"
+                                        >
+                                    <span class="add-on popovers" 
+                                        data-container="body" 
+                                        data-trigger="hover" 
+                                        data-placement="top" 
+                                        data-toggle="popover"
+                                        data-content="<img style='max-width:100px' src='[{$item->news_cover|escape:'html'|default:'/libraries/images/image_available.gif'}]'/>" 
+                                        data-original-title="Image Preview"
+                                        onclick="BrowseServer('#news_cover')">
+                                        <i class="fa fa-image"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xs-6 half col-mb-3">
                             <div class="control-group pull-bottom">
                                 <div>Position :</div>

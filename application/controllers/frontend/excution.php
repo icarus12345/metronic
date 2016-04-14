@@ -21,7 +21,7 @@ class excution extends FE_Controller {
                 $output["message"]='Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.';
             if($params['contact_type']=='Contact us')
                 $output["message"]='Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.';
-            $this->sendLetter();
+            $output["sendletter"] = $this->sendLetter();
         }else{
             $output["message"]='Gửi yêu cầu thất bại ! Vui lòng thử lại sau.';
         }
@@ -42,39 +42,26 @@ class excution extends FE_Controller {
     // }
     function sendLetter(){
         $params = $this->input->post('params');
-        $url = "http://banhyeu.com/home/sendMessageFromBanhNgon";
+        $this->assigns->params = $params;
         if($params['contact_type']=='Order'){
-            $name = $params['contact_data'][0];
-            $quantity = $params['contact_data'][1];
-            $address = $params['contact_data'][2];
-            $contact_message = $params['contact_message'];
-            $msg = "Bạn có yêu cầu đặt hàng mới từ Bánh Ngon Online<br/>";
-            $msg .= "Đặt bánh <b>{$name}</b><br/>";
-            $msg .= "Số lượng <b>{$quantity}</b><br/>";
-            $msg .= "Địa chỉ <b>{$address}</b><br/>";
-            $msg .= "Nội dung <b>{$contact_message}</b><br/>";
+            $body = "";
         }else if($params['contact_type']=='Contact us'){
-            $address = $params['contact_data'];
-            $contact_subject = $params['contact_subject'];
-            $contact_message = $params['contact_message'];
-            $msg = "Bạn có yêu cầu mới từ Bánh Ngon Online<br/>";
-            $msg .= "Địa chỉ <b>{$address}</b><br/>";
-            $msg .= "Tiêu đề <b>{$contact_subject}</b><br/>";
-            $msg .= "Nội dung <b>{$contact_message}</b><br/>";
+            $body = $this->smarty->view( 'mailtemplate/anphu_contact', $this->assigns,true);
         }else{
-            $msg = "Bạn có yêu cầu mới từ Bánh Ngon Online<br/> Không rõ yêu cầu đặt hàng là gì.<br/>";
+            $body = "Bạn có yêu cầu mới từ Dụng Cụ Làm Bánh An Phú<br/> Không rõ yêu cầu đặt hàng là gì.<br/>";
         }
-        $msg .= "Vui lòng truy cập vô CMS(quản trị) Bánh Ngon Online để xem chi tiết yêu cầu.";
+        $subject = "Yêu cầu mới từ Dụng Cụ Làm Bánh An Phú lúc " . date('Y-m-d H:i');
+        $url = "http://banhyeu.com/excution/sendMessage";
         $post_params = array(
             'Params'=>array(
-                'Name'      => $params['contact_name'],
-                'Phone'     => $params['contact_phone'],
-                'Mail'      => $params['contact_email'],
-                'Message'   => $msg
+                'to'      => "khuongxuantruong@gmail.com,valikie.nhung@gmail.com",
+                'name'     => "An Phú",
+                'subject'      => $subject,
+                'body'   => $body
             )
         );
-        $rs = @do_post_request($url,$post_params);
-//         echo $rs;
+        $rs = do_post_request($url,$post_params);
+        return $rs;
     }
 }
 ?>

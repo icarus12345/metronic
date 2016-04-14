@@ -106,43 +106,122 @@ $(document).ready(function(){
 	}
     if($('.swipebox').length>=1)
         $('a.swipebox').swipebox({useCSS: true});
+    if($('#contactForm').length==1)
+    $('#contactForm').validationEngine({
+        'scroll': false,
+        'prettySelect' : true,
+        'isPopup' : true,
+        validateNonVisibleFields:true
+    });
 });
+$.fn.serializeObject = function() {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+function pendingOn(callback){
+    if($('#pending').length==0)
+        $('body').append('<div id="pending" class="spinner pending"></div>');
+    $('#pending').show(500,function(){
+        if(typeof callback == 'function')
+            callback();
+    });
+    pending++;
+}
+function pendingOff(){
+    pending--;
+    if(pending==0) $('#pending').hide(500);
+}
+function httpRequest(_option) {
+    var option = {
+        'url': null,
+        'data': null,
+        'datatype': "json",
+        'before': null,
+        'after': null,
+        'callback': null
+    };
+    if (_option)
+        $.each(_option, function(index, value) {
+            option[index] = value;
+        });
+    return {
+        'call': function(_url, _data, _callback) {
+            if (_url)
+                option.url = _url;
+            if (_data)
+                option.data = _data;
+            if (_callback)
+                option.callback = _callback;
+            if (typeof(option.before) === 'function')
+                option.before();
+            else {
+                pendingOn();
+            }
+            jQuery.ajax({
+                type: "POST",
+                //cache:false,
+                //timeout:10000,
+                data: option.data,
+                dataType: option.datatype,
+                url: option.url,
+                success: function(data_result) {
+                    if (typeof(option.callback) === 'function')
+                        option.callback(data_result);
+                    if (typeof(option.after) === 'function')
+                        option.after();
+                    else {
+                        pendingOff();
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    if (typeof(option.after) === 'function')
+                        option.after();
+                    else {
+                        pendingOff();
+                    }
+                    alert('Sorry. Your request could not be completed. Please check your input data and try again.');
+                }
+            });
+        }
+    };
+}
 $(window).resize(function(){
 	$('.nailthumb-image').each(function(){
 		$(this.parentNode).nailthumb();
 	});
 })
-function openPopup(){
-    $('#gallery-popup').dialog({
-        'modal': true,
-        /*autoOpen        : option.autoOpen,*/
-        'minwidth': '320px',
-        'dialogClass': 'gallery-popup',
-        'resizable': false,
-        'width': 'auto',
-        'title': null,
-        'closeOnEscape': true,
-        // 'position': 'top',
-        /*hide                : "explode",*/
-        'buttons': null,
-        'open': function(event, ui) {
-            $(event.target).dialog('widget')
-                .css({
-                    // 'position': 'fixed'
-                })
-                .position({
-                    'my': 'center',
-                    'at': 'center',
-                    'of': window
-                });
+function contactus(){
+    if( $('#contactForm').validationEngine('validate') === false){
+        alert('Please complete input data.');
+        return false;
+    }
+    var Params =$('#contactForm').serializeObject();
+    $('#contactForm button').hide();
+    $('.message').html('Đang xử lý...');
+    httpRequest({
+        'url': '/frontend/excution/sendMessage',
+        'data': {
+            "params": Params
         },
-        'close': function(event, ui) {
-            
-        },
-        'create': function() {
-            $(this).closest(".ui-dialog")
-                .find(".ui-dialog-titlebar")
-                .hide();
+        'callback': function(rs) {
+            if(rs.result<0){
+            }else{
+                document.contactForm.reset();
+                $('#contactForm button').show();
+            }
+            alert(rs.message);
+            $('.message').html('');
         }
-    });
-} 
+    }).call();
+}
