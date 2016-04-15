@@ -1,4 +1,4 @@
-<div>
+<div style="position: relative;z-index: 1;">
     <!-- Slider [ -->
     <div id="slider-Carousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -14,10 +14,10 @@
 
         <!-- Wrapper for slides [ -->
         <div class="carousel-inner" role="listbox">
-            [{assign 'f' true}]
+            [{assign 'f' 0}]
             [{foreach $sliders 'sl'}]
-            <div class="item [{if $f}]active[{/if}] bg-cover" style='background-image:url([{$sl->data_data.image}])'>
-                [{assign 'f' false}]
+            <div class="item [{if $f==0}]active[{/if}] bg-cover" style='background-image:url([{$sl->data_data.image}])'>
+                [{assign 'f' $f+1}]
                 <div class="container">
                     <div class="cap">
                         <div class="transition">
