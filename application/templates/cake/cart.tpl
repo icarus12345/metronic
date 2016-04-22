@@ -153,6 +153,7 @@
                 }else{
                     $('#option_'+id+'_'+optid).parents('tr').remove();;
                     $('#totalcash').html(rs.totalcash);
+                    $('#cart-num').html(rs.num);
                 }
             }
         }).call();

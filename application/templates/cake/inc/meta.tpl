@@ -1,36 +1,35 @@
 <html lang="en">
     <head>
         <title>[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]</title>
+        [{if $setting_data.meta_image.data_data.image && $setting_data.meta_image.data_data.image|strpos:'http' === false}]
+            [{assign 'meta_image' $setting_data.meta_image.data_data.image|base_url}]
+        [{/if}]
+        [{if $site.image && $site.image|strpos:'http' === false}]
+            [{assign 'meta_image' $site.image|base_url}]
+        [{/if}]
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
         <meta name="description" content="[{$site.desc|default:$setting_data.meta_description.data_data.value[$lang]}]">
         <meta name="keywords" content="[{if $site.tag}][{$site.tag}] [{/if}][{$setting_data.meta_keyword.data_data.value[$lang]}]">
-        <meta property="place:location:latitude" content="10.792048"/>
-        <meta property="place:location:longitude" content="106.679982"/>
-        <meta property="business:contact_data:street_address" content="Trần Quang Diệu"/>
-        <meta property="business:contact_data:locality" content="Hồ Chí Minh"/>
-        <meta property="business:contact_data:postal_code" content="70000"/>
-        <meta property="business:contact_data:country_name" content="TP. Hồ Chí Minh"/>
-        <meta property="business:contact_data:email" content="[{$setting_data.email.data_data.value[$lang]}]"/>
-        <meta property="business:contact_data:phone_number" content="[{$setting_data.phome.data_data.value[$lang]}]"/>
-        <meta property="business:contact_data:website" content="http://dungculambanhanphu.com"/>
+
+        
         <meta itemprop="name" content="[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]"/>
         <meta itemprop="description" content="[{$site.desc|default:$setting_data.meta_description.data_data.value[$lang]}]"/>
-        <meta itemprop="image" content="[{$site.image|default:$setting_data.meta_image.data_data.image}]"/>
+        <meta itemprop="image" content="[{$meta_image}]"/>
         <meta name="twitter:card" content="summary"/>  <!-- Card type -->
         <meta name="twitter:site" content="[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]"/>
         <meta name="twitter:title" content="[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]">
         <meta name="twitter:description" content="[{$site.desc|default:$setting_data.meta_description.data_data.value[$lang]}]"/>
         <meta name="twitter:creator" content="[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]"/>
-        <meta name="twitter:image:src" content="[{$site.image|default:$setting_data.meta_image.data_data.image}]"/>
+        <meta name="twitter:image:src" content="[{$meta_image}]"/>
         <meta name="twitter:domain" content="http://dungculambanhanphu.com"/>
         
         <!--<meta property="fb:admins" content="579622216,709634581">-->
         <!--<meta property="fb:app_id" content="368469929920029">-->
-        <meta property="og:url" content="http://dungculambanhanphu.com">
+        <meta property="og:url" content="[{current_url()}]">
         <meta property="og:type" content="article">
         <meta property="og:title" content="[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]">
-        <meta property="og:image" content="[{$site.image|default:$setting_data.meta_image.data_data.image}]"/>
+        <meta property="og:image" content="[{$meta_image}]"/>
         <meta property="og:description" content="[{$site.desc|default:$setting_data.meta_description.data_data.value[$lang]}]">
         <meta property="og:site_name" content="[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]">
         <meta property="article:author" content="[{$setting_data.fb_link.data_data.value[$lang]}]">

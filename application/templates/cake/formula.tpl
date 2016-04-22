@@ -63,11 +63,11 @@
                 </div>
                 [{/if}]
                 <div class="space-line"></div>
-                <div class="space-line"></div>
+                <div class="space-line-md"></div>
                 [{foreach $formulas 'news'}]
                 <div class="row">
                     <div class="col-sm-5">
-                        <a href="/cong-thuc-kinh-nghiem/[{$news->news_id}]" class="nailthumb" style="max-width:480px;margin:auto">
+                        <a href="/cong-thuc-kinh-nghiem/[{$news->als_alias}]" class="nailthumb" style="max-width:480px;margin:auto">
                             <div class="nailthumb-figure-9-16 bg-cover" 
                             title="[{$news->ti_title}]" 
                             style="background-image:url([{$news->news_thumb}])">
@@ -75,8 +75,9 @@
                         </a>
                     </div>
                     <div class="col-sm-7">
-                        <div class="f16"><a href="/cong-thuc-kinh-nghiem/[{$news->news_id}]">[{$news->ti_title}]</a></div>
-                        <div class="line-clamp-4">[{$news->de_desc}]</div>
+                        <div class="f16"><a href="/cong-thuc-kinh-nghiem/[{$news->als_alias}]"><b>[{$news->ti_title}]</b></a></div>
+                        <div class="space-line"></div>
+                        <div class="line-clamp-4 text-justify">[{$news->de_desc}]</div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="space-line"></div>

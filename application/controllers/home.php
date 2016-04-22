@@ -48,6 +48,21 @@ class home extends FE_Controller {
 		}
 		$this->smarty->view( 'cake/newsdetail', $this->assigns );
 	}
+	function formuladetail_alias($alias=''){
+		$this->_get_new_product();
+		$this->_get_discount_product();
+		$news_detail = $this->news_model->getNewsByAlias($alias);
+		if($news_detail){
+			$this->assigns->site = array(
+				'title'=>$news_detail->aTitle[$this->assigns->lang],
+				'desc'=>$news_detail->aDesc[$this->assigns->lang],
+				'image'=>$news_detail->news_thumb,
+				'tag'=>$news_detail->aTag[$this->assigns->lang]
+				);
+			$this->assigns->news_detail = $news_detail;
+		}
+		$this->smarty->view( 'cake/formuladetail', $this->assigns );
+	}
 	function formuladetail($id=''){
 		$this->_get_new_product();
 		$this->_get_discount_product();
@@ -78,6 +93,31 @@ class home extends FE_Controller {
 	function product_detail($id=''){
 		$this->_get_new_product();
 		$product = $this->product_model->getProductById($id);
+		if($product){
+			$product->product_prices=json_decode($product->product_prices,true);
+			$product->cat = $this->getCatById($product->product_category);
+			$product->product_images = explode(chr(10),$product->product_images);
+			$this->assigns->product = $product;
+			$this->db->limit(4);
+			$related_products = $this->product_model->getReleted($product,$this->assigns->lang);
+			if($related_products)
+				$related_products = array_merge($related_products,$this->assigns->products);
+			else $related_products = $this->assigns->products;
+			$this->assigns->related_products = $related_products;
+
+			$this->assigns->site = array(
+				'title'=>$product->aTitle[$this->assigns->lang],
+				'desc'=>$product->aDesc[$this->assigns->lang],
+				'image'=>$product->product_thumb,
+				'tag'=>$product->aTag[$this->assigns->lang]
+				);
+		}
+
+		$this->smarty->view( 'cake/product_detail', $this->assigns );
+	}
+	function product_detail_alias($alias=''){
+		$this->_get_new_product();
+		$product = $this->product_model->getProductByAlias($alias);
 		if($product){
 			$product->product_prices=json_decode($product->product_prices,true);
 			$product->cat = $this->getCatById($product->product_category);

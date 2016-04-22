@@ -81,6 +81,7 @@ class excution extends FE_Controller {
             $output["result"] = 1;
             $output["message"]='Đã xóa sp khỏi giỏ hàng !';
         }
+        $output['num'] = count($_SESSION['cart']);
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));
     }
@@ -143,6 +144,7 @@ class excution extends FE_Controller {
             $output["result"] = 1;
             $output["message"]='Đã thêm sản phẩm vào giỏ hàng !';
         }
+        $output['num'] = count($_SESSION['cart']);
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));
     }

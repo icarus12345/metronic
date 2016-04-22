@@ -18,7 +18,7 @@
     <div>
         <div class="contact-map">
             <div>
-                <div id="map" class="bg-cover" style="background-image:url([{$cat->cat_cover|default:'/assets/cake/imgs/cat.jpg'}])"></div>
+                <div id="map" class="bg-cover" style="background-image:url('[{$cat->cat_cover|default:'/assets/cake/imgs/cat.jpg'}]')"></div>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
                 <div class="row">
                     [{foreach $product_list key=i item=pr name=foo}]
                     <div class="col-sm-6 cake-item col-mb-6 col-md-4" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
-                        <a href="/san-pham/[{$pr->product_id}]/[{$pr->als_alias}]" class="nailthumb">
+                        <a href="/san-pham/[{$pr->als_alias}]" class="nailthumb">
                             <div class="nailthumb-figure-square">
                                 <div class="nailthumb-container">
                                     <img data-original="[{$pr->product_thumb}]" class="lazy" alt="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]"/>

@@ -22,7 +22,16 @@
             <div style="text-align:center;border:1px dashed #ccc;padding:80px 0">Đang cập nhật.</div>
             [{/if}]
             <div class="space-line"></div>
+            [{if $news_detail->aTag[$lang]}]
+            <div><b>Tags : </b>
+            [{foreach ','|explode:$news_detail->aTag[$lang] 'tag'}]
+            <span class="label label-primary">[{$tag}]</span>
+            [{/foreach}]
+            </div>
+            <div class="space-line-md"></div>
+            [{/if}]
             <div class="space-line"></div>
+
         </div>
         <div class="col-lg-3 col-md-4">
             [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/accordion-menu.tpl"}]

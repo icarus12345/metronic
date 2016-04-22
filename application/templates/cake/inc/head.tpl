@@ -58,7 +58,9 @@
                     <li><a href="/lien-he">Liên hệ</a></li>
                 </ul>
             </nav>
-            <a href="/gio-hang" id="cart-icon"><i class="fa fa-shopping-cart"></i> <span>Giỏ hàng</span></a>
+            <a href="/gio-hang" id="cart-icon">
+                <i class="fa fa-shopping-cart"></i> <span>Giỏ hàng</span> ( <span id="cart-num">[{$smarty.session.cart|count|default:0}]</span> )
+            </a>
         </div>
     </div>
     <!-- Menu ] -->

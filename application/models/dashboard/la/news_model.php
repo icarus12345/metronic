@@ -65,10 +65,11 @@ class news_model extends Core_Model {
         if($type!=null)$this->db->where('news_type',$type);
         $query=$this->db
             ->from('lang_news')
-            ->join('lang_title','news_token = ti_token')
-            ->join('lang_desc','news_token = de_token')
-            ->where('ti_lang',$lang)
-            ->where('de_lang',$lang)
+            ->join('lang_title',"news_token = ti_token and ti_lang = '$lang'",'left')
+            ->join('lang_desc',"news_token = de_token and de_lang = '$lang'",'left')
+            ->join('lang_alias',"news_token = als_token and als_lang = '$lang'",'left')
+            // ->where('ti_lang',$lang)
+            // ->where('de_lang',$lang)
             ->order_by('news_position','ASC')
             ->order_by('news_insert','DESC')
             ->get(); 
