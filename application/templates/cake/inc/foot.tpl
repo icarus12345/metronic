@@ -9,9 +9,9 @@
                             <div class="space-line"></div>
                             <ul>
                                 <li><a href="#">CỬA HÀNG DỤNG CỤ LÀM BÁNH AN PHÚ</a></li>
-                                <li><a href="#"><i class="fa fa-map-marker"></i> 108/46 Trần Quang Diệu P.10 Q.3 TP.HCM</a>
-                                <li><a href="#"><i class="fa fa-mobile"></i> 098 263 6618</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> hotro@dungculambanhanphu.com</a></li>
+                                <li><a href="#"><i class="fa fa-map-marker"></i> [{$setting_data.address.data_data.value[$lang]}]</a>
+                                <li><a href="#"><i class="fa fa-mobile"></i> [{$setting_data.phone.data_data.value[$lang]}]</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> [{$setting_data.email.data_data.value[$lang]}]</a></li>
                             </ul>
                             <div class="space-line"></div>
                             <div class="space-line"></div>
@@ -25,7 +25,7 @@
                                 [{/if}]
                             <div class="cake-item-small2">
                                 <div>
-                                    <a href="/san-pham/[{$pr->product_id}]" class="line-clamp-1 pr-title-small" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
+                                    <a href="/san-pham/[{$pr->als_alias}]" class="line-clamp-1 pr-title-small" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
                                         [{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]
                                     </a>
                                 </div>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="nailthumb">
                                     <div class="nailthumb-figure-square">
-                                        <a href="/san-pham/[{$pr->product_id}]" class="nailthumb-container" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
+                                        <a href="/san-pham/[{$pr->als_alias}]" class="nailthumb-container" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
                                             <img data-original="[{$pr->product_thumb}]" class="lazy" alt="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]"/>
                                         </a>
                                     </div>
@@ -97,7 +97,7 @@
         <div class="footer-menu">
             <div class="container">
                 <a href="/">Trang chủ</a>
-                <a href="#">Giỏ hàng</a>
+                <a href="/gio-hang">Giỏ hàng</a>
                 <a href="#">Tài Khoản của bạn</a>
                 <a href="/ve-chung-toi">Về Chúng Tôi</a>
                 <a href="/lien-he">Liên Hệ</a>

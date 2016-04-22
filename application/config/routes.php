@@ -57,12 +57,14 @@ $route["(san-pham|product)/page"] = "home/products/1";
 $route["(san-pham|product)/page/(:num)"] = "home/products/$2";
 $route["(san-pham|product)/(:num)"] = "home/product_detail/$2";
 $route["(san-pham|product)/(:num)/(:any)"] = "home/product_detail/$2";
+$route["(san-pham|product)/([a-z0-9-]{4,255})"] = "home/product_detail_alias/$2";
 $route["(ve-chung-toi|about)"] = "home/about";
 $route["(huong-dan|manual)"] = "home/manual";
 $route["(cong-thuc-kinh-nghiem|formula)"] = "home/formula";
 $route["(cong-thuc-kinh-nghiem|formula)/(:num)"] = "home/formuladetail/$2";
 $route["(cong-thuc-kinh-nghiem|formula)/page"] = "home/formula/1";
 $route["(cong-thuc-kinh-nghiem|formula)/page/(:num)"] = "home/formula/$2";
+$route["(cong-thuc-kinh-nghiem|formula)/([a-z0-9-]{4,255})"] = "home/formuladetail_alias/$2";
 $route["(tin-tuc|news)/(:num)"] = "home/newsdetail/$2";
 
 $route["cong-thuc"] = "home/contentdetail/1";

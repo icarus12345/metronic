@@ -10,8 +10,8 @@
                 <li><a href="/lien-he">Liên hệ</a></li>
             </ul>
             <ul class="top-menu pull-right">
-                <li><a href="#"><span class="fa fa-phone"></span> (+84) 982 636 618</a></li>
-                <li><a href="#"><span class="fa fa-envelope-o"></span> hotro@dungculambanhanphu.com</a></li>
+                <li><a href="#"><span class="fa fa-phone"></span> [{$setting_data.phone.data_data.value[$lang]}]</a></li>
+                <li><a href="#"><span class="fa fa-envelope-o"></span> [{$setting_data.email.data_data.value[$lang]}]</a></li>
                 <li><a href="#"><span class="fa fa-language"></span> Ngôn ngữ</a></li>
             </ul>
         </div>
@@ -21,7 +21,7 @@
     <div class="nav-menu">
         <div class="container">
             <div class="navbar-header">
-                <a href="/" class="navbar-brand">
+                <a href="/" class="navbar-brand" style="background-image:url([{$setting_data.logo.data_data.image}])">
                     
                 </a>
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navigation">
@@ -33,7 +33,6 @@
                 </button>
             </div>
             <nav id="navigation" class="collapse navbar-collapse bs-navbar-collapse" role="navigation" style="overflow: hidden" >
-
                 <ul class="nav navbar-nav">
                     <li><a href='/'>Trang chủ</a></li>
                     <li class="has-submenu">
@@ -59,6 +58,9 @@
                     <li><a href="/lien-he">Liên hệ</a></li>
                 </ul>
             </nav>
+            <a href="/gio-hang" id="cart-icon">
+                <i class="fa fa-shopping-cart"></i> <span>Giỏ hàng</span> ( <span id="cart-num">[{$smarty.session.cart|count|default:0}]</span> )
+            </a>
         </div>
     </div>
     <!-- Menu ] -->

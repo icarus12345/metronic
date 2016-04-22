@@ -88,6 +88,7 @@ class product_model extends Core_Model {
         $query=$this->db
             ->from('lang_product')
             ->join('lang_title',"product_token = ti_token and ti_lang = '$lang'",'left')
+            ->join('lang_alias',"product_token = als_token and als_lang = '$lang'",'left')
             // ->join('lang_data','product_id = data_token','left')
             // ->where('ti_lang',$lang)
             ->order_by('product_insert','DESC')

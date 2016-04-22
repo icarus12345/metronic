@@ -4,7 +4,7 @@
                         <div class="col-md-12 col-sm-6 ">
                             <div class="cake-item-small" title="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]">
                                 <div>
-                                    <a href="/san-pham/[{$pr->product_id}]" class="line-clamp-1 pr-title-small">
+                                    <a href="/san-pham/[{$pr->als_alias}]" class="line-clamp-1 pr-title-small">
                                     [{$pr->ti_title}]
                                     [{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]
                                     ([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="nailthumb">
                                     <div class="nailthumb-figure-square">
-                                        <a href="/san-pham/[{$pr->product_id}]" class="nailthumb-container">
+                                        <a href="/san-pham/[{$pr->als_alias}]" class="nailthumb-container">
                                             <img data-original="[{$pr->product_thumb}]" class="lazy" alt="[{$pr->ti_title}][{if $pr->product_prices && ($pr->product_prices.min[$lang].val != $pr->product_prices.max.vi.val)}]([{$pr->product_prices.min[$lang].tit}]/[{$pr->product_prices.max[$lang].tit}])[{/if}]"/>
                                         </a>
                                     </div>
