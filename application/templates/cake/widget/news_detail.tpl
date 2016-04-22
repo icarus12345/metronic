@@ -7,6 +7,7 @@
 </div>
 <div class="space-line"></div>
 <div class="space-line"></div>
+[{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/like-button.tpl"}]
 <div class="">
     <div class="row">
         <div class="col-lg-9 col-md-8">

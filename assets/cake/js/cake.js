@@ -129,10 +129,11 @@ $.fn.serializeObject = function() {
     });
     return o;
 };
+var pending = 0;
 function pendingOn(callback){
     if($('#pending').length==0)
         $('body').append('<div id="pending" class="spinner pending"></div>');
-    $('#pending').show(500,function(){
+    $('#pending').show(0,function(){
         if(typeof callback == 'function')
             callback();
     });
@@ -190,7 +191,8 @@ function httpRequest(_option) {
                     else {
                         pendingOff();
                     }
-                    alert('Sorry. Your request could not be completed. Please check your input data and try again.');
+                    toastr['warning']('Hệ thống đang bận, vui lòng thử lại sau.', 'Thông báo !');
+                    //alert('Sorry. Your request could not be completed. Please check your input data and try again.');
                 }
             });
         }
@@ -203,7 +205,8 @@ $(window).resize(function(){
 })
 function contactus(){
     if( $('#contactForm').validationEngine('validate') === false){
-        alert('Please complete input data.');
+        toastr['warning']('Vui lòng điền đầy đủ thông tin.', 'Thông báo !');
+        //alert('Please complete input data.');
         return false;
     }
     var Params =$('#contactForm').serializeObject();
@@ -216,11 +219,14 @@ function contactus(){
         },
         'callback': function(rs) {
             if(rs.result<0){
+                toastr['info'](rs.message, 'Thông báo !');
+                $('#contactForm button').show();
             }else{
                 document.contactForm.reset();
+                toastr['success'](rs.message, 'Thông báo !');
                 $('#contactForm button').show();
             }
-            alert(rs.message);
+            // alert(rs.message);
             $('.message').html('');
         }
     }).call();

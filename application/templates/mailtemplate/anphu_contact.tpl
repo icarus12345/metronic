@@ -8,29 +8,29 @@
         <table style="font-size:13px;width:100%">
             <tr>
                 <td>Họ và Tên</td>
-                <td>[{$params.contact_name}]</td>
+                <td>[{$params.contact_name|escape:'html'}]</td>
             </tr>
             <tr>
                 <td>Số điện thoại</td>
-                <td>[{$params.contact_phone}]</td>
+                <td>[{$params.contact_phone|escape:'html'}]</td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td>[{$params.contact_email}]</td>
+                <td>[{$params.contact_email|escape:'html'}]</td>
             </tr>
             <tr>
                 <td>Địa chỉ</td>
-                <td>[{$params.contact_data}]</td>
+                <td>[{$params.contact_data|escape:'html'}]</td>
             </tr>
             <tr>
                 <td>Tiêu đề</td>
-                <td>[{$params.contact_subject}]</td>
+                <td>[{$params.contact_subject|escape:'html'}]</td>
             </tr>
             <tr>
                 <td colspan="2">Nội Dung</td>
             </tr>
             <tr>
-                <td colspan="2"><div style="background: #f0f0f0;padding:8px;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word">[{$params.contact_message}]</div></td>
+                <td colspan="2"><div style="background: #f0f0f0;padding:8px;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word">[{$params.contact_message|escape:'html'}]</div></td>
             </tr>
         </table>
         </div>

@@ -27,7 +27,15 @@ class FE_Controller extends CI_Controller {
         }
         // $this->iLanguage =new CI_Language();
         // $this->assigns->languages = $this->iLanguage->load('all',$this->assigns->lang,true);
+        $this->getDataSetting();
         
+    }
+    function getDataSetting(){
+        $data = $this->data_model->getByType('setting');
+        foreach ($data as $value) {
+            $setting_data[$value->data_name] = (array)$value;
+        }
+        $this->assigns->setting_data = $setting_data;
     }
     function getProducts($catid=null,$start=0,$limit=10){
         $this->product_model->select();

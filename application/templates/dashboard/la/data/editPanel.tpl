@@ -36,7 +36,19 @@
             <input type="hidden" name="data_type" id="data_type" value="[{$item->data_type|default:$type|default:''}]"/>
             <input type="hidden" name="data_token" id="data_token" value="[{$item->data_token|default:$token|default:''}]"/>
             <div class="row half">
-                <div class="col-mb-12 half">
+                <div class="col-mb-4 half">
+                    <div class="pull-bottom control-group">
+                        <div>Name :(*)</div>
+                        <input 
+                            type="text"
+                            class="form-control validate[required,minSize[4],maxSize[255]]" 
+                            placeholder="Name"
+                            name="data_name"
+                            data-prompt-position="topLeft:0,20"
+                            value="[{$item->data_name}]"/>
+                    </div>
+                </div>
+                <div class="col-mb-8 half">
                     <div class="pull-bottom control-group">
                         <div>Title :(*)</div>
                         <div class="lang-controls">
@@ -73,7 +85,7 @@
                                 [{if $aCategory|default:null}]
                                 [{foreach from=$aCategory item=c}]
                                     <option 
-                                        data-content="<span style='padding-left: [{$c->cat_level*20}]px;'>[{$c->ti_title|escape}]</span>"
+                                        data-content="<span class='lang-controls' style='padding-left: [{$c->cat_level*20}]px;'>[{foreach $aLang 'la'}]<span data-lang='[{$la->lang_short}]' class='[{if $la->lang_short!=$aLang[0]->lang_short}]invisible[{/if}]'>[{$c->title[$la->lang_short]|escape}]</span>[{/foreach}]</span>"
                                         [{if $c->cat_id == $item->data_category}]selected="1"[{/if}]
                                         value="[{$c->cat_id|default:''}]">
                                             [{$c->ti_title|default:''}]

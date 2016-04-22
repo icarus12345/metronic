@@ -5,6 +5,7 @@
 <div style="background:#f7f7f7">
 <div class="space-line"></div>
 <div class="space-line"></div>
+[{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/like-button.tpl"}]
         <div class="container">
             <div class="row">
                 [{if $news_list[0]}]

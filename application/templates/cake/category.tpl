@@ -25,6 +25,7 @@
     <div class="space-line"></div>
     <div class="space-line"></div>
     [{/if}]
+    [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/like-button.tpl"}]
         <div class="row">
             <div class="col-lg-9 col-md-8">
                 [{if $cat}]

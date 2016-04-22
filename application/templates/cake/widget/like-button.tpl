@@ -5,7 +5,7 @@
         </span>
         <!-- Đặt thẻ này vào nơi bạn muốn Nút +1 kết xuất. -->
         <span class="google-plus pull-left">
-            <div class="g-plusone" -data-href="http://banhngononline.com" data-size="medium"></div>
+            <div class="g-plusone"  data-size="medium"></div>
         </span>
         <span class="google-plus pull-left">
             <div class="g-plus" data-action="share"  data-annotation="bubble"></div>
@@ -30,3 +30,5 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     </div>
 </div>
+<div class="space-line"></div>
+<div class="space-line"></div>

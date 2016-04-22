@@ -26,11 +26,12 @@
                 <div id="map" class="bg-cover" style="background-image:url([{$news_detail->news_thumb|default:'/assets/cake/imgs/about.jpg'}])"></div>
             </div>
             <p class="space-line"></p>
-            <p>08/46 Trần Quang Diệu P.10 Q.3 TP.HCM</p>
+            <p>[{$setting_data.address.data_data.value[$lang]}]</p>
         </div>
     </div>
     <div class="space-line"></div>
     <div class="space-line"></div>
+    [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/like-button.tpl"}]
     <div class="">
         <div class="row">
             <div class="col-lg-9 col-md-8">

@@ -116,7 +116,7 @@
                 <tr>
                     <td><b>Giá </b></td>
                     <td>
-                        <b id="product_price">[{$product->aPrices[0]->data_data.price[$lang]|number_format:0:",":"."}] <sup>Đ</sup></b>
+                        <b id="product_price">[{($product->aPrices[0]->data_data.price[$lang]*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}] <sup>Đ</sup></b>
                     </td>
                 </tr>
                 <tr>
@@ -133,14 +133,22 @@
             <div class="space-line"></div>
             <div class="space-line"></div>
             <div class="notice-red f16">
-            	<span class="fa fa-phone"></span> <b>Đặt hàng qua số điện thoại : 098 263 6618</b>
+            	<span class="fa fa-phone"></span> <b>Đặt hàng qua số điện thoại : [{$setting_data.phone.data_data.value[$lang]}]</b>
             </div>
             <div class="space-line-md"></div>
             <div class="space-line-md"></div>
             <div>
-            <button class="btn btn-info btn-lg btn-block">THÊM VÀO GIỎ HÀNG</button>
+            <button class="btn btn-info btn-lg btn-block" onclick="addtocart()">THÊM VÀO GIỎ HÀNG</button>
             </div>
             <div class="space-line-md"></div>
+            [{if $product->aTag[$lang]}]
+            <div><b>Tags : </b>
+            [{foreach ','|explode:$product->aTag[$lang] 'tag'}]
+            <span class="label label-primary">[{$tag}]</span>
+            [{/foreach}]
+            </div>
+            <div class="space-line-md"></div>
+            [{/if}]
 	    </div>
     </div>
 	    <div class="clearfix"></div>
@@ -150,13 +158,16 @@
     </style>
 <link rel="stylesheet" type="text/css" href="/libraries/bootstrap/css/bootstrap-select.min.css"/>
 <script type="text/javascript" src="/libraries/bootstrap/js/bootstrap-select.min.js"></script>
+
+
+
 <script type="text/javascript">
-    $(document).ready(function(){
-        if($('#product_option').length==1)
-            $('#product_option').selectpicker();
-    });
     var quantity = 1;
     function up(){
+        if(quantity>=10){
+            toastr['warning']('Số lượng sản phẩm giới hạn là 10.', 'Thông báo !');
+            return;
+        }
         quantity++;
         $('#quantity').html(quantity);
     }
@@ -168,13 +179,43 @@
     function updatePrice(){
         var priceid=$('#product_option').val();
         $('#product_price').html(prices[priceid])
+        option = priceid;
+    }
+    function addtocart(){
         
+        httpRequest({
+            'url': '/frontend/excution/addtocart',
+            'data': {
+                "params": {
+                    id:'[{$product->product_id}]',
+                    option: option,
+                    quantity:quantity
+                }
+            },
+            'callback': function(rs) {
+                if(rs.result<0){
+                    toastr['info'](rs.message, 'Thông báo !');
+                }else{
+                    toastr['info'](rs.message, 'Thông báo !');
+                }
+            }
+        }).call();
     }
     var prices = {};
+    var option;
+    [{if $product->aPrices}]
     [{foreach $product->aPrices 'pri'}];
     prices['[{$pri->data_id}]'] = '[{($pri->data_data.price[$lang]*(100-$product->product_discount|default:0)/100)|number_format:0:",":"."}] <sup>Đ</sup>';
     [{/foreach}]
+    option = [{$product->aPrices[0]->data_id}];
+    [{/if}]
+
+    $(document).ready(function(){
+        if($('#product_option').length==1)
+            $('#product_option').selectpicker();
+    });
 </script>
+    [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/like-button.tpl"}]
     <div class="danh-gia">
     	<!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">

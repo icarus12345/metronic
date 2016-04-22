@@ -16,7 +16,7 @@
                     <div id="map" style="position:absolute;width:100%;height:100%"></div>
                 </div>
                 <p class="space-line"></p>
-                <p>08/46 Trần Quang Diệu P.10 Q.3 TP.HCM</p>
+                <p>[{$setting_data.address.data_data.value[$lang]}]</p>
             </div>
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
             <script type="text/javascript">
@@ -142,10 +142,10 @@
                     var infowindow = new google.maps.InfoWindow();
                     var content_info ='\
                           <div style="width:360px;font-size:13px;">\
-                              <img src="/assets/cake/images/logo-min.png" style="float:left;margin-right:5px"/>\
+                              <img src="[{$setting_data.logo_min.data_data.image}]" style="float:left;margin-right:5px"/>\
                               <div><h4 style="margin:0;padding:4px 0;color:#ee4034">Dụng cụ làm bánh An Phú</h4></div>\
-                              <div>Phone : 098 263 6618<br/>Email: hotro@dungculambanhanphu.com</div>\
-                              <div>Đ/c : <i>108/46 Trần Quang Diệu P.10 Q.3 TP.HCM</i></div>\
+                              <div>Phone : [{$setting_data.phone.data_data.value[$lang]}]<br/>Email: [{$setting_data.email.data_data.value[$lang]}]</div>\
+                              <div>Đ/c : <i>[{$setting_data.address.data_data.value[$lang]}]</i></div>\
                           </div>';
                     infowindow.setPosition(new google.maps.LatLng(lat, lon));
                     infowindow.setContent(content_info);
@@ -166,6 +166,7 @@
     </div>
     <div class="space-line"></div>
     <div class="space-line"></div>
+    [{include file=$smarty.const.APPPATH|cat:"templates/cake/widget/like-button.tpl"}]
     <div class="">
         <div class="row">
             <div class="col-lg-9 col-md-8">
@@ -174,12 +175,12 @@
                 <div class="space-line"></div>
                 <div><b>CỬA HÀNG DỤNG CỤ LÀM BÁNH AN PHÚ</b></div>
                 <div class="space-line"></div>
-                <div><i class="fa fa-map-marker"></i> 108/46 Trần Quang Diệu P.10 Q.3 TP.HCM</div>
-                <div><i class="fa fa-mobile"></i> 098 263 6618</a></div>
-                <div><i class="fa fa-envelope"></i> hotro@dungculambanhanphu.com</a></div>
+                <div><i class="fa fa-map-marker"></i> [{$setting_data.address.data_data.value[$lang]}]</div>
+                <div><i class="fa fa-mobile"></i> [{$setting_data.phone.data_data.value[$lang]}]</a></div>
+                <div><i class="fa fa-envelope"></i> [{$setting_data.email.data_data.value[$lang]}]</a></div>
                 <div class="space-line"></div>
                 <div class="space-line"></div>
-                <div><b>Gửi Yêu Cầu Tới banhngononline</b></div>
+                <div><b>Gửi Yêu Cầu Tới Dụng Cụ Làm Bánh An Phú</b></div>
                 <div class="space-line"></div>
                 <div class="space-line"></div>                                 
                 <form name="contactForm" id="contactForm" target="integration_asynchronous">

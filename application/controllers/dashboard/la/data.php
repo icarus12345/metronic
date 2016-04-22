@@ -161,7 +161,8 @@ class data extends CP_Controller {
                     {$this->table}.{$this->prefix}category,
                     {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,
-                    {$this->table}.{$this->prefix}status
+                    {$this->table}.{$this->prefix}status,
+                    {$this->table}.{$this->prefix}lock
                 ",
             "from"      =>"
                 FROM `{$this->table}`
@@ -192,7 +193,8 @@ class data extends CP_Controller {
                     {$this->table}.{$this->prefix}category,
                     {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,
-                    {$this->table}.{$this->prefix}status
+                    {$this->table}.{$this->prefix}status,
+                    {$this->table}.{$this->prefix}lock
                 ",
             "from"      =>"
                 FROM `{$this->table}`

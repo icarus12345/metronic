@@ -13,7 +13,9 @@
             value="[{$item->contact_id|default:''}]" 
             id="EntryId"
             />
-        
+        [{if $item->contact_type=='Order'}]
+        [{$item->contact_data}]
+        [{else}]
         <table class="table-full-width" style="width:100%">
             <tr>
                 <td>Name</td>
@@ -30,12 +32,7 @@
             <tr>
                 <td>Address</td>
                 <td class="">
-                    [{if $item->contact_type=='Order'}]
-                        [{assign 'data' $item->contact_data|json_decode:true}]
-                        [{$data.address}]
-                    [{else}]
-                        [{$item->contact_data}]
-                    [{/if}]
+                    [{$item->contact_data}]
                 </td>
             </tr>
             <tr>
@@ -54,6 +51,7 @@
             </tr>
 
         </table>
+        [{/if}]
 [{if $action.ispopup!=1}]
     </div>
 </div>

@@ -32,10 +32,10 @@
         </div>
         <div class="clearfix"></div>
         [{/if}] 
-        <form name="entryForm" id="entryForm" target="integration_asynchronous">
+        <form name="entryForm" id="entryForm" target="integration_asynchronous" style="margin-left: -5px;margin-right: -5px;margin-top: -5px;margin-bottom: -5px;">
             <input type="hidden" name="product_type" id="product_type" 
                 value="[{$item->product_type|default:$type|default:''}]"/>
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs g-tap" role="tablist">
                 <li role="presentation" class="active">
                     <a href="#product-info-tab" aria-controls="product-info-tab" role="tab" data-toggle="tab">Information</a>
                 </li>
