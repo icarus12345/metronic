@@ -43,6 +43,12 @@ class category extends CP_Controller {
             case '1':
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/category/editPanelList', $this->assigns, true );
                 break;
+            case '2':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/category/editPanelListLang', $this->assigns, true );
+                break;
+            case '4':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/category/editPanelLang', $this->assigns, true );
+                break;
             case 'm':
             case '3':
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/category/editPanelMenu', $this->assigns, true );

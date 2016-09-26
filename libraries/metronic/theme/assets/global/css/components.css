@@ -13924,6 +13924,10 @@ a:hover{
   -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out;-o-transition: all 0.2s ease-in-out;transition: all 0.2s ease-in-out;
 }
 .space-line{height: 10px}
+.lang-controls{position: relative;}
+.lang-controls > .invisible{border:0 !important;margin: 0 !important;padding:0 !important;width: 1px !important;height:1px !important;position: absolute !important;opacity: 0.001;top: 0;left: 0;z-index: 0}
+.btn-xs, .btn-group-xs > .btn{border-radius: 0}
+
 .jqx-menu-item-arrow-right-selected-metro, 
 .jqx-icon-arrow-right-selected-metro{
   background-image: url(/libraries/jqwidgets/styles/images/metro-icon-right.png)
