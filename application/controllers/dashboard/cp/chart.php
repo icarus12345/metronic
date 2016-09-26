@@ -10,7 +10,7 @@ class chart extends CP_Controller {
     function index(){
 
     }
-    function week($table='',$row='0',$date='',$type=null){
+    function week($table='',$row='',$date='',$type=null){
         // $row = 1;
         // $table = '_product';
         // $date = '2015-07-10';

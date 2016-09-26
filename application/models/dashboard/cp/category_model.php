@@ -4,6 +4,7 @@ class category_model extends Core_Model {
 
     function __construct(){
         parent::__construct('category', 'cat_', 'id');
+        //$this->language_model = new language_model();
     }
     function getCategoryById($id,$langs){
         $info = $this->onGet($id);
@@ -104,10 +105,10 @@ class category_model extends Core_Model {
         
         $this->datatables_config = array(
             "table" => "`category`",
-            "select" => "SELECT SQL_CALC_FOUND_ROWS `category`.*,`lang_title`.* ",
+            "select" => "SELECT SQL_CALC_FOUND_ROWS `category`.*,`languagestitle`.* ",
             "from" => "
                 FROM `category` 
-                    INNER JOIN `lang_title`
+                    INNER JOIN `languagestitle`
                         ON (`ti_lang` = '$lang' AND `ti_token`=`cat_token`)
             ",
             "where" => "$where",

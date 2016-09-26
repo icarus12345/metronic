@@ -21,7 +21,7 @@ class excution extends FE_Controller {
                 $output["message"]='Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.';
             if($params['contact_type']=='Contact us')
                 $output["message"]='Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.';
-            $output["sendletter"] = $this->sendLetter();
+            $this->sendLetter();
         }else{
             $output["message"]='Gửi yêu cầu thất bại ! Vui lòng thử lại sau.';
         }
@@ -42,150 +42,39 @@ class excution extends FE_Controller {
     // }
     function sendLetter(){
         $params = $this->input->post('params');
-        $this->assigns->params = $params;
+        $url = "http://banhyeu.com/home/sendMessageFromBanhNgon";
         if($params['contact_type']=='Order'){
-            $body = "";
+            $name = $params['contact_data'][0];
+            $quantity = $params['contact_data'][1];
+            $address = $params['contact_data'][2];
+            $contact_message = $params['contact_message'];
+            $msg = "Bạn có yêu cầu đặt hàng mới từ Bánh Ngon Online<br/>";
+            $msg .= "Đặt bánh <b>{$name}</b><br/>";
+            $msg .= "Số lượng <b>{$quantity}</b><br/>";
+            $msg .= "Địa chỉ <b>{$address}</b><br/>";
+            $msg .= "Nội dung <b>{$contact_message}</b><br/>";
         }else if($params['contact_type']=='Contact us'){
-            $body = $this->smarty->view( 'mailtemplate/anphu_contact', $this->assigns,true);
+            $address = $params['contact_data'];
+            $contact_subject = $params['contact_subject'];
+            $contact_message = $params['contact_message'];
+            $msg = "Bạn có yêu cầu mới từ Bánh Ngon Online<br/>";
+            $msg .= "Địa chỉ <b>{$address}</b><br/>";
+            $msg .= "Tiêu đề <b>{$contact_subject}</b><br/>";
+            $msg .= "Nội dung <b>{$contact_message}</b><br/>";
         }else{
-            $body = "Bạn có yêu cầu mới từ Dụng Cụ Làm Bánh An Phú<br/> Không rõ yêu cầu đặt hàng là gì.<br/>";
+            $msg = "Bạn có yêu cầu mới từ Bánh Ngon Online<br/> Không rõ yêu cầu đặt hàng là gì.<br/>";
         }
-        $subject = "Yêu cầu mới từ Dụng Cụ Làm Bánh An Phú lúc " . date('Y-m-d H:i');
-        $url = "http://banhyeu.com/excution/sendMessage";
-        $to = $this->assigns->setting_data['sendmail']['data_data']['value']['vi'];
+        $msg .= "Vui lòng truy cập vô CMS(quản trị) Bánh Ngon Online để xem chi tiết yêu cầu.";
         $post_params = array(
             'Params'=>array(
-                'to'      => $to,
-                'name'     => "An Phú",
-                'subject'      => $subject,
-                'body'   => $body
+                'Name'      => $params['contact_name'],
+                'Phone'     => $params['contact_phone'],
+                'Mail'      => $params['contact_email'],
+                'Message'   => $msg
             )
         );
-        $rs = do_post_request($url,$post_params);
-        return $rs;
-    }
-    function removecart(){
-        $output["result"] = -1;
-        $output["message"]='Hệ thống đang bận, vui lòng thử lại sau !';
-        $params = $this->input->post('params');
-        $item_id = $params['id'] .'_'. $params['option'];
-        $totalcash = 1*$_SESSION['totalcash'];
-        if(!empty($_SESSION['cart'][$item_id])){
-            $product = $_SESSION['cart'][$item_id];
-            $cash = $product->cash;
-            $totalcash -= $cash;
-            $_SESSION['totalcash'] = $totalcash;
-            unset($_SESSION['cart'][$item_id]);
-            $output["totalcash"] = number_format($totalcash,0,",",".");
-            $output["cash"] = 0;
-            $output["result"] = 1;
-            $output["message"]='Đã xóa sp khỏi giỏ hàng !';
-        }
-        $output['num'] = count($_SESSION['cart']);
-        $this->output->set_header('Content-type: application/json');
-        $this->output->set_output(json_encode($output));
-    }
-    function addtocart(){
-        $output["result"] = -1;
-        $output["message"]='Hệ thống đang bận, vui lòng thử lại sau !';
-        $params = $this->input->post('params');
-        $item_id = $params['id'] .'_'. $params['option'];
-        $quantity = (int)$params['quantity'];
-        $totalcash = 1*$_SESSION['totalcash'];
-        if(empty($_SESSION['cart'][$item_id])){
-            $product = $this->product_model->getProductById($params['id']);
-            if($product){
-                $product->product_prices=json_decode($product->product_prices,true);
-                unset($product->aContent);
-                unset($product->aDesc);
-                unset($product->aTag);
-                unset($product->aAlias);
-                unset($product->product_prices);
-                $cash = 0;
-                foreach ($product->aPrices as $pri) {
-                    if($pri->data_id == $params['option']){
-                        $product->option = $pri;
-                        $price=$pri->data_data['price'][$this->assigns->lang];
-                        $cash = $price * $quantity;
-                        break;
-                    }
-                }
-                if((int)$product->product_discount>0){
-                    $cash *= (100-(int)$product->product_discount)/100;
-                }
-                $product->quantity = $quantity;
-                $product->cash = $cash;
-                $totalcash += $cash;
-
-                $_SESSION['totalcash'] = $totalcash;
-                $_SESSION['cart'][$item_id] = $product;
-                $output["totalcash"] = number_format($totalcash,0,",",".");
-                $output["cash"] = number_format($product->cash,0,",",".");
-                $output["result"] = 1;
-                $output["message"]='Đã thêm sản phẩm vào giỏ hàng !';
-            }else{
-                $output["message"]='Sản phẩm không tồn tại !';
-            }
-        }else{
-            $product = $_SESSION['cart'][$item_id];
-            $product->quantity += $quantity;
-            $pri = $product->option;
-            $price=$pri->data_data['price'][$this->assigns->lang];
-            $cash = $price * $quantity;
-            if((int)$product->product_discount>0){
-                $cash *= (100-(int)$product->product_discount)/100;
-            }
-            $product->cash += $cash;
-            $totalcash += $cash;
-            $output["totalcash"] = number_format($totalcash,0,",",".");
-            $output["cash"] = number_format($product->cash,0,",",".");
-            $_SESSION['totalcash'] = $totalcash;
-            $_SESSION['cart'][$item_id] = $product;
-            $output["result"] = 1;
-            $output["message"]='Đã thêm sản phẩm vào giỏ hàng !';
-        }
-        $output['num'] = count($_SESSION['cart']);
-        $this->output->set_header('Content-type: application/json');
-        $this->output->set_output(json_encode($output));
-    }
-    function checkout(){
-        $output["result"] = -1;
-        $output["message"]='Hệ thống đang bận, vui lòng thử lại sau !';
-        $params = $this->input->post('params');
-        $order_number = strtoupper(random_string('alnum', 6));
-        $this->assigns->params = $params;
-        $this->assigns->order_number = $order_number;
-        $body = $this->smarty->view( 'mailtemplate/anphu_order', $this->assigns,true);
-        $params['contact_data'] = $body;
-        if($this->contact_model->onInsert($params)){
-            $output["result"] = 1;
-            $output["message"]='Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.';
-            $output["html"] = $body;
-            $subject = "Đơn hàng mới từ Dụng Cụ Làm Bánh An Phú lúc " . date('Y-m-d H:i');
-            $url = "http://banhyeu.com/excution/sendMessage";
-            $to = $this->assigns->setting_data['sendmail']['data_data']['value']['vi'];
-            $post_params = array(
-                'Params'=>array(
-                    'to'      => $to,
-                    'name'     => "An Phú",
-                    'subject'      => $subject,
-                    'body'   => $body
-                )
-            );
-            $rs = do_post_request($url,$post_params);
-            $output["sendletter"] = $rs;
-            unset($_SESSION['cart']);
-            unset($_SESSION['totalcash']);
-        }else{
-            $output["message"]='Đặt hàng thất bại ! Vui lòng thử lại sau.';
-        }
-        
-
-        $this->output->set_header('Content-type: application/json');
-        $this->output->set_output(json_encode($output));
-    }
-    function debug(){
-        print_r($this->assigns->setting_data);
+        $rs = @do_post_request($url,$post_params);
+//         echo $rs;
     }
 }
 ?>

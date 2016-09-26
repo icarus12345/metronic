@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <div class="add-to-cart-ico" onclick="dialog('order-dialog');document.getElementById('order_cake_name').value='[{$foo->product_title|escape:'html'}]'"></div>
+                                <div class="add-to-cart-ico" onclick="dialog('order-dialog');document.getElementById('order_cake_name').value='[{$foo->product_title|escape:'html'}] - [{'thong-tin-banh/'|cat:$foo->product_alias|base_url}]'"></div>
                             </div>
                             <div class="product-cap">
                                 <a href="/thong-tin-banh/[{$foo->product_alias|escape:'html'}]"><div class="p-name line-clamp-1">[{$foo->product_title|escape:'html'}]</div></a>

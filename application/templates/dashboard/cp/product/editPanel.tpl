@@ -81,7 +81,7 @@
                                         <i class="fa fa-image"></i>
                                     </span>
                                 </div>
-                            </div>
+                            </div>  
                         </div>
                         <div class="col-mb-6 half">
                             <div class="pull-bottom control-group">

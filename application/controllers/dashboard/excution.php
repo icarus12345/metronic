@@ -57,15 +57,7 @@ class excution extends Core_Controller {
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));
     }
-    function loadscript(){
-        $path = $_GET['path'];
-        $unit = $_GET['unit'];
-        $this->setAction($unit);
-        $type = $_GET['type'];
-        $this->output->set_header('Content-type: application/x-javascript');
-        $this->smarty->view( $path, $this->assigns );
 
-    }
     function logquery($y,$m,$d){
         $file=$this->input->post('e');
         if(!$file) $file ='';

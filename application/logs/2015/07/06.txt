@@ -1,0 +1,91 @@
+
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Binding Table</div>
+                        <div class="text"><div class='sql-message'>1064 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `_category`  WHERE `cat_type` = 'cake'  ORDER BY `cat_value` ASC LIMIT 0, 1' at line 9</div><div class='sql-query'>
+                SELECT SQL_CALC_FOUND_ROWS 
+                    _category.cat_id,
+                    _category.cat_title,
+                    _category.cat_parent,
+                    _category.cat_insert,
+                    _category.cat_update,
+                    _category.cat_status,
+                    _category.cat_lock,
+                  FROM `_category`  WHERE `cat_type` = 'cake'  ORDER BY `cat_value` ASC LIMIT 0, 1000</div></div>
+                        <span class="timestamp">2015-07-06 19:20:53 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'contact_data[name' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `contact_data[name`, `contact_data[quantity`, `contact_name`, `contact_phone`, `contact_email`, `contact_data[address`, `contact_desc`, `contact_type`, `contact_data`) VALUES (NOW(), 'Bánh Sinh Nhật Doreamon', '1', 'Trường Khương', '0985 747 240', 'truongkhuong@gmail.com', '181/19 Hồng Lạc, P.10, Q.Tân Bình', 'Giao đúng giờ nhé. 4hPM', 'order', 'null')</div></div>
+                        <span class="timestamp">2015-07-06 20:36:12 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'contact_data[name' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `contact_data[name`, `contact_data[quantity`, `contact_name`, `contact_phone`, `contact_email`, `contact_data[address`, `contact_desc`, `contact_type`, `contact_data`) VALUES (NOW(), 'Bánh Sinh Nhật Doreamon', '1', 'Trường Khương', '0985 747 240', 'truongkhuong@gmail.com', '181/19 Hồng Lạc, P.10, Q.Tân Bình', 'Giao đúng giờ nhé. 4hPM', 'order', 'null')</div></div>
+                        <span class="timestamp">2015-07-06 20:37:03 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'contact_data[name' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `contact_data[name`, `contact_data[quantity`, `contact_name`, `contact_phone`, `contact_email`, `contact_data[address`, `contact_desc`, `contact_type`, `contact_data`) VALUES (NOW(), 'Bánh Sinh Nhật Doreamon', '1', 'Trường Khương', '0985 747 240', 'truongkhuong@gmail.com', '181/19 Hồng Lạc, P.10, Q.Tân Bình', 'Giao đúng giờ nhé. 4hPM', 'order', 'null')</div></div>
+                        <span class="timestamp">2015-07-06 20:37:38 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'contact_data[' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `contact_data[`, `contact_name`, `contact_phone`, `contact_email`, `contact_desc`, `contact_type`, `contact_data`) VALUES (NOW(), '181/19 Hồng Lạc, P.10, Q.Tân Bình', 'Trường Khương', '0985747240', 'khuongxuantruong@gmail.com', 'Giả vờ đặt bánh thôi nha ^^ ', 'order', '{\"name\":null,\"quantity\":null,\"address\":null}')</div></div>
+                        <span class="timestamp">2015-07-06 20:43:10 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'contact_data[' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `contact_data[`, `contact_name`, `contact_phone`, `contact_email`, `contact_desc`, `contact_type`, `contact_data`) VALUES (NOW(), '181/19 Hồng Lạc, P.10, Q.Tân Bình', 'Trường Khương', '0985747240', 'khuongxuantruong@gmail.com', 'Giả vờ đặt bánh thôi nha ^^ ', 'order', '{\"name\":null,\"quantity\":null,\"address\":null}')</div></div>
+                        <span class="timestamp">2015-07-06 20:43:17 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column '0' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `contact_data`) VALUES (NOW(), Array, Array, Array, Array, Array, Array, Array, Array, '{\"name\":null,\"quantity\":null,\"address\":null}')</div></div>
+                        <span class="timestamp">2015-07-06 20:45:01 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'contact_desc' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `contact_data`, `contact_name`, `contact_phone`, `contact_email`, `contact_desc`, `contact_type`) VALUES (NOW(), '{\"name\":\"B\\u00e1nh doreamon\",\"quantity\":\"1\",\"address\":\"181\\/19 H\\u1ed3ng L\\u1ea1c, p.10, Q.T\\u00e2n B\\u00ecnh\"}', 'Trường Khương', '0985747240', 'truongkhuong@gmail.com', 'Giả vờ đặt bánh thôi nha ^^', 'order')</div></div>
+                        <span class="timestamp">2015-07-06 20:46:57 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>
+            <div class="inbox-item clearfix">
+                <div class="media"> 
+                    <div class="media-body">
+                        <div class="media-heading name">Insert Entry</div>
+                        <div class="text"><div class='sql-message'>1054 - Unknown column 'contact_desc' in 'field list'</div><div class='sql-query'>INSERT INTO `_contactus` (`contact_insert`, `contact_data`, `contact_name`, `contact_phone`, `contact_email`, `contact_desc`, `contact_type`) VALUES (NOW(), '{\"name\":\"B\\u00e1nh doreamon\",\"quantity\":\"1\",\"address\":\"181\\/19 H\\u1ed3ng L\\u1ea1c, p.10, Q.T\\u00e2n B\\u00ecnh\"}', 'Trường Khương', '0985747240', 'truongkhuong@gmail.com', 'Giả vờ đặt bánh thôi nha ^^', 'order')</div></div>
+                        <span class="timestamp">2015-07-06 20:48:48 - Trường Khương</span> 
+                    </div>
+                </div> 
+            </div>

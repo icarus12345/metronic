@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width" />
         <link href="/libraries/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <script src="/libraries/bootstrap/js/jquery-1.9.1.min.js"></script>
+        <!-- <script src="/libraries/bootstrap/js/jquery-1.9.1.min.js"></script> -->
         <style type="text/css">
             *{
                 margin: 0;

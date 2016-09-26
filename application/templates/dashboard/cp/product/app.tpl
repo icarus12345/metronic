@@ -714,7 +714,8 @@ var APP = function() {
         httpRequest({
             'url': '/dashboard/cp/product/imageCheck',
             'data': {
-                'img': $('#product_thumb').val()
+                'img': $('#product_thumb').val(),
+                'id': $('#EntryId').val()
             },
             'callback': function(rsdata) {
                 if (rsdata.result < 0) {

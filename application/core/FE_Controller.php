@@ -6,72 +6,44 @@ class FE_Controller extends CI_Controller {
         $this->smarty->caching = false;
         $this->assigns = new stdClass();
         $this->load->library('pagination');
-        $this->load->model('dashboard/la/lang_model');
-        $this->load->model('dashboard/la/category_model');
-        $this->load->model('dashboard/la/news_model');
-        $this->load->model('dashboard/la/product_model');
-        $this->load->model('dashboard/la/data_model');
-        $this->product_model->status = 'true';
-        $this->news_model->status = 'true';
-        $aCategory = $this->category_model->getCategoryByType('cake');
-        if($aCategory){
-            $this->assigns->listCategory=$aCategory;
-            $aCategory = $this->category_model->buildTree($aCategory);
-            $this->assigns->aCategory=$aCategory;
+        $this->load->model('front/category_model');
+        $this->load->model('front/image_model');
+        $this->load->model('front/product_model');
+        $this->load->model('front/album_model');
+        $this->load->model('front/content_model');
+        $this->load->model('front/data_model');
+        $this->assigns->settting_data = $this->data_model->loadData('scake');
+        $this->assigns->fecog = array(
+            'slider'=> 'slider',
+            'cake'=> 'cake',
+            'bsn'=> '419',
+            'bc'=> '420',
+            'bv'=> '421',
+            'bcupket'=> '422',
+            'knownCate'=>array(
+                'banh-sinh-nhat',
+                'banh-cuoi',
+                'banh-ve',
+                'banh-cupcake'
+            )
+        );
+        if(!$this->input->is_ajax_request()){
+            $this->assigns->cates = $this->category_model->onGetByType($this->assigns->fecog['cake']);
+            $this->assigns->sliders = $this->image_model->onGetByType($this->assigns->fecog['slider']);
         }
-        $pos = strpos($_SERVER['SERVER_NAME'], 'en.');
-        if ($pos === false) {
-            $this->assigns->lang = 'vi';
-        }else{
-            $this->assigns->lang = 'en';
-        }
+
+        // $pos = strpos($_SERVER['SERVER_NAME'], 'en.');
+        // if ($pos === false) {
+        //     $this->assigns->lang = 'vi';
+        // }else{
+        //     $this->assigns->lang = 'en';
+        // }
         // $this->iLanguage =new CI_Language();
         // $this->assigns->languages = $this->iLanguage->load('all',$this->assigns->lang,true);
-        $this->getDataSetting();
         
     }
-    function getDataSetting(){
-        $data = $this->data_model->getByType('setting');
-        foreach ($data as $value) {
-            $setting_data[$value->data_name] = (array)$value;
-        }
-        $this->assigns->setting_data = $setting_data;
-    }
-    function getProducts($catid=null,$start=0,$limit=10){
-        $this->product_model->select();
-        $this->db->limit($limit,$start);
-        $products = $this->product_model->getByCategory($catid, $this->assigns->lang);
-        $this->assigns->product_list = $products;
-    }
-    function getFormula($start=0,$limit=10){
-        $this->news_model->select();
-        $this->db
-            ->where('news_category',14)
-            ->limit($limit,$start);
-        $news = $this->news_model->getByType('news',$this->assigns->lang);
-        $this->assigns->formulas = $news;
-    }
-    function getCatById($Id){
-        foreach ($this->assigns->listCategory as $key => $value) {
-            if($value->cat_id == $Id) return $value;
-        }
-        return null;
-    }
-    function _get_new_product($num=12){
-        $this->db
-            ->where('product_isnew','true')
-            ->limit($num);
-        $products = $this->product_model->getByType('cake',$this->assigns->lang);
-        foreach ($products as $key => $value) {
-            $products[$key]->cat = $this->getCatById($value->product_category);
-        }
-        $this->assigns->products = $products;
-    }
-    function _get_discount_product(){
-        $this->db->limit(10);
-        $discount_products = $this->product_model->getByDiscount($this->assigns->lang);
-        $this->assigns->discount_products = $discount_products;
-    }
+    
+    
     function nothing(){}
     function _addView($table='',$prefix='',$id){
         if($_SESSION["addviews"][date('Y-m-d-H-i')]["$table$id"]) return;
@@ -94,7 +66,7 @@ class FE_Controller extends CI_Controller {
         $config['total_rows'] = $this->assigns->total_rows = $total_rows;
         $config['per_page'] = $perpage;
         $config['cur_page'] = $page;
-        $config['num_links'] = 5;
+        $config['num_links'] = 3;
         $config['use_page_numbers'] = true;
         // $config['uri_segment'] = 4;
         $config['full_tag_open'] = '<ul class="pagination">';

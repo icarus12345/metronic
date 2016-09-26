@@ -21,13 +21,23 @@ class product extends CP_Controller {
 
     }
     function imageCheck($img=''){
-        //$img=$this->input->post('img');
+        $img=$this->input->post('img');
+        $id=$this->input->post('id');
+        //$img = '/data/image/banh-sinh-nhat-dep-nhat-15.jpg';
+        if(!empty($id)){
+            $this->db->where('product_id <>',$id);
+        }
         $product = $this->product_model->onGetByThumb($img);
         if($product){
             $output["product"] = $product;    
+            $output["result"] = -1;
+            $output["message"] = '<div>Hình ảnh này đã được sử dụng.</div>';
+            $output["message"] .= '<div>'.$product->product_title.'</div>';
+            $output["message"] .= '<img width="80" src="'.$product->product_thumb.'"/>';
+        }else{
+            $output["result"] = 1;
+            $output["message"]='Hình ảnh này chưa được sử dụng !';
         }
-        $output["result"] = 1;
-        $output["message"]='SUCCESS !';
         $output["htmlreponse"]=$htmlreponse;
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode($output));

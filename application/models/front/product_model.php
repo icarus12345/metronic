@@ -81,7 +81,24 @@ class product_model extends Core_Model {
             //->where('product_insert <= ', date('Y-m-d H:i:s'))
             ->limit($perpage, ($page - 1) * $perpage)
             ->get();
-        return $query->result();
+        $data = $query->result();
+        foreach ($data as $key => $value) {
+            $thumb = str_replace('/data/', '/data/thumbs/', $data[$key]->product_thumb);
+            if(file_exists(APPPATH . '..' .$thumb)){
+                $data[$key]->product_thumb = $thumb; 
+            }
+        }
+        return $data;
+    }
+    function onGetByType2($type=''){
+        $data = $this->onGetByType($type);
+        foreach ($data as $key => $value) {
+            $thumb = str_replace('/data/', '/data/thumbs/', $data[$key]->product_thumb);
+            if(file_exists(APPPATH . '..' .$thumb)){
+                $data[$key]->product_thumb = $thumb; 
+            }
+        }
+        return $data;
     }
 }
 ?>

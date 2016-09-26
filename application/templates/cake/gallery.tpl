@@ -28,7 +28,7 @@
             <div class="album-item">
                 <div>
                     <div class="nailthumb">
-                        <a  class="swipebox" rel="[{$foo->album_alias|escape:'html'}]" title="[{$foo->album_title|escape:'html'}]" href="[{$img|escape:'html'}]">
+                        <a  class="swipebox" -rel="[{$foo->album_alias|escape:'html'}]" title="[{$foo->album_title|escape:'html'}]" href="[{$img|escape:'html'}]">
                             <div class="nailthumb-figure">
                                 <div class="nailthumb-container">
                                     <img src="[{$foo->album_thumb|escape:'html'}]" class="lazy" title="[{$foo->album_title|escape:'html'}]" alt="[{$foo->album_title|escape:'html'}]"/>
@@ -40,7 +40,7 @@
                         </a>
                         [{if $images}]
                         [{for $n=1 to count($images)-1}]
-                            <a class="swipebox" rel="[{$foo->album_alias|escape:'html'}]" title="[{$foo->album_title|escape:'html'}]" href="[{$images[$n]|escape:'html'}]"></a>
+                            <a class="swipebox" -rel="[{$foo->album_alias|escape:'html'}]" title="[{$foo->album_title|escape:'html'}]" href="[{$images[$n]|escape:'html'}]"></a>
                         [{/for}]
                         [{/if}]
                     </div>

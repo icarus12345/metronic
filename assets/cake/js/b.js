@@ -26,6 +26,9 @@ $(document).ready(function(){
         'isPopup' : true,
         validateNonVisibleFields:true
     });
+    $('.nailthumb-container>img').one('error', function() {
+        this.src = ('/libraries/images/image_available.gif')
+    });
 })
 var pending = 0;
 $.fn.serializeObject = function() {
@@ -137,7 +140,7 @@ function order(){
         return false;
     }
     var Params =$('#orderForm').serializeObject();
-    $('#orderForm .dfoot').hide();
+    $('.dfoot').hide();
     httpRequest({
         'url': '/frontend/excution/sendMessage',
         'data': {
@@ -146,7 +149,7 @@ function order(){
         'callback': function(rs) {
             if(rs.result<0){
             }else{
-                $('#orderForm .dfoot').show();
+                $('.dfoot').show();
                 document.orderForm.reset();
                 dialog('order-dialog');
             }
