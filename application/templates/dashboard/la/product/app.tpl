@@ -685,7 +685,8 @@ var APP = function() {
     	this.createGrid();
     };
     this.choosePhotos = function(){
-        openKCFinderMulti(function(files){
+        var imagepath =$('#product_imagepath').val();
+        openKCFinderMultiByPath('dir=image/product/'+imagepath,function(files){
             for(var i in files){
                 $('#sortable').append(
                     '<li class="ui-state-default">'+

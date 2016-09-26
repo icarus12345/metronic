@@ -30,6 +30,7 @@ class category_model extends Core_Model {
         return $info;
     }
     function getCategoryByType($type=null,$lang='en'){
+        
         if($type!=null)$this->db->where('cat_type',$type);
         $query=$this->db
             ->select('lang_category.*, ti_lang, ti_title, de_lang, de_desc, als_lang, als_alias')

@@ -9,8 +9,12 @@
         [{/if}]
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="/assets/cake/images/favi.png" type="image/x-icon" />
         <meta name="description" content="[{$site.desc|default:$setting_data.meta_description.data_data.value[$lang]}]">
-        <meta name="keywords" content="[{if $site.tag}][{$site.tag}] [{/if}][{$setting_data.meta_keyword.data_data.value[$lang]}]">
+        [{*assign 'tags' ','|explode:($site.tag|default:$setting_data.meta_keyword.data_data.value[$lang])*}]
+        [{assign 'tags' ','|explode:($setting_data.meta_keyword.data_data.value[$lang])}]
+        [{assign 'keywords' array_unique($tags)}]
+        <meta name="keywords" content="[{','|implode:$keywords}]">
 
         
         <meta itemprop="name" content="[{if $site.title}][{$site.title}] - [{/if}][{$setting_data.meta_title.data_data.value[$lang]}]"/>
@@ -78,5 +82,18 @@
           ga('send', 'pageview');
 
         </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/57860a3c3b610ecd144f1080/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
     </head>
     <body>

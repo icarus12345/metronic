@@ -342,7 +342,7 @@ function openKCFinderByPath(path, element) {
                 'status=0, toolbar=0, location=0, menubar=0, directories=0, resizable=1, scrollbars=0, width=700, height=500'
             );
         }else{
-            $('#kc-finder-popup .kc-finder-content').html('<iframe name="kcfinder_iframe" src="'+base_url + 'libraries/kcfinder/browse.php?lang=en'+path+'" style="width:100%;height:100%;position:absolute;top:0;left:0;border:0;margin:0;padding:0"/>')
+            $('#kc-finder-popup .kc-finder-content').html('<iframe name="kcfinder_iframe" src="'+base_url + 'libraries/kcfinder/browse.php?lang=en&'+path+'" style="width:100%;height:100%;position:absolute;top:0;left:0;border:0;margin:0;padding:0"/>')
             $('#kc-finder-popup').show();
         }
     } catch (e) {

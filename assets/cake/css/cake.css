@@ -105,7 +105,7 @@ body.nav-collapsed .navbar{height: 100%;}
 }
 .pull-top{padding-top: 10px;} 
 .pull-bottom{padding-bottom: 10px}
-.container{width: auto;max-width: 1160px;position: relative}
+.container{width: auto;max-width: 1180px;position: relative}
 .navbar-toggle .icon-bar{background: #333}
 .navbar-toggle{margin-right: 4px;}
 .navbar-collapse{padding-right: 0;padding-left: 0;border:0;}
@@ -372,7 +372,7 @@ h1,h2,h3,h4,p{margin:0}
     left:2px;
     right:2px;
     position: absolute;
-    /*background: rgba(0,0,0,.1);*/
+    background: rgba(255,255,255,.6);
     text-align: center;
 }
 #slider-Carousel .cap>div>div>div{
@@ -423,8 +423,13 @@ h1,h2,h3,h4,p{margin:0}
 .col-sm-4 .box{max-width: 580px;position: relative;margin: auto;padding: 280px 20px 40px 20px;margin-bottom: 20px}
 .box > div{text-align: center;background:rgba(255,255,255,.6);padding: 10px;}
 .stars{color: #2ea3f2}
+.cake-item{padding-top: 10px;}
+.product-info{padding-top: 10px;padding-bottom: 10px;height: 120px;margin: auto;
+    max-width: 320px;}
 .cake-item .nailthumb-mark{background: url(../imgs/view.png) no-repeat center rgba(255,255,255,.5);}
 .cake-item .nailthumb{margin: auto;max-width: 320px;box-shadow: 0 0 2px #ddd}
+.cake-item:hover{box-shadow: 0 0 2px #2098d1;}
+.cake-item:hover .nailthumb{box-shadow:none;}
 .cake-item-small{
     height: 60px;
     padding-right: 70px;
@@ -995,3 +1000,4 @@ h1,h2,h3,h4,p{margin:0}
     
     .hidden-xs{display: none !important}
 }
+/*body>div[class*='_tab']{display: none !important;}*/

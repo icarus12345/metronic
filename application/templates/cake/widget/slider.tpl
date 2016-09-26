@@ -27,7 +27,7 @@
                                     <h3 class="f24">[{$sl->data_data.title.vi}]</h3>
                                     <p class="line-clamp-f-3 hiden-mb hidden-xs text-left word-wrap">[{$sl->data_data.desc.vi}]</p>
                                     <br/>
-                                    <button class="btn btn-default2">ĐẶT HÀNG NGAY</button>
+                                    <a href="[{$sl->data_data.link}]" class="btn btn-default2">ĐẶT HÀNG NGAY</a>
                                 </div>
                             </div>
                         </div>

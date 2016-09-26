@@ -35,6 +35,8 @@
         <form name="entryForm" id="entryForm" target="integration_asynchronous" style="margin-left: -5px;margin-right: -5px;margin-top: -5px;margin-bottom: -5px;">
             <input type="hidden" name="product_type" id="product_type" 
                 value="[{$item->product_type|default:$type|default:''}]"/>
+                <input type="hidden" name="product_imagepath" id="product_imagepath" 
+                value="[{$item->product_imagepath|default:$imagepath|default:''}]"/>
             <ul class="nav nav-tabs g-tap" role="tablist">
                 <li role="presentation" class="active">
                     <a href="#product-info-tab" aria-controls="product-info-tab" role="tab" data-toggle="tab">Information</a>
@@ -110,7 +112,7 @@
                                         data-toggle="popover"
                                         data-content="<img style='max-width:100px' src='[{$item->product_thumb|escape:'html'|default:'/libraries/images/image_available.gif'}]'/>" 
                                         data-original-title="Image Preview"
-                                        onclick="BrowseServer('#product_thumb')">
+                                        onclick="openKCFinderByPath('dir=image/product/[{$item->product_imagepath|default:$imagepath|default:''}]','#product_thumb')">
                                         <i class="fa fa-image"></i>
                                     </span>
                                 </div>

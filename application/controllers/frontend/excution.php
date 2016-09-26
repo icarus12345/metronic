@@ -185,7 +185,8 @@ class excution extends FE_Controller {
         $this->output->set_output(json_encode($output));
     }
     function debug(){
-        print_r($this->assigns->setting_data);
+        $tos = explode(",", $this->assigns->setting_data['sendmail']['data_data']['value']['vi']);
+        var_dump($tos);
     }
 }
 ?>

@@ -3,6 +3,7 @@ class Core_Controller extends CI_Controller {
     public $assigns;
     public function __construct($table = '', $prefix = '', $colid = 'id') {
         parent::__construct();
+        $this->db->query('SET SQL_BIG_SELECTS=1');
         $this->table = $table;
         $this->prefix = $prefix;
         $this->colid = $colid;

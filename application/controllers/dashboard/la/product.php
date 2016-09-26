@@ -13,7 +13,48 @@ class product extends CP_Controller {
         
     }
     function index(){
-
+//         $data = $this->product_model->getByType('cake');
+//         $p = $data[0];
+//         foreach ($data as $p) {
+//             $path = $p->product_imagepath;
+//             $imgpath = APPPATH.'/..' . $p->product_thumb;
+//             if(substr_count($p->product_thumb,'/')==3)
+//                 $thumb_img = str_replace('/data/image/','/data/image/product/'.$path.'/',$p->product_thumb);
+//             else 
+//                 $thumb_img = $p->product_thumb;
+//             // $thumb_img = str_replace('/data/image/product/'.$path.'/','/data/image/',$p->product_thumb);
+//             $thumb_imgpath = APPPATH.'/..' . $thumb_img;
+//             if(file_exists($imgpath)){
+//                 // echo '##';
+//                 // if (copy($imgpath,$thumb_imgpath)) {
+//                 //     unlink($imgpath);
+//                 // }
+//             }
+//                 $images = preg_split('/\r\n|[\r\n]/',$p->product_images);
+//                 $product_images = array();
+//                 foreach ($images as $i) {
+//                     $imgpath = APPPATH.'/..' . $i;
+//                     $nimgpath = str_replace('/data/image/','/data/image/product/'.$path.'/',$imgpath);
+//                     if(substr_count($i,'/')==3){
+//                         $product_images[] = str_replace('/data/image/','/data/image/product/'.$path.'/',$i);
+//                     }else
+//                         $product_images[] = $i;
+//                     // if(file_exists($imgpath)){
+//                     //     if (copy($imgpath,$nimgpath)) {
+//                     //         unlink($imgpath);
+//                     //     }
+//                     // }
+//                 }
+//                 // $product_images = str_replace('/data/image/','/data/image/product/'.$path.'/',$p->product_images);
+//                 // $product_images = str_replace('/data/image/product/'.$path.'/','/data/image/',$p->product_images);
+//                 $aParams = array(
+//                     'product_thumb' =>$thumb_img,
+//                     'product_images' => implode('
+// ',$product_images)
+//                 );
+//                 print_r($aParams);
+//                 $this->Core_Model->onUpdate($p->product_id,$aParams);
+//         }
     }
     private function setAction($unit){
         $this->assigns->unit = $unit;
@@ -108,6 +149,19 @@ class product extends CP_Controller {
         $Id=$this->input->post('Id');
         if($Id){
             $this->assigns->item = $this->product_model->getProductById($Id);
+            $path = $this->assigns->item->product_imagepath;
+            $dir = APPPATH.'/../data/image/product/'.$path;
+            $this->assigns->imagepath = $path;
+            if(!file_exists($dir)){
+                mkdir($dir, 0755);
+            }
+        }else{
+            $path = strtolower(random_string('alpha', 6));
+            $dir = APPPATH.'/../data/image/product/'.$path;
+            $this->assigns->imagepath = $path;
+            if(!file_exists($dir)){
+                mkdir($dir, 0755);
+            }
         }
         switch ($layout){
             
@@ -425,6 +479,7 @@ class product extends CP_Controller {
                     {$this->table}.{$this->prefix}insert,
                     {$this->table}.{$this->prefix}update,
                     {$this->table}.{$this->prefix}token,
+                    {$this->table}.{$this->prefix}view,
                     {$this->table}.{$this->prefix}status,
                     {$this->table}.{$this->prefix}isnew,
                     {$this->table}.{$this->prefix}lock,

@@ -1,3 +1,4 @@
+<div>
 <header id="navbar" class="navbar -navbar-fixed-top" role="banner">
     <!-- top head [ -->
     <div class="top-header visible-lg">
@@ -43,7 +44,7 @@
                             <ul>
                                 <li class="group-header"><span>[{$cat->title[$lang]}]</span></li>
                                 [{foreach $cat->cat_children 'subcat'}]
-                                <li><a href='/danh-muc/[{$subcat->cat_id}]/'>[{$subcat->title[$lang]}]</a></li>
+                                <li><a href='/danh-muc/[{$subcat->alias[$lang]}]/'>[{$subcat->title[$lang]}]</a></li>
                                 [{/foreach}]
                             </ul>
                             [{/foreach}]
