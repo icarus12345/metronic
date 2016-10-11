@@ -70,6 +70,9 @@ class product extends CP_Controller {
             case '1':
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/product/editPanel', $this->assigns, true );
                 break;
+            case '2':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/product/editPanelLang', $this->assigns, true );
+                break;
             default :
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/product/editPanel', $this->assigns, true );
         }

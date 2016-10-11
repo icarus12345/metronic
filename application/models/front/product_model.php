@@ -98,6 +98,16 @@ class product_model extends Core_Model {
                 $data[$key]->product_thumb = $thumb; 
             }
         }
+        if(LANG == 'en'){
+            foreach ($data as $key => $value) {
+                $data[$key]->product_title = $data[$key]->product_title_en;
+                $data[$key]->product_title2 = $data[$key]->product_title2_en;
+                $data[$key]->product_alias = $data[$key]->product_alias_en;
+                $data[$key]->product_desc = $data[$key]->product_desc_en;
+                $data[$key]->image_content = $data[$key]->image_content_en;
+                $data[$key]->image_content2 = $data[$key]->image_content2_en;
+            }
+        }
         return $data;
     }
 }

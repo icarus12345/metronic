@@ -31,7 +31,17 @@ class content_model extends Core_Model {
             ->where('content_status', 'true')
             ->where('content_id', $id)
             ->get();
-        return $query->row();
+        $row = $query->row();
+        if(LANG == 'en'){
+            if($row){
+                $row->content_title = $row->content_title_en;
+                $row->content_alias = $row->content_alias_en;
+                $row->content_desc = $row->content_desc_en;
+                $row->content_tag = $row->content_tag_en;
+                $row->content_content = $row->content_content_en;
+            }
+        }
+        return  $row;
     }
     function onGetByAlias($alias=''){
         $query = $this->db

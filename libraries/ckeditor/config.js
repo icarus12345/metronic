@@ -60,6 +60,7 @@ CKEDITOR.editorConfig = function(config) {
     config.filebrowserUploadUrl = base_url + 'libraries/kcfinder/upload.php?type=files';
     config.filebrowserImageUploadUrl = base_url + 'libraries/kcfinder/upload.php?type=image';
     config.filebrowserFlashUploadUrl = base_url + 'libraries/kcfinder/upload.php?type=flash';
+    config.contentsCss = ['/assets/bootstrap/css/bootstrap.css','/assets/css/nta.css'];
     return config;
 };
 CKEDITOR.stylesSet.add('default', [

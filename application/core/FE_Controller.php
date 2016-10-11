@@ -14,7 +14,8 @@ class FE_Controller extends CI_Controller {
         $this->load->model('front/data_model');
         $this->assigns->settting_data = $this->data_model->loadData('scake');
         $this->assigns->fecog = array(
-            'slider'=> 'slider',
+            'product_type'=>'nta',
+            'slider'=> 'nta',
             'cake'=> 'cake',
             'bsn'=> '419',
             'bc'=> '420',

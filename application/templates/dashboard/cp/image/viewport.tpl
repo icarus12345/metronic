@@ -27,6 +27,7 @@
 
                     <div style="display:none" id="entry-container"></div>
                     <div>
+                        <script type="text/javascript" src="/libraries/ckeditor/ckeditor.js" ></script>
                         <link href='/libraries/jqwidgets/styles/jqx.base.css' rel='stylesheet' type='text/css'>
                         <link href='/libraries/jqwidgets/styles/jqx.metro.css' rel='stylesheet' type='text/css'>
                         <script type="text/javascript" src="/libraries/jqwidgets/jqx-all.js"></script>

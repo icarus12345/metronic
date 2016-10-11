@@ -587,6 +587,15 @@ var APP = function() {
                             $( "#sortable" ).sortable({placeholder: "ui-state-highlight"});
                             $( "#sortable" ).disableSelection();
                         }
+                        if($('#[{$frefix}]content_en').length==1){
+                            addEditorFeature('[{$frefix}]content_en',240);
+                        }
+                        if($('#[{$frefix}]content2').length==1){
+                            addEditorFeature('[{$frefix}]content2',240);
+                        }
+                        if($('#[{$frefix}]content2_en').length==1){
+                            addEditorFeature('[{$frefix}]content2_en',240);
+                        }
                     }
                 }
             }).call();
@@ -633,6 +642,15 @@ var APP = function() {
     this.onSave = function(){
     	if($('#[{$frefix}]content').length==1){
             $('#[{$frefix}]content').val(CKEDITOR.instances['[{$frefix}]content'].getData());
+        }
+        if($('#[{$frefix}]content_en').length==1){
+            $('#[{$frefix}]content_en').val(CKEDITOR.instances['[{$frefix}]content_en'].getData());
+        }
+        if($('#[{$frefix}]content2').length==1){
+            $('#[{$frefix}]content2').val(CKEDITOR.instances['[{$frefix}]content2'].getData());
+        }
+        if($('#[{$frefix}]content2_en').length==1){
+            $('#[{$frefix}]content2_en').val(CKEDITOR.instances['[{$frefix}]content2_en'].getData());
         }
     	if( $('#entryForm').validationEngine('validate') === false){
     		addNotice('Please complete input data.','warning');

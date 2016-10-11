@@ -7,23 +7,12 @@ class home extends FE_Controller {
 			'desc'=>'',
 			'image'=>''
 		);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bsn'])
-			->limit(10);
-		$this->assigns->bsn_list = $this->product_model->onGetByType2($this->assigns->fecog['cake']);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bc'])
-			->limit(10);
-		$this->assigns->bc_list = $this->product_model->onGetByType2($this->assigns->fecog['cake']);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bv'])
-			->limit(10);
-		$this->assigns->bv_list = $this->product_model->onGetByType2($this->assigns->fecog['cake']);
-		$this->db
-			->where('product_category',$this->assigns->fecog['bcupket'])
-			->limit(10);
-		$this->assigns->bcupket_list = $this->product_model->onGetByType2($this->assigns->fecog['cake']);
-        $this->smarty->view( 'cake/home', $this->assigns );
+		
+		$this->assigns->product_list = $this->product_model->onGetByType2($this->assigns->fecog['product_type']);
+
+        $this->assigns->content = $this->content_model->onGet(5);
+
+        $this->smarty->view( 'nta/nta', $this->assigns );
 	}
 	function product($cat_alias='',$page=1){
 		$this->assigns->site = array(

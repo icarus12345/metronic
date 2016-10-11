@@ -35,6 +35,9 @@ class content extends CP_Controller {
         }
         $layout = $this->assigns->action['layout'];
         switch ($layout){
+            case '2':
+                $this->assigns->formhtml = $this->smarty->view( 'dashboard/cp/content/editPanelLang', $this->assigns, true );
+                break;
             default :
                 $this->assigns->formhtml = $this->smarty->view( 'dashboard/cp/content/editPanel', $this->assigns, true );
         }

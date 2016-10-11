@@ -1,0 +1,526 @@
+
+
+/*##################################*/
+.time-count-down-flip.time-count-down-seconds-ten,
+.time-count-down-flip.time-count-down-minutes-ten,
+.time-count-down-flip.time-count-down-hours-ten,
+.time-count-down-flip.time-count-down-days-ten{
+  text-indent: 10px;
+}
+.time-count-down-flip.time-count-down-seconds-one,
+.time-count-down-flip.time-count-down-minutes-one,
+.time-count-down-flip.time-count-down-hours-one,
+.time-count-down-flip.time-count-down-days-one{
+  text-indent: -10px;
+}
+.countdown {
+  height: 100%;
+  /* Reset */
+  /* Skeleton */
+  /* Colon Seperator - IE */
+  /* Colon Seperator */
+  display: inline-block;
+}
+.countdown * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.countdown .countdownFix {
+  z-index: 3 !important;
+}
+.countdown .clockFix {
+  z-index: 1 !important;
+}
+.countdown li span .inn {
+  /*backface-visibility*/
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.countdown ul {
+  list-style: none;
+}
+.countdown li {
+  line-height: 87px;
+}
+.countdown ul.time-count-down-flip {
+  position: relative;
+  float: left;
+  margin-right: 1px;
+  height: 100%;
+  width: 40px;
+  font-size: 50px;
+  font-weight: bold;
+  /*border-radius*/
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  /*box-shadow*/
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+@media only screen and (max-width: 540px) {
+  .countdown ul.time-count-down-flip {
+    width: 25px !important;
+    font-size: 29px !important;
+    /*height: 83% !important;*/
+  }
+  .countdown ul.time-count-down-flip li {
+    /*line-height: 37px !important;*/
+  }
+  .countdown ul.time-count-down-flip:nth-child(2n+2):not(:last-child):after {
+    top: -24% !important;
+  }
+}
+/*@media only screen and (max-width: 440px) {*/
+  .countdown ul.time-count-down-flip {
+    width: 22px !important;
+    font-size: 22px !important;
+    /*height: 66% !important;*/
+  }
+  .countdown ul.time-count-down-flip li {
+    /*line-height: 30px !important;*/
+  }
+  .countdown ul.time-count-down-flip:nth-child(2n+2):not(:last-child):after {
+    /*font-size: 28px !important;*/
+  }
+/*}*/
+.countdown ul.nth-child-2np2-notlast:after, .countdown ul.time-count-down-flip:nth-child(2n+2):not(:last-child):after {
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  right: -11px;
+  content: ":";
+  display: block;
+  color: #fff;
+  /*font-size: 46px;*/
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+.countdown ul.nth-child-2np2-notlast {
+  margin-right: 14px;
+}
+.countdown ul.time-count-down-flip:nth-child(2n+2):not(:last-child) {
+  margin-right: 4px;
+}
+.countdown ul.time-count-down-flip li {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+}
+.countdown ul.time-count-down-flip li span {
+  display: block;
+  height: 100%;
+  /*perspective*/
+  -webkit-perspective: 200px;
+  -moz-perspective: 200px;
+  -ms-perspective: 200px;
+  -o-perspective: 200px;
+  perspective: 200px;
+}
+.countdown ul.time-count-down-flip li span div {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+.countdown ul.time-count-down-flip li span div .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.countdown ul.time-count-down-flip li span div.up {
+  /*transform-origin*/
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  top: 0;
+}
+.countdown ul.time-count-down-flip li span div.up:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.countdown ul.time-count-down-flip li span div.down {
+  /*transform-origin*/
+  -webkit-transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -o-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  bottom: 0;
+}
+.countdown ul.time-count-down-flip li span div div.inn {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 200%;
+  color: #ccc;
+  text-shadow: 0 1px 2px #000;
+  text-align: center;
+  background-color: #111;
+  /*border-radius*/
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+}
+.countdown ul.time-count-down-flip li span div.up div.inn {
+  top: 0;
+}
+.countdown ul.time-count-down-flip li span div.down div.inn {
+  bottom: 0;
+}
+
+/* PLAY */
+.play ul li.previous {
+  z-index: 2;
+}
+
+.play ul li.current {
+  /*animation*/
+  -webkit-animation: asd .5s .5s linear both;
+  -moz-animation: asd .5s .5s linear both;
+  -ms-animation: asd .5s .5s linear both;
+  -o-animation: asd .5s .5s linear both;
+  animation: asd .5s .5s linear both;
+  z-index: 3;
+}
+
+@-webkit-keyframes asd {
+  0% {
+    z-index: 2;
+  }
+  5% {
+    z-index: 4;
+  }
+  100% {
+    z-index: 4;
+  }
+}
+@-moz-keyframes asd {
+  0% {
+    z-index: 2;
+  }
+  5% {
+    z-index: 4;
+  }
+  100% {
+    z-index: 4;
+  }
+}
+@-ms-keyframes asd {
+  0% {
+    z-index: 2;
+  }
+  5% {
+    z-index: 4;
+  }
+  100% {
+    z-index: 4;
+  }
+}
+@-o-keyframes asd {
+  0% {
+    z-index: 2;
+  }
+  5% {
+    z-index: 4;
+  }
+  100% {
+    z-index: 4;
+  }
+}
+@keyframes asd {
+  0% {
+    z-index: 2;
+  }
+  5% {
+    z-index: 4;
+  }
+  100% {
+    z-index: 4;
+  }
+}
+.play ul li.current .down {
+  z-index: 2;
+  /*animation*/
+  -webkit-animation: turn .5s .5s linear both;
+  -moz-animation: turn .5s .5s linear both;
+  -ms-animation: turn .5s .5s linear both;
+  -o-animation: turn .5s .5s linear both;
+  animation: turn .5s .5s linear both;
+}
+
+@-webkit-keyframes turn {
+  0% {
+    -webkit-transform: rotateX(90deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+  }
+}
+@-moz-keyframes turn {
+  0% {
+    -moz-transform: rotateX(90deg);
+  }
+  100% {
+    -moz-transform: rotateX(0deg);
+  }
+}
+@-ms-keyframes turn {
+  0% {
+    -ms-transform: rotateX(90deg);
+  }
+  100% {
+    -ms-transform: rotateX(0deg);
+  }
+}
+@-o-keyframes turn {
+  0% {
+    -o-transform: rotateX(90deg);
+  }
+  100% {
+    -o-transform: rotateX(0deg);
+  }
+}
+@keyframes turn {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+.play ul li.previous .up {
+  z-index: 2;
+  /*animation*/
+  -webkit-animation: turn2 .5s linear both;
+  -moz-animation: turn2 .5s linear both;
+  -ms-animation: turn2 .5s linear both;
+  -o-animation: turn2 .5s linear both;
+  animation: turn2 .5s linear both;
+}
+
+@-webkit-keyframes turn2 {
+  0% {
+    -webkit-transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-90deg);
+  }
+}
+@-moz-keyframes turn2 {
+  0% {
+    -moz-transform: rotateX(0deg);
+  }
+  100% {
+    -moz-transform: rotateX(-90deg);
+  }
+}
+@-ms-keyframes turn2 {
+  0% {
+    -ms-transform: rotateX(0deg);
+  }
+  100% {
+    -ms-transform: rotateX(-90deg);
+  }
+}
+@-o-keyframes turn2 {
+  0% {
+    -o-transform: rotateX(0deg);
+  }
+  100% {
+    -o-transform: rotateX(-90deg);
+  }
+}
+@keyframes turn2 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+/* SHADOW */
+.play ul li.previous .up .shadow {
+  /*linear-gradient*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(rgba(0, 0, 0, 0.1), 0), color-stop(black, 1));
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
+  /*@@prefixmycss->No equivalent*/
+  background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
+  /*animation*/
+  -webkit-animation: show .5s linear both;
+  -moz-animation: show .5s linear both;
+  -ms-animation: show .5s linear both;
+  -o-animation: show .5s linear both;
+  animation: show .5s linear both;
+}
+
+.play ul li.current .up .shadow {
+  /*linear-gradient*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(rgba(0, 0, 0, 0.1), 0), color-stop(black, 1));
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
+  /*@@prefixmycss->No equivalent*/
+  background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
+  /*animation*/
+  -webkit-animation: hide .5s .3s linear both;
+  -moz-animation: hide .5s .3s linear both;
+  -ms-animation: hide .5s .3s linear both;
+  -o-animation: hide .5s .3s linear both;
+  animation: hide .5s .3s linear both;
+}
+
+/*DOWN*/
+.play ul li.previous .down .shadow {
+  /*linear-gradient*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(black, 0), color-stop(rgba(0, 0, 0, 0.1), 1));
+  background: -webkit-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
+  /*@@prefixmycss->No equivalent*/
+  background: -webkit-linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -moz-linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -o-linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
+  /*animation*/
+  -webkit-animation: show .5s linear both;
+  -moz-animation: show .5s linear both;
+  -ms-animation: show .5s linear both;
+  -o-animation: show .5s linear both;
+  animation: show .5s linear both;
+}
+
+.play ul li.current .down .shadow {
+  /*linear-gradient*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(black, 0), color-stop(rgba(0, 0, 0, 0.1), 1));
+  background: -webkit-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
+  /*@@prefixmycss->No equivalent*/
+  background: -webkit-linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -moz-linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -o-linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
+  /*animation*/
+  -webkit-animation: hide .5s .3s linear both;
+  -moz-animation: hide .5s .3s linear both;
+  -ms-animation: hide .5s .3s linear both;
+  -o-animation: hide .5s .3s linear both;
+  animation: hide .5s .3s linear both;
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

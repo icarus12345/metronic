@@ -52,6 +52,9 @@
                             if($('#content_content').length==1){
                                 $('#content_content').val(CKEDITOR.instances['content_content'].getData());
                             }
+                            if($('#content_content_en').length==1){
+                                $('#content_content_en').val(CKEDITOR.instances['content_content_en'].getData());
+                            }
                             if( $('#entryForm').validationEngine('validate') === false){
                                 addNotice('Please complete input data.','warning');
                                 return false;
@@ -76,6 +79,9 @@
                             })
                             if($('#content_content').length==1){
                                 addEditorFeature('content_content',240);
+                            }
+                            if($('#content_content_en').length==1){
+                                addEditorFeature('content_content_en',240);
                             }
                         })
                     </script>

@@ -417,6 +417,12 @@ var APP = function() {
                         	$('#entry-container').show();
                         	$('#entry-list').hide();
                         }
+                        if($('#[{$frefix}]content').length==1){
+                            addEditorFeature('[{$frefix}]content',240);
+                        }
+                        if($('#[{$frefix}]content_en').length==1){
+                            addEditorFeature('[{$frefix}]content_en',240);
+                        }
                         // $( "#sortable" ).sortable({placeholder: "ui-state-highlight"});
                         // $( "#sortable" ).disableSelection();
                     }
@@ -457,6 +463,12 @@ var APP = function() {
     	$(me.jqxgrid).jqxGrid('updatebounddata');
     };
     this.onSave = function(){
+        if($('#[{$frefix}]content').length==1){
+            $('#[{$frefix}]content').val(CKEDITOR.instances['[{$frefix}]content'].getData());
+        }
+        if($('#[{$frefix}]content_en').length==1){
+            $('#[{$frefix}]content_en').val(CKEDITOR.instances['[{$frefix}]content_en'].getData());
+        }
     	if( $('#entryForm').validationEngine('validate') === false){
     		addNotice('Please complete input data.','warning');
     		return false;

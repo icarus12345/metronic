@@ -1,0 +1,174 @@
+/*!
+ * jQuery UI Dialog 1.9.2
+ * http://jqueryui.com
+ *
+ * Copyright 2012 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Dialog#theming
+ */
+body .ui-widget-overlay{background:rgba(0,0,0,.35);opacity:1}
+.ui-warning{padding-left:20px;background:url(images/dialog_warning.png) no-repeat left center}
+.ui-error{padding-left:20px;background:url(images/dialog_error.png) no-repeat left center}
+.ui-notice{padding-left:20px;background:url(images/fileview_text.png) no-repeat left center}
+.ui-info{padding-left:20px;background:url(images/action_check.png) no-repeat left center}
+.ui-question,.ui-confirm{padding-left:20px;background:url(images/help.png) no-repeat left center}
+.ui-dialog { position: absolute; top: 0; left: 0; padding: .2em; width: 300px; /*overflow: hidden;*/ }
+.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
+.ui-dialog .ui-dialog-titlebar img{float:left}
+.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0;line-height: 16px; }
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; /*background: none; overflow: auto;*/ zoom: 1; }
+.ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
+.ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
+.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+.ui-draggable .ui-dialog-titlebar { cursor: move; }
+
+.ui-dialog.ui-corner-all,.ui-dialog .ui-corner-all{
+    -moz-border-radius: 0px/*{cornerRadius}*/;
+    -webkit-border-radius: 0px/*{cornerRadius}*/;
+    border-radius: 0px/*{cornerRadius}*/;
+}
+.ui-dialog.ui-widget-content{
+    margin: 0;padding: 0;
+    min-width:240px;
+    background: #E8E8E8;
+    background: -moz-linear-gradient(top,white 0%,#EFEFEF 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,white),color-stop(100%,#EFEFEF));
+    background: -webkit-linear-gradient(top,white 0%,#EFEFEF 100%);
+    background: -o-linear-gradient(top,white 0%,#EFEFEF 100%);
+    background: -ms-linear-gradient(top,white 0%,#EFEFEF 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff',endColorstr='#efefef',GradientType=0 );
+    background: linear-gradient(to bottom,white 0%,#EFEFEF 100%);
+    border:none;
+    -moz-border-radius: 2px/*{cornerRadius}*/;
+    -webkit-border-radius: 2px/*{cornerRadius}*/;
+    border-radius: 2px/*{cornerRadius}*/;
+	border: 0px solid rgba(0, 0, 0, 0.4);
+	background:url('images/bg-light-box.png');
+	padding:4px;
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	max-width:100%;
+}
+.ui-dialog-buttonpane.ui-widget-content{
+/*    background: none;*/
+	
+}
+.ui-dialog .ui-widget-header{
+    background:none;
+    border:none;
+    border-bottom: 1px solid #d7d7d7;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	-moz-border-top-left-radius:2px;
+	-moz-border-top-right-radius:2px;
+	-webkit-border-top-left-radius:2px;
+	-webkit-border-top-right-radius:2px;
+}
+.ui-dialog .ui-dialog-titlebar{
+    padding: 8px 8px 8px 12px;
+    background: #fafafa;  
+	
+}
+.ui-dialog .ui-dialog-buttonpane button{margin:0 0 0 4px}
+.ui-dialog .ui-dialog-buttonpane{
+	margin:0 0px;padding: 4px;border-top:1px solid #ddd;position:relative;
+	border-bottom-left-radius:2px;
+	border-bottom-right-radius:2px;
+	-moz-border-bottom-left-radius:2px;
+	-moz-border-bottom-right-radius:2px;
+	-webkit-border-bottom-left-radius:2px;
+	-webkit-border-bottom-right-radius:2px;
+}
+.ui-dialog .ui-dialog-content{padding:4px;-max-width: 840px;-max-height: 720px;}
+.ui-dialog .ui-button.ui-corner-all{
+    border: 0;background: none
+}
+.ui-dialog .ui-widget-header .ui-icon,.close-icon{
+    width: 9px;
+    height: 9px;
+    overflow: hidden;
+    display: block;
+    background: url('images/close.png') no-repeat center;
+    right: 0px;
+    top: 0px;
+}
+.ui-dialog-titlebar-close.ui-corner-all.ui-state-focus,
+.ui-dialog-titlebar-close.ui-corner-all.ui-state-hover{border:none;background: none;}
+.ui-dialog-titlebar-close.ui-corner-all.ui-state-hover span{opacity: 1}
+.ui-dialog .ui-dialog-titlebar-close{
+    position: absolute;
+    right: .3em;
+    top: 50%;
+    width: 20px;
+    margin: -11px 0 0 0;
+    padding: 0px;
+    height: 20px;
+}
+.ui-dialog .ui-dialog-titlebar-close span{margin: 0}
+.ui-dialog .ui-widget-header .ui-icon{
+    height: 9px;
+    opacity: 1;
+    outline: 0;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 9px;
+}
+.ui-timepicker-div{font-size: 11px}
+.ui-dialog-buttonset button{
+    padding: 3px 12px 3px 12px;line-height: 18px;
+
+	border: 1px solid #d3d3d3/*{borderColorDefault}*/;
+	background: #e6e6e6/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
+	font-weight: normal/*{fwDefault}*/;
+	color: #555555/*{fcDefault}*/;
+	background: #DADADA;
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#FAFAFA),to(#DADADA));
+	background-image: -moz-linear-gradient(top,#FAFAFA,#DADADA);
+	background-image: -o-linear-gradient(top,#FAFAFA,#DADADA);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FAFAFA),color-stop(100%,#DADADA));
+	background: -ms-linear-gradient(top,#FAFAFA 0%,#DADADA 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FAFAFA',endColorstr='#DADADA',GradientType=0 );
+	background: linear-gradient(to bottom,#FAFAFA 0%,#DADADA 100%);
+	
+    
+}
+.ui-dialog-buttonset button:hover{
+	border: 1px solid #BBE5F8/*{borderColorHover}*/;
+	background: #dadada/*{bgColorHover}*/ url(images/ui-bg_glass_75_dadada_1x400.png)/*{bgImgUrlHover}*/ 50%/*{bgHoverXPos}*/ 50%/*{bgHoverYPos}*/ repeat-x/*{bgHoverRepeat}*/;
+	font-weight: normal/*{fwDefault}*/;
+	color: #212121/*{fcHover}*/;
+	background: #E9F2FC;
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#E9F2FC),to(#DDECFC));
+	background-image: -moz-linear-gradient(top,#E9F2FC,#DDECFC);
+	background-image: -o-linear-gradient(top,#E9F2FC,#DDECFC);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#E9F2FC),color-stop(100%,#DDECFC));
+	background: -ms-linear-gradient(top,#E9F2FC 0%,#DDECFC 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E9F2FC',endColorstr='#DDECFC',GradientType=0 );
+	background: linear-gradient(to bottom,#E9F2FC 0%,#DDECFC 100%);
+}
+.metronic-modal.ui-dialog.ui-widget-content{
+	border: 1px solid #000;
+	background: #fff;
+	padding:0;
+	border-radius:0;
+	font-size: 12px;
+}
+.metronic-modal.ui-dialog .ui-widget-header{
+	border-radius:0;
+	background:#fff;
+	border-bottom: 1px solid #ddd;
+}
+.metronic-modal.ui-dialog .ui-dialog-content{
+	padding:5px;
+}
+.metronic-modal.ui-dialog .pull-bottom{
+	padding-bottom:5px
+}

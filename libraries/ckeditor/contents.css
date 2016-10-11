@@ -16,7 +16,7 @@ body.cke_editable{
 	margin: 0;
 	padding: 5px;
 }
-
+@import '/assets/css/nta.css';
 .cke_editable
 {
 	font-size: 13px;
