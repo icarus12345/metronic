@@ -8,7 +8,9 @@ class home extends FE_Controller {
 			'image'=>''
 		);
 		
-		$this->assigns->product_list = $this->product_model->onGetByType2($this->assigns->fecog['product_type']);
+        
+        $this->db->where('content_type','nta');
+		$this->assigns->news_list = $this->content_model->getLatest(null,1,4);
 
         $this->assigns->content = $this->content_model->onGet(5);
 
@@ -38,25 +40,17 @@ class home extends FE_Controller {
         $this->assigns->paging = $this->_getPaging($page,$perpage,$url);
 		$this->smarty->view( 'cake/product_list', $this->assigns );
 	}
-	function productdetail($alias=''){
+	function productdetail($id=''){
 		$this->assigns->site = array(
 			'title'=>'',
 			'desc'=>'',
 			'image'=>''
 		);
-		$product = $this->product_model->onGetByAlias($alias);
-		$this->_addView('_product','product_',$product->product_id);
-		if(!empty($product->product_thumb) && strrpos($product->product_thumb, 'http')===false){
-			$product->product_thumb = base_url($product->product_thumb);
-		}
-		$this->assigns->site['title'] = $product->product_title.' - Bánh Ngon Online';
-		$this->assigns->site['desc'] = $product->product_desc;
-		$this->assigns->site['image'] = $product->product_thumb;
-		$cate = $this->category_model->onGet($product->product_category);
-		$this->assigns->product = $product;
-		$this->assigns->cate = $cate;
-		$this->assigns->product_list = $this->product_model->getRelated($product,1,5);
-		$this->smarty->view( 'cake/product_detail', $this->assigns );
+		$this->assigns->product = $this->product_model->onGet($id);
+
+        $this->db->where('image_category',$id);
+        $this->assigns->sliders = $this->image_model->onGetByType('nta-slider');
+        $this->smarty->view( 'nta/productDetail', $this->assigns );
 	}
 	function contact(){
 		$this->assigns->site = array(

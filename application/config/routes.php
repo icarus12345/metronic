@@ -56,8 +56,9 @@ $route["day-nghe"] = "home/contentdetail/3";
 
 $route["tin-tuc/(:any)"] = "home/contentdetail/$1";
 
-$route["lien-he"] = "home/contact";
-$route["hinh-anh"] = "home/gallery";
+$route["(:any)/p-(:num)"] = "home/productdetail/$2";
+
+
 
 $route['default_controller'] = "home";
 $route['404_override'] = '';

@@ -28,7 +28,7 @@
                             <a href="#" data-toggle="dropdown">Sản Phẩm & Dịch Vụ</a>
                             <ul class="dropdown-menu">
                                 [{foreach from=$product_list item=foo}]
-                                <li><a href='#'>[{$foo->product_title}]</a></li>
+                                <li><a href='/[{$foo->product_alias}]/p-[{$foo->product_id}]'>[{$foo->product_title}]</a></li>
                                 [{/foreach}]
                             </ul>
                         </li>

@@ -24,7 +24,7 @@
                         <div>
                             <div class="line-clamp-f-2">[{$foo->product_title}]</div>
                         </div>
-                        <a href="#">Xem chi tiết <span class="fa fa-arrow-right"></span></a>
+                        <a href="/[{$foo->product_alias}]/p-[{$foo->product_id}]">Xem chi tiết <span class="fa fa-arrow-right"></span></a>
                     </div>
                 </div>
                 [{/foreach}]

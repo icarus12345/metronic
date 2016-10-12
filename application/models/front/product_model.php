@@ -33,7 +33,21 @@ class product_model extends Core_Model {
             ->where('product_status', 'true')
             ->where('product_id', $id)
             ->get();
-        return $query->row();
+
+        $row = $query->row();
+        if(LANG == 'en'){
+            if($row){
+                $row->product_title = $row->product_title_en;
+                $row->product_title2 = $row->product_title2_en;
+                $row->product_alias = $row->product_alias_en;
+                $row->product_desc = $row->product_desc_en;
+                // $row->product_desc2 = $row->product_desc2_en;
+                $row->product_tag = $row->product_tag_en;
+                $row->product_content = $row->product_content_en;
+                $row->product_content2 = $row->product_content2_en;
+            }
+        }
+        return  $row;
     }
     function onGetByAlias($alias=''){
         $query = $this->db

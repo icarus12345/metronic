@@ -20,7 +20,8 @@ class content_model extends Core_Model {
                 cat_id,
                 cat_title,
                 cat_alias,
-                cat_value
+                cat_value,
+                content_createby
                 "
             ,false);
     }

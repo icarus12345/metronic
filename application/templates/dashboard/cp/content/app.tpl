@@ -470,6 +470,9 @@ var APP = function() {
                         	$('#entry-container').show();
                         	$('#entry-list').hide();
                         }
+                        if($('#content_content_en').length==1){
+                            addEditorFeature('content_content_en',240);
+                        }
                     }
                 }
             }).call();
@@ -514,8 +517,11 @@ var APP = function() {
     	$(me.jqxgrid).jqxGrid('updatebounddata');
     };
     this.onSave = function(){
-    	if($('#content_content').length==1){
-    		$('#content_content').val(CKEDITOR.instances['content_content'].getData());
+        if($('#content_content').length==1){
+            $('#content_content').val(CKEDITOR.instances['content_content'].getData());
+        }
+    	if($('#content_content_en').length==1){
+    		$('#content_content_en').val(CKEDITOR.instances['content_content_en'].getData());
     	}
     	if( $('#entryForm').validationEngine('validate') === false){
     		addNotice('Please complete input data.','warning');

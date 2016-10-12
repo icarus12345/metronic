@@ -229,6 +229,28 @@
                         Drag to sort images.<br/>
                         Press Ctrl to select multi images.
                     </div>     -->
+                    <div class="pull-bottom control-group">
+                        <div>Hình ảnh :(*)</div>
+                        <div class="input-append">
+                            <input type="text" 
+                                class="form-control validate[required,maxSize[255]]"
+                                data-prompt-position="topLeft:0,20"
+                                value="[{$item->product_cover|escape:'html'|default:''}]" 
+                                name="product_cover" 
+                                id="product_cover"
+                                >
+                            <span class="add-on popovers" 
+                                data-container="body" 
+                                data-trigger="hover" 
+                                data-placement="top" 
+                                data-toggle="popover"
+                                data-content="<img style='max-width:100px' src='[{$item->product_cover|escape:'html'|default:'/libraries/images/image_available.gif'}]'/>" 
+                                data-original-title="Image Preview"
+                                onclick="BrowseServer('#product_cover')">
+                                <i class="fa fa-image"></i>
+                            </span>
+                        </div>
+                    </div> 
                     <div class="pull-bottom control-group lang-controls pull-top">
                         <div>Tiêu đề :(*)</div>
                         <input type="text" 
@@ -249,7 +271,7 @@
                             />
                     </div>
                     <div class="pull-bottom control-group lang-controls">
-                        <div>Tiêu đề :(*)</div>
+                        <div>Nội Dung :(*)</div>
                         [{if $ci->agent->is_mobile()}]
                         <div>
                             <div class="code">Editor does not support in Mobile, please user desktop browser to edit.</div>

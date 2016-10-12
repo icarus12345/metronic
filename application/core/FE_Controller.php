@@ -29,8 +29,8 @@ class FE_Controller extends CI_Controller {
             )
         );
         if(!$this->input->is_ajax_request()){
-            $this->assigns->cates = $this->category_model->onGetByType($this->assigns->fecog['cake']);
             $this->assigns->sliders = $this->image_model->onGetByType($this->assigns->fecog['slider']);
+            $this->assigns->product_list = $this->product_model->onGetByType2($this->assigns->fecog['product_type']);
         }
 
         // $pos = strpos($_SERVER['SERVER_NAME'], 'en.');

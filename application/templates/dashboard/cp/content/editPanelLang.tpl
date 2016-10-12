@@ -51,7 +51,7 @@
                                 placeholder="Tiêu đề"
                                 name="content_title"
                                 [{if $item->content_lock!='true'}]
-                                onblur="AliasTo(this,'#entryForm input[name=content_alias_en]')"
+                                onblur="AliasTo(this,'#entryForm input[name=content_alias]')"
                                 [{/if}]
                                 value="[{$item->content_title|quotes_to_entities|default:''}]"
                                 />
@@ -83,7 +83,7 @@
                                 placeholder="Title"
                                 name="content_title_en"
                                 [{if $item->content_lock!='true'}]
-                                onblur="AliasTo(this,'#entryForm input[name=content_title_en]')"
+                                onblur="AliasTo(this,'#entryForm input[name=content_alias_en]')"
                                 [{/if}]
                                 value="[{$item->content_title_en|quotes_to_entities|default:''}]"
                                 />

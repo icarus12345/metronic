@@ -59,7 +59,9 @@ class content extends CP_Controller {
             $this->assigns->item = $this->Core_Model->onGet($Id);
         }
         switch ($layout){
-            
+            case '2':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/content/editPanelLang', $this->assigns, true );
+                break;
             default :
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/content/editPanel', $this->assigns, true );
         }
@@ -112,6 +114,7 @@ class content extends CP_Controller {
             $str = str_replace('\\\'', '\'', $str);
             $_POST['Params']['content_content'] = $str;
         }
+        $_POST['Params']['content_createby'] = $_SESSION['auth']['user']->ause_name;
     }
     
 }
