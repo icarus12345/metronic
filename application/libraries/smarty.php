@@ -40,6 +40,7 @@ class CI_Smarty extends SmartyBC {
         if (method_exists($this, 'assignByRef')) {
             $ci = & get_instance();
             $this->assignByRef("ci", $ci);
+            $this->assign('aLangs', $ci->config->item('langs'));
         }
     }
 

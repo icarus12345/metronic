@@ -46,7 +46,7 @@
                         <div class="pull-bottom control-group">
                             <div>Tiêu đề :(*)</div>
                             <input type="text" 
-                                class="form-control validate[required]" 
+                                class="form-control validate[required,maxSize[255]]" 
                                 data-prompt-position="topLeft:0,20"
                                 placeholder="Tiêu đề"
                                 name="content_title"
@@ -61,7 +61,7 @@
                         <div class="pull-bottom control-group">
                             <div>Alias :(*)</div>
                             <input type="text" 
-                                class="form-control validate[required]" 
+                                class="form-control validate[required,maxSize[255]]" 
                                 [{if $item->content_lock=='true'}]
                                 disabled=1
                                 [{/if}]
@@ -78,7 +78,7 @@
                         <div class="pull-bottom control-group">
                             <div>Title :(*)</div>
                             <input type="text" 
-                                class="form-control validate[required]" 
+                                class="form-control validate[required,maxSize[255]]" 
                                 data-prompt-position="topLeft:0,20"
                                 placeholder="Title"
                                 name="content_title_en"
@@ -93,7 +93,7 @@
                         <div class="pull-bottom control-group">
                             <div>Alias :(*)</div>
                             <input type="text" 
-                                class="form-control validate[required]" 
+                                class="form-control validate[required,maxSize[255]]" 
                                 [{if $item->content_lock=='true'}]
                                 disabled=1
                                 [{/if}]

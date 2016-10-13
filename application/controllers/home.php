@@ -47,11 +47,30 @@ class home extends FE_Controller {
 			'image'=>''
 		);
 		$this->assigns->product = $this->product_model->onGet($id);
-
+		$this->createCaptcha();
         $this->db->where('image_category',$id);
         $this->assigns->sliders = $this->image_model->onGetByType('nta-slider');
+        $this->assigns->services = $this->image_model->onGetByType('service-nta');
         $this->smarty->view( 'nta/productDetail', $this->assigns );
 	}
+	function createCaptcha($re=false){
+        if(!$re)
+            if($_SESSION['captcha']){
+                if(time()-7200 < $_SESSION['captcha']['time'])
+                return;
+            }
+        $cap_parm = array(
+            'length'  => 4,
+            'img_path'  => APPPATH.'../captcha/',
+            'img_url'   => '/captcha/',
+            //'font_path' => './path/to/fonts/texb.ttf',
+            'img_width' => 80,
+            'img_height' => 30,
+            'expiration' => 7200
+            );
+        $this->load->helper('captcha');
+        $_SESSION['captcha'] = create_captcha($cap_parm);
+    }
 	function contact(){
 		$this->assigns->site = array(
 			'title'=>'',

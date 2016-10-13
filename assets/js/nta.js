@@ -40,12 +40,45 @@ $(document).ready(function(){
             }
         });
     }
-    
+    if($('#frmRequest').length == 1){
+        $('#frmRequest').validationEngine({
+            'scroll': false,
+            'isPopup' : true,
+            validateNonVisibleFields:true
+        });
+    }
     if($('.swipebox').length>=1)
         $('a.swipebox').swipebox({useCSS: true});
 });
+function addNotice(message, type, stick){
+    var tit = '';
+    if(type==undefined)
+        type = 'info';
+    if(type=='info'){
+        tit = 'Info Notifications'
+    }
+    if(type=='success'){
+        tit = 'Success Notifications'
+    }
+    if(type=='warning'){
+        tit = 'Warning Notifications'
+    }
+    if(type=='error'){
+        tit = 'Error Notifications'
+    }
+    toastr[type](message, tit)
+}
 $(window).resize(function(){
 	$('.nailthumb-image').each(function(){
 		$(this.parentNode).nailthumb();
 	});
 });
+function sendRequest(){
+    if( $('#frmRequest').validationEngine('validate') === false){
+        addNotice('Please complete input data.','warning');
+        return false;
+    }
+    $('#request-modal').modal('hide');
+    $('#frmRequest')[0].reset();
+    addNotice('Message have been send success !.','success');
+}

@@ -25,7 +25,7 @@ class home extends CI_Controller {
             'img_height' => 30,
             'expiration' => 7200
             );
-        $_SESSION['captcha'] = create_captcha($cap_parm);
+        $_SESSION['captcha'] = $this->create_captcha($cap_parm);
     }
     function debug(){
           echo '<pre>';

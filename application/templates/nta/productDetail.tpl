@@ -50,36 +50,20 @@
         <div class="tit5">CÁC GÓI DỊCH VỤ VĂN PHÒNG THÔNG MINH <a class="a" href="">NTA</a></div>
         <p class="text-center">[{$product->product_desc}]</p>
         <div class="row">
+            [{foreach from=$services item=item}]
             <div class="service-item">
-                <a href="#" data-target="#request-modal" data-toggle="modal">
-                    <img src="/assets/images/s2.png">
-                    <span>GÓI TIỆN ÍCH - TIẾT KIỆM</span>
+                <a href="#" data-target="#request-modal" data-toggle="modal" onclick="showService([{$item->image_id}])">
+                    <img src="[{$item->image_src}]">
+                    <span>[{$item->image_title}]</span>
                 </a>
             </div>
-            <div class="service-item">
-                <a href="#" data-target="#request-modal" data-toggle="modal">
-                    <img src="/assets/images/s3.png">
-                    <span>GÓI CƠ BẢN</span>
-                </a>
-            </div>
-            <div class="service-item">
-                <a href="#" data-target="#request-modal" data-toggle="modal">
-                    <img src="/assets/images/s4.png">
-                    <span>GÓI TIÊU CHUẨN</span>
-                </a>
-            </div>
-            <div class="service-item">
-                <a href="#" data-target="#request-modal" data-toggle="modal">
-                    <img src="/assets/images/s1.png">
-                    <span>GÓI NTA</span>
-                </a>
-            </div>
-            <div class="service-item">
-                <a href="#" data-target="#request-modal" data-toggle="modal">
-                    <img src="/assets/images/s5.png">
-                    <span>GÓI THƯƠNG MẠI</span>
-                </a>
-            </div>
+            [{/foreach}]
+            <script type="text/javascript">
+            function showService(id){
+                $('.sid').hide();
+                $('#s-'+id).show();
+            }
+            </script>
         </div>
     </div>
 </div>
@@ -145,9 +129,8 @@
         <div class="modal-content">
             <div class="nailthumb">
                 <div class="nailthumb-figure-75">
-                    <div class="nailthumb-container">
-                        <!-- <img class="lazy" src="assets/images/album1.jpg"> -->
-                    </div>
+                    <iframe class="nailthumb-container" style="border:0"
+src="[{$product->product_url}]"></iframe>
                 </div>
             </div>
         </div>
@@ -161,7 +144,10 @@
             </div>
             <div class="">
                 <div class="col-sm-6 pull-bottom">
-                    <div class="btn btn-info btn-block">GÓI TIỆN ÍCH TIẾT KIỆM</div>
+                    [{foreach from=$services item=item}]
+                    <div class="sid" id="s-[{$item->image_id}]">[{$item->image_content}]</div>
+                    [{/foreach}]
+                    <!-- <div class="btn btn-info btn-block">GÓI TIỆN ÍCH TIẾT KIỆM</div>
                     <ul class="list-task">
                         <li>Lễ Tân Chuyên Nghiệp</li>
                         <li>Lễ Tân Chuyên Nghiệp</li>
@@ -174,7 +160,7 @@
                         <li>Lễ Tân Chuyên Nghiệp</li>
                         <li>Lễ Tân Chuyên Nghiệp</li>
                     </ul>
-                    <button class="btn btn-warning btn-block">CHỈ VỚI 490 000VND/THÁNG</button>
+                    <div class="btn btn-warning btn-block">CHỈ VỚI 490 000VND/THÁNG</div> -->
                 </div>
                 <div class="col-sm-6 pull-bottom">
                     <div class="tit32">
@@ -183,33 +169,41 @@
                     <p class="pull-top pull-bottom">
                         Hoặc gọi ngay cho chúng tôi qua số <strong class="a">098x xxx xxx</strong> để được giải đáp các thắc mắc.
                     </p>
-                    <form>
+                    <form class="" name="frmRequest" id="frmRequest">
                         <div class="form-group">
                             <label>Họ và tên (*)</label>
                             <div>
-                                <input class="form-control">
+                                <input 
+                                    class="form-control validate[required,maxSize[50]]"
+                                    data-prompt-position="topright:0,20"
+                                    >
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại (*)</label>
                             <div>
-                                <input class="form-control">
+                                <input class="form-control validate[required,maxSize[12]]" data-prompt-position="topright:0,20">
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Nội dung (*)</label>
                             <div>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control validate[required]" rows="3"></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="padding-right:90px;position:relative">
+                        <div style="position:relative">
                             <label>Mã xác thực (*)</label>
-                            <div>
-                                <input class="form-control">
+                            <div >
+                                <div>
+                                    <input class="form-control validate[required,maxSize[8]]">
+                                </div>
                             </div>
-                            <p class="pull-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                         </div>
-                        <button class="btn btn-warning btn-block">GỬI YÊU CẦU CHO NTA</button>
+                            <img style="position:absolute;top:22px;right:0" src="[{$smarty.session.captcha.image}]" height="30">
+                        </div>
+                        <p class="pull-bottom">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                        <button class="btn btn-warning btn-block" onclick="sendRequest()" type="button">GỬI YÊU CẦU CHO NTA</button>
                     </form>
                 </div>
                 <div class="clearfix"></div>

@@ -714,3 +714,42 @@ label{font-weight: normal;}
     #carousel-news .carousel-indicators li.item-5{width: 60px;}
     #carousel-news .item .info{padding-bottom: 60px}
 }
+.form-group{position: relative;}
+/*.help-block:empty{display:none;}*/
+.formErrorPopup{
+    color: #fff;
+    position: absolute;
+    /*border: 1px solid red;*/
+    top: 0px !important;right: 0px;
+    font-size: 13px;
+    width: auto;
+    margin:0;
+    background: rgba(255,10,10,.7);
+    padding: 2px 10px;
+    border-radius: 2px;
+    left: auto !important;
+    margin-top: -1px !important
+}
+.formErrorPopup::after{
+    content: "\f06a";
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 29px;
+    font-family: FontAwesome;
+    color: rgba(255,10,10,.7);
+    height: 20px;
+    width: 20px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+}
+.formErrorPopup::before{
+    content: '';display: block;
+    position: absolute;right: 10px;
+    bottom: 0;margin-bottom: -6px;
+    border-top: 6px solid rgba(255,10,10,.7);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+.formErrorPopup .formErrorContent{white-space: nowrap;}

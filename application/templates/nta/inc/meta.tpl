@@ -47,6 +47,8 @@
         <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/hover.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-select.min.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/font-awesome.min.css?t=1">
+        <link rel="stylesheet" type="text/css" href="/libraries/metronic/theme/assets/global/plugins/bootstrap-toastr/toastr.min.css"/>
+
         <link rel="stylesheet" type="text/css" href="/assets/css/nta.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/plugin/countdown/countdown.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/plugin/owl-carousel/owl.carousel.css"/>
@@ -56,6 +58,11 @@
         <script type="text/javascript" src="/assets/plugin/owl-carousel/owl.carousel.js"></script>
         <script type="text/javascript" src="/assets/plugin/jquery.nailthumb.1.1.js"></script>
         <script type="text/javascript" src="/assets/plugin/jquery.lazyload.min.js"></script>
+        <script src="/libraries/metronic/theme/assets/global/plugins/bootstrap-toastr/toastr.min.js"></script>
+
+        <script type="text/javascript" src="/libraries/plugin/validation-engine/jquery.validationEngine.js"></script>
+        <script type="text/javascript" src="/libraries/plugin/validation-engine/jquery.validationEngine-en.js"></script>
+        
         <script type="text/javascript" src="/assets/js/nta.js"></script>
 
         <!--[if IE]>
