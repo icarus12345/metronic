@@ -62,6 +62,9 @@ class content extends CP_Controller {
             case '2':
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/content/editPanelLang', $this->assigns, true );
                 break;
+            case '3':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/content/editPanelLangSub', $this->assigns, true );
+                break;
             default :
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/content/editPanel', $this->assigns, true );
         }

@@ -39,6 +39,15 @@ class image extends CP_Controller {
             case '2':
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/image/editPanelLang', $this->assigns, true );
                 break;
+            case '3':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/image/editPanelLangCover', $this->assigns, true );
+                break;
+            case '4':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/image/editPanelLangCover2', $this->assigns, true );
+                break;
+            case '5':
+                $htmlreponse = $this->smarty->view( 'dashboard/cp/image/editPanelStaff', $this->assigns, true );
+                break;
             default :
                 $htmlreponse = $this->smarty->view( 'dashboard/cp/image/editPanel', $this->assigns, true );
         }

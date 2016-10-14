@@ -6,6 +6,24 @@ class image_model extends Core_Model {
         parent::__construct('_image','image_','id');
         $this->status='true';
     }
+    function onGetByType($type=''){
+        if($this->status){
+            $this->db->where("{$this->prefix}status",$this->status);
+        }
+        $query = $this->db
+            ->where("{$this->prefix}type", $type)
+            ->get($this->table);
+        $data=$query->result();
+        if(LANG == 'en'){
+            foreach ($data as $key => $value) {
+                $data[$key]->image_title = $data[$key]->image_title_en;
+                $data[$key]->image_desc = $data[$key]->image_desc_en;
+                $data[$key]->image_content = $data[$key]->image_content_en;
+                $data[$key]->image_subtitle = $data[$key]->image_subtitle_en;
+            }
+        }
+        return $data;
+    }
     function getByToken($token=null){
         if($token!=null)$this->db->where('image_token',$token);
         $select = "SQL_CALC_FOUND_ROWS *";
@@ -22,6 +40,7 @@ class image_model extends Core_Model {
                 $data[$key]->image_title = $data[$key]->image_title_en;
                 $data[$key]->image_desc = $data[$key]->image_desc_en;
                 $data[$key]->image_content = $data[$key]->image_content_en;
+                $data[$key]->image_subtitle = $data[$key]->image_subtitle_en;
             }
         }
         return $data;

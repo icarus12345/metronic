@@ -11,8 +11,11 @@ class content_model extends Core_Model {
             SQL_CALC_FOUND_ROWS
                 content_id,
                 content_title,
+                content_title_en,
                 content_alias,
+                content_alias_en,
                 content_desc,
+                content_desc_en,
                 content_insert,
                 content_update,
                 content_thumb,
@@ -40,6 +43,8 @@ class content_model extends Core_Model {
                 $row->content_desc = $row->content_desc_en;
                 $row->content_tag = $row->content_tag_en;
                 $row->content_content = $row->content_content_en;
+                $row->content_subtitle = $row->content_subtitle_en;
+                $row->content_desc2 = $row->content_desc2_en;
             }
         }
         return  $row;
@@ -73,11 +78,15 @@ class content_model extends Core_Model {
             $this->select();
             $this->db
                 ->where('content_id <>', $content->content_id)
-                ->where('content_insert <', $content->content_insert)
-                ->order_by("cat_value like '$cat_value%'",'DESC',false);
+                ->where('content_insert <=', $content->content_insert)
+                ->order_by("cat_value like '$cat_value%'",'DESC',false)
+                ;
             $this->db
-                ->order_by('content_insert','DESC');
-            return $this->getInCategories($cat_value, $page, $perpage);
+                ->order_by('content_insert','ASC');
+            $data = $this->getInCategories($cat_value, $page, $perpage);
+
+            return $data;
+
         }
     }
     function getInCategories($cat_value = null, $page = 1, $perpage = 10) {
@@ -92,7 +101,20 @@ class content_model extends Core_Model {
             //->where('content_insert <= ', date('Y-m-d H:i:s'))
             ->limit($perpage, ($page - 1) * $perpage)
             ->get();
-        return $query->result();
+        $data = $query->result();
+        if(LANG == 'en'){
+            foreach ($data as $key => $value) {
+                $data[$key]->content_title = $data[$key]->content_title_en;
+                $data[$key]->content_alias = $data[$key]->content_alias_en;
+                $data[$key]->content_desc = $data[$key]->content_desc_en;
+                $data[$key]->content_tag = $data[$key]->content_tag_en;
+                $data[$key]->content_content = $data[$key]->content_content_en;
+                $data[$key]->content_subtitle = $data[$key]->content_subtitle_en;
+                $data[$key]->content_desc2 = $data[$key]->content_desc2_en;
+            }
+        }
+        
+        return $data;
     }
 }
 ?>

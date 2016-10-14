@@ -82,3 +82,12 @@ function sendRequest(){
     $('#frmRequest')[0].reset();
     addNotice('Message have been send success !.','success');
 }
+function sendCV(){
+    if( $('#frmRequest').validationEngine('validate') === false){
+        addNotice('Please complete input data.','warning');
+        return false;
+    }
+    $('#sendcv-modal').modal('hide');
+    $('#frmRequest')[0].reset();
+    addNotice('Message have been send success !.','success');
+}

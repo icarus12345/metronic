@@ -107,41 +107,26 @@
                 </div>
             </div>
             <div class="row half">
-                <div class="col-mb-6 half">
-                    <div class="pull-bottom control-group">
-                        <div>Category :(*)</div>
-                        <div class="row-fluid">
-                            <select name="content_category" class="form-control selectpicker">
-                                <option value="">[---Chọn---]</option>
-                                <option value="174">Dịch vụ cho thuê văn phòng thông minh</option>
-                                <option value="175">Dịch vụ cho thuê văn phòng chia sẻ</option>
-                                <option value="176">Dịch vụ cho thuê văn phòng họp</option>
-                                <option value="177">Dịch vụ cho thuê văn phòng làm việc</option>
-                                <option value="178">Dịch vụ tư vấn thiết kế văn phòng</option>
-                                <option value="179">Dịch vụ đăng ký thành lập công ty</option>
-                            </select>
-                            <!-- <select 
-                                name="content_category" 
-                                class="form-control selectpicker validate[required]"
+                <div class="col-mb-6 half lang-controls">
+                    <div class="pull-bottom control-group" data-lang="vi">
+                        <div>Tiêu đề 2 :(*)</div>
+                            <input type="text" 
+                                class="form-control validate[required,maxSize[255]]" 
                                 data-prompt-position="topLeft:0,20"
-                                data-putto="#frm-err-content_category"
-                                data-live-search="true"
-                                data-size="10"
-                                >
-                                <option value="">Nothing Selected</option>
-                                [{if $cates|default:null}]
-                                [{foreach from=$cates item=c}]
-                                    <option 
-                                        data-content="<span style='padding-left: [{$c->cat_level*20}]px;'>[{$c->cat_title|escape}]</span>"
-                                        [{if $c->cat_id == $item->content_category}]selected="1"[{/if}]
-                                        value="[{$c->cat_id|default:''}]">
-                                            [{$c->cat_title|default:''}]
-                                    </option>
-                                [{/foreach}]
-                                [{/if}]
-                            </select> -->
-                        </div>
-                        <div id="frm-err-content_category"></div>
+                                placeholder="Tiêu đề"
+                                name="content_subtitle"
+                                value="[{$item->content_subtitle|quotes_to_entities|default:''}]"
+                                />
+                    </div>
+                    <div class="pull-bottom control-group invisible" data-lang="en">
+                        <div>SubTitle :(*)</div>
+                            <input type="text" 
+                                class="form-control validate[required,maxSize[255]]" 
+                                data-prompt-position="topLeft:0,20"
+                                placeholder="Subtitle"
+                                name="content_subtitle_en"
+                                value="[{$item->content_subtitle_en|quotes_to_entities|default:''}]"
+                                />
                     </div>
                 </div>
                 <div class="col-mb-6 col-sm-3 half">
@@ -203,6 +188,17 @@
                 </div>
                 <div class="control-group pull-bottom" data-lang="vi">
                     <div>
+                        Liên hệ :
+                    </div>
+                    <textarea class="form-control de-desc " 
+                              rows="2"
+                              name="content_desc2"
+                              >[{$item->content_desc2|quotes_to_entities|default:''}]</textarea>
+
+                </div>  
+                
+                <div class="control-group pull-bottom" data-lang="vi">
+                    <div>
                         Nội dung (*):
                     </div>
                     <div>
@@ -240,6 +236,16 @@
                             rows="2"
                             name="content_tag_en"
                             >[{$item->content_tag_en|quotes_to_entities|default:''}]</textarea>
+                </div>
+                <div class="control-group pull-bottom invisible" data-lang="en">
+                    <div>
+                        Contact :
+                    </div>
+                    <textarea class="form-control de-desc" 
+                              rows="2"
+                              name="content_desc2_en"
+                              >[{$item->content_desc2_en|quotes_to_entities|default:''}]</textarea>
+
                 </div>
                 <div class="control-group pull-bottom invisible" data-lang="en">
                     <div>

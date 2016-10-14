@@ -54,9 +54,28 @@ $route["cong-thuc"] = "home/contentdetail/1";
 $route["nguyen-lieu"] = "home/contentdetail/2";
 $route["day-nghe"] = "home/contentdetail/3";
 
-$route["tin-tuc/(:any)"] = "home/contentdetail/$1";
+// $route["(tin-tuc:news)/(:any)"] = "home/contentdetail/$1";
+$route["(tin-tuc|news)/page/(:num)"] = "home/news/$2";
+$route["(tin-tuc|news)/page"] = "home/news/1";
+$route["(tin-tuc|news)"] = "home/news/1";
+
+$route["(tuyen-dung|recruitment)/page/(:num)"] = "home/recruitment/$2";
+$route["(tuyen-dung|recruitment)/page"] = "home/recruitment/1";
+$route["(tuyen-dung|recruitment)"] = "home/recruitment/1";
+
+$route["(khuyen-mai|promotion)/(:any)/(:num)/page/(:num)"] = "home/promotion/$4/$3";
+$route["(khuyen-mai|promotion)/(:any)/(:num)/page"] = "home/promotion/1/$3";
+$route["(khuyen-mai|promotion)/(:any)/(:num)"] = "home/promotion/1/$3";
+$route["(khuyen-mai|promotion)/page/(:num)"] = "home/promotion/$2";
+$route["(khuyen-mai|promotion)/page"] = "home/promotion/1";
+$route["(khuyen-mai|promotion)"] = "home/promotion/1";
 
 $route["(:any)/p-(:num)"] = "home/productdetail/$2";
+$route["(:any)/n-(:num)"] = "home/newsdetail/$2";
+$route["(:any)/k-(:num)"] = "home/promotiondetail/$2";
+$route["(:any)/r-(:num)"] = "home/recruitmentdetail/$2";
+$route["(doi-tac|partner)"] = "home/partner";
+$route["(gioi-thieu|about)"] = "home/contentDetail/4";
 
 
 

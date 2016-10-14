@@ -2,20 +2,96 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class home extends FE_Controller {
 	public function index(){
+        $this->assigns->aciveMenu = 'home';
 		$this->assigns->site = array(
-			'title'=>'',
+			'title'=>'NTA - Smart Office',
 			'desc'=>'',
 			'image'=>''
 		);
 		
         
-        $this->db->where('content_type','nta');
-		$this->assigns->news_list = $this->content_model->getLatest(null,1,4);
-
+        // $this->db->where('content_type','nta');
         $this->assigns->content = $this->content_model->onGet(5);
 
         $this->smarty->view( 'nta/nta', $this->assigns );
-	}
+    }
+    function news($page = 1){
+        $this->assigns->aciveMenu = 'news';
+        $perpage = 12;
+        $this->db->where('content_type','nta');
+        $this->assigns->news_hot = $this->content_model->getLatest(null,1,5);
+        $this->db->where('content_type','nta');
+        $this->assigns->news_list = $this->content_model->getLatest(null,$page,$perpage);
+        if(LANG == 'en'){
+            $url = "/news/page/";
+        }else{
+            $url = "/tin-tuc/page/";
+        }
+        $this->assigns->paging = $this->_getPaging($page,$perpage,$url);
+        $this->smarty->view( 'nta/news', $this->assigns );
+    }
+    function promotion($page = 1,$id){
+        $this->assigns->aciveMenu = 'promotion';
+        $perpage = 12;
+        $this->db->where('content_type','nta-promotion');
+        if($id)
+            $this->db->where('content_category',$id);
+        $this->assigns->news_list = $this->content_model->getLatest(null,$page,$perpage);
+        if(LANG == 'en'){
+            $url = "/promotion/page/";
+        }else{
+            $url = "/khuyen-mai/page/";
+        }
+        $this->assigns->paging = $this->_getPaging($page,$perpage,$url);
+        if($id)
+            $this->db->where('image_category',$id);
+        $this->assigns->sliders = $this->image_model->onGetByType('slider-promo');
+        $this->assigns->type = $id;
+        $this->smarty->view( 'nta/promotion', $this->assigns );
+    }
+    function promotiondetail($id=''){
+        $this->assigns->aciveMenu = 'promotion';
+        $this->assigns->site = array(
+            'title'=>'',
+            'desc'=>'',
+            'image'=>''
+        );
+        $this->assigns->content = $this->content_model->onGet($id);
+        $this->createCaptcha();
+        // $this->db->where('image_category',$id);
+        $this->assigns->sliders = $this->image_model->onGetByType('slider-promo');
+        $this->smarty->view( 'nta/promotionDetail', $this->assigns );
+    }
+    function recruitment($page = 1){
+        $this->assigns->aciveMenu = 'recruitment';
+        $perpage = 12;
+        $this->db->where('content_type','nta-td');
+        $this->assigns->news_list = $this->content_model->getLatest(null,$page,$perpage);
+        if(LANG == 'en'){
+            $url = "/recruitment/page/";
+        }else{
+            $url = "/tuyen-dung/page/";
+        }
+        $this->assigns->paging = $this->_getPaging($page,$perpage,$url);
+        $this->db->limit(4);
+        $this->assigns->partners = $this->image_model->onGetByType('partner');
+        $this->smarty->view( 'nta/recruitment', $this->assigns );
+    }
+    function recruitmentdetail($id=0){
+        $this->assigns->aciveMenu = 'recruitment';
+        $this->assigns->site = array(
+            'title'=>'NTA - Smart Office',
+            'desc'=>'',
+            'image'=>''
+        );
+        // $this->db->where('content_type','nta');
+        $this->assigns->content = $this->content_model->onGet($id);
+        $this->db->where('content_type','nta-td');
+        $this->assigns->relatedContent = $this->content_model->getRelated($this->assigns->content,1,4);
+        $this->db->limit(4);
+        $this->assigns->partners = $this->image_model->onGetByType('partner');
+        $this->smarty->view( 'nta/recruitmentDetail', $this->assigns );
+    }
 	function product($cat_alias='',$page=1){
 		$this->assigns->site = array(
 			'title'=>'',
@@ -41,6 +117,7 @@ class home extends FE_Controller {
 		$this->smarty->view( 'cake/product_list', $this->assigns );
 	}
 	function productdetail($id=''){
+        $this->assigns->aciveMenu = 'product';
 		$this->assigns->site = array(
 			'title'=>'',
 			'desc'=>'',
@@ -89,34 +166,33 @@ class home extends FE_Controller {
 		$this->assigns->album_list = $this->album_model->onGetByType('acake');
 		$this->smarty->view( 'cake/gallery', $this->assigns );
 	}
-	function contentdetail($id=0){
+	function newsdetail($id=0){
+        $this->assigns->aciveMenu = 'news';
 		$this->assigns->site = array(
-			'title'=>' - Bánh Ngon Online',
+			'title'=>'NTA - Smart Office',
 			'desc'=>'',
 			'image'=>''
 		);
-		if(is_numeric($id)){
-			$content = $this->content_model->onGet($id);
-			if(!empty($content->content_thumb) && strrpos($content->content_thumb, 'http')===false){
-				$content->content_thumb = base_url($content->content_thumb);
-			}
-			$this->assigns->site['title'] = $content->content_title.' - Bánh Ngon Online';
-			$this->assigns->site['desc'] = $content->content_desc;
-			$this->assigns->site['image'] = $content->content_thumb;
-			$this->assigns->content = $content;
-			$this->smarty->view( 'cake/content', $this->assigns );
-		}else{
-			$content = $this->content_model->onGetByAlias($id);
-			if(!empty($content->content_thumb) && strrpos($content->content_thumb, 'http')===false){
-				$content->content_thumb = base_url($content->content_thumb);
-			}
-			$this->assigns->site['title'] = $content->content_title.' - Bánh Ngon Online';
-			$this->assigns->site['desc'] = $content->content_desc;
-			$this->assigns->site['image'] = $content->content_thumb;
-			$this->assigns->related_contents = $this->content_model->getRelated($content,1,8);
-			$this->assigns->content = $content;
-			$this->smarty->view( 'cake/news_detail', $this->assigns );
-		}
+        // $this->db->where('content_type','nta');
+        $this->assigns->content = $this->content_model->onGet($id);
+		$this->db->where('content_type','nta');
+        $this->assigns->relatedContent = $this->content_model->getRelated($this->assigns->content,1,4);
+        $this->smarty->view( 'nta/newsDetail', $this->assigns );
 	}
-
+    function contentDetail($id=4){
+        $this->assigns->aciveMenu = 'about';
+        $this->assigns->site = array(
+            'title'=>'NTA - Smart Office',
+            'desc'=>'',
+            'image'=>''
+        );
+        // $this->db->where('content_type','nta');
+        $this->assigns->content = $this->content_model->onGet($id);
+        $this->smarty->view( 'nta/contentDetail', $this->assigns );
+    }
+    function partner(){
+        $this->assigns->aciveMenu = 'partner';
+        $this->assigns->sliders = $this->image_model->onGetByType('partner');
+        $this->smarty->view( 'nta/partner', $this->assigns );
+    }
 }

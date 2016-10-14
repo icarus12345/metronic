@@ -12,7 +12,7 @@ class FE_Controller extends CI_Controller {
         $this->load->model('front/album_model');
         $this->load->model('front/content_model');
         $this->load->model('front/data_model');
-        $this->assigns->settting_data = $this->data_model->loadData('scake');
+        $this->assigns->settting_data = $this->data_model->loadData('nta');
         $this->assigns->fecog = array(
             'product_type'=>'nta',
             'slider'=> 'nta',
@@ -30,7 +30,10 @@ class FE_Controller extends CI_Controller {
         );
         if(!$this->input->is_ajax_request()){
             $this->assigns->sliders = $this->image_model->onGetByType($this->assigns->fecog['slider']);
+            $this->assigns->qcs = $this->image_model->onGetByType('qc');
             $this->assigns->product_list = $this->product_model->onGetByType2($this->assigns->fecog['product_type']);
+            $this->db->where('content_type','nta');
+            $this->assigns->news_hot = $this->content_model->getLatest(null,1,5);
         }
 
         // $pos = strpos($_SERVER['SERVER_NAME'], 'en.');

@@ -9,7 +9,7 @@
     <div class="container">
         <ol class="breadcrumb">
           <li><a href="#"><span class="fa fa-home"></span></a></li>
-          <li><a href="#">Sản Phẩm & Dịch Vụ</a></li>
+          <li><a href="#">[{if $smarty.const.LANG=='en'}]Product & Service[{else}]Sản Phẩm & Dịch Vụ[{/if}]</a></li>
           <li class="active">[{$product->product_title}]</li>
         </ol>
     </div>
@@ -47,7 +47,7 @@
     </div>
     <hr/>
     <div class="container">
-        <div class="tit5">CÁC GÓI DỊCH VỤ VĂN PHÒNG THÔNG MINH <a class="a" href="">NTA</a></div>
+        <div class="tit5" style="text-transform: uppercase;">[{if $smarty.const.LANG=='en'}]Packages of[{else}]CÁC GÓI[{/if}] [{$product->product_title}] <a class="a" href="">NTA</a></div>
         <p class="text-center">[{$product->product_desc}]</p>
         <div class="row">
             [{foreach from=$services item=item}]
@@ -164,14 +164,22 @@ src="[{$product->product_url}]"></iframe>
                 </div>
                 <div class="col-sm-6 pull-bottom">
                     <div class="tit32">
+                        [{if $smarty.const.LANG=='en'}]
+                        <div>SEND REQUEST TO <a href="#" class="a">NTA</a></div>
+                        [{else}]
                         <div>GỬI YÊU CẦU NHẬN BÁO GIÁ CHO <a href="#" class="a">NTA</a></div>
+                        [{/if}]
                     </div>
                     <p class="pull-top pull-bottom">
-                        Hoặc gọi ngay cho chúng tôi qua số <strong class="a">098x xxx xxx</strong> để được giải đáp các thắc mắc.
+                        [{if $smarty.const.LANG=='en'}]
+                        Or call us now <strong class="a">[{$settting_data['dien-thoai']}]</strong> to get answers to questions.
+                        [{else}]
+                        Hoặc gọi ngay cho chúng tôi qua số <strong class="a">[{$settting_data['dien-thoai']}]</strong> để được giải đáp các thắc mắc.
+                        [{/if}]
                     </p>
                     <form class="" name="frmRequest" id="frmRequest">
                         <div class="form-group">
-                            <label>Họ và tên (*)</label>
+                            <label>[{if $smarty.const.LANG=='en'}]Full name[{else}]Họ và tên[{/if}] (*)</label>
                             <div>
                                 <input 
                                     class="form-control validate[required,maxSize[50]]"
@@ -180,20 +188,20 @@ src="[{$product->product_url}]"></iframe>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Số điện thoại (*)</label>
+                            <label>[{if $smarty.const.LANG=='en'}]Phone[{else}]Số điện thoại[{/if}] (*)</label>
                             <div>
                                 <input class="form-control validate[required,maxSize[12]]" data-prompt-position="topright:0,20">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Nội dung (*)</label>
+                            <label>[{if $smarty.const.LANG=='en'}]Content[{else}]Nội dung[{/if}] (*)</label>
                             <div>
                                 <textarea class="form-control validate[required]" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="form-group" style="padding-right:90px;position:relative">
                         <div style="position:relative">
-                            <label>Mã xác thực (*)</label>
+                            <label>[{if $smarty.const.LANG=='en'}]Captcha[{else}]Mã xác thực[{/if}] (*)</label>
                             <div >
                                 <div>
                                     <input class="form-control validate[required,maxSize[8]]">
@@ -202,8 +210,16 @@ src="[{$product->product_url}]"></iframe>
                         </div>
                             <img style="position:absolute;top:22px;right:0" src="[{$smarty.session.captcha.image}]" height="30">
                         </div>
-                        <p class="pull-bottom">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <button class="btn btn-warning btn-block" onclick="sendRequest()" type="button">GỬI YÊU CẦU CHO NTA</button>
+                        <p class="pull-bottom">
+                            ([{if $smarty.const.LANG=='en'}]
+                                    Verification case sensitive, in case the confirmation captcha is incorrect please create a new captcha.
+                                    [{else}]
+                                    Mã xác nhận phân biệt hoa thường, trong trường hợp mã xác nhận chưa đúng vui lòng tạo mã xác nhận mới.
+                                    [{/if}])
+                        </p>
+                        <button class="btn btn-warning btn-block" onclick="sendRequest()" type="button">
+                        [{if $smarty.const.LANG=='en'}]SEND REQUEST[{else}]GỬI YÊU CẦU CHO NTA[{/if}]
+                        </button>
                     </form>
                 </div>
                 <div class="clearfix"></div>

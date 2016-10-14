@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel='shortcut icon' href='/favicon.ico' />
         <meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-        <title>[{$site.title|default:'Bánh sinh nhật - Bánh ngon Online'}]</title>
+        <title>[{$site.title|default:'NTA - Smart Office'}]</title>
         <meta name="description" content="[{$site.desc|default:'Bánh sinh nhật, bánh kem, bánh cưới, bánh vẽ, bánh cupkes, dạy làm bánh tại nhà, đặt bánh theo yêu cầu, giao hàng tận nơi.'}]"/>
         <meta name="keywords" content="banh sinh nhat, banh, sinh nhat, banh cuoi, banh ve, banh cupkes, cake, hoc lam banh, banh kem, trang tri banh, lam banh, banh trung thu, banh hanh nhan"/>
         <meta property="place:location:latitude" content="10.792048"/>

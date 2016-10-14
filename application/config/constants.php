@@ -13,6 +13,9 @@
 | always be used to set the mode correctly.
 |
 */
+if(isset($_GET['lang'])){
+    $_SESSION['lang'] = $_GET['lang'];
+}
 define('LANG', isset($_SESSION['lang'])?$_SESSION['lang']:'en');
 define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);

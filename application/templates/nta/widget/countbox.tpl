@@ -3,19 +3,19 @@
         <div class="col-xs-4">
             <div>
                 <div class="num">10</div>
-                <p>ĐANG TRUY CẬP</p>
+                <p>[{if $smarty.const.LANG=='en'}]ONLINE[{else}]ĐANG TRUY CẬP[{/if}]</p>
             </div>
         </div>
         <div class="col-xs-4">
             <div>
                 <div class="num">10</div>
-                <p>TRUY CẬP TRONG NGÀY</p>
+                <p>[{if $smarty.const.LANG=='en'}]VISIT TODAY[{else}]TRUY CẬP TRONG NGÀY[{/if}]</p>
             </div>
         </div>
         <div class="col-xs-4">
             <div>
                 <div class="num">10</div>
-                <p>TỔNG TRUY CẬP</p>
+                <p>[{if $smarty.const.LANG=='en'}]TOTAL VISIT[{else}]TỔNG TRUY CẬP[{/if}]</p>
             </div>
         </div>
     </div>
